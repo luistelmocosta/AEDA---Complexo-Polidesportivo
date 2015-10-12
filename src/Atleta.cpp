@@ -76,6 +76,9 @@ void Atleta::readFile(ifstream& ficheiro_leitura){
 		getline(ficheiro_leitura, temp2);
 
 		peso = atoi(temp1.c_str());
+		altura = atoi(temp2.c_str());
+
+		Atleta a1(nome, pais, peso, altura);
 
 
 
