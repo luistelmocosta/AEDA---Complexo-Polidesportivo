@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AEDA_PROJECTO_1_EQUIPA_H
+#define AEDA_PROJECTO_1_EQUIPA_H
 
 #include <vector>
 #include <string>
@@ -9,17 +10,18 @@ class Equipa {
 	string nome;
 	string pais;
 	string patrocinador;
-	int pontuacao;
+	float pontuacao;
 	vector <Atleta*> atletas;
 public:
-	Equipa(string nome, string pais, string patrocinador, int pontuacao);
-	string getEquipa() const;
-	bool addEquipa() const;
-	bool eliminaEquipa()const;
-	int getPontuacao() const;
-	int setPontuacao() const;
-	vector<Atleta*> getAtletas() const;
+	Equipa(string nome, string pais, string patrocinador, float pontuacao);
+	string getNome() const;
 	string getPais() const;
 	string getPatrocinador() const;
+	float getPontuacao() const;
+	void setPontuacao(float p);
+	vector<Atleta*> getAtletas() const;
 
 };
+
+
+#endif //AEDA_PROJECTO_1_EQUIPA_H

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef AEDA_PROJECTO_1_ATLETA_H
+#define AEDA_PROJECTO_1_ATLETA_H
 
 #include <vector>
 #include <string>
@@ -11,13 +12,12 @@ struct Info{
 } info;
 
 class Atleta {
+	unsigned int id;
 	string nome;
 	string pais;
 	info peso;
 	info altura;
 	float pontuacao;
-	static unsigned int ultimoId;
-	unsigned int id;
 
 
 public:
@@ -25,8 +25,8 @@ public:
 	void imprime() const;
 	string getNome() const;
 	string setNome(string nnome) const;
-	int getPontuacao();
-	void setPontuacao();
+	float getPontuacao() const;
+	void setPontuacao(float p);
 	unsigned int getAltura() const;
 	unsigned int getPeso() const;
 	vector<Modalidade *> modalidades;
@@ -50,6 +50,8 @@ public:
 
 	};
 };
+
+#endif //AEDA_PROJECTO_1_ATLETA_H
 
 
 
