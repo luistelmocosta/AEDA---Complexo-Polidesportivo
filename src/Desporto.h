@@ -1,11 +1,9 @@
-#ifndef AEDA_PROJECTO_1_DESPORTO_H
-#define AEDA_PROJECTO_1_DESPORTO_H
-
+#ifndef SRC_DESPORTO_H_
+#define SRC_DESPORTO_H_
 
 #include <vector>
 #include <string>
-#include "Equipa.h"
-#include "Modalidade.h"
+
 using namespace std;
 
 class Desporto{
@@ -15,14 +13,14 @@ private:
 	//vector <Modalidade*> modalidades;
 	// ??? tipoPontuacao;  "Cada desporto terá um determinado tipo de pontuação"
 
-
 public:
-	Desporto(string nome, float pont);
+	Desporto(string n);
+	Desporto(){}
 	virtual ~Desporto();
 	string getNome() const;
 	//vector <Modalidade*> getModalidades() const;
 
-
 };
 
-#endif //AEDA_PROJECTO_1_DESPORTO_H
+
+#endif /* SRC_DESPORTO_H_ */

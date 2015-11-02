@@ -1,5 +1,9 @@
-#ifndef AEDA_PROJECTO_1_MODALIDADE_H
-#define AEDA_PROJECTO_1_MODALIDADE_H
+#ifndef SRC_MODALIDADE_H_
+#define SRC_MODALIDADE_H_
+
+#include "Desporto.h"
+
+using namespace std;
 
 class Modalidade: public Desporto{
 
@@ -11,8 +15,8 @@ public:
     Modalidade(string n, bool s);
     virtual ~Modalidade();
     string getNome() const;
-    //void calcPont();
+    bool getSingular() const;
 
 };
 
-#endif //AEDA_PROJECTO_1_MODALIDADE_H
+#endif /* SRC_MODALIDADE_H_ */

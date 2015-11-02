@@ -1,57 +1,44 @@
-#ifndef AEDA_PROJECTO_1_ATLETA_H
-#define AEDA_PROJECTO_1_ATLETA_H
+#ifndef SRC_ATLETA_H_
+#define SRC_ATLETA_H_
 
 #include <vector>
 #include <string>
 
+#include "Utilities.h"
+#include "Equipa.h"
+#include "Modalidade.h"
+
 using namespace std;
 
-struct Info{
-	int peso;
-	int altura;
-} info;
+class Equipa;
 
 class Atleta {
-	unsigned int id;
-	string nome;
-	string pais;
-	info peso;
-	info altura;
-	float pontuacao;
 
+	unsigned int id;
+	info inf;
+	float pontuacao;
+	Equipa *equipa;
+	//vector<Prova*> provas;
+	vector<Modalidade *> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
 
 public:
-	Atleta(string nome, string pais, info peso, info altura);
-	void imprime() const;
-	string getNome() const;
-	string setNome(string nnome) const;
+	Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a);
+	Atleta();
+	~Atleta();
+
+	unsigned int getID() const;
+
+	info getInfo() const;
+	void setInfo(info i);
+
 	float getPontuacao() const;
 	void setPontuacao(float p);
-	unsigned int getAltura() const;
-	unsigned int getPeso() const;
-	vector<Modalidade *> modalidades;
-	vector<Prova*> provas;
 
-	class ValorIncorrecto {
-	public:
-		int v;
-		ValorIncorrecto(int v) :
-			v(v) {
-		}
-	};
+	Equipa getEquipa() const;
+	void setEquipa(const Equipa & eq);
 
+	void imprime() const;
 
-	void readFile(ifstream& ficheiro_leitura);
-	void writeFile(ofstream& ficheiro_escrita);
-
-	class ErroNoFicheiro{
-	public:
-		ErroNoFicheiro(){}
-
-	};
 };
 
-#endif //AEDA_PROJECTO_1_ATLETA_H
-
-
-
+#endif /* SRC_ATLETA_H_ */

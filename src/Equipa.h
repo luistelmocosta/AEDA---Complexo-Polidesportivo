@@ -1,27 +1,30 @@
-#ifndef AEDA_PROJECTO_1_EQUIPA_H
-#define AEDA_PROJECTO_1_EQUIPA_H
+#ifndef SRC_EQUIPA_H_
+#define SRC_EQUIPA_H_
 
 #include <vector>
 #include <string>
 
+#include "Atleta.h"
+
 using namespace std;
+
+class Atleta;
 
 class Equipa {
 	string nome;
 	string pais;
 	string patrocinador;
 	float pontuacao;
-	vector <Atleta*> atletas;
+	vector<Atleta*> atletas;
 public:
-	Equipa(string nome, string pais, string patrocinador, float pontuacao);
+	Equipa(string n, string p, string pat);
+	Equipa();
 	string getNome() const;
 	string getPais() const;
 	string getPatrocinador() const;
 	float getPontuacao() const;
 	void setPontuacao(float p);
 	vector<Atleta*> getAtletas() const;
-
 };
 
-
-#endif //AEDA_PROJECTO_1_EQUIPA_H
+#endif /* SRC_EQUIPA_H_ */

@@ -1,37 +1,34 @@
-#ifndef AEDA_PROJECTO_1_CAMPEONATO_H
-#define AEDA_PROJECTO_1_CAMPEONATO_H
-
+#ifndef SRC_CAMPEONATO_H_
+#define SRC_CAMPEONATO_H_
 
 #include <vector>
 #include <string>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
+#include "Utilities.h"
 
 using namespace std;
-
-struct Data{
-	int dia;
-	int mes;
-	int ano;
-} data;
 
 class Campeonato{
 	unsigned int id;
 	string nome;
-	data data;
+	date data;
 	string pais;
-	vector<Equipa*> pontuacoes;
+	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario calendario;
+											// PRECISO?? vector<Modalidade *> modalidades;
 public:
+	unsigned int getID() const;
 	string getNome() const;
-	data getData() const;
+	date getData() const;
 	string getPais() const;
+	vector<Equipa*> getEquipas() const;
+	vector<Desporto*> getDeportos() const;
 	Calendario getCalendario() const;
 	bool addEquipa();
 	bool eliminaEquipa();
-	//vector <Equipa*> getPont() const;
 };
 
-#endif //AEDA_PROJECTO_1_CAMPEONATO_H
+#endif /* SRC_CAMPEONATO_H_ */

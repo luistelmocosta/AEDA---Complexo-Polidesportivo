@@ -1,53 +1,71 @@
+#include <iostream>
 #include "Atleta.h"
 
 using namespace std;
 
-unsigned int Atleta::ultimoID = 0;
+//unsigned int Atleta::ultimoID = 0;
 
-Atleta::Atleta(string Nome, string Pais, info Peso, info Altura, int Pontuacao) :
-		nome(Nome), pais(Pais), peso(Peso), altura(Altura), pontuacao(Pontuacao), id(++ultimoID) {}
+Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a){
+	inf.nome=n;
+	inf.pais=pais;
+	inf.idade=i;
+	inf.peso=p;
+	inf.altura=a;
+	pontuacao=0;
+}
 
-int Atleta::imprime() const{
+void Atleta::imprime() const{
 
-	int n = 5;
+	//int n = 5;
 
-	cout << "Nome: " << nome << endl;
-	cout << "Pais: " << pais << endl;
-	cout << "Peso: " << peso << endl;
-	cout << "Altura: " << altura << endl;
+	cout << "Nome: " << inf.nome << endl;
+	cout << "Pais: " << inf.pais << endl;
+	cout << "Idade: " << inf.idade << endl;
+	cout << "Peso: " << inf.peso << endl;
+	cout << "Altura: " << inf.altura << endl;
 	cout << "Pontuacao: "<< pontuacao << endl;
 
-	return n;
+	//return n;
 }
 
 unsigned int Atleta::getID() const{
 	return id;
 }
 
-string Atleta::getNome() const{
-	return nome;
+info Atleta::getInfo() const{
+	return inf;
 }
 
-string Atleta::setNome(string nnome)const{
-	nome = nnome;
+void Atleta::setInfo(info i){
+	inf=i;
 }
 
-void Atleta::setPontuacao(int ptc){
-	pontuacao = ptc;
+void Atleta::setPontuacao(float p){
 
-	if(ptc < 0)
-		throw ValorIncorrecto(ptc);
+	if(p < 0)
+		throw ValorIncorrecto(p);
+
+	pontuacao = p;
+
 }
 
-float getPontuacao() const{
+float Atleta::getPontuacao() const{
 	return pontuacao;
 }
 
-vector<Prova*> Atleta::getProvas() const{
+Equipa Atleta::getEquipa() const{
+	return *equipa;
+}
+
+void Atleta::setEquipa(const Equipa & eq){
+	*equipa=eq;
+}
+
+/*vector<Prova*> Atleta::getProvas() const{
 	return provas;
 }
 
-vector<Modalidade*>Atleta::getModalidades()const{
+vector<Modalidade*>Atleta::getModalidades() const{
 	return modalidades;
 }
 
@@ -59,28 +77,30 @@ bool Atleta::eliminaProva(string prova){
 		}
 	}
 	return false;
-}
+}*/
 
+/*
 void Atleta::readFile(ifstream& ficheiro_leitura){
 	if(!ficheiro_leitura)
 		throw ErroNoFicheiro();
 	else{
 		string nome, pais, temp1, temp2;
 		string pais;
-		info peso;
-		info altura;
+		Info i;
 
 		getline(ficheiro_leitura, nome);
 		getline(ficheiro_leitura, pais);
 		getline(ficheiro_leitura, temp1);
 		getline(ficheiro_leitura, temp2);
 
-		peso = atoi(temp1.c_str());
-		altura = atoi(temp2.c_str());
+		i.peso = atoi(temp1.c_str());
+		i.altura = atoi(temp2.c_str());
 
-		Atleta a1(nome, pais, peso, altura);
+		Atleta a1(nome, pais, i.peso, i.altura);
 
 
 
 	}
-}
+
+}*/
+

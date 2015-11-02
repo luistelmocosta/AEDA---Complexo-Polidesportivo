@@ -1,5 +1,5 @@
-#ifndef AEDA_PROJECTO_1_CALENDARIO_H
-#define AEDA_PROJECTO_1_CALENDARIO_H
+#ifndef SRC_CALENDARIO_H_
+#define SRC_CALENDARIO_H_
 
 #include <string>
 #include <vector>
@@ -9,8 +9,12 @@ using namespace std;
 
 class Calendario{
 
-    vector<Prova *> provas;
+    vector<Prova*> provas;
+
+public:
+    Calendario();
+    vector<Prova*> getProvas() const;
 
 };
 
-#endif //AEDA_PROJECTO_1_CALENDARIO_H
+#endif /* SRC_CALENDARIO_H_ */
