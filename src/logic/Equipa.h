@@ -19,13 +19,13 @@ class Equipa {
 public:
 	Equipa(string n, string p, string pat);
 	Equipa();
-	void readFile(const string filename);
 	string getNome() const;
 	string getPais() const;
 	string getPatrocinador() const;
 	float getPontuacao() const;
 	void setPontuacao(float p);
-	vector<Atleta*> getAtletas() const;
+	vector<Atleta> getAtletas() const;
+	void readFile(const string filename);
 };
 
 #endif /* SRC_EQUIPA_H_ */

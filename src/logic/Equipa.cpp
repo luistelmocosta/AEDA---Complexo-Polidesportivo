@@ -10,6 +10,7 @@ Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(p
 }
 
 Equipa::Equipa() {
+	pontuacao=0;
 }
 
 string Equipa::getNome() const {
@@ -32,6 +33,9 @@ void Equipa::setPontuacao(float p) {
 	pontuacao=p;
 }
 
+vector<Atleta> Equipa::getAtletas() const {
+	return atletas;
+}
 
 void Equipa::readFile(const string filename){
 
@@ -46,11 +50,11 @@ void Equipa::readFile(const string filename){
 
 		while(!fich.eof()){
 			getline(fich, nome);
-			//cin.ignore();
+
 			fich >> pais >> idade >> altura >> peso;
 			if(fich.eof())
 				break;
-			Atleta x(nome,pais, idade, peso, altura);
+			Atleta x(nome, pais, idade, peso, altura);
 
 			getline(fich, nome);
 
@@ -64,13 +68,12 @@ void Equipa::readFile(const string filename){
 
 
 	for(unsigned int i = 0; i < atletas.size(); i++){
-		std::cout << atletas[i].getID() << endl;
-		std::cout << atletas[i].getNome() << endl;
+		cout << atletas[i].getID() << endl;
+		cout << atletas[i].getNome() << endl;
+		cout << atletas[i].getPais() << endl;
 		cout << atletas[i].getIdade() << endl;
 		cout << atletas[i].getPeso() << endl;
-		cout << atletas[i].getPais() << endl;
 		cout << atletas[i].getAltura() << endl << endl;
 	}
 
 }
-

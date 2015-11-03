@@ -16,9 +16,14 @@ int main(){
 	string NOME_FICHEIRO = "Atletas.txt";
 	string NOME_EQUIPAS = "Equipas.txt";
 	ifstream filename(NOME_FICHEIRO.c_str());
-	Equipa e1 = Equipa("Ola", "Pais", "Pat");
+
+	Equipa e1; //= Equipa("Ola", "Pais", "Pat");
 	e1.readFile(NOME_FICHEIRO);
+
+	cout << "===============" << endl;
+
 	Campeonato c1;
+	cout << endl;
 	c1.readFile(NOME_EQUIPAS);
 
 }

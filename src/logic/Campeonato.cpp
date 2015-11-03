@@ -58,11 +58,11 @@ void Campeonato::readFile(const string filename){
 
 		while(!fich.eof()){
 			getline(fich, nome);
-			//cin.ignore();
+
 			fich >> pais >> pat;
 			if(fich.eof())
 				break;
-			Equipa x(nome,pais,pat);
+			Equipa x(nome, pais, pat);
 
 			getline(fich, nome);
 
@@ -75,9 +75,11 @@ void Campeonato::readFile(const string filename){
 	fich.close();
 
 
-	cout << equipas[0].getNome() << endl;
-	cout << equipas[0].getPais() << endl;
-
+	for(unsigned int i=0; i<equipas.size(); i++){
+		cout << equipas[i].getNome() << endl;
+		cout << equipas[i].getPais() << endl;
+		cout << equipas[i].getPatrocinador() << endl << endl;
+	}
 }
 
 
