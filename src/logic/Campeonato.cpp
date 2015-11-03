@@ -16,7 +16,7 @@ string Campeonato::getPais() const {
 	return pais;
 }
 
-vector<Equipa*> Campeonato::getEquipas() const {
+vector<Equipa> Campeonato::getEquipas() const {
 	return equipas;
 }
 
@@ -45,4 +45,39 @@ bool Campeonato::eliminaEquipa() {
 	 *
 	 */
 }
+
+void Campeonato::readFile(const string filename){
+
+	string tmp;
+	fstream fich;
+	string nome, pais, pat;
+
+	fich.open(filename.c_str(), ios::in);
+
+	if(fich.is_open()){
+
+		while(!fich.eof()){
+			getline(fich, nome);
+			//cin.ignore();
+			fich >> pais >> pat;
+			if(fich.eof())
+				break;
+			Equipa x(nome,pais,pat);
+
+			getline(fich, nome);
+
+			equipas.push_back(x);
+		}
+	}
+
+	else
+		cout << "Unable to open file"; // podia ser uma exception!!
+	fich.close();
+
+
+	cout << equipas[0].getNome() << endl;
+	cout << equipas[0].getPais() << endl;
+
+}
+
 

@@ -14,9 +14,12 @@ int main(){
 	//Atleta a1 = Atleta("Luis", "Portugal", 30, 70, 170);
 	//Atleta a2 = Atleta("Alexandre", "Portugal", 30, 70, 170);
 	string NOME_FICHEIRO = "Atletas.txt";
+	string NOME_EQUIPAS = "Equipas.txt";
 	ifstream filename(NOME_FICHEIRO.c_str());
 	Equipa e1 = Equipa("Ola", "Pais", "Pat");
 	e1.readFile(NOME_FICHEIRO);
+	Campeonato c1;
+	c1.readFile(NOME_EQUIPAS);
 
 }
 

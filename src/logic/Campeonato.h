@@ -8,6 +8,7 @@
 #include "Calendario.h"
 #include "Utilities.h"
 #include "Atleta.h"
+#include <iostream>
 
 using namespace std;
 
@@ -16,21 +17,21 @@ class Campeonato{
 	string nome;
 	date data;
 	string pais;
-	vector<Equipa*> equipas;
+	vector<Equipa> equipas;
 	vector<Desporto*> desportos;
 	Calendario calendario;
 											// PRECISO?? vector<Modalidade *> modalidades;
 public:
-	vector <Equipa*> getEquipas();
 	unsigned int getID() const;
 	string getNome() const;
 	date getData() const;
 	string getPais() const;
-	vector<Equipa*> getEquipas() const;
+	vector<Equipa> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 	Calendario getCalendario() const;
 	bool addEquipa();
 	bool eliminaEquipa();
+	void readFile(const string filename);
 };
 
 #endif /* SRC_CAMPEONATO_H_ */
