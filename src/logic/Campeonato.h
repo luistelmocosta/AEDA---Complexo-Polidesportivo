@@ -21,6 +21,7 @@ class Campeonato{
 	Calendario calendario;
 											// PRECISO?? vector<Modalidade *> modalidades;
 public:
+	vector <Equipa*> getEquipas();
 	unsigned int getID() const;
 	string getNome() const;
 	date getData() const;

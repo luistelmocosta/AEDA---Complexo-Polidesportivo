@@ -35,11 +35,8 @@ void Equipa::setPontuacao(float p) {
 
 void Equipa::readFile(const string filename){
 
-
 	string tmp;
-
 	fstream fich;
-
 	string nome, pais;
 	unsigned int idade, peso, altura;
 
@@ -48,7 +45,6 @@ void Equipa::readFile(const string filename){
 	if(fich.is_open()){
 
 		while(!fich.eof()){
-
 			getline(fich, nome);
 			//cin.ignore();
 			fich >> pais >> idade >> altura >> peso;
@@ -58,19 +54,12 @@ void Equipa::readFile(const string filename){
 
 			getline(fich, nome);
 
-
-
 			atletas.push_back(x);
-
-
 		}
-
-
 	}
 
 	else
 		cout << "Unable to open file"; // podia ser uma exception!!
-
 	fich.close();
 
 

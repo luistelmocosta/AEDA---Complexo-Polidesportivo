@@ -11,8 +11,8 @@ using namespace std;
 int main(){
 
 
-	Atleta a1 = Atleta("Luis", "Portugal", 30, 70, 170);
-	Atleta a2 = Atleta("Alexandre", "Portugal", 30, 70, 170);
+	//Atleta a1 = Atleta("Luis", "Portugal", 30, 70, 170);
+	//Atleta a2 = Atleta("Alexandre", "Portugal", 30, 70, 170);
 	string NOME_FICHEIRO = "Atletas.txt";
 	ifstream filename(NOME_FICHEIRO.c_str());
 	Equipa e1 = Equipa("Ola", "Pais", "Pat");
