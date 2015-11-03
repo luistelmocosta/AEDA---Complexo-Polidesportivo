@@ -7,51 +7,41 @@ int Atleta::newID = 0;
 
 //unsigned int Atleta::ultimoID = 0;
 
-Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a) :
-	nome(n), pais(pais), idade(i), peso(p), altura(a), uid(newID++){
-
+Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a) : uid(newID++){
+	inf.nome=n;
+	inf.pais=pais;
+	inf.idade=i;
+	inf.peso=p;
+	inf.altura=a;
 }
-
-/*void Atleta::imprime() const{
-
-	//int n = 5;
-
-	cout << "Nome: " << inf.nome << endl;
-	cout << "Pais: " << inf.pais << endl;
-	cout << "Idade: " << inf.idade << endl;
-	cout << "Peso: " << inf.peso << endl;
-	cout << "Altura: " << inf.altura << endl;
-	cout << "Pontuacao: "<< pontuacao << endl;
-
-	//return n;
-}*/
 
 unsigned int Atleta::getID() const{
 	return uid;
 }
 
+string Atleta::getNome() const{
+	return inf.nome;
+}
+
 string Atleta::getPais() const{
-	return pais;
-}
-
-unsigned int Atleta::getPeso() const{
-	return peso;
-}
-
-unsigned int Atleta::getAltura() const{
-	return altura;
+	return inf.pais;
 }
 
 unsigned int Atleta::getIdade() const{
-	return idade;
+	return inf.idade;
 }
 
-
-string Atleta::getNome() const{
-	return nome;
+unsigned int Atleta::getPeso() const{
+	return inf.peso;
 }
 
+unsigned int Atleta::getAltura() const{
+	return inf.altura;
+}
 
+float Atleta::getPontuacao() const{
+	return pontuacao;
+}
 
 void Atleta::setPontuacao(float p){
 
@@ -62,17 +52,17 @@ void Atleta::setPontuacao(float p){
 
 }
 
-float Atleta::getPontuacao() const{
-	return pontuacao;
+void Atleta::imprime() const{
+
+	cout << "Nome: " << inf.nome << endl;
+	cout << "Pais: " << inf.pais << endl;
+	cout << "Idade: " << inf.idade << endl;
+	cout << "Peso: " << inf.peso << endl;
+	cout << "Altura: " << inf.altura << endl;
+	cout << "Pontuacao: "<< pontuacao << endl;
+
 }
 
-Equipa Atleta::getEquipa() const{
-	return *equipa;
-}
-
-void Atleta::setEquipa(const Equipa & eq){
-	*equipa=eq;
-}
 
 /*vector<Prova*> Atleta::getProvas() const{
 	return provas;
@@ -98,27 +88,4 @@ bool Atleta::eliminaProva(string prova){
 
 
 
-/*void Construtora::lerFicheiro(ifstream& filename) {
 
-	if (!filename)
-		throw ErroFicheiro();
-	else {
-
-		string tmp;
-		stringstream ss;
-
-		getline(filename, tmp);
-		this->nome = tmp;
-
-		getline(filename, tmp);
-		getline(filename, tmp);
-
-		while (!filename.eof()) {
-			Obra o1;
-			lerFicheiroTrabalho(o1, filename);
-
-			adicionaObra(o1);
-		}
-	}
-
-}*/

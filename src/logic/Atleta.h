@@ -17,13 +17,13 @@ class Equipa;
 class Atleta {
 	int uid;
 	static int newID;
-	string nome;
+	info inf;
+	/*string nome;
 	unsigned int peso;
 	string pais;
 	unsigned int altura;
-	unsigned int idade;
+	unsigned int idade;*/
 	float pontuacao;
-	Equipa *equipa;
 	//vector<Prova*> provas;
 	vector<Modalidade *> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
 
@@ -39,17 +39,18 @@ public:
 	//~Atleta();
 
 	unsigned int getID() const;
+
 	info getInfo() const;
 	void setInfo(info i);
+
 	string getNome() const;
 	string getPais() const;
+	unsigned int getIdade() const;
 	unsigned int getPeso() const;
 	unsigned int getAltura() const;
-	unsigned int getIdade() const;
+
  	float getPontuacao() const;
 	void setPontuacao(float p);
-	Equipa getEquipa() const;
-	void setEquipa(const Equipa & eq);
 
 	void imprime() const;
 
