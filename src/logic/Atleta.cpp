@@ -3,18 +3,16 @@
 
 using namespace std;
 
+int Atleta::newID = 0;
+
 //unsigned int Atleta::ultimoID = 0;
 
-Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a){
-	inf.nome=n;
-	inf.pais=pais;
-	inf.idade=i;
-	inf.peso=p;
-	inf.altura=a;
-	pontuacao=0;
+Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a) :
+	nome(n), pais(pais), idade(i), peso(p), altura(a), uid(newID++){
+
 }
 
-void Atleta::imprime() const{
+/*void Atleta::imprime() const{
 
 	//int n = 5;
 
@@ -26,19 +24,34 @@ void Atleta::imprime() const{
 	cout << "Pontuacao: "<< pontuacao << endl;
 
 	//return n;
-}
+}*/
 
 unsigned int Atleta::getID() const{
-	return id;
+	return uid;
 }
 
-info Atleta::getInfo() const{
-	return inf;
+string Atleta::getPais() const{
+	return pais;
 }
 
-void Atleta::setInfo(info i){
-	inf=i;
+unsigned int Atleta::getPeso() const{
+	return peso;
 }
+
+unsigned int Atleta::getAltura() const{
+	return altura;
+}
+
+unsigned int Atleta::getIdade() const{
+	return idade;
+}
+
+
+string Atleta::getNome() const{
+	return nome;
+}
+
+
 
 void Atleta::setPontuacao(float p){
 
@@ -79,28 +92,33 @@ bool Atleta::eliminaProva(string prova){
 	return false;
 }*/
 
-/*
-void Atleta::readFile(ifstream& ficheiro_leitura){
-	if(!ficheiro_leitura)
-		throw ErroNoFicheiro();
-	else{
-		string nome, pais, temp1, temp2;
-		string pais;
-		Info i;
-
-		getline(ficheiro_leitura, nome);
-		getline(ficheiro_leitura, pais);
-		getline(ficheiro_leitura, temp1);
-		getline(ficheiro_leitura, temp2);
-
-		i.peso = atoi(temp1.c_str());
-		i.altura = atoi(temp2.c_str());
-
-		Atleta a1(nome, pais, i.peso, i.altura);
 
 
 
+
+
+
+/*void Construtora::lerFicheiro(ifstream& filename) {
+
+	if (!filename)
+		throw ErroFicheiro();
+	else {
+
+		string tmp;
+		stringstream ss;
+
+		getline(filename, tmp);
+		this->nome = tmp;
+
+		getline(filename, tmp);
+		getline(filename, tmp);
+
+		while (!filename.eof()) {
+			Obra o1;
+			lerFicheiroTrabalho(o1, filename);
+
+			adicionaObra(o1);
+		}
 	}
 
 }*/
-

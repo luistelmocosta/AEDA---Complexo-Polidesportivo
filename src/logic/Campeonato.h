@@ -7,6 +7,7 @@
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
+#include "Atleta.h"
 
 using namespace std;
 

@@ -15,10 +15,11 @@ class Equipa {
 	string pais;
 	string patrocinador;
 	float pontuacao;
-	vector<Atleta*> atletas;
+	vector<Atleta> atletas;
 public:
 	Equipa(string n, string p, string pat);
 	Equipa();
+	void readFile(const string filename);
 	string getNome() const;
 	string getPais() const;
 	string getPatrocinador() const;
