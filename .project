@@ -19,10 +19,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-<<<<<<< HEAD
-=======
-		<nature>ch.hsr.ifs.cute.ui.cutenature</nature>
->>>>>>> 1568158f4197f9ed1fc45ba1fbf034334c85a2ae
 		<nature>org.eclipse.cdt.core.cnature</nature>
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
