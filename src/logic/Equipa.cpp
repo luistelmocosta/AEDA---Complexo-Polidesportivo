@@ -38,29 +38,50 @@ void Equipa::readFile(const string filename){
 
 	string tmp;
 
-	ifstream fich(filename.c_str());
+	fstream fich;
 
-	while(!fich.eof()){
-		string nome, pais;
-		unsigned int idade, peso, altura;
-		getline(fich, nome,',');
-		getline(fich, pais,',');
-		fich >> idade >> tmp >> altura >> tmp >> peso;
+	string nome, pais;
+	unsigned int idade, peso, altura;
 
-		atletas.push_back(Atleta(nome,pais, idade, altura, peso));
+	fich.open(filename.c_str(), ios::in);
 
-		for(unsigned int i = 0; i < atletas.size(); i++){
-			std::cout << atletas[i].getID() << endl;
-			std::cout << atletas[i].getNome() << endl;
-			cout << atletas[i].getIdade() << endl;
-			cout << atletas[i].getPeso() << endl;
-			cout << atletas[i].getPais() << endl;
-			cout << atletas[i].getAltura() << endl;
+	if(fich.is_open()){
+
+		while(!fich.eof()){
+
+			getline(fich, nome);
+			//cin.ignore();
+			fich >> pais >> idade >> altura >> peso;
+			if(fich.eof())
+				break;
+			Atleta x(nome,pais, idade, peso, altura);
+
+			getline(fich, nome);
+
+
+
+			atletas.push_back(x);
 
 
 		}
 
-		fich.close();
+
 	}
+
+	else
+		cout << "Unable to open file"; // podia ser uma exception!!
+
+	fich.close();
+
+
+	for(unsigned int i = 0; i < atletas.size(); i++){
+		std::cout << atletas[i].getID() << endl;
+		std::cout << atletas[i].getNome() << endl;
+		cout << atletas[i].getIdade() << endl;
+		cout << atletas[i].getPeso() << endl;
+		cout << atletas[i].getPais() << endl;
+		cout << atletas[i].getAltura() << endl << endl;
+	}
+
 }
 
