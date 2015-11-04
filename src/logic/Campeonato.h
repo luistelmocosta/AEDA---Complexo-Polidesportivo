@@ -17,7 +17,7 @@ class Campeonato{
 	string nome;
 	date data;
 	string pais;
-	vector<Equipa> equipas;
+	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario calendario;
 											// PRECISO?? vector<Modalidade *> modalidades;
@@ -27,7 +27,7 @@ public:
 	date getData() const;
 	string getPais() const;
 
-	vector<Equipa> getEquipas() const;
+	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 
 	Calendario getCalendario() const;

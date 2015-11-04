@@ -16,7 +16,7 @@ string Campeonato::getPais() const {
 	return pais;
 }
 
-vector<Equipa> Campeonato::getEquipas() const {
+vector<Equipa*> Campeonato::getEquipas() const {
 	return equipas;
 }
 
@@ -61,7 +61,7 @@ void Campeonato::readFile(const string filename){
 			fich >> pais >> pat;
 			if(fich.eof())
 				break;
-			Equipa x(nome, pais, pat);
+			Equipa * x = new Equipa(nome, pais, pat);
 
 			getline(fich, nome);
 
@@ -74,12 +74,13 @@ void Campeonato::readFile(const string filename){
 
 	fich.close();
 
-
-	for(unsigned int i=0; i<equipas.size(); i++){
-		cout << equipas[i].getNome() << endl;
-		cout << equipas[i].getPais() << endl;
-		cout << equipas[i].getPatrocinador() << endl << endl;
+	vector<Equipa*>::iterator it;
+	for(it = equipas.begin(); it != equipas.end() ;  ++it) {
+		cout << (*it)->getNome() << endl;
+		cout << (*it)->getPais() << endl;
+		cout << (*it)->getPatrocinador() << endl << endl;
 	}
+
 }
 
 

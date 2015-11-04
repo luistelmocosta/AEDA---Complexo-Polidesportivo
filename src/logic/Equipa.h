@@ -15,7 +15,7 @@ class Equipa {
 	string pais;
 	string patrocinador;
 	float pontuacao;
-	vector<Atleta> atletas;
+	vector<Atleta*> atletas;
 public:
 	Equipa(string n, string p, string pat);
 	Equipa();
@@ -27,7 +27,7 @@ public:
 	float getPontuacao() const;
 	void setPontuacao(float p);
 
-	vector<Atleta> getAtletas() const;
+	vector<Atleta*> getAtletas() const;
 
 	void readFile(const string filename);
 };

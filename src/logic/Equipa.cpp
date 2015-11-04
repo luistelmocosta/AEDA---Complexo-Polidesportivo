@@ -1,5 +1,6 @@
 #include "Equipa.h"
 #include <iostream>
+#include <iterator>
 
 using namespace std;
 
@@ -32,7 +33,7 @@ void Equipa::setPontuacao(float p) {
 	pontuacao=p;
 }
 
-vector<Atleta> Equipa::getAtletas() const {
+vector<Atleta*> Equipa::getAtletas() const {
 	return atletas;
 }
 
@@ -52,7 +53,7 @@ void Equipa::readFile(const string filename){
 			fich >> pais >> idade >> altura >> peso;
 			if(fich.eof())
 				break;
-			Atleta x(nome, pais, idade, peso, altura);
+			Atleta * x = new Atleta (nome, pais, idade, peso, altura);
 
 			getline(fich, nome);
 
@@ -65,14 +66,14 @@ void Equipa::readFile(const string filename){
 
 	fich.close();
 
-
-	for(unsigned int i = 0; i < atletas.size(); i++){
-		cout << atletas[i].getID() << endl;
-		cout << atletas[i].getNome() << endl;
-		cout << atletas[i].getPais() << endl;
-		cout << atletas[i].getIdade() << endl;
-		cout << atletas[i].getPeso() << endl;
-		cout << atletas[i].getAltura() << endl << endl;
-	}
+	vector<Atleta*>::iterator it;
+	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
+	    cout << (*it)->getID() << endl;
+	    cout << (*it)->getNome() << endl;
+	    cout << (*it)->getPais() << endl;
+	    cout << (*it)->getIdade() << endl;
+	    cout << (*it)->getPeso() << endl;
+	    cout << (*it)->getAltura() << endl << endl;
+	  }
 
 }
