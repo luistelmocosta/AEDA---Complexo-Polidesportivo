@@ -3,6 +3,10 @@
 
 #include <vector>
 #include <string>
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <cstdlib>
 
 #include "Atleta.h"
 
@@ -26,10 +30,10 @@ public:
 
 	float getPontuacao() const;
 	void setPontuacao(float p);
-
+	void inserirAtleta(Atleta &a1);
 	vector<Atleta*> getAtletas() const;
 
-	void readFile(const string filename);
+	void readFile(ifstream& ficheiro_leitura);
 };
 
 #endif /* SRC_EQUIPA_H_ */

@@ -37,43 +37,44 @@ vector<Atleta*> Equipa::getAtletas() const {
 	return atletas;
 }
 
-void Equipa::readFile(const string filename){
+void Equipa::inserirAtleta(Atleta &a1){
+	atletas.push_back(&a1);
+}
 
-	string tmp;
-	fstream fich;
-	string nome, pais;
-	unsigned int idade, peso, altura;
+void Equipa::readFile(ifstream& ficheiro_leitura){
 
-	fich.open(filename.c_str(), ios::in);
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro();
+	else {
+		string nome, pais, temp1, temp2, temp3;
+		int idade, altura, peso;
 
-	if(fich.is_open()){
+		while (!ficheiro_leitura.eof()) {
 
-		while(!fich.eof()){
-			getline(fich, nome);
-			fich >> pais >> idade >> altura >> peso;
-			if(fich.eof())
-				break;
-			Atleta * x = new Atleta (nome, pais, idade, peso, altura);
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, pais);
+			getline(ficheiro_leitura, temp1);
+			getline(ficheiro_leitura, temp2);
+			getline(ficheiro_leitura, temp3);
 
-			getline(fich, nome);
+			idade = atoi(temp1.c_str());
+			altura = atoi(temp2.c_str());
+			peso = atoi(temp2.c_str());
 
-			atletas.push_back(x);
+			Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
+			inserirAtleta(*a1);
 		}
 	}
 
-	else
-		throw UnableOpenFile(filename);
-
-	fich.close();
 
 	vector<Atleta*>::iterator it;
 	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
-	    cout << (*it)->getID() << endl;
-	    cout << (*it)->getNome() << endl;
-	    cout << (*it)->getPais() << endl;
-	    cout << (*it)->getIdade() << endl;
-	    cout << (*it)->getPeso() << endl;
-	    cout << (*it)->getAltura() << endl << endl;
-	  }
+		cout << (*it)->getID() << endl;
+		cout << (*it)->getNome() << endl;
+		cout << (*it)->getPais() << endl;
+		cout << (*it)->getIdade() << endl;
+		cout << (*it)->getPeso() << endl;
+		cout << (*it)->getAltura() << endl;
+	}
 
 }

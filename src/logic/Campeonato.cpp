@@ -46,41 +46,36 @@ bool Campeonato::eliminaEquipa() {
 	 */
 }
 
-void Campeonato::readFile(const string filename){
+void Campeonato::inserirEquipa(Equipa &e1){
+	equipas.push_back(&e1);
+}
 
-	string tmp;
-	ifstream fich;
-	string nome, pais, pat;
+void Campeonato::readFile(ifstream& ficheiro_leitura){
 
-	fich.open(filename.c_str(), ios::in);
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro();
+	else {
+		string nome, pais, patrocinador;
 
-	if(fich.is_open()){
+		while (!ficheiro_leitura.eof()) {
 
-		while(!fich.eof()){
-			getline(fich, nome);
-			fich >> pais >> pat;
-			if(fich.eof())
-				break;
-			Equipa * x = new Equipa(nome, pais, pat);
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, pais);
+			getline(ficheiro_leitura, patrocinador);
 
-			getline(fich, nome);
 
-			equipas.push_back(x);
+			Equipa *e1 = new Equipa(nome, pais, patrocinador);
+			inserirEquipa(*e1);
 		}
 	}
 
-	else
-		throw UnableOpenFile(filename);
-
-	fich.close();
 
 	vector<Equipa*>::iterator it;
 	for(it = equipas.begin(); it != equipas.end() ;  ++it) {
 		cout << (*it)->getNome() << endl;
 		cout << (*it)->getPais() << endl;
-		cout << (*it)->getPatrocinador() << endl << endl;
+		cout << (*it)->getPatrocinador() << endl;
 	}
 
 }
-
 
