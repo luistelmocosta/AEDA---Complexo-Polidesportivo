@@ -58,9 +58,6 @@ void Campeonato::readFile(const string filename){
 
 		while(!fich.eof()){
 			getline(fich, nome);
-
-
-
 			fich >> pais >> pat;
 			if(fich.eof())
 				break;

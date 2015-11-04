@@ -49,7 +49,6 @@ void Equipa::readFile(const string filename){
 
 		while(!fich.eof()){
 			getline(fich, nome);
-
 			fich >> pais >> idade >> altura >> peso;
 			if(fich.eof())
 				break;
