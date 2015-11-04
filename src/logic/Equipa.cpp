@@ -58,14 +58,19 @@ void Equipa::readFile(ifstream& ficheiro_leitura){
 			getline(ficheiro_leitura, temp3);
 
 			idade = atoi(temp1.c_str());
-			altura = atoi(temp2.c_str());
-			peso = atoi(temp3.c_str());
+			peso = atoi(temp2.c_str());
+			altura = atoi(temp3.c_str());
 
-			Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
+			Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
 			inserirAtleta(*a1);
 		}
 	}
 
+
+
+}
+
+void Equipa::showAtletas(){
 
 	vector<Atleta*>::iterator it;
 	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
@@ -78,3 +83,38 @@ void Equipa::readFile(ifstream& ficheiro_leitura){
 	}
 
 }
+
+
+bool Equipa::eliminaAtleta(unsigned int n){
+	for(unsigned int i=0; i<atletas.size(); i++) {
+		if(atletas[i]->getID() ==  n) {
+			atletas.erase(atletas.begin()+i);
+			//--Atleta::uid;
+			return true;
+		}
+	}
+	throw AtletaInexistente(n);
+	return false;
+}
+
+bool Equipa::existeAtleta(string nome){
+
+
+	vector<Atleta*>::iterator it;
+
+	for(it = atletas.begin(); it != atletas.end(); ++it){
+		if((*it)->getNome() == nome)
+		{
+			return true;
+		}
+	}
+
+	cout << "Nao existe" << endl;
+	throw AtletaInexistente(nome);
+	return false;
+
+}
+
+
+
+

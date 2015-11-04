@@ -34,6 +34,22 @@ public:
 	vector<Atleta*> getAtletas() const;
 
 	void readFile(ifstream& ficheiro_leitura);
+	bool eliminaAtleta(unsigned int n);
+	void showAtletas() ;
+	bool existeAtleta(string nome);
 };
+
+class AtletaInexistente {
+	public:
+		int id;
+		string nome;
+		AtletaInexistente(int id) :
+				id(id) {
+		}
+		AtletaInexistente(string nome)
+		: nome(nome){
+
+		}
+	};
 
 #endif /* SRC_EQUIPA_H_ */

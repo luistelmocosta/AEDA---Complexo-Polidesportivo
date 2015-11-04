@@ -23,6 +23,14 @@ int main(){
 
 	Equipa e1; //= Equipa("Ola", "Pais", "Pat");
 	e1.readFile(filename);
+	//e1.showAtletas();
+	//e1.eliminaAtleta(1);
+	//e1.showAtletas();
+	//Atleta *a1 = new Atleta("Luis", "Portugal", 25, 173, 60);
+	//e1.inserirAtleta(*a1);
+	e1.showAtletas();
+	e1.existeAtleta("Alexandre Ribeiro");
+
 
 	cout << "===============" << endl;
 
