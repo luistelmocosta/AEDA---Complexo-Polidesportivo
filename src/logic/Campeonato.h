@@ -34,8 +34,9 @@ public:
 
 	bool addEquipa();
 	bool eliminaEquipa();
+
 	void inserirEquipa(Equipa &e1);
-	void readFile(ifstream& ficheiro_leitura);
+	void readFile(string filename);
 };
 
 #endif /* SRC_CAMPEONATO_H_ */

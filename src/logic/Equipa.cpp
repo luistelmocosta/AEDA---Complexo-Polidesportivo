@@ -41,10 +41,12 @@ void Equipa::inserirAtleta(Atleta &a1){
 	atletas.push_back(&a1);
 }
 
-void Equipa::readFile(ifstream& ficheiro_leitura){
+void Equipa::readFile(string filename){
+
+	ifstream ficheiro_leitura(filename.c_str());
 
 	if(!ficheiro_leitura)
-		throw ErroNoFicheiro();
+		throw ErroNoFicheiro(filename);
 	else {
 		string nome, pais, temp1, temp2, temp3;
 		int idade, altura, peso;
@@ -79,7 +81,7 @@ void Equipa::showAtletas(){
 		cout << (*it)->getPais() << endl;
 		cout << (*it)->getIdade() << endl;
 		cout << (*it)->getPeso() << endl;
-		cout << (*it)->getAltura() << endl;
+		cout << (*it)->getAltura() << endl << endl;
 	}
 
 }

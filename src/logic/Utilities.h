@@ -88,15 +88,9 @@ public:
 
 class ErroNoFicheiro{
 public:
-	ErroNoFicheiro(){}
-};
-
-
-class UnableOpenFile{
-public:
 	string filename;
-	UnableOpenFile(string fn): filename(fn){
-		cout << "Unable to open file: " << filename << endl;
+	ErroNoFicheiro(string fn): filename(fn){
+		cout << "Erro no ficheiro: " << filename << endl;
 	}
 	string getFileName(){return filename;}
 };

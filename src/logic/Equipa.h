@@ -30,13 +30,15 @@ public:
 
 	float getPontuacao() const;
 	void setPontuacao(float p);
+
 	void inserirAtleta(Atleta &a1);
 	vector<Atleta*> getAtletas() const;
 
-	void readFile(ifstream& ficheiro_leitura);
+	//void readFile(ifstream& ficheiro_leitura);
 	bool eliminaAtleta(unsigned int n);
 	void showAtletas() ;
 	bool existeAtleta(string nome);
+	void readFile(string filename);
 };
 
 class AtletaInexistente {

@@ -50,10 +50,12 @@ void Campeonato::inserirEquipa(Equipa &e1){
 	equipas.push_back(&e1);
 }
 
-void Campeonato::readFile(ifstream& ficheiro_leitura){
+void Campeonato::readFile(string filename){
+
+	ifstream ficheiro_leitura (filename.c_str());
 
 	if(!ficheiro_leitura)
-		throw ErroNoFicheiro();
+		throw ErroNoFicheiro(filename);
 	else {
 		string nome, pais, patrocinador;
 
@@ -62,7 +64,6 @@ void Campeonato::readFile(ifstream& ficheiro_leitura){
 			getline(ficheiro_leitura, nome);
 			getline(ficheiro_leitura, pais);
 			getline(ficheiro_leitura, patrocinador);
-
 
 			Equipa *e1 = new Equipa(nome, pais, patrocinador);
 			inserirEquipa(*e1);
@@ -74,7 +75,7 @@ void Campeonato::readFile(ifstream& ficheiro_leitura){
 	for(it = equipas.begin(); it != equipas.end() ;  ++it) {
 		cout << (*it)->getNome() << endl;
 		cout << (*it)->getPais() << endl;
-		cout << (*it)->getPatrocinador() << endl;
+		cout << (*it)->getPatrocinador() << endl << endl;
 	}
 
 }

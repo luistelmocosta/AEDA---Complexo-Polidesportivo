@@ -18,25 +18,31 @@ int main(){
 
 	string NOME_FICHEIRO = "Atletas.txt";
 	string NOME_EQUIPAS = "Equipas.txt";
-	ifstream filename(NOME_FICHEIRO.c_str());
-	ifstream fileteam(NOME_EQUIPAS.c_str());
+	//ifstream filename(NOME_FICHEIRO.c_str());
+	//ifstream fileteam(NOME_EQUIPAS.c_str());
 
 	Equipa e1; //= Equipa("Ola", "Pais", "Pat");
-	e1.readFile(filename);
+	//e1.readFile(filename);
 	//e1.showAtletas();
 	//e1.eliminaAtleta(1);
 	//e1.showAtletas();
 	//Atleta *a1 = new Atleta("Luis", "Portugal", 25, 173, 60);
 	//e1.inserirAtleta(*a1);
-	e1.showAtletas();
-	e1.existeAtleta("Alexandre Ribeiro");
 
+
+	e1.readFile(NOME_FICHEIRO);
+	e1.showAtletas();
+
+
+
+	e1.showAtletas();
+	//e1.existeAtleta("Alexandre Ribeiro");
 
 	cout << "===============" << endl;
 
 	Campeonato c1;
 	cout << endl;
-	//c1.readFile(fileteam);
+
 
 	cout << "===============" << endl;
 
