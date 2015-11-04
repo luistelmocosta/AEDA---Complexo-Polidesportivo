@@ -18,25 +18,14 @@ class Atleta {
 	int uid;
 	static int newID;
 	info inf;
-	/*string nome;
-	unsigned int peso;
-	string pais;
-	unsigned int altura;
-	unsigned int idade;*/
 	float pontuacao;
 	//vector<Prova*> provas;
 	vector<Modalidade *> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
 
-	class ErroNoFicheiro{
-
-
-
-	};
-
 public:
 	Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a);
-	//Atleta();
-	//~Atleta();
+	Atleta();
+	~Atleta();
 
 	unsigned int getID() const;
 

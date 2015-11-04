@@ -26,11 +26,15 @@ public:
 	string getNome() const;
 	date getData() const;
 	string getPais() const;
+
 	vector<Equipa> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
+
 	Calendario getCalendario() const;
+
 	bool addEquipa();
 	bool eliminaEquipa();
+
 	void readFile(const string filename);
 };
 

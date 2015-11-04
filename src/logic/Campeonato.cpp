@@ -49,7 +49,7 @@ bool Campeonato::eliminaEquipa() {
 void Campeonato::readFile(const string filename){
 
 	string tmp;
-	fstream fich;
+	ifstream fich;
 	string nome, pais, pat;
 
 	fich.open(filename.c_str(), ios::in);
@@ -58,6 +58,8 @@ void Campeonato::readFile(const string filename){
 
 		while(!fich.eof()){
 			getline(fich, nome);
+
+
 
 			fich >> pais >> pat;
 			if(fich.eof())
@@ -71,7 +73,8 @@ void Campeonato::readFile(const string filename){
 	}
 
 	else
-		cout << "Unable to open file"; // podia ser uma exception!!
+		throw UnableOpenFile(filename);
+
 	fich.close();
 
 

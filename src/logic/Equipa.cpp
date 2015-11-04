@@ -1,7 +1,6 @@
 #include "Equipa.h"
 #include <iostream>
 
-
 using namespace std;
 
 
@@ -63,7 +62,8 @@ void Equipa::readFile(const string filename){
 	}
 
 	else
-		cout << "Unable to open file"; // podia ser uma exception!!
+		throw UnableOpenFile(filename);
+
 	fich.close();
 
 

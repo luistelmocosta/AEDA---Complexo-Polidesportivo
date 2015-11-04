@@ -15,8 +15,21 @@ Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned i
 	inf.altura=a;
 }
 
+Atleta::~Atleta() {
+
+}
+
+
 unsigned int Atleta::getID() const{
 	return uid;
+}
+
+info Atleta::getInfo() const {
+	return inf;
+}
+
+void Atleta::setInfo(info i) {
+	inf=i;
 }
 
 string Atleta::getNome() const{
@@ -51,6 +64,7 @@ void Atleta::setPontuacao(float p){
 	pontuacao = p;
 
 }
+
 
 void Atleta::imprime() const{
 

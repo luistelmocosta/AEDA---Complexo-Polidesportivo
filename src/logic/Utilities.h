@@ -2,6 +2,8 @@
 #define SRC_UTILITIES_H_
 
 #include <vector>
+#include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -26,6 +28,7 @@ struct date{				// a usar em prova, campeonato
 	unsigned int dia;
 	unsigned int mes;
 	unsigned int ano;
+	float hora;
 };
 
 
@@ -73,20 +76,29 @@ void insertionSort(vector<Comparable> &v)
 */
 
 class ValorIncorrecto {
-	public:
-		int v;
-		ValorIncorrecto(int v) :
-			v(v) {
+public:
+	int v;
+	ValorIncorrecto(int v) :v(v) {
 		}
-	};
+};
 
 	void readFile(ifstream& ficheiro_leitura);
 	void writeFile(ofstream& ficheiro_escrita);
 
-	class ErroNoFicheiro{
-	public:
-		ErroNoFicheiro(){}
 
+class ErroNoFicheiro{
+public:
+	ErroNoFicheiro(){}
+};
+
+
+class UnableOpenFile{
+public:
+	string filename;
+	UnableOpenFile(string fn): filename(fn){
+		cout << "Unable to open file: " << filename << endl;
+	}
+	string getFileName(){return filename;}
 };
 
 #endif /* SRC_UTILITIES_H_ */
