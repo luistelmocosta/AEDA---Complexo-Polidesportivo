@@ -59,7 +59,7 @@ void Equipa::readFile(ifstream& ficheiro_leitura){
 
 			idade = atoi(temp1.c_str());
 			altura = atoi(temp2.c_str());
-			peso = atoi(temp2.c_str());
+			peso = atoi(temp3.c_str());
 
 			Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
 			inserirAtleta(*a1);

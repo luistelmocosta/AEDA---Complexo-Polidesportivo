@@ -22,13 +22,13 @@ int main(){
 	ifstream fileteam(NOME_EQUIPAS.c_str());
 
 	Equipa e1; //= Equipa("Ola", "Pais", "Pat");
-	//e1.readFile(filename);
+	e1.readFile(filename);
 
 	cout << "===============" << endl;
 
 	Campeonato c1;
 	cout << endl;
-	c1.readFile(fileteam);
+	//c1.readFile(fileteam);
 
 	cout << "===============" << endl;
 
