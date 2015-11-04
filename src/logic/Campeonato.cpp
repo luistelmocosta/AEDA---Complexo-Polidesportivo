@@ -80,3 +80,25 @@ void Campeonato::readFile(string filename){
 
 }
 
+Equipa* Campeonato::findEquipa(string nomeEquipa){
+	Equipa *eq;
+
+	for(unsigned int i = 0; i < equipas.size(); i++){
+		if(equipas[i]->getNome() == nomeEquipa){
+			eq = equipas[i];
+		}
+	}
+
+	return eq;
+}
+
+Desporto* Campeonato::findDesporto(string nomeDesporto){
+	Desporto *desp;
+
+	for(unsigned int i = 0; i < desportos.size(); i++){
+		if(desportos[i]->getNome() == nomeDesporto){
+			desp = desportos[i];
+		}
+	}
+	return desp;
+}

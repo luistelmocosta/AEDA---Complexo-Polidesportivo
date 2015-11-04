@@ -39,6 +39,7 @@ public:
 	void showAtletas() ;
 	bool existeAtleta(string nome);
 	void readFile(string filename);
+	void escreveFicheiro(string filename);
 };
 
 class AtletaInexistente {

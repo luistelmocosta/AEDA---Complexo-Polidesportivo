@@ -35,8 +35,8 @@ int main(){
 
 
 
-	e1.showAtletas();
 	//e1.existeAtleta("Alexandre Ribeiro");
+	//e1.escreveFicheiro("escrita.txt");
 
 	cout << "===============" << endl;
 

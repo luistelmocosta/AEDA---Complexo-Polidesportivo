@@ -101,7 +101,6 @@ bool Equipa::eliminaAtleta(unsigned int n){
 
 bool Equipa::existeAtleta(string nome){
 
-
 	vector<Atleta*>::iterator it;
 
 	for(it = atletas.begin(); it != atletas.end(); ++it){
@@ -116,6 +115,17 @@ bool Equipa::existeAtleta(string nome){
 	return false;
 
 }
+
+/*void Equipa::escreveFicheiro(string filename) {
+	ofstream ficheiro_escrita(filename.c_str());
+	vector<Atleta*>::iterator it;
+
+	while(it!=atletas.end()) {
+		cout << (*it)->getNome();
+		ficheiro_escrita<<(*it)->getNome()<<endl<<(*it)->getIdade()<<endl<<(*it)->getPeso()<<endl << (*it)->getAltura();
+		it++;
+	}
+}*/
 
 
 

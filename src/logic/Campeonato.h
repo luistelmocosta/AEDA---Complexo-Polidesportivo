@@ -37,6 +37,9 @@ public:
 
 	void inserirEquipa(Equipa &e1);
 	void readFile(string filename);
+	Equipa* findEquipa(string nomeEquipa);
+	Atleta* findAtleta(string nomeAtleta);
+	Desporto* findDesporto(string nomeDesporto);
 };
 
 #endif /* SRC_CAMPEONATO_H_ */
