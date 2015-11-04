@@ -24,7 +24,7 @@ vector<Desporto*> Campeonato::getDeportos() const {
 	return desportos;
 }
 
-Calendario Campeonato::getCalendario() const {
+Calendario* Campeonato::getCalendario() const {
 	return calendario;
 }
 

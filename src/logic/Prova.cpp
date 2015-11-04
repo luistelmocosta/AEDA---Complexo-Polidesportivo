@@ -2,7 +2,6 @@
 
 Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Desporto* desp){
 
-
 /*
 	fstream fich;
 
@@ -28,7 +27,6 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Desporto* de
 	fich.close();
 */
 
-
 	this->data = d;
 	this->local = l;
 	this->duracao = dur;
@@ -37,7 +35,6 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Desporto* de
 	for (unsigned int i = 0; i < v.size(); i++){
 		this->vs.push_back(&v[i]);
 	}
-
 
 }
 
@@ -66,7 +63,5 @@ Equipa* Prova::getVencedor() const {
 }
 
 void Prova::setVencedor(Equipa* v){
-
 	this->vencedor = v;
-
 }

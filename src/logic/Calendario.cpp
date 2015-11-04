@@ -2,12 +2,10 @@
 
 using namespace std;
 
-Calendario::Calendario(vector <Prova> p) {
+Calendario::Calendario(vector <Prova*> p) {
 
 	for(unsigned int i = 0; i<p.size();i++){
-
-		provas.push_back(&p[i]);
-
+		provas.push_back(p[i]);
 	}
 }
 
@@ -17,7 +15,6 @@ vector<Prova*> Calendario::getProvas() const {
 
 
 void Calendario::checkProvas(){
-
 
 	for(unsigned int i = 0; i < provas.size(); i++){
 
@@ -33,16 +30,14 @@ void Calendario::checkProvas(){
 			}
 
 			if(l == provas[j]->getLocal() || (x.ano == provas[j]->getData().ano && x.dia == provas[j]->getData().dia && x.mes == provas[j]->getData().mes && x.hora == provas[j]->getData().hora)){
-				Calendario::deleteProva(j);
+				this->deleteProva(j);
 				break;
 			}
 
 			if(provas[j]->getData().hora > x.hora && provas[j]->getData().hora < x.hora + dur){
-				Calendario::deleteProva(j);
+				this->deleteProva(j);
 				break;
 			}
-
-
 
 		}
 
@@ -51,7 +46,5 @@ void Calendario::checkProvas(){
 }
 
 void Calendario::deleteProva(int i){
-
 	provas.erase(provas.begin()+i);
-
 }

@@ -19,7 +19,7 @@ class Campeonato{
 	string pais;
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
-	Calendario calendario;
+	Calendario* calendario;
 											// PRECISO?? vector<Modalidade *> modalidades;
 public:
 	unsigned int getID() const;
@@ -30,7 +30,7 @@ public:
 	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 
-	Calendario getCalendario() const;
+	Calendario* getCalendario() const;
 
 	bool addEquipa();
 	bool eliminaEquipa();
