@@ -17,8 +17,9 @@ public:
     vector<Prova*> getProvas() const;
     bool checkProva(Prova* p);
     void deleteProva(int i);
-    void adicionaProva (Prova* p);
+    bool adicionaProva (Prova* p);
     void criaFich(string nome);
+    void criaProvas();
 
 };
 
