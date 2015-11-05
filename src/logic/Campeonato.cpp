@@ -110,6 +110,7 @@ Desporto* Campeonato::findDesporto(string nomeDesporto){
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		cout << equipas[i]->getNome() << endl;
+		cout << endl;
 	}
 	cout << endl;
 }

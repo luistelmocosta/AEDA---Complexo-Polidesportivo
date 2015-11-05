@@ -14,7 +14,7 @@ int main(){
 
 	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
 	string NOME_F = "Equipas.txt", NOME_F_TMP = "equipas_tmp.txt";
-	Campeonato c1;
+	//Campeonato c1;
 	string campeonato, pais, patrocinio;
 	//Equipa e1;
 
@@ -107,7 +107,7 @@ int pedirValor()
 }
 
 void menuAtletas(){
-	bool menu = true;
+	bool menub = true;
 	stringstream ss;
 	int option;
 	string str;
@@ -117,7 +117,8 @@ void menuAtletas(){
 		cout << "1. Listagem de Atletas" << endl;
 		cout << "2. Adicionar Atleta" << endl;
 		cout << "3. Remover Atleta" << endl;
-		cout << "4. Sair" << endl;
+		cout << "4. Menu Anterior" << endl;
+		cout << "5. Sair" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -132,19 +133,26 @@ void menuAtletas(){
 			cout << endl << endl;
 			break;
 		case 2:
+			e1.adicionaAtleta();
 			cout << endl;
 			break;
 		case 3:
+			unsigned int id;
+			cout << "ID? ";
+			cin >> id;
+			e1.eliminaAtleta(id);
 			cout << endl;
 			break;
 		case 4:
+			menu(c1);
 			break;
 		case 5:
-			break;
-		case 6:
-			menu = false;
+			menub = false;
 			cout << endl;
 			return;
+			break;
+		case 6:
+
 			break;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;

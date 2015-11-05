@@ -14,6 +14,7 @@ using namespace std;
 
 bool debug=false;
 Equipa e1;
+Campeonato c1;
 
 class ValorInvalido {
 public:

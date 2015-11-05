@@ -40,6 +40,7 @@ public:
 	bool existeAtleta(string nome);
 	void readFile(string filename);
 	void escreveFicheiro(string filename);
+	void adicionaAtleta();
 };
 
 class AtletaInexistente {

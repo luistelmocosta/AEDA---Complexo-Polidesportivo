@@ -40,6 +40,32 @@ vector<Atleta*> Equipa::getAtletas() const {
 void Equipa::inserirAtleta(Atleta &a1){
 	atletas.push_back(&a1);
 }
+void Equipa::adicionaAtleta(){
+	string nome, pais;
+	int idade, peso, altura;
+	cout << "Nome: ";
+	cin >> nome;
+	cout << endl;
+	cin.ignore();
+	cout << "Pais: ";
+	cin >> pais;
+	cout << endl;
+	cin.ignore();
+	cout << "Idade: ";
+	cin >> idade;
+	cout << endl;
+	cin.ignore();
+	cout << "Peso: ";
+	cin >> peso;
+	cout << endl;
+	cin.ignore();
+	cout << "Altura: ";
+	cin >> altura;
+	cout << endl;
+	cin.ignore();
+	Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
+	inserirAtleta(*a1);
+}
 
 void Equipa::readFile(string filename){
 
@@ -67,9 +93,6 @@ void Equipa::readFile(string filename){
 			inserirAtleta(*a1);
 		}
 	}
-
-
-
 }
 
 void Equipa::showAtletas(){
@@ -85,7 +108,6 @@ void Equipa::showAtletas(){
 	}
 
 }
-
 
 bool Equipa::eliminaAtleta(unsigned int n){
 	for(unsigned int i=0; i<atletas.size(); i++) {
