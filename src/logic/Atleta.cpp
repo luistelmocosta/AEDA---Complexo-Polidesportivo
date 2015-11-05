@@ -40,6 +40,10 @@ string Atleta::getPais() const{
 	return inf.pais;
 }
 
+vector<Modalidade*> Atleta::getModalidades() const{
+	return modalidades;
+}
+
 unsigned int Atleta::getIdade() const{
 	return inf.idade;
 }

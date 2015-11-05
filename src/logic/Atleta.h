@@ -12,6 +12,8 @@
 
 using namespace std;
 
+class Modalidade;
+
 class Equipa;
 
 class Atleta {
@@ -34,6 +36,7 @@ public:
 
 	string getNome() const;
 	string getPais() const;
+	vector<Modalidade*> getModalidades() const;
 	unsigned int getIdade() const;
 	unsigned int getPeso() const;
 	unsigned int getAltura() const;
