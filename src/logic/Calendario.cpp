@@ -2,6 +2,7 @@
 
 using namespace std;
 
+
 Calendario::Calendario(vector <Prova*> p) {
 
 	for(unsigned int i = 0; i<p.size();i++){
@@ -14,37 +15,61 @@ vector<Prova*> Calendario::getProvas() const {
 }
 
 
-void Calendario::checkProvas(){
+bool Calendario::checkProva(Prova* p){
+
+	bool isDiff = true; //prova diferente das restantes
 
 	for(unsigned int i = 0; i < provas.size(); i++){
 
-		date x = provas[i]->getData();
-		string l = provas[i]->getLocal();
-		float dur = provas[i]->getDuracao();
-		for(unsigned int j = 0; j < provas.size(); j++){
-
-			if(j == i){
-				if(j+1 < provas.size())
-					j++;
-				else break;
-			}
-
-			if(l == provas[j]->getLocal() || (x.ano == provas[j]->getData().ano && x.dia == provas[j]->getData().dia && x.mes == provas[j]->getData().mes && x.hora == provas[j]->getData().hora)){
-				this->deleteProva(j);
-				break;
-			}
-
-			if(provas[j]->getData().hora > x.hora && provas[j]->getData().hora < x.hora + dur){
-				this->deleteProva(j);
-				break;
-			}
-
+		if(*provas[i]!=*p){
+			isDiff = true;
+		}
+		else{
+			isDiff = false;
+			break;
 		}
 
+
+
+
 	}
+
+
+	return isDiff;
 
 }
 
 void Calendario::deleteProva(int i){
 	provas.erase(provas.begin()+i);
 }
+
+void Calendario::adicionaProva (Prova* p){
+	if(checkProva(p))
+		provas.push_back(p);
+
+	else
+		cout << "impossivel adicionar prova " << p->getLocal() << "(sobreposicao de provas)" << endl;
+
+}
+
+void Calendario::criaFich(string nome){
+
+	ofstream provasFich(nome.c_str());
+
+	vector<Prova*>::iterator it;
+
+	for(it=provas.begin(); it!= provas.end(); it++) {
+
+		provasFich << (*it)->getModalidade()->getNome() << endl << (*it)->getAdversarios()[0]->getNome() << " vs " << (*it)->getAdversarios()[1]->getNome()<< endl;
+		provasFich << "Local: " << (*it)->getLocal() <<endl;
+		provasFich << "Duracao: " << (*it)->getDuracao() << endl;
+		provasFich << "Vencedor: " << (*it)->getVencedor()->getNome() << "!!" << endl << endl;
+
+	}
+
+
+}
+
+
+
+

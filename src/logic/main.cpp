@@ -22,29 +22,60 @@ int main(){
 	//ifstream fileteam(NOME_EQUIPAS.c_str());
 
 	Equipa e1; //= Equipa("Ola", "Pais", "Pat");
-	//e1.readFile(filename);
-	//e1.showAtletas();
-	//e1.eliminaAtleta(1);
-	//e1.showAtletas();
-	//Atleta *a1 = new Atleta("Luis", "Portugal", 25, 173, 60);
-	//e1.inserirAtleta(*a1);
-
-
 	e1.readFile(NOME_FICHEIRO);
-	e1.showAtletas();
-
-
-
-	//e1.existeAtleta("Alexandre Ribeiro");
-	//e1.escreveFicheiro("escrita.txt");
 
 	cout << "===============" << endl;
 
 	Campeonato c1;
 	cout << endl;
+	c1.readFile(NOME_EQUIPAS);
+
+	cout << "=======Teste de sobreposicoes========" << endl;
+
+	Calendario calend1;
+	date d1, d2, d3, d4;
+	d1.ano = 2015;
+	d1.mes = 8;
+	d1.dia = 22;
+	d1.hora = 5.0;
+
+	d2.ano = 2010;
+	d2.mes = 5;
+	d2.dia = 22;
+	d2.hora = 5.0;
+
+	d3.ano = 2015;
+	d3.mes = 8;
+	d3.dia = 22;
+	d3.hora = 5.0;
+
+	d4.ano = 1900;
+	d4.mes = 4;
+	d4.dia = 2;
+	d4.hora = 17.0;
+
+	vector <Equipa> v;
+	Modalidade* desp;
+
+	Prova p1(d1, "feup", 0, v, desp);
+	Prova p2(d2, "isep", 0, v, desp);
+	Prova p3(d3, "esep", 0, v, desp);
+	Prova p4(d4, "feup", 0, v, desp);
+
+	calend1.adicionaProva(&p1);
+	calend1.adicionaProva(&p2);
+	calend1.adicionaProva(&p3);
+	calend1.adicionaProva(&p4);
+
+	cout << "=======Teste de txt output========" << endl;
+
+	calend1.criaFich("Provas.txt");
 
 
-	cout << "===============" << endl;
+
+
+
+
 
 }
 

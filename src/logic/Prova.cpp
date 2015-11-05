@@ -1,8 +1,8 @@
 #include "Prova.h"
 
-Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Desporto* desp){
+Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Modalidade* modal){
 
-/*
+	/*
 	fstream fich;
 
 	fich.open("Provas.txt", ios::in);
@@ -25,12 +25,12 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Desporto* de
 	else
 		throw UnableOpenFile(filename);
 	fich.close();
-*/
+	 */
 
 	this->data = d;
 	this->local = l;
 	this->duracao = dur;
-	this->desporto = desp;
+	this->mod = modal;
 
 	for (unsigned int i = 0; i < v.size(); i++){
 		this->vs.push_back(&v[i]);
@@ -54,14 +54,56 @@ vector<Equipa*> Prova::getAdversarios() const {
 	return vs;
 }
 
-Desporto* Prova::getDesporto() const {
-	return desporto;
+Modalidade* Prova::getModalidade() const {
+	return mod;
 }
 
 Equipa* Prova::getVencedor() const {
 	return vencedor;
 }
 
+Atleta* Prova::getParticipante(int i) const{
+
+	vector <Atleta> atletasVec = vs[i]->getAtletas();
+	int position;
+
+	for(unsigned int j=0; j < atletasVec.size(); j++){
+		vector <Modalidade> modAtleta = atletasVec[i].getModalidades();
+
+
+		position = sequentialSearch(modAtleta,*this->mod);
+		if(position !=-1){
+			return vs[i]->getAtletas()[j];
+		}
+
+
+	}
+
+
+
+
+}
+
 void Prova::setVencedor(Equipa* v){
 	this->vencedor = v;
+}
+
+bool Prova::operator !=(const Prova &p){
+
+	bool result = true;
+
+	if (this->local == p.getLocal() || (this->getData().ano == p.getData().ano && this->getData().dia == p.getData().dia && this->getData().mes == p.getData().mes && this->getData().hora == p.getData().hora)){
+		result = false;
+	}
+
+	/*if(this->getData().hora < p.getData().hora + p.getDuracao()){
+
+		result = false;
+	}*/
+
+	//TODO verificar hora + duracao este esta mal feito
+
+
+	return result;
+
 }

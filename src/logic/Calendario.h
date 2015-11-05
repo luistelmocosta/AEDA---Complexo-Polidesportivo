@@ -15,8 +15,10 @@ public:
     Calendario(){}
     Calendario(vector <Prova*> p); // recebe um vetor para testar mas deve ser mudado para uma prova de cada vez
     vector<Prova*> getProvas() const;
-    void checkProvas();
+    bool checkProva(Prova* p);
     void deleteProva(int i);
+    void adicionaProva (Prova* p);
+    void criaFich(string nome);
 
 };
 
