@@ -1,6 +1,6 @@
 #include "Prova.h"
 
-Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Modalidade* modal){
+Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal){
 
 	/*
 	fstream fich;
@@ -33,7 +33,7 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa> v, Modalidade* 
 	this->mod = modal;
 
 	for (unsigned int i = 0; i < v.size(); i++){
-		this->vs.push_back(&v[i]);
+		this->vs.push_back(v[i]);
 	}
 
 }
@@ -64,12 +64,15 @@ Equipa* Prova::getVencedor() const {
 
 Atleta* Prova::getParticipante(int i) const{
 
+
+
 	vector <Atleta*> atletasVec = vs[i]->getAtletas();
 	int position;
 
-	for(unsigned int j=0; j < atletasVec.size(); j++){
-		vector <Modalidade*> modAtleta = atletasVec[j]->getModalidades();
 
+	for(unsigned int j=0; j < atletasVec.size(); j++){
+
+		vector <Modalidade*> modAtleta = atletasVec[j]->getModalidades();
 
 		position = sequentialSearch(modAtleta, this->mod);
 		if(position !=-1){
@@ -77,7 +80,10 @@ Atleta* Prova::getParticipante(int i) const{
 		}
 
 
+
 	}
+
+
 
 
 

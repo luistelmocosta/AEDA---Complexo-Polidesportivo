@@ -81,14 +81,17 @@ void Atleta::imprime() const{
 
 }
 
+void Atleta::inserirModalidade(Modalidade &mod){
+
+	modalidades.push_back(&mod);
+
+}
+
 
 /*vector<Prova*> Atleta::getProvas() const{
 	return provas;
 }
 
-vector<Modalidade*>Atleta::getModalidades() const{
-	return modalidades;
-}
 
 bool Atleta::eliminaProva(string prova){
 	for (unsigned int i = 0; i < provas.size(); i++){
@@ -99,11 +102,3 @@ bool Atleta::eliminaProva(string prova){
 	}
 	return false;
 }*/
-
-
-
-
-
-
-
-

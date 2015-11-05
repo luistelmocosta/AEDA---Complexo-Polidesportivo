@@ -1,7 +1,11 @@
 #include "Modalidade.h"
+#include<iostream>
 
-Modalidade::Modalidade(string n, bool s): nome(n) {
-	singular=s;
+using namespace std;
+
+Modalidade::Modalidade(string n, bool s) {
+	this->singular=s;
+	this->nome = n;
 }
 
 Modalidade::~Modalidade() {
@@ -15,3 +19,9 @@ bool Modalidade::getSingular() const {
 	return singular;
 }
 
+
+bool Modalidade::operator ==(const Modalidade &mod){
+	cout << "overload" << endl;
+	return (this->getNome() == mod.getNome());
+
+}

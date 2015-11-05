@@ -19,7 +19,7 @@ class Prova{
     Equipa* vencedor;
 
 public:
-    Prova(date d, string l, unsigned int dur, vector <Equipa> v, Modalidade* modal);
+    Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal);
     date getData() const;
     string getLocal() const;
     unsigned int getDuracao() const;

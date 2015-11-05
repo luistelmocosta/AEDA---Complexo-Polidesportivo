@@ -46,6 +46,8 @@ public:
 
 	void imprime() const;
 
+	void inserirModalidade(Modalidade &mod1);
+
 };
 
 #endif /* SRC_ATLETA_H_ */

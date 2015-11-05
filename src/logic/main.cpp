@@ -11,10 +11,10 @@ using namespace std;
 int main(){
 
 
-	/*Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
-	//Atleta* a2 = new Atleta("Alexandre", "Portugal", 30, 70, 170);
+	Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
+	Atleta* a2 = new Atleta("Alexandre", "Portugal", 30, 70, 170);
 	a1->imprime();
-	a2->imprime();*/
+	a2->imprime();
 
 	string NOME_FICHEIRO = "Atletas.txt";
 	string NOME_EQUIPAS = "Equipas.txt";
@@ -54,13 +54,16 @@ int main(){
 	d4.dia = 2;
 	d4.hora = 17.0;
 
-	vector <Equipa> v;
-	Modalidade* desp;
+	vector <Equipa*> v;
 
-	Prova p1(d1, "feup", 0, v, desp);
-	Prova p2(d2, "isep", 0, v, desp);
-	Prova p3(d3, "esep", 0, v, desp);
-	Prova p4(d4, "feup", 0, v, desp);
+	string despStr = "natacao";
+	bool singular = true;
+	Modalidade despp(despStr, 1);
+
+	Prova p1(d1, "feup", 0, v, &despp);
+	Prova p2(d2, "isep", 0, v, &despp);
+	Prova p3(d3, "esep", 0, v, &despp);
+	Prova p4(d4, "feup", 0, v, &despp);
 
 	calend1.adicionaProva(&p1);
 	calend1.adicionaProva(&p2);
@@ -69,7 +72,44 @@ int main(){
 
 	cout << "=======Teste de txt output========" << endl;
 
-	calend1.criaFich("Provas.txt");
+	//calend1.criaFich("Provas.txt");
+
+
+
+	cout << "=======Teste de sequential search modalidades========" << endl;
+
+	Atleta* a3 = new Atleta("Ze", "Portugal", 30, 70, 170);
+
+	string moda1 = "futebol";
+	string moda2 = "xadrez";
+	string moda3 = "bilhar";
+	string moda4 = "arraial";
+	vector <Equipa*> vs;
+
+	Modalidade *mod1 = new Modalidade(moda1,singular);
+	Modalidade *mod2 = new Modalidade(moda2, singular);
+	Modalidade *mod3 = new Modalidade(moda3, singular);
+	Modalidade *mod4 = new Modalidade(moda4, singular);
+
+
+	a3->inserirModalidade(*mod1);
+	a3->inserirModalidade(*mod2);
+	a3->inserirModalidade(*mod3);
+	a3->inserirModalidade(*mod4);
+	cout << a3->getModalidades().size() << endl;
+
+	for (unsigned int i = 0; i< a3->getModalidades().size(); i++){
+		cout << endl << a3->getModalidades()[i]->getNome() << endl;
+	}
+
+	Equipa equi1("feup","sads","fdsv");
+	equi1.inserirAtleta(*a3);
+	vs.push_back(&equi1);
+
+
+	Prova p5(d1, "feup", 0, vs,mod1);
+
+	cout << p5.getParticipante(0)->getNome();
 
 
 

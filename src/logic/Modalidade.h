@@ -15,6 +15,7 @@ public:
     virtual ~Modalidade();
     string getNome() const;
     bool getSingular() const;
+    bool operator ==(const Modalidade &mod);
 
 };
 
