@@ -1,5 +1,9 @@
 #include "Campeonato.h"
 
+Campeonato::Campeonato() {};
+
+Campeonato::Campeonato(string nome): nome(nome) {};
+
 unsigned int Campeonato::getID() const {
 	return id;
 }
@@ -101,4 +105,19 @@ Desporto* Campeonato::findDesporto(string nomeDesporto){
 		}
 	}
 	return desp;
+}
+
+void Campeonato::imprimeEquipas() const{
+	for(unsigned int i = 0; i < equipas.size(); i++){
+		cout << equipas[i]->getNome() << endl;
+	}
+	cout << endl;
+}
+
+void Campeonato::imprimeAtletas() const{
+	for(unsigned int i = 0; i < equipas.size(); i++){
+		equipas[i]->showAtletas();
+		cout << endl;
+}
+	cout << endl;
 }

@@ -20,8 +20,10 @@ class Campeonato{
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario* calendario;
-											// PRECISO?? vector<Modalidade *> modalidades;
+	// PRECISO?? vector<Modalidade *> modalidades;
 public:
+	Campeonato();
+	Campeonato(string nome);
 	unsigned int getID() const;
 	string getNome() const;
 	date getData() const;
@@ -40,6 +42,14 @@ public:
 	Equipa* findEquipa(string nomeEquipa);
 	Atleta* findAtleta(string nomeAtleta);
 	Desporto* findDesporto(string nomeDesporto);
+	void imprimeAtletas() const;
+	void imprimeEquipas() const;
+
+	class ErroFicheiro {
+	public:
+		ErroFicheiro() {
+		}
+	};
 };
 
 #endif /* SRC_CAMPEONATO_H_ */

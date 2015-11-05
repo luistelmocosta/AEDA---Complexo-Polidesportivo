@@ -1,4 +1,5 @@
 #include "Campeonato.h"
+#include "main.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -11,7 +12,212 @@ using namespace std;
 int main(){
 
 
-	Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
+	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
+	string NOME_F = "Equipas.txt", NOME_F_TMP = "equipas_tmp.txt";
+	Campeonato c1;
+	string campeonato, pais, patrocinio;
+	//Equipa e1;
+
+	ifstream ficheiro_leitura(NOME_FICHEIRO.c_str());
+	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP.c_str());
+	ifstream f_leitura(NOME_F.c_str());
+	ofstream f_escrita(NOME_F_TMP.c_str());
+
+	try
+	{
+		c1.readFile("Equipas.txt");
+	} catch (Campeonato::ErroFicheiro &e)
+	{
+		cout << "Tentativa de abrir o ficheiro falhou.\n";
+		cout << "Insira o nome para o campeonato a a ser criado: " << endl;
+		cin >> campeonato;
+		Campeonato* c2 = new Campeonato(campeonato);
+		c1 = *c2;
+		delete c2;
+
+		cout << endl;
+	}
+
+	try
+	{
+		e1.readFile("Atletas.txt");
+	} catch (Campeonato::ErroFicheiro &e)
+	{
+		cout << "Tentativa de abrir o ficheiro falhou.\n";
+		cout << "Insira o nome para a Equipa a ser criada: " << endl;
+		cin >> campeonato;
+		cout << "Insira o pais da equipa a criar: " << endl;
+		cin >> pais;
+		cout << "Insira o patronicio da equipa a criar: " << endl;
+		cin >> patrocinio;
+		Equipa* e2 = new Equipa(campeonato, pais, patrocinio);
+		e1 = *e2;
+		delete e2;
+
+		cout << endl;
+	}
+
+
+
+	cout << c1.getNome() << endl << endl;
+	menu(c1);
+
+	return 1;
+}
+
+
+bool isNumber(string str)
+{
+	bool ret = false;
+	for (unsigned int i = 0; i < str.size(); i++)
+	{
+		if (isdigit(str[i]))
+			ret = true;
+		else
+			return false;
+	}
+	return ret;
+}
+
+int pedirValor()
+{
+
+	stringstream ss;
+	string str;
+	int res;
+
+	try
+	{
+		do
+		{
+			cout << "Insira um limite: ";
+			cin >> str;
+		} while (!isNumber(str));
+
+		res = atoi(str.c_str());
+
+		if (res < 0)
+			throw ValorInvalido(res);
+	} catch (ValorInvalido &v)
+	{
+		cout << "Valor invalido" << endl << endl;
+		res = pedirValor();
+	}
+	return res;
+}
+
+void menuAtletas(){
+	bool menu = true;
+	stringstream ss;
+	int option;
+	string str;
+	do
+	{
+		cout << endl;
+		cout << "1. Listagem de Atletas" << endl;
+		cout << "2. Adicionar Atleta" << endl;
+		cout << "3. Remover Atleta" << endl;
+		cout << "4. Sair" << endl;
+
+		cout << "\nEscolha uma opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> option;
+		cout << "\n";
+
+		switch (option)
+		{
+		case 1:
+			e1.showAtletas();
+			cout << endl << endl;
+			break;
+		case 2:
+			cout << endl;
+			break;
+		case 3:
+			cout << endl;
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			menu = false;
+			cout << endl;
+			return;
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	} while (menu);
+}
+
+void menu(Campeonato &c1){
+
+	bool menu = true;
+
+	do{
+		stringstream ss;
+		int option;
+		string str;
+
+		cout << endl;
+		cout << "1. Listagem das equipas" << endl;
+		cout << "2. Adicionar Equipa" << endl;
+		cout << "3. Alterar Equipa" << endl;
+		cout << "4. Consultar uma Equipa" << endl;
+		cout << "5. Remover uma Equipa" << endl;
+		cout << "6. Atletas" << endl;
+		cout << "7. Calendario" << endl;
+		cout << "8. Sair" << endl;
+
+		cout << "\nEscolha uma opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> option;
+		cout << "\n";
+
+
+		switch (option)
+		{
+		case 1:
+			c1.imprimeEquipas();
+			break;
+		case 2:
+
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			menuAtletas();
+			break;
+		case 7:
+			break;
+		case 8:
+			menu = false;
+			cout << endl;
+			return;
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	} while(menu);
+}
+
+
+/*Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
 	Atleta* a2 = new Atleta("Alexandre", "Portugal", 30, 70, 170);
 	a1->imprime();
 	a2->imprime();
@@ -121,15 +327,12 @@ int main(){
 
 	Prova p5(d1, "feup", 0, vs,mod1);
 
-	cout << p5.getParticipante(0)->getNome();
+	cout << p5.getParticipante(0)->getNome();*/
 
 
 
 
 
-
-
-}
 
 
 
