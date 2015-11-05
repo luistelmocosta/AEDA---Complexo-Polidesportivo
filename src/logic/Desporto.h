@@ -10,16 +10,16 @@ class Desporto{
 
 private:
 	string nome;
-	//vector <Modalidade*> modalidades;
-	// ??? tipoPontuacao;  "Cada desporto terá um determinado tipo de pontuação"
 
 public:
-	Desporto(string n);
 	Desporto(){}
-	virtual ~Desporto();
-	string getNome() const;
-	//vector <Modalidade*> getModalidades() const;
+	Desporto(string n):nome(n){}
+	virtual ~Desporto(){}
 
+	void setNome(string n){nome=n;}
+
+	virtual string getNome() const {return nome;}
+	virtual void calcPont(){}
 };
 
 
