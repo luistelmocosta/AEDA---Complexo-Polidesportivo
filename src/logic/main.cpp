@@ -55,6 +55,10 @@ int main(){
 	d4.hora = 17.0;
 
 	vector <Equipa*> v;
+	Equipa equipaParaFicheiro1("FEUP","putas e vinho verde","bolicao");
+	Equipa equipaParaFicheiro2("ISEP","20 a aeda","chipicao");
+	v.push_back(&equipaParaFicheiro1);
+	v.push_back(&equipaParaFicheiro2);
 
 	string despStr = "natacao";
 	bool singular = true;
@@ -65,14 +69,22 @@ int main(){
 	Prova p3(d3, "esep", 0, v, &despp);
 	Prova p4(d4, "feup", 0, v, &despp);
 
+	p1.setVencedor(&equipaParaFicheiro1);
+	p2.setVencedor(&equipaParaFicheiro1);
+	p3.setVencedor(&equipaParaFicheiro1);
+	p4.setVencedor(&equipaParaFicheiro1);
+
 	calend1.adicionaProva(&p1);
 	calend1.adicionaProva(&p2);
 	calend1.adicionaProva(&p3);
 	calend1.adicionaProva(&p4);
 
+
 	cout << "=======Teste de txt output========" << endl;
 
-	//calend1.criaFich("Provas.txt");
+
+
+	calend1.criaFich("Provas.txt");
 
 
 
