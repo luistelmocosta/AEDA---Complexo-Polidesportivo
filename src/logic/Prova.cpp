@@ -79,13 +79,7 @@ Atleta* Prova::getParticipante(int i) const{
 			return vs[i]->getAtletas()[j];
 		}
 
-
-
 	}
-
-
-
-
 
 
 }
