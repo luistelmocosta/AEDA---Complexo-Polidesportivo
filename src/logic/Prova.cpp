@@ -68,10 +68,10 @@ Atleta* Prova::getParticipante(int i) const{
 	int position;
 
 	for(unsigned int j=0; j < atletasVec.size(); j++){
-		vector <Modalidade*> modAtleta = atletasVec[i].getModalidades();
+		vector <Modalidade*> modAtleta = atletasVec[j]->getModalidades();
 
 
-		position = sequentialSearch(modAtleta,*this->mod);
+		position = sequentialSearch(modAtleta, this->mod);
 		if(position !=-1){
 			return vs[i]->getAtletas()[j];
 		}

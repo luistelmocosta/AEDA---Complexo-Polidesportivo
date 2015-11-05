@@ -2,7 +2,6 @@
 #define SRC_MODALIDADE_H_
 
 #include "Desporto.h"
-
 using namespace std;
 
 class Modalidade: public Desporto{

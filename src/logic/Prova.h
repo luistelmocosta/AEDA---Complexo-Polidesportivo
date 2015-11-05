@@ -5,8 +5,10 @@
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Utilities.h"
+#include "Atleta.h"
 
 class Equipa;
+class Atleta;
 
 class Prova{
     date data;

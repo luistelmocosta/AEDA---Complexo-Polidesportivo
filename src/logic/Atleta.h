@@ -22,7 +22,7 @@ class Atleta {
 	info inf;
 	float pontuacao;
 	//vector<Prova*> provas;
-	vector<Modalidade *> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
+	vector<Modalidade*> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
 
 public:
 	Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a);
