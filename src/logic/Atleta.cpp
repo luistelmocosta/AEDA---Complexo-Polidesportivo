@@ -5,20 +5,18 @@ using namespace std;
 
 int Atleta::newID = 0;
 
-//unsigned int Atleta::ultimoID = 0;
-
-Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a) : uid(newID++){
+Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a): uid(newID++){
 	inf.nome=n;
 	inf.pais=pais;
 	inf.idade=i;
 	inf.peso=p;
 	inf.altura=a;
+	pontuacao=0;
 }
 
-Atleta::~Atleta() {
+Atleta::~Atleta(){
 
 }
-
 
 unsigned int Atleta::getID() const{
 	return uid;
@@ -38,10 +36,6 @@ string Atleta::getNome() const{
 
 string Atleta::getPais() const{
 	return inf.pais;
-}
-
-vector<Modalidade*> Atleta::getModalidades() const{
-	return modalidades;
 }
 
 unsigned int Atleta::getIdade() const{
@@ -69,6 +63,13 @@ void Atleta::setPontuacao(float p){
 
 }
 
+vector<Modalidade*> Atleta::getModalidades() const{
+	return modalidades;
+}
+
+void Atleta::inserirModalidade(Modalidade &mod){
+	modalidades.push_back(&mod);
+}
 
 void Atleta::imprime() const{
 
@@ -80,13 +81,6 @@ void Atleta::imprime() const{
 	cout << "Pontuacao: "<< pontuacao << endl;
 
 }
-
-void Atleta::inserirModalidade(Modalidade &mod){
-
-	modalidades.push_back(&mod);
-
-}
-
 
 /*vector<Prova*> Atleta::getProvas() const{
 	return provas;

@@ -13,6 +13,7 @@
 using namespace std;
 
 class Campeonato{
+
 	unsigned int id;
 	string nome;
 	date data;
@@ -24,6 +25,7 @@ class Campeonato{
 public:
 	Campeonato();
 	Campeonato(string nome);
+
 	unsigned int getID() const;
 	string getNome() const;
 	date getData() const;
@@ -34,6 +36,7 @@ public:
 
 	Calendario* getCalendario() const;
 
+	void adicionaEquipa();
 	bool addEquipa();
 	bool eliminaEquipa();
 
@@ -42,15 +45,10 @@ public:
 	bool findEquipa(string nomeEquipa);
 	Atleta* findAtleta(string nomeAtleta);
 	Desporto* findDesporto(string nomeDesporto);
+
 	void imprimeAtletas() const;
 	void imprimeEquipas() const;
-	void adicionaEquipa();
 
-	class ErroFicheiro {
-	public:
-		ErroFicheiro() {
-		}
-	};
 };
 
 #endif /* SRC_CAMPEONATO_H_ */

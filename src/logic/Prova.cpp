@@ -27,10 +27,10 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 	fich.close();
 	 */
 
-	this->data = d;
-	this->local = l;
-	this->duracao = dur;
-	this->mod = modal;
+	data = d;
+	local = l;
+	duracao = dur;
+	mod = modal;
 
 	for (unsigned int i = 0; i < v.size(); i++){
 		this->vs.push_back(v[i]);
@@ -62,9 +62,11 @@ Equipa* Prova::getVencedor() const {
 	return vencedor;
 }
 
+void Prova::setVencedor(Equipa* v){
+	vencedor = v;
+}
+
 Atleta* Prova::getParticipante(int i) const{
-
-
 
 	vector <Atleta*> atletasVec = vs[i]->getAtletas();
 	int position;
@@ -81,11 +83,6 @@ Atleta* Prova::getParticipante(int i) const{
 
 	}
 
-
-}
-
-void Prova::setVencedor(Equipa* v){
-	this->vencedor = v;
 }
 
 bool Prova::operator !=(const Prova &p){
@@ -102,7 +99,6 @@ bool Prova::operator !=(const Prova &p){
 	}*/
 
 	//TODO verificar hora + duracao este esta mal feito
-
 
 	return result;
 

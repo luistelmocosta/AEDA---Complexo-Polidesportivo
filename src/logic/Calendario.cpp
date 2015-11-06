@@ -31,18 +31,10 @@ bool Calendario::checkProva(Prova* p){
 			break;
 		}
 
-
-
-
 	}
-
 
 	return isDiff;
 
-}
-
-void Calendario::deleteProva(int i){
-	provas.erase(provas.begin()+i);
 }
 
 bool Calendario::adicionaProva (Prova* p){
@@ -58,24 +50,8 @@ bool Calendario::adicionaProva (Prova* p){
 	return false;
 }
 
-void Calendario::criaFich(string nome){
-
-	ofstream provasFich(nome.c_str());
-
-	vector<Prova*>::iterator it;
-
-	for(it=provas.begin(); it!= provas.end(); it++) {
-
-		provasFich << (*it)->getModalidade()->getNome() << endl << (*it)->getAdversarios()[0]->getNome() << " vs " << (*it)->getAdversarios()[1]->getNome()<< endl;
-		provasFich << "Local: " << (*it)->getLocal() <<endl;
-		provasFich << "Duracao: " << (*it)->getDuracao() << endl;
-		provasFich << "Vencedor: " << (*it)->getVencedor()->getNome() << "!!" << endl << endl;
-
-	}
-
-	cout << "Ficheiro de provas gravado com o nome " << nome;
-
-
+void Calendario::deleteProva(int i){
+	provas.erase(provas.begin()+i);
 }
 
 void Calendario::criaProvas(){
@@ -201,5 +177,24 @@ void Calendario::criaProvas(){
 	cin >>nomeFich;
 
 	criaFich(nomeFich);
+}
+
+void Calendario::criaFich(string nome){
+
+	ofstream provasFich(nome.c_str());
+
+	vector<Prova*>::iterator it;
+
+	for(it=provas.begin(); it!= provas.end(); it++) {
+
+		provasFich << (*it)->getModalidade()->getNome() << endl << (*it)->getAdversarios()[0]->getNome() << " vs " << (*it)->getAdversarios()[1]->getNome()<< endl;
+		provasFich << "Local: " << (*it)->getLocal() <<endl;
+		provasFich << "Duracao: " << (*it)->getDuracao() << endl;
+		provasFich << "Vencedor: " << (*it)->getVencedor()->getNome() << "!!" << endl << endl;
+
+	}
+
+	cout << "Ficheiro de provas gravado com o nome " << nome;
+
 
 }

@@ -26,7 +26,7 @@ int main(){
 	try
 	{
 		c1.readFile("Equipas.txt");
-	} catch (Campeonato::ErroFicheiro &e)
+	} catch (ErroNoFicheiro &e)
 	{
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
 		cout << "Insira o nome para o campeonato a a ser criado: " << endl;
@@ -41,7 +41,7 @@ int main(){
 	try
 	{
 		e1.readFile("Atletas.txt");
-	} catch (Campeonato::ErroFicheiro &e)
+	} catch (ErroNoFicheiro &e)
 	{
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
 		cout << "Insira o nome para a Equipa a ser criada: " << endl;
@@ -57,14 +57,11 @@ int main(){
 		cout << endl;
 	}
 
-
-
 	cout << c1.getNome() << endl << endl;
 	menu(c1);
 
 	return 1;
 }
-
 
 bool isNumber(string str)
 {
@@ -122,7 +119,7 @@ void removerAtleta(Equipa &e1){
 
 	try{
 		a1 = e1.getAtleta(nr);
-	} catch (Atleta::AtletaInexistente &e){
+	} catch (AtletaInexistente &e){
 		valid = false;
 		cout << "Nao existe nenhum atleta com o numero:  " << e.id << endl;
 		return;
@@ -196,32 +193,27 @@ bool findNomeEmEquipas(){
 	cin.ignore();
 	getline(cin, inputE);
 
-	if(c1.findEquipa(inputE)){
-
-		cout << "cheguei aqui" << endl;
-		cout << "encontrei !" << endl;
-		subMenuEquipas();
-		return true;
-
-	}
-	else{
-		return false;
-		cout << "peido" << endl;
-	}
+		if(c1.findEquipa(inputE)){
+			cout << "cheguei aqui" << endl;
+			cout << "encontrei !" << endl;
+			subMenuEquipas();
+			return true;
+		}
+		else{
+			return false;
+			cout << "peido" << endl;
+		}
 }
 
 void subMenuEquipas(){
 
 	bool menub = true;
 
-
 	do{
 		stringstream ss;
 		int option;
 		string str;
 		string change;
-
-
 
 		cout << "O que deseja alterar na equipa? ";
 		cout << "1. Nome" << endl;
@@ -235,41 +227,37 @@ void subMenuEquipas(){
 		ss >> option;
 		cout << "\n";
 
-		switch (option)
-		{
-		case 1:
-			cout << "Insira o novo nome da Equipa: ";
-			cin.ignore();
-			getline(cin, change);
-			e1.setNome(change);
-			break;
-		case 2:
-			cout << "Insira o novo paise da Equipa: ";
-			cin.ignore();
-			getline(cin, change);
-			e1.setPais(change);
-			break;
-		case 3:
-			cout << "Insira o novo patrocinio da Equipa: ";
-			cin.ignore();
-			getline(cin, change);
-			e1.setPatrocinador(change);
-			break;
-		case 4:
-			menu(c1);
-			break;
-		default:
-			cout << "Opcao invalida. Tente outra vez.\n" << endl;
-			ss.clear();
-			str.clear();
-			break;
-		}
-		ss.clear();
-	} while(menub);
-
+		switch (option){
+			case 1:
+				cout << "Insira o novo nome da Equipa: ";
+				cin.ignore();
+				getline(cin, change);
+				e1.setNome(change);
+				break;
+			case 2:
+				cout << "Insira o novo paise da Equipa: ";
+				cin.ignore();
+				getline(cin, change);
+				e1.setPais(change);
+				break;
+			case 3:
+				cout << "Insira o novo patrocinio da Equipa: ";
+				cin.ignore();
+				getline(cin, change);
+				e1.setPatrocinador(change);
+				break;
+			case 4:
+				menu(c1);
+				break;
+			default:
+				cout << "Opcao invalida. Tente outra vez.\n" << endl;
+				ss.clear();
+				str.clear();
+				break;
+			}
+				ss.clear();
+			} while(menub);
 }
-
-
 
 void menu(Campeonato &c1){
 
@@ -332,7 +320,6 @@ void menu(Campeonato &c1){
 	} while(menu);
 
 }
-
 
 /*Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
 	Atleta* a2 = new Atleta("Alexandre", "Portugal", 30, 70, 170);

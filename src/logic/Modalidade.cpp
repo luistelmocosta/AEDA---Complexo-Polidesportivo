@@ -8,32 +8,32 @@ Modalidade::Modalidade(string n, bool s) {
 	singular=s;
 
 	if(nome=="Futebol")
-		super::setNome("Futebol");
+		Desporto::setNome("Futebol");
 
 	else if(nome=="Corrida 100m")
-		super::setNome("Corrida");
+		Desporto::setNome("Corrida");
 	else if(nome=="Corrida 200m")
-		super::setNome("Corrida");
+		Desporto::setNome("Corrida");
 
 	else if(nome=="Salto Altura")
-		super::setNome("Salto");
+		Desporto::setNome("Salto");
 	else if(nome=="Salto Comprimento")
-		super::setNome("Salto");
+		Desporto::setNome("Salto");
 
 	else if(nome=="Crawl 100m")
-		super::setNome("Crawl 100m");
+		Desporto::setNome("Crawl 100m");
 	else if(nome=="Brucos 100m")
-		super::setNome("Brucos 100m");
+		Desporto::setNome("Brucos 100m");
 	else if(nome=="Mariposa 100m")
-		super::setNome("Mariposa 100m");
+		Desporto::setNome("Mariposa 100m");
 	else if(nome=="Costas 100m")
-		super::setNome("Costas 100m");
+		Desporto::setNome("Costas 100m");
 
 	else if(nome=="Voleibol")
-		super::setNome("Voleibol");
+		Desporto::setNome("Voleibol");
 
 	else if(nome=="Judo")
-		super::setNome("Combate");
+		Desporto::setNome("Combate");
 }
 
 
@@ -45,13 +45,12 @@ string Modalidade::getNome() const {
 }
 
 string Modalidade::getNomeDesporto() const{
-	return super::getNome();
+	return Desporto::getNome();
 }
 
 bool Modalidade::getSingular() const {
 	return singular;
 }
-
 
 bool Modalidade::operator ==(const Modalidade &mod){
 	cout << "overload" << endl;
@@ -62,9 +61,13 @@ bool Modalidade::operator ==(const Modalidade &mod){
 /*
 int main(){
 
-	 Desporto* d = new Modalidade("Futebol", false);
+	//Desporto* d = new Modalidade("Corrida 100m", false);
 
-	cout << d->getNome() << endl;
+	Modalidade* m = new Modalidade("Corrida 100m", false);
+
+	cout << m->getNomeDesporto() << endl;
+	cout << m->getNome() << endl;
 
 	return 0;
-}*/
+}
+*/

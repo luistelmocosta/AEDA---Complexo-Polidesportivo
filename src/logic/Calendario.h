@@ -14,13 +14,15 @@ class Calendario{
 public:
     Calendario(){}
     Calendario(vector <Prova*> p); // recebe um vetor para testar mas deve ser mudado para uma prova de cada vez
+
     vector<Prova*> getProvas() const;
     bool checkProva(Prova* p);
-    void deleteProva(int i);
     bool adicionaProva (Prova* p);
-    void criaFich(string nome);
+    void deleteProva(int i);
+
     void criaProvas();
 
+    void criaFich(string nome);
 };
 
 #endif /* SRC_CALENDARIO_H_ */

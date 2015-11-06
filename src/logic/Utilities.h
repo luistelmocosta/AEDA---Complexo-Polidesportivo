@@ -8,7 +8,6 @@
 using namespace std;
 
 
-
 /*
  	 *						*
  	 * 		UTILITARIOS		*
@@ -78,13 +77,9 @@ void insertionSort(vector<Comparable> &v)
 class ValorIncorrecto {
 public:
 	int v;
-	ValorIncorrecto(int v) :v(v) {
-		}
+	ValorIncorrecto(int v) :v(v) {}
+	int getValor(){return v;}
 };
-
-	void readFile(ifstream& ficheiro_leitura);
-	void writeFile(ofstream& ficheiro_escrita);
-
 
 class ErroNoFicheiro{
 public:
@@ -93,6 +88,16 @@ public:
 		cout << "Erro no ficheiro: " << filename << endl;
 	}
 	string getFileName(){return filename;}
+};
+
+class AtletaInexistente {
+public:
+	int id;
+	string nome;
+	AtletaInexistente(int id) :id(id) {}
+	AtletaInexistente(string nome): nome(nome){}
+	int getID(){return id;}
+	string getNome(){return nome;}
 };
 
 #endif /* SRC_UTILITIES_H_ */

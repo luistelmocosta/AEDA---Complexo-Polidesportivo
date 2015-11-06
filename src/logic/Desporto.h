@@ -8,7 +8,6 @@ using namespace std;
 
 class Desporto{
 
-private:
 	string nome;
 
 public:

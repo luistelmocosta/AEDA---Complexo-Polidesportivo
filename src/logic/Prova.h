@@ -11,6 +11,7 @@ class Equipa;
 class Atleta;
 
 class Prova{
+
     date data;
     string local;
     unsigned int duracao;   //"Cada prova terá um tempo de duracao."
@@ -20,17 +21,18 @@ class Prova{
 
 public:
     Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal);
+
     date getData() const;
     string getLocal() const;
     unsigned int getDuracao() const;
     vector<Equipa*> getAdversarios() const;
     Modalidade* getModalidade() const;
     Equipa* getVencedor() const;
-    Atleta* getParticipante(int i)const;
     void setVencedor(Equipa* v);
+
+    Atleta* getParticipante(int i) const;
+
     bool operator !=(const Prova &p);
-
-
 };
 
 #endif /* SRC_PROVA_H_ */

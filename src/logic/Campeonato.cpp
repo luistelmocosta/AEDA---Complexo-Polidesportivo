@@ -32,28 +32,6 @@ Calendario* Campeonato::getCalendario() const {
 	return calendario;
 }
 
-bool Campeonato::addEquipa() {
-	/*
-	 *
-	 * return 	true se pode adicionar equipa
-	 * 			false caso contrario
-	 *
-	 */
-}
-
-bool Campeonato::eliminaEquipa() {
-	/*
-	 *
-	 * return	true se eliminou com sucesso
-	 * 			false caso contrario
-	 *
-	 */
-}
-
-void Campeonato::inserirEquipa(Equipa &e1){
-	equipas.push_back(&e1);
-}
-
 void Campeonato::adicionaEquipa(){
 	string nome, pais, patrocinio;
 
@@ -76,6 +54,29 @@ void Campeonato::adicionaEquipa(){
 	Equipa *e1 = new Equipa(nome, pais, patrocinio);
 	inserirEquipa(*e1);
 }
+
+bool Campeonato::addEquipa() {
+	/*
+	 *
+	 * return 	true se pode adicionar equipa
+	 * 			false caso contrario
+	 *
+	 */
+}
+
+bool Campeonato::eliminaEquipa() {
+	/*
+	 *
+	 * return	true se eliminou com sucesso
+	 * 			false caso contrario
+	 *
+	 */
+}
+
+void Campeonato::inserirEquipa(Equipa &e1){
+	equipas.push_back(&e1);
+}
+
 void Campeonato::readFile(string filename){
 
 	ifstream ficheiro_leitura (filename.c_str());
@@ -107,6 +108,7 @@ void Campeonato::readFile(string filename){
 }
 
 bool Campeonato::findEquipa(string nomeEquipa){
+	Equipa *eq;
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		if(equipas[i]->getNome() == nomeEquipa){

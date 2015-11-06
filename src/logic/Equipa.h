@@ -15,49 +15,39 @@ using namespace std;
 class Atleta;
 
 class Equipa {
+
 	string nome;
 	string pais;
 	string patrocinador;
 	float pontuacao;
 	vector<Atleta*> atletas;
+
 public:
 	Equipa(string n, string p, string pat);
 	Equipa();
 
 	string getNome() const;
+	void setNome(string novoNome);
 	string getPais() const;
+	void setPais(string novoPais);
 	string getPatrocinador() const;
+	void setPatrocinador(string novoPatrocinio);
 
 	float getPontuacao() const;
 	void setPontuacao(float p);
-	void setNome(string novoNome);
-	void setPais(string novoPais);
-	void setPatrocinador(string novoPatrocinio);
 
-	void inserirAtleta(Atleta &a1);
 	vector<Atleta*> getAtletas() const;
 
-	//void readFile(ifstream& ficheiro_leitura);
+	void inserirAtleta(Atleta &a1);
 	bool eliminaAtleta(unsigned int n);
-	void showAtletas() ;
+
+	void showAtletas();
 	bool existeAtleta(string nome);
-	void readFile(string filename);
-	void escreveFicheiro(string filename);
 	void adicionaAtleta();
 	Atleta* getAtleta(unsigned int n);
+
+	void readFile(string filename);
+	void writeFile(string filename);
 };
-
-class AtletaInexistente {
-	public:
-		int id;
-		string nome;
-		AtletaInexistente(int id) :
-				id(id) {
-		}
-		AtletaInexistente(string nome)
-		: nome(nome){
-
-		}
-	};
 
 #endif /* SRC_EQUIPA_H_ */

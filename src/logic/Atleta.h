@@ -12,11 +12,8 @@
 
 using namespace std;
 
-class Modalidade;
-
-class Equipa;
-
 class Atleta {
+
 	int uid;
 	static int newID;
 	info inf;
@@ -36,26 +33,17 @@ public:
 
 	string getNome() const;
 	string getPais() const;
-	vector<Modalidade*> getModalidades() const;
 	unsigned int getIdade() const;
 	unsigned int getPeso() const;
 	unsigned int getAltura() const;
 
-	float getPontuacao() const;
+ 	float getPontuacao() const;
 	void setPontuacao(float p);
 
-	void imprime() const;
-
+	vector<Modalidade*> getModalidades() const;
 	void inserirModalidade(Modalidade &mod1);
 
-	class AtletaInexistente {
-	public:
-		int id;
-		AtletaInexistente(int id) :
-			id(id) {
-		}
-	};
-
+	void imprime() const;
 };
 
 #endif /* SRC_ATLETA_H_ */

@@ -4,7 +4,6 @@
 
 using namespace std;
 
-
 Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(pat) {
 	pontuacao=0;
 }
@@ -17,41 +16,32 @@ string Equipa::getNome() const {
 	return nome;
 }
 
+void Equipa::setNome(string novoNome) {
+	nome=novoNome;
+}
+
 string Equipa::getPais() const {
 	return pais;
+}
+
+void Equipa::setPais(string novoPais) {
+	pais=novoPais;
 }
 
 string Equipa::getPatrocinador() const {
 	return patrocinador;
 }
 
+void Equipa::setPatrocinador(string novoPatrocinio) {
+	patrocinador=novoPatrocinio;
+}
+
 float Equipa::getPontuacao() const {
 	return pontuacao;
 }
 
-void Equipa::setNome(string novoNome){
-	nome = novoNome;
-}
-
-void Equipa::setPais(string novoPais){
-	pais = novoPais;
-}
-
-void Equipa::setPatrocinador(string novoPatrocinio){
-	patrocinador = novoPatrocinio;
-}
-
 void Equipa::setPontuacao(float p) {
 	pontuacao=p;
-}
-
-Atleta* Equipa::getAtleta(unsigned int n){
-
-	for(vector<Atleta *>::iterator it=atletas.begin(); it!=atletas.end(); it++)
-			if((*it)->getID()==n)
-				return *it;
-
-		throw AtletaInexistente(n);
 }
 
 vector<Atleta*> Equipa::getAtletas() const {
@@ -61,6 +51,49 @@ vector<Atleta*> Equipa::getAtletas() const {
 void Equipa::inserirAtleta(Atleta &a1){
 	atletas.push_back(&a1);
 }
+
+bool Equipa::eliminaAtleta(unsigned int n){
+	for(unsigned int i=0; i<atletas.size(); i++) {
+		if(atletas[i]->getID() ==  n) {
+			atletas.erase(atletas.begin()+i);
+			//--Atleta::uid;
+			return true;
+		}
+	}
+	throw AtletaInexistente(n);
+	return false;
+}
+
+void Equipa::showAtletas(){
+
+	vector<Atleta*>::iterator it;
+	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
+		cout << (*it)->getID() << endl;
+		cout << (*it)->getNome() << endl;
+		cout << (*it)->getPais() << endl;
+		cout << (*it)->getIdade() << endl;
+		cout << (*it)->getPeso() << endl;
+		cout << (*it)->getAltura() << endl << endl;
+	}
+
+}
+
+bool Equipa::existeAtleta(string nome){
+
+	vector<Atleta*>::iterator it;
+
+	for(it = atletas.begin(); it != atletas.end(); ++it){
+		if((*it)->getNome() == nome)
+		{
+			return true;
+		}
+	}
+
+	cout << "Nao existe" << endl;
+	throw AtletaInexistente(nome);
+	return false;
+}
+
 void Equipa::adicionaAtleta(){
 	string nome, pais;
 	int idade, peso, altura;
@@ -86,6 +119,13 @@ void Equipa::adicionaAtleta(){
 	cin.ignore();
 	Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
 	inserirAtleta(*a1);
+}
+
+Atleta* Equipa::getAtleta(unsigned int n) {
+	for(vector<Atleta *>::iterator it=atletas.begin(); it!=atletas.end(); it++)
+				if((*it)->getID()==n)
+					return *it;
+		throw AtletaInexistente(n);
 }
 
 void Equipa::readFile(string filename){
@@ -116,50 +156,7 @@ void Equipa::readFile(string filename){
 	}
 }
 
-void Equipa::showAtletas(){
-
-	vector<Atleta*>::iterator it;
-	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
-		cout << (*it)->getID() << endl;
-		cout << (*it)->getNome() << endl;
-		cout << (*it)->getPais() << endl;
-		cout << (*it)->getIdade() << endl;
-		cout << (*it)->getPeso() << endl;
-		cout << (*it)->getAltura() << endl << endl;
-	}
-
-}
-
-bool Equipa::eliminaAtleta(unsigned int n){
-	for(unsigned int i=0; i<atletas.size(); i++) {
-		if(atletas[i]->getID() ==  n) {
-			atletas.erase(atletas.begin()+i);
-			//--Atleta::uid;
-			return true;
-		}
-	}
-	throw AtletaInexistente(n);
-	return false;
-}
-
-bool Equipa::existeAtleta(string nome){
-
-	vector<Atleta*>::iterator it;
-
-	for(it = atletas.begin(); it != atletas.end(); ++it){
-		if((*it)->getNome() == nome)
-		{
-			return true;
-		}
-	}
-
-	cout << "Nao existe" << endl;
-	throw AtletaInexistente(nome);
-	return false;
-
-}
-
-/*void Equipa::escreveFicheiro(string filename) {
+/*void Equipa::writeFile(string filename) {
 	ofstream ficheiro_escrita(filename.c_str());
 	vector<Atleta*>::iterator it;
 
@@ -169,7 +166,3 @@ bool Equipa::existeAtleta(string nome){
 		it++;
 	}
 }*/
-
-
-
-
