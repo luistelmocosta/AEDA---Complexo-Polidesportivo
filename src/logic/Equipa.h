@@ -41,6 +41,7 @@ public:
 	void readFile(string filename);
 	void escreveFicheiro(string filename);
 	void adicionaAtleta();
+	Atleta* getAtleta(unsigned int n);
 };
 
 class AtletaInexistente {

@@ -33,6 +33,15 @@ void Equipa::setPontuacao(float p) {
 	pontuacao=p;
 }
 
+Atleta* Equipa::getAtleta(unsigned int n){
+
+	for(vector<Atleta *>::iterator it=atletas.begin(); it!=atletas.end(); it++)
+			if((*it)->getID()==n)
+				return *it;
+
+		throw AtletaInexistente(n);
+}
+
 vector<Atleta*> Equipa::getAtletas() const {
 	return atletas;
 }

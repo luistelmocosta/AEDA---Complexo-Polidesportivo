@@ -44,6 +44,7 @@ public:
 	Desporto* findDesporto(string nomeDesporto);
 	void imprimeAtletas() const;
 	void imprimeEquipas() const;
+	void adicionaEquipa();
 
 	class ErroFicheiro {
 	public:

@@ -54,6 +54,28 @@ void Campeonato::inserirEquipa(Equipa &e1){
 	equipas.push_back(&e1);
 }
 
+void Campeonato::adicionaEquipa(){
+	string nome, pais, patrocinio;
+
+	cout << "Insira o nome da equipa a criar: ";
+	cin.ignore();
+	getline(cin, nome);
+	cout << endl;
+
+	cout << "Insira o pais da equipa a criar: ";
+	cin.ignore();
+	getline(cin, pais);
+	cout << endl;
+
+	cout << "Insira o patocinador da equipa a criar";
+	cin.ignore();
+	getline(cin, patrocinio);
+	cout << endl;
+
+
+	Equipa *e1 = new Equipa(nome, pais, patrocinio);
+	inserirEquipa(*e1);
+}
 void Campeonato::readFile(string filename){
 
 	ifstream ficheiro_leitura (filename.c_str());

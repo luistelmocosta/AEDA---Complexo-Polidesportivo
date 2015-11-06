@@ -106,6 +106,32 @@ int pedirValor()
 	return res;
 }
 
+void removerAtleta(Equipa &e1){
+	string str;
+	int nr;
+	bool valid = true;
+	do
+	{
+		cout << "Insira o numero do atleta que pretende eliminar: " << endl;
+		cin >> str;
+	} while (!isNumber(str));
+
+	nr = atoi(str.c_str());
+
+	Atleta *a1;
+
+	try{
+		a1 = e1.getAtleta(nr);
+	} catch (Atleta::AtletaInexistente &e){
+		valid = false;
+		cout << "Nao existe nenhum atleta com o numero:  " << e.id << endl;
+		return;
+	}
+
+	e1.eliminaAtleta(nr);
+}
+
+
 void menuAtletas(){
 	bool menub = true;
 	stringstream ss;
@@ -137,10 +163,8 @@ void menuAtletas(){
 			cout << endl;
 			break;
 		case 3:
-			unsigned int id;
-			cout << "ID? ";
-			cin >> id;
-			e1.eliminaAtleta(id);
+			//unsigned int id;
+			removerAtleta(e1);
 			cout << endl;
 			break;
 		case 4:
@@ -196,7 +220,7 @@ void menu(Campeonato &c1){
 			c1.imprimeEquipas();
 			break;
 		case 2:
-
+			c1.adicionaEquipa();
 			break;
 		case 3:
 			break;

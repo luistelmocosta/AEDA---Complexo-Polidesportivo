@@ -41,12 +41,20 @@ public:
 	unsigned int getPeso() const;
 	unsigned int getAltura() const;
 
- 	float getPontuacao() const;
+	float getPontuacao() const;
 	void setPontuacao(float p);
 
 	void imprime() const;
 
 	void inserirModalidade(Modalidade &mod1);
+
+	class AtletaInexistente {
+	public:
+		int id;
+		AtletaInexistente(int id) :
+			id(id) {
+		}
+	};
 
 };
 

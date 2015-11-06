@@ -27,6 +27,7 @@ bool isNumber(string str);
 int pedirValor();
 void menu(Campeonato &c1);
 void menuAtletas();
+void removerAtleta(Equipa &e1);
 
 
 
