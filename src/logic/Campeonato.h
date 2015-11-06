@@ -39,7 +39,7 @@ public:
 
 	void inserirEquipa(Equipa &e1);
 	void readFile(string filename);
-	Equipa* findEquipa(string nomeEquipa);
+	bool findEquipa(string nomeEquipa);
 	Atleta* findAtleta(string nomeAtleta);
 	Desporto* findDesporto(string nomeDesporto);
 	void imprimeAtletas() const;

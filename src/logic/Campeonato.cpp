@@ -106,16 +106,17 @@ void Campeonato::readFile(string filename){
 
 }
 
-Equipa* Campeonato::findEquipa(string nomeEquipa){
-	Equipa *eq;
+bool Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		if(equipas[i]->getNome() == nomeEquipa){
-			eq = equipas[i];
+			cout << equipas[i]->getNome() << endl;
+			return true;
+			break;
 		}
 	}
 
-	return eq;
+	return false;
 }
 
 Desporto* Campeonato::findDesporto(string nomeDesporto){

@@ -188,6 +188,89 @@ void menuAtletas(){
 	} while (menu);
 }
 
+bool findNomeEmEquipas(){
+
+	string inputE;
+
+	cout << "Insira a equipa que pretende alterar: ";
+	cin.ignore();
+	getline(cin, inputE);
+
+	if(c1.findEquipa(inputE)){
+
+		cout << "cheguei aqui" << endl;
+		cout << "encontrei !" << endl;
+		subMenuEquipas();
+		return true;
+
+	}
+	else{
+		return false;
+		cout << "peido" << endl;
+	}
+}
+
+void subMenuEquipas(){
+
+	bool menub = true;
+
+
+	do{
+		stringstream ss;
+		int option;
+		string str;
+		string change;
+
+
+
+		cout << "O que deseja alterar na equipa? ";
+		cout << "1. Nome" << endl;
+		cout << "2. Pais" << endl;
+		cout << "3. Patrocinador" << endl;
+		cout << "4. Sair" << endl;
+
+		cout << "\nEscolha uma opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> option;
+		cout << "\n";
+
+		switch (option)
+		{
+		case 1:
+			cout << "Insira o novo nome da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setNome(change);
+			break;
+		case 2:
+			cout << "Insira o novo paise da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setPais(change);
+			break;
+		case 3:
+			cout << "Insira o novo patrocinio da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setPatrocinador(change);
+			break;
+		case 4:
+			menu(c1);
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	} while(menub);
+
+}
+
+
+
 void menu(Campeonato &c1){
 
 	bool menu = true;
@@ -223,6 +306,7 @@ void menu(Campeonato &c1){
 			c1.adicionaEquipa();
 			break;
 		case 3:
+			findNomeEmEquipas();
 			break;
 		case 4:
 			break;
@@ -246,6 +330,7 @@ void menu(Campeonato &c1){
 		}
 		ss.clear();
 	} while(menu);
+
 }
 
 

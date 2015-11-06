@@ -29,6 +29,18 @@ float Equipa::getPontuacao() const {
 	return pontuacao;
 }
 
+void Equipa::setNome(string novoNome){
+	nome = novoNome;
+}
+
+void Equipa::setPais(string novoPais){
+	pais = novoPais;
+}
+
+void Equipa::setPatrocinador(string novoPatrocinio){
+	patrocinador = novoPatrocinio;
+}
+
 void Equipa::setPontuacao(float p) {
 	pontuacao=p;
 }

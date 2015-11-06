@@ -30,6 +30,9 @@ public:
 
 	float getPontuacao() const;
 	void setPontuacao(float p);
+	void setNome(string novoNome);
+	void setPais(string novoPais);
+	void setPatrocinador(string novoPatrocinio);
 
 	void inserirAtleta(Atleta &a1);
 	vector<Atleta*> getAtletas() const;

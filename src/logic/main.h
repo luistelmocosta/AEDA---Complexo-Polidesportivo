@@ -28,7 +28,8 @@ int pedirValor();
 void menu(Campeonato &c1);
 void menuAtletas();
 void removerAtleta(Equipa &e1);
-
+void subMenuEquipas();
+bool findNomeEmEquipas ();
 
 
 #endif /* SRC_LOGIC_MAIN_H_ */
