@@ -299,24 +299,32 @@ void subMenuCalendario(Campeonato &c1){
 		switch(option){
 		case 1:
 			c1.getCalendario()->getProvas()[id]->alterarModalidade();
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 2:
 			c1.getCalendario()->getProvas()[id]->alterarLocal();
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 3:
 			c1.getCalendario()->getProvas()[id]->alterarData();
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 4://falta
 			c1.getCalendario()->getProvas()[id]->alterarDuracao();
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 5:
-			c1.getCalendario()->getProvas()[id]->alterarEquipa(0);
+			c1.getCalendario()->getProvas()[id]->alterarEquipa(0); // falta
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 6:
-			c1.getCalendario()->getProvas()[id]->alterarEquipa(1);
+			c1.getCalendario()->getProvas()[id]->alterarEquipa(1); // falta
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 7:
-			c1.getCalendario()->getProvas()[id]->alterarVencedor();
+			c1.getCalendario()->getProvas()[id]->alterarVencedor(); //falta
+			c1.getCalendario()->criaFich(1,0);
+			break;
 		case 8:
 			subMC = false;
 			break;
@@ -337,6 +345,7 @@ void subMenuCalendario(Campeonato &c1){
 
 void menuCalendario(Campeonato &c1){
 
+	
 	bool menuC = true;
 	while (menuC){
 		string str;

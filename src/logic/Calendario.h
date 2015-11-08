@@ -13,8 +13,12 @@ class Calendario{
 
 public:
     Calendario(){}
-    Calendario(vector <Prova*> p); // recebe um vetor para testar mas deve ser mudado para uma prova de cada vez
+    Calendario(vector <Prova*> p);  
 
+    vector<Prova*> getProvas() const;
+    vector<string> getModalidades() const;
+    vector<string> getEquipas() const;
+    vector<string> getAtletas() const;
     vector<Prova*> getProvas() const;
 
     int findProva(int id);
@@ -34,7 +38,7 @@ public:
     void criaProvas();
     void showProvas() const;
 
-    void criaFich(string nome);
+    void criaFich(bool alterar, bool adicionar);
 };
 
 #endif /* SRC_CALENDARIO_H_ */
