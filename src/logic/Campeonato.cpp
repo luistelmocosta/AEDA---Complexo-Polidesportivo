@@ -101,38 +101,48 @@ void Campeonato::readFileEquipas(string filename){
 void Campeonato::readFileAtletas(string filename){
 	ifstream ficheiro_leitura(filename.c_str());
 
-		if(!ficheiro_leitura)
-			throw ErroNoFicheiro(filename);
-		else {
-			string nome, pais, temp1, temp2, temp3;
-			int idade, altura, peso;
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else {
+		string nome, pais, temp1, temp2, temp3, nEquipa;
+		int idade, altura, peso;
 
-			while (!ficheiro_leitura.eof()) {
+		while (!ficheiro_leitura.eof()) {
 
-				getline(ficheiro_leitura, nome);
-				getline(ficheiro_leitura, pais);
-				getline(ficheiro_leitura, temp1);
-				getline(ficheiro_leitura, temp2);
-				getline(ficheiro_leitura, temp3);
+			getline(ficheiro_leitura, nEquipa);
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, pais);
+			getline(ficheiro_leitura, temp1);
+			getline(ficheiro_leitura, temp2);
+			getline(ficheiro_leitura, temp3);
 
-				idade = atoi(temp1.c_str());
-				peso = atoi(temp2.c_str());
-				altura = atoi(temp3.c_str());
+			idade = atoi(temp1.c_str());
+			peso = atoi(temp2.c_str());
+			altura = atoi(temp3.c_str());
 
-				Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
-				atletas.push_back(a1);
+			Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
+			for(unsigned int i = 0; i < equipas.size(); i++){
+				if(equipas[i]->getNome() == nEquipa){
+					equipas[i]->inserirAtleta(*a1);
+					break;
+				}
 			}
+			atletas.push_back(a1);
 		}
+	}
 }
 
 int Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
+
 		if(equipas[i]->getNome() == nomeEquipa){
 			cout << nomeEquipa << " na posicao " << i << endl;
 			return i;
 		}
+
 	}
+
 	return -1;
 }
 
@@ -186,6 +196,36 @@ void Campeonato::imprimeEquipas() const{
 		cout << equipas[i]->getPatrocinador() << endl;
 	}
 	cout << endl;
+}
+
+void Campeonato::imprimeUmaEquipa() {
+	string n;
+	int i = 9999;
+
+	bool found = false;
+
+	while(!found){
+
+		cout << "Nome da equipa a consultar (0 para sair): ";
+		cin >> n;
+
+
+		if(n== "0")
+			return;
+		i = findEquipa(n);
+		if(i == 9999)
+			cout << "merda" << endl;
+		if(i == -1)
+			cout << "Equipa nao encontrada!" << endl;
+		else{
+			equipas[i]->showAtletas();
+		}
+
+
+	}
+
+
+
 }
 
 void Campeonato::imprimeAtletasPorEquipa() const{
