@@ -18,10 +18,9 @@ class Prova{
 	string local;
 	unsigned int duracao;   //"Cada prova terá um tempo de duracao."
 	vector<Equipa*> vs;
-	Modalidade* mod;
 	Equipa* vencedor;
+	Modalidade* mod;
 	bool provaT; // true -> Prova de Tempo (atletismo ,natacao, etc) false -> Prova de pontos(futebol, basket etc)
-	bool realizada;
 
 
 public:
@@ -38,14 +37,11 @@ public:
 	Modalidade* getModalidade() const;
 	void setModalidade(Modalidade* modal);
 	Equipa* getVencedor() const;
-	void setVencedor();
+	void realizarProva();
 	void setParticipantes (Atleta* a1, Atleta* a2);
-	void alterarModalidade();
 	void alterarLocal();
 	void alterarData();
 	void alterarDuracao();
-	void alterarEquipa(bool equipaEsq);
-	void alterarVencedor();
 
 	Atleta* getParticipante(int i) const;
 

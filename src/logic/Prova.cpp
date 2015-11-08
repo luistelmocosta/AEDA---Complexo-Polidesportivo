@@ -38,7 +38,7 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 		this->vs.push_back(v[i]);
 	}
 
-	realizada = false;
+
 
 }
 
@@ -74,7 +74,7 @@ Equipa* Prova::getVencedor() const {
 	return vencedor;
 }
 
-void Prova::setVencedor(){
+void Prova::realizarProva(){
 	string v;
 	v = mod->pontuacao(vs[0]->getNome(), vs[1]->getNome());
 
@@ -90,9 +90,7 @@ void Prova::setVencedor(){
 
 }
 
-void Prova::setRealizada(){
-	this->realizada = true;
-}
+
 
 void Prova::setParticipantes (Atleta* a1, Atleta* a2){
 	vs[0]->inserirAtleta(*a1);
@@ -118,14 +116,12 @@ Atleta* Prova::getParticipante(int i) const{
 	throw ParticipanteNaoEncontrado();
 
 }
-void Prova::alterarModalidade(){
 
-}
 void Prova::alterarLocal(){
 	string l;
 	cout << endl << "Novo local: ";
 	cin >> l;
-	//TODO ATUALIZAR FICHEIRO
+
 
 }
 void Prova::alterarData(){
@@ -136,15 +132,10 @@ void Prova::alterarDuracao(){
 	int dur;
 	cout << endl << "Nova duracao: ";
 	cin >> dur;
-	//TODO ATUALIZAR FICHEIRO
+
 
 }
-void Prova::alterarEquipa(bool equipaEsq){
 
-}
-void Prova::alterarVencedor(){
-
-}
 
 
 bool Prova::operator !=(const Prova &p){
@@ -160,7 +151,6 @@ bool Prova::operator !=(const Prova &p){
 		result = false;
 	}*/
 
-	//TODO verificar hora + duracao este esta mal feito
 
 	return result;
 

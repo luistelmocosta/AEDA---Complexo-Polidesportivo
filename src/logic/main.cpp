@@ -386,7 +386,7 @@ void subMenuCalendario(Campeonato &c1){
 
 		bool idInvalido = true;
 		while(idInvalido){
-			cout << "ID da prova a alterar: ";
+			cout << "ID da prova a realizar ou alterar: ";
 			cin >> id;
 			id--;
 			if(id < 0 || id > c1.getCalendario()->getProvas().size())
@@ -401,25 +401,22 @@ void subMenuCalendario(Campeonato &c1){
 		string str;
 		stringstream ss;
 		cout << endl;
-		cout << "1. Alterar modalidade" << endl;
+		cout << "1. Realizar prova" << endl;
 		cout << "2. Alterar local" << endl;
 		cout << "3. Alterar data" << endl;
-		cout << "4. Alterar duracao" << endl;
-		cout << "5. Alterar equipa da esquerda" << endl;
-		cout << "6. Alterar equipa da direita" << endl;
-		cout << "7. Alterar vencedor" << endl;
-		cout << "8. Menu anterior" << endl;
+		cout << "4. Alterar duracao" << endl;;
+		cout << "5. Menu anterior" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
 		ss << str;
 		ss >> option;
 		cout << "\n";
+		int i;
 
 		switch(option){
 		case 1:
-			c1.getCalendario()->getProvas()[id]->alterarModalidade();
-			c1.getCalendario()->criaFich(1,0);
+			c1.getCalendario()->getProvas()[id]->realizarProva();
 			break;
 		case 2:
 			c1.getCalendario()->getProvas()[id]->alterarLocal();
@@ -429,23 +426,11 @@ void subMenuCalendario(Campeonato &c1){
 			c1.getCalendario()->getProvas()[id]->alterarData();
 			c1.getCalendario()->criaFich(1,0);
 			break;
-		case 4://falta
+		case 4:
 			c1.getCalendario()->getProvas()[id]->alterarDuracao();
 			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 5:
-			c1.getCalendario()->getProvas()[id]->alterarEquipa(0); // falta
-			c1.getCalendario()->criaFich(1,0);
-			break;
-		case 6:
-			c1.getCalendario()->getProvas()[id]->alterarEquipa(1); // falta
-			c1.getCalendario()->criaFich(1,0);
-			break;
-		case 7:
-			c1.getCalendario()->getProvas()[id]->alterarVencedor(); //falta
-			c1.getCalendario()->criaFich(1,0);
-			break;
-		case 8:
 			subMC = false;
 			break;
 		default:
@@ -471,7 +456,7 @@ void menuCalendario(Campeonato &c1){
 		cout << endl;
 		cout << "1. Listagem das provas" << endl;
 		cout << "2. Adicionar Prova" << endl;
-		cout << "3. Alterar Prova" << endl;
+		cout << "3. Realizar ou alterar uma Prova" << endl;
 		cout << "4. Remover uma Prova" << endl;
 		cout << "5. Menu Anterior" << endl;
 
@@ -486,7 +471,7 @@ void menuCalendario(Campeonato &c1){
 			c1.getCalendario()->showProvas();
 			break;
 		case 2:
-			c1.getCalendario()->criaProvas(); //falta o append
+			c1.getCalendario()->criaProvas();
 			break;
 		case 3:
 			c1.getCalendario()->showProvas();
@@ -494,7 +479,8 @@ void menuCalendario(Campeonato &c1){
 			break;
 		case 4:
 			c1.getCalendario()->showProvas();
-			c1.getCalendario()->removeProva(); //atualizar ficheiro
+			c1.getCalendario()->removeProva();
+			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 5:
 			menuC = false;
@@ -511,71 +497,6 @@ void menuCalendario(Campeonato &c1){
 
 	menu(c1);
 
-}
-
-void menu(Campeonato &c1){
-
-	bool menu = true;
-
-	do{
-		stringstream ss;
-		int option;
-		string str;
-
-		cout << "1. Listagem das equipas" << endl;
-		cout << "2. Adicionar Equipa" << endl;
-		cout << "3. Alterar Equipa" << endl;
-		cout << "4. Consultar uma Equipa" << endl;
-		cout << "5. Remover uma Equipa" << endl;
-		cout << "6. Atletas" << endl;
-		cout << "7. Calendario" << endl;
-		cout << "8. Sair" << endl;
-
-		cout << "\nEscolha uma opcao: ";
-		cin >> str;
-		ss << str;
-		ss >> option;
-		cout << endl;
-
-
-		switch (option)
-		{
-		case 1:
-			c1.imprimeEquipas();
-			break;
-		case 2:
-			c1.adicionaEquipa();
-			break;
-		case 3:
-			c1.alteraEquipa();
-			break;
-		case 4:
-			c1.imprimeUmaEquipa();
-			break;
-		case 5:
-			c1.eliminaEquipa();
-			break;
-		case 6:
-			menuAtletas();
-			break;
-		case 7:
-			//c1.getCalendario()->showProvas();
-			//c1.getCalendario()->criaProvas();
-			menuCalendario(c1);
-			break;
-		case 8:
-			menu = false;
-			cout << endl;
-			return;
-			break;
-		default:
-			cout << "Opcao invalida. Tente outra vez.\n" << endl;
-			ss.clear();
-			str.clear();
-			break;
-		}
-		ss.clear();
-	} while(menu);
 
 }
 
