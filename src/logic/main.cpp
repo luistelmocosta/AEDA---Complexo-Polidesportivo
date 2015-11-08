@@ -553,6 +553,7 @@ void menu(Campeonato &c1){
 			c1.imprimeUmaEquipa();
 			break;
 		case 5:
+			c1.eliminaEquipa();
 			break;
 		case 6:
 			menuAtletas();

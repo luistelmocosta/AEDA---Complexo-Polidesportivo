@@ -65,12 +65,18 @@ bool Campeonato::addEquipa() {
 }
 
 bool Campeonato::eliminaEquipa() {
-	/*
-	 *
-	 * return	true se eliminou com sucesso
-	 * 			false caso contrario
-	 *
-	 */
+		string str;
+		cout << "Nome da equipa a eliminar: ";
+		cin >> str;
+		int i = findEquipa(str);
+		if(i == -1){
+			cout << "Equipa nao encontrada" << endl;
+			return false;
+		}
+		else{
+			equipas.erase(equipas.begin()+i);
+			return true;
+		}
 }
 
 void Campeonato::inserirEquipa(Equipa &e1){
