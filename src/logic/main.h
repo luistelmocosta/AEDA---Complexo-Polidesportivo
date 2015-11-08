@@ -15,7 +15,7 @@ using namespace std;
 
 bool debug=false;
 Equipa e1;
-Campeonato c1;
+Campeonato* c1 = new Campeonato("Main");
 
 bool isNumber(string str);
 int pedirValor();

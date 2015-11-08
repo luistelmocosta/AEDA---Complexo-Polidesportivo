@@ -14,7 +14,6 @@ int main(){
 
 	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
 	string NOME_F = "Equipas.txt", NOME_F_TMP = "equipas_tmp.txt";
-	//Campeonato c1;
 	string campeonato, pais, patrocinio;
 	//Equipa e1;
 
@@ -25,14 +24,14 @@ int main(){
 
 	try
 	{
-		c1.readFile("Equipas.txt");
+		c1->readFileEquipas("Equipas.txt");
 	} catch (ErroNoFicheiro &e)
 	{
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
 		cout << "Insira o nome para o campeonato a a ser criado: " << endl;
 		cin >> campeonato;
 		Campeonato* c2 = new Campeonato(campeonato);
-		c1 = *c2;
+		*c1 = *c2;
 		delete c2;
 
 		cout << endl;
@@ -40,7 +39,7 @@ int main(){
 
 	try
 	{
-		e1.readFile("Atletas.txt");
+		c1->readFileAtletas("Atletas.txt");
 	} catch (ErroNoFicheiro &e)
 	{
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
@@ -51,14 +50,14 @@ int main(){
 		cout << "Insira o patrocinio da equipa a criar: " << endl;
 		cin >> patrocinio;
 		Equipa* e2 = new Equipa(campeonato, pais, patrocinio);
-		e1 = *e2;
+		//e1 = *e2;
 		delete e2;
 
 		cout << endl;
 	}
 
-	cout << c1.getNome() << endl << endl;
-	menu(c1);
+	cout << c1->getNome() << endl << endl;
+	menu(*c1);
 
 	return 0;
 }
@@ -128,19 +127,19 @@ void removerAtleta(Equipa &e1){
 	e1.eliminaAtleta(nr);
 }
 
-void alteraAtleta(Campeonato &c1){
+void alteraAtleta(Campeonato* c1){
 	int id;
 	int pos;
 
 	cout << "Insira o ID do atleta a alterar: " << endl;
 	cin >> id;
 
-	pos=c1.findAtleta(id);
+	pos=c1->findAtleta(id);
 
 	if(pos==-1)
 		throw AtletaInexistente(id);
 	else{
-		c1.getAtletas()[pos]->imprime();
+		c1->getAtletas()[pos]->imprime();
 		/*
 		 * pergunta o que quer alterar
 		 */
@@ -188,7 +187,7 @@ void menuAtletas(){
 			break;
 
 		case 5:
-			menu(c1);
+			menu(*c1);
 			break;
 		case 6:
 			menub = false;
@@ -213,7 +212,7 @@ bool findNomeEmEquipas(){
 	cin.ignore();
 	getline(cin, inputE);
 
-	if(c1.findEquipa(inputE)!=-1){
+	if(c1->findEquipa(inputE)!=-1){
 		cout << "cheguei aqui" << endl;
 		cout << "encontrei !" << endl;
 		subMenuEquipas();
@@ -264,7 +263,7 @@ void subMenuEquipas(){
 			e1.setPatrocinador(change);
 			break;
 		case 4:
-			menu(c1);
+			menu(*c1);
 			break;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;

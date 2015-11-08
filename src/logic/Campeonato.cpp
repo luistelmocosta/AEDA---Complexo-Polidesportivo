@@ -77,7 +77,7 @@ void Campeonato::inserirEquipa(Equipa &e1){
 	equipas.push_back(&e1);
 }
 
-void Campeonato::readFile(string filename){
+void Campeonato::readFileEquipas(string filename){
 
 	ifstream ficheiro_leitura (filename.c_str());
 
@@ -96,7 +96,33 @@ void Campeonato::readFile(string filename){
 			inserirEquipa(*e1);
 		}
 	}
+}
 
+void Campeonato::readFileAtletas(string filename){
+	ifstream ficheiro_leitura(filename.c_str());
+
+		if(!ficheiro_leitura)
+			throw ErroNoFicheiro(filename);
+		else {
+			string nome, pais, temp1, temp2, temp3;
+			int idade, altura, peso;
+
+			while (!ficheiro_leitura.eof()) {
+
+				getline(ficheiro_leitura, nome);
+				getline(ficheiro_leitura, pais);
+				getline(ficheiro_leitura, temp1);
+				getline(ficheiro_leitura, temp2);
+				getline(ficheiro_leitura, temp3);
+
+				idade = atoi(temp1.c_str());
+				peso = atoi(temp2.c_str());
+				altura = atoi(temp3.c_str());
+
+				Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
+				atletas.push_back(a1);
+			}
+		}
 }
 
 int Campeonato::findEquipa(string nomeEquipa){

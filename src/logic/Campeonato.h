@@ -41,7 +41,9 @@ public:
 	bool eliminaEquipa();
 
 	void inserirEquipa(Equipa &e1);
-	void readFile(string filename);
+
+	void readFileAtletas(string filename);
+	void readFileEquipas(string filename);
 
 	int findEquipa(string nomeEquipa);				//return index if success
 	int findAtleta(unsigned int id);				//else
