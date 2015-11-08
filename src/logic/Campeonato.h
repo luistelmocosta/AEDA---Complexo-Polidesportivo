@@ -18,10 +18,11 @@ class Campeonato{
 	string nome;
 	date data;
 	string pais;
+	vector<Atleta*> atletas;
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario* calendario;
-	// PRECISO?? vector<Modalidade *> modalidades;
+
 public:
 	Campeonato();
 	Campeonato(string nome);
@@ -42,12 +43,16 @@ public:
 
 	void inserirEquipa(Equipa &e1);
 	void readFile(string filename);
-	bool findEquipa(string nomeEquipa);
-	Atleta* findAtleta(string nomeAtleta);
-	Desporto* findDesporto(string nomeDesporto);
+
+	int findEquipa(string nomeEquipa);				//return index if success
+	int findAtleta(unsigned int id);				//else
+	int findDesporto(string nomeDesporto);			//return -1
+
+	vector<Atleta*> findAtletaVect(string nomeAtleta);	//return a vector, in case there are several athletes with the same name
 
 	void imprimeAtletas() const;
 	void imprimeEquipas() const;
+	void imprimeAtletasPorEquipa() const;
 
 };
 

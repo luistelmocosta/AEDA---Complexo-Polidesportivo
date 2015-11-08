@@ -107,43 +107,73 @@ void Campeonato::readFile(string filename){
 
 }
 
-bool Campeonato::findEquipa(string nomeEquipa){
-	Equipa *eq;
+int Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		if(equipas[i]->getNome() == nomeEquipa){
-			cout << equipas[i]->getNome() << endl;
-			return true;
-			break;
+			cout << nomeEquipa << " na posicao " << i << endl;
+			return i;
 		}
 	}
-
-	return false;
+	return -1;
 }
 
-Desporto* Campeonato::findDesporto(string nomeDesporto){
-	Desporto *desp;
+int Campeonato::findAtleta(unsigned int id) {
+
+	for(unsigned int i=0; i< atletas.size(); i++){
+		if(atletas[i]->getID()==id){
+			cout << id << " na posicao " << i << endl;
+			return i;
+		}
+	}
+	return -1;
+}
+
+int Campeonato::findDesporto(string nomeDesporto){
 
 	for(unsigned int i = 0; i < desportos.size(); i++){
 		if(desportos[i]->getNome() == nomeDesporto){
-			desp = desportos[i];
+			cout << nomeDesporto << " na posicao " << i << endl;
+			return i;
 		}
 	}
-	return desp;
+	return -1;
+}
+
+vector<Atleta*> Campeonato::findAtletaVect(string nomeAtleta) {
+	vector<Atleta*> aux;
+	for(unsigned int i=0; i<atletas.size(); i++){
+		if(atletas[i]->getNome()==nomeAtleta)
+			aux.push_back(atletas[i]);
+	}
+	return aux;
+}
+
+void Campeonato::imprimeAtletas() const {
+	for(unsigned int i = 0; i < atletas.size(); i++){
+		cout << atletas[i]->getID() << endl;
+		cout << atletas[i]->getNome() << endl;
+		cout << atletas[i]->getPais() << endl;
+		cout << atletas[i]->getIdade() << endl;
+		cout << atletas[i]->getPeso() << endl;
+		cout << atletas[i]->getAltura() << endl << endl;
+		//cout << endl;
+	}
+	cout << endl;
 }
 
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		cout << equipas[i]->getNome() << endl;
-		cout << endl;
+		//cout << endl;
 	}
 	cout << endl;
 }
 
-void Campeonato::imprimeAtletas() const{
+void Campeonato::imprimeAtletasPorEquipa() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		equipas[i]->showAtletas();
-		cout << endl;
-}
+		//cout << endl;
+	}
 	cout << endl;
 }

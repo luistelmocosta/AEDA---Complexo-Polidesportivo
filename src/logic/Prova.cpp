@@ -66,6 +66,10 @@ Modalidade* Prova::getModalidade() const {
 	return mod;
 }
 
+void Prova::setModalidade(Modalidade* modal) {
+	this->mod=modal;
+}
+
 Equipa* Prova::getVencedor() const {
 	return vencedor;
 }
@@ -127,6 +131,12 @@ void Prova::alterarEquipa(bool equipaEsq){
 }
 void Prova::alterarVencedor(){
 
+}
+
+bool Prova::operator ==(const Prova &p){
+	if(this->mod==p.getModalidade())
+		return true;
+	else return false;
 }
 
 bool Prova::operator !=(const Prova &p){

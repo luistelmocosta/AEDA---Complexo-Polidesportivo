@@ -57,7 +57,7 @@ float Atleta::getPontuacao() const{
 void Atleta::setPontuacao(float p){
 
 	if(p < 0)
-		throw ValorIncorrecto(p);
+		throw ValorInvalido(p);
 
 	pontuacao = p;
 

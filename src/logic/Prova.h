@@ -23,6 +23,7 @@ class Prova{
 	bool realizada;
 
 public:
+	Prova(){}
 	Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal);
 
 	int getId()const;
@@ -33,6 +34,7 @@ public:
 	unsigned int getDuracao() const;
 	vector<Equipa*> getAdversarios() const;
 	Modalidade* getModalidade() const;
+	void setModalidade(Modalidade* modal);
 	Equipa* getVencedor() const;
 	void setVencedor(Equipa* v);
 	void setParticipantes (Atleta* a1, Atleta* a2);
@@ -46,6 +48,7 @@ public:
 	Atleta* getParticipante(int i) const;
 
 	bool operator !=(const Prova &p);
+	bool operator ==(const Prova &p);
 };
 
 #endif /* SRC_PROVA_H_ */

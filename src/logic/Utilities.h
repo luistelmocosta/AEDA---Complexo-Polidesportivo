@@ -74,10 +74,10 @@ void insertionSort(vector<Comparable> &v)
 	 * 		EXCEPCOES			*
 */
 
-class ValorIncorrecto {
+class ValorInvalido {
 public:
 	int v;
-	ValorIncorrecto(int v) :v(v) {}
+	ValorInvalido(int v) :v(v) {}
 	int getValor(){return v;}
 };
 

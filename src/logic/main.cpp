@@ -48,7 +48,7 @@ int main(){
 		cin >> campeonato;
 		cout << "Insira o pais da equipa a criar: " << endl;
 		cin >> pais;
-		cout << "Insira o patronicio da equipa a criar: " << endl;
+		cout << "Insira o patrocinio da equipa a criar: " << endl;
 		cin >> patrocinio;
 		Equipa* e2 = new Equipa(campeonato, pais, patrocinio);
 		e1 = *e2;
@@ -60,7 +60,7 @@ int main(){
 	cout << c1.getNome() << endl << endl;
 	menu(c1);
 
-	return 1;
+	return 0;
 }
 
 bool isNumber(string str)
@@ -193,17 +193,13 @@ bool findNomeEmEquipas(){
 	cin.ignore();
 	getline(cin, inputE);
 
-	if(c1.findEquipa(inputE)){
+	if(c1.findEquipa(inputE)!=-1){
 		cout << "cheguei aqui" << endl;
 		cout << "encontrei !" << endl;
 		subMenuEquipas();
 		return true;
 	}
-	else{
-		cout << "peido" << endl;
-		return false;
-
-	}
+	else return false;
 }
 
 void subMenuEquipas(){
@@ -455,7 +451,6 @@ void menu(Campeonato &c1){
 	} while(menu);
 
 }
-
 
 
 

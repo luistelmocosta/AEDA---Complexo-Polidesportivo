@@ -9,19 +9,13 @@
 #define SRC_LOGIC_MAIN_H_
 
 #include "Campeonato.h"
+#include "Utilities.h"
 
 using namespace std;
 
 bool debug=false;
 Equipa e1;
 Campeonato c1;
-
-class ValorInvalido {
-public:
-	int valor;
-	ValorInvalido(int valor): valor(valor) {}
-};
-
 
 bool isNumber(string str);
 int pedirValor();

@@ -15,7 +15,9 @@ public:
 	Desporto(string n):nome(n){}
 	virtual ~Desporto(){}
 
-	void setNome(string n){nome=n;}
+	virtual void setNome(string n){nome=n;}
+
+	virtual unsigned int getNJogadores() const = 0;
 
 	virtual string getNome() const {return nome;}
 	virtual void calcPont(){}
