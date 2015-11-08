@@ -19,6 +19,7 @@ class Atleta {
 	info inf;
 	float pontuacao;
 	//vector<Prova*> provas;
+	string nEquipa;
 	vector<Modalidade*> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
 
 public:
@@ -32,13 +33,21 @@ public:
 	void setInfo(info i);
 
 	string getNome() const;
+	void setNome(string n);
 	string getPais() const;
+	void setPais(string p);
 	unsigned int getIdade() const;
+	void setIdade(int i);
 	unsigned int getPeso() const;
+	void setPeso(int p);
 	unsigned int getAltura() const;
+	void setAltura(int a);
 
  	float getPontuacao() const;
 	void setPontuacao(float p);
+
+	string getEquipa() const;
+	void setEquipa(string equipa);
 
 	vector<Modalidade*> getModalidades() const;
 	void inserirModalidade(Modalidade &mod1);

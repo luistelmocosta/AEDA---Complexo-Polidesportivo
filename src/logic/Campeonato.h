@@ -44,7 +44,8 @@ public:
 
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);
-	void imprimeUmaEquipa() ;
+
+	void imprimeUmaEquipa();
 
 	int findEquipa(string nomeEquipa);				//return index if success
 	int findAtleta(unsigned int id);				//else
