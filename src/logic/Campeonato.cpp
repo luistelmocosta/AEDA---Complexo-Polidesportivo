@@ -55,15 +55,6 @@ void Campeonato::adicionaEquipa(){
 	inserirEquipa(*e1);
 }
 
-bool Campeonato::addEquipa() {
-	/*
-	 *
-	 * return 	true se pode adicionar equipa
-	 * 			false caso contrario
-	 *
-	 */
-}
-
 bool Campeonato::eliminaEquipa() {
 		string str;
 		cout << "Nome da equipa a eliminar: ";
@@ -81,6 +72,65 @@ bool Campeonato::eliminaEquipa() {
 
 void Campeonato::inserirEquipa(Equipa &e1){
 	equipas.push_back(&e1);
+}
+
+void Campeonato::alteraEquipa(){
+	int pos;
+		string input;
+		int input_aux;
+		float pont;
+
+			cout << "Insira o nome da equipa a alterar: " << endl;
+			cin >> input;
+
+			pos=findEquipa(input);
+
+			if(pos==-1)
+				throw EquipaInexistente(input);
+			else{
+				getEquipas()[pos]->imprime();
+				cout << endl;
+				cout << "Insira o campo que pretende alterar: " << endl;
+				cin >> input;
+
+				if(input=="Nome"){
+					cout << "Insira o nome que pretende atribuir: " << endl;
+					cin >> input;
+					getAtletas()[pos]->setNome(input);
+				}
+				else if(input=="Pais"){
+					cout << "Insira o país que pretende atribuir: " << endl;
+					cin >> input;
+					getAtletas()[pos]->setPais(input);
+				}
+				else if(input=="Idade"){
+					cout << "Insira a idade que pretende atribuir: " << endl;
+					cin >> input_aux;
+					getAtletas()[pos]->setIdade(input_aux);
+				}
+				else if(input=="Peso"){
+					cout << "Insira o peso que pretende atribuir: " << endl;
+					cin >> input_aux;
+					getAtletas()[pos]->setPeso(input_aux);
+				}
+				else if(input=="Altura"){
+					cout << "Insira a altura que pretende atribuir: " << endl;
+					cin >> input_aux;
+					getAtletas()[pos]->setAltura(input_aux);
+				}
+				else if(input=="Pontuacao"){
+					cout << "Insira a pontuacao que pretende atribuir: " << endl;
+					cin >> pont;
+					getAtletas()[pos]->setPontuacao(pont);
+				}
+				else if(input=="Equipa"){
+					cout << "Insira o nome da equipa que pretende atribuir: " << endl;
+					cin >> input;
+					getAtletas()[pos]->setEquipa(input);
+				}
+
+				getAtletas()[pos]->imprime();
+			}
 }
 
 void Campeonato::readFileEquipas(string filename){
@@ -149,6 +199,47 @@ int Campeonato::findEquipa(string nomeEquipa){
 		}
 	}
 	return -1;
+}
+
+void Campeonato::adicionaAtleta() {
+
+	info i;
+	string equipa;
+
+	cout << "Nome: " << endl;
+	cin >> i.nome;
+	cout << "Pais: " << endl;
+	cin >> i.pais;
+	cout << "Idade: " << endl;
+	cin >> i.idade;
+	cout << "Altura: " << endl;
+	cin >> i.altura;
+	cout << "Peso: " << endl;
+	cin >> i.peso;
+	cout << "Equipa: " << endl;
+	cin >> equipa;
+
+	Atleta *a = new Atleta(i.nome, i.pais, i.idade, i.altura, i.peso);
+	a->setEquipa(equipa);
+
+	if(findEquipa(equipa)!=-1){
+		equipas[findEquipa(equipa)]->inserirAtleta(*a);
+	}
+
+	atletas.push_back(a);
+}
+
+void Campeonato::removerAtleta() {
+
+	unsigned int id;
+
+	cout << "Insira o ID do atleta a remover: " << endl;
+	cin >> id;
+
+	if(findAtleta(id)!=-1){
+		atletas.erase(atletas.begin() + findAtleta(id));
+	}
+
 }
 
 void Campeonato::imprimeUmaEquipa() {

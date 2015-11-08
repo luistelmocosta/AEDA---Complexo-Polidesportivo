@@ -215,12 +215,12 @@ void menuAtletas(){
 			//cout << endl;
 			break;
 		case 2:
-			e1.adicionaAtleta();
+			c1->adicionaAtleta();
 			cout << endl;
 			break;
 		case 3:
 			//unsigned int id;
-			removerAtleta(e1);
+			c1->removerAtleta();
 			cout << endl;
 			break;
 		case 4:
@@ -547,7 +547,7 @@ void menu(Campeonato &c1){
 			c1.adicionaEquipa();
 			break;
 		case 3:
-			alteraEquipa(&c1);
+			c1.alteraEquipa();
 			break;
 		case 4:
 			c1.imprimeUmaEquipa();

@@ -37,10 +37,13 @@ public:
 	Calendario* getCalendario() const;
 
 	void adicionaEquipa();
-	bool addEquipa();
 	bool eliminaEquipa();
 
+	void adicionaAtleta();
+	void removerAtleta();
+
 	void inserirEquipa(Equipa &e1);
+	void alteraEquipa();
 
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);

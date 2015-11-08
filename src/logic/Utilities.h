@@ -18,8 +18,8 @@ struct info{				// CC atleta
 	string nome;
 	string pais;
 	unsigned int idade;
-	unsigned int peso;
 	unsigned int altura;
+	unsigned int peso;
 };
 
 
