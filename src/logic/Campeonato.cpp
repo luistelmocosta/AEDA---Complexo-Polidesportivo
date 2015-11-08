@@ -1,12 +1,8 @@
 #include "Campeonato.h"
 
-Campeonato::Campeonato() {};
+Campeonato::Campeonato() {}
 
-Campeonato::Campeonato(string nome): nome(nome) {};
-
-unsigned int Campeonato::getID() const {
-	return id;
-}
+Campeonato::Campeonato(string nome): nome(nome) {}
 
 string Campeonato::getNome() const {
 	return nome;
@@ -18,6 +14,10 @@ date Campeonato::getData() const {
 
 string Campeonato::getPais() const {
 	return pais;
+}
+
+vector<Atleta*> Campeonato::getAtletas() const{
+	return atletas;
 }
 
 vector<Equipa*> Campeonato::getEquipas() const {
@@ -97,14 +97,6 @@ void Campeonato::readFile(string filename){
 		}
 	}
 
-
-	vector<Equipa*>::iterator it;
-	for(it = equipas.begin(); it != equipas.end() ;  ++it) {
-		cout << (*it)->getNome() << endl;
-		cout << (*it)->getPais() << endl;
-		cout << (*it)->getPatrocinador() << endl << endl;
-	}
-
 }
 
 int Campeonato::findEquipa(string nomeEquipa){
@@ -157,7 +149,6 @@ void Campeonato::imprimeAtletas() const {
 		cout << atletas[i]->getIdade() << endl;
 		cout << atletas[i]->getPeso() << endl;
 		cout << atletas[i]->getAltura() << endl << endl;
-		//cout << endl;
 	}
 	cout << endl;
 }
@@ -165,7 +156,8 @@ void Campeonato::imprimeAtletas() const {
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		cout << equipas[i]->getNome() << endl;
-		//cout << endl;
+		cout << equipas[i]->getPais() << endl;
+		cout << equipas[i]->getPatrocinador() << endl;
 	}
 	cout << endl;
 }
@@ -173,7 +165,6 @@ void Campeonato::imprimeEquipas() const{
 void Campeonato::imprimeAtletasPorEquipa() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		equipas[i]->showAtletas();
-		//cout << endl;
 	}
 	cout << endl;
 }

@@ -14,7 +14,6 @@ using namespace std;
 
 class Campeonato{
 
-	unsigned int id;
 	string nome;
 	date data;
 	string pais;
@@ -27,11 +26,11 @@ public:
 	Campeonato();
 	Campeonato(string nome);
 
-	unsigned int getID() const;
 	string getNome() const;
 	date getData() const;
 	string getPais() const;
 
+	vector<Atleta*> getAtletas() const;
 	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 

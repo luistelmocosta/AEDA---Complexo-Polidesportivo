@@ -22,6 +22,7 @@ int pedirValor();
 void menu(Campeonato &c1);
 void menuAtletas();
 void removerAtleta(Equipa &e1);
+void alteraAtleta();
 void subMenuEquipas();
 bool findNomeEmEquipas();
 

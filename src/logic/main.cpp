@@ -128,6 +128,24 @@ void removerAtleta(Equipa &e1){
 	e1.eliminaAtleta(nr);
 }
 
+void alteraAtleta(Campeonato &c1){
+	int id;
+	int pos;
+
+	cout << "Insira o ID do atleta a alterar: " << endl;
+	cin >> id;
+
+	pos=c1.findAtleta(id);
+
+	if(pos==-1)
+		throw AtletaInexistente(id);
+	else{
+		c1.getAtletas()[pos]->imprime();
+		/*
+		 * pergunta o que quer alterar
+		 */
+	}
+}
 
 void menuAtletas(){
 	bool menub = true;
@@ -140,14 +158,15 @@ void menuAtletas(){
 		cout << "1. Listagem de Atletas" << endl;
 		cout << "2. Adicionar Atleta" << endl;
 		cout << "3. Remover Atleta" << endl;
-		cout << "4. Menu Anterior" << endl;
-		cout << "5. Sair" << endl;
+		cout << "4. Altera Atleta" << endl;
+		cout << "5. Menu Anterior" << endl;
+		cout << "6. Sair" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
 		ss << str;
 		ss >> option;
-		cout << "\n";
+		cout << endl;
 
 		switch (option)
 		{
@@ -165,15 +184,16 @@ void menuAtletas(){
 			cout << endl;
 			break;
 		case 4:
+			alteraAtleta(c1);
+			break;
+
+		case 5:
 			menu(c1);
 			break;
-		case 5:
+		case 6:
 			menub = false;
 			cout << endl;
 			return;
-			break;
-		case 6:
-
 			break;
 		default:
 			cout << "Opcao invalida. Tente outra vez.\n" << endl;
@@ -337,7 +357,6 @@ void subMenuCalendario(Campeonato &c1){
 		ss.clear();
 	}
 
-
 	menu(c1);
 }
 
@@ -405,7 +424,6 @@ void menu(Campeonato &c1){
 		int option;
 		string str;
 
-		cout << endl;
 		cout << "1. Listagem das equipas" << endl;
 		cout << "2. Adicionar Equipa" << endl;
 		cout << "3. Alterar Equipa" << endl;
@@ -419,7 +437,7 @@ void menu(Campeonato &c1){
 		cin >> str;
 		ss << str;
 		ss >> option;
-		cout << "\n";
+		cout << endl;
 
 
 		switch (option)
