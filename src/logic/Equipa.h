@@ -48,6 +48,9 @@ public:
 
 	void readFile(string filename);
 	void writeFile(string filename);
+
+	void imprime();
+
 	bool operator<(const Equipa &e);
 
 

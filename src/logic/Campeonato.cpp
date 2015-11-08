@@ -118,10 +118,10 @@ void Campeonato::readFileAtletas(string filename){
 				getline(ficheiro_leitura, nEquipa);
 
 				idade = atoi(temp1.c_str());
-				peso = atoi(temp2.c_str());
-				altura = atoi(temp3.c_str());
+				altura = atoi(temp2.c_str());
+				peso = atoi(temp3.c_str());
 
-				Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
+				Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
 				a1->setEquipa(nEquipa);
 				for(unsigned int i = 0; i < equipas.size(); i++){
 					if(equipas[i]->getNome() == nEquipa){
@@ -215,9 +215,9 @@ void Campeonato::imprimeAtletas() const {
 
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
-		cout << endl << equipas[i]->getNome();
-		cout << equipas[i]->getPais();
-		cout << equipas[i]->getPatrocinador();
+		cout << equipas[i]->getNome() << endl;
+		cout << equipas[i]->getPais() << endl;
+		cout << equipas[i]->getPatrocinador() << endl;
 	}
 	cout << endl << endl;
 }

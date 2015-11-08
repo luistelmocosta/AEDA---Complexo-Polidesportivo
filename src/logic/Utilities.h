@@ -94,9 +94,16 @@ class AtletaInexistente {
 public:
 	int id;
 	string nome;
-	AtletaInexistente(int id) :id(id) {}
+	AtletaInexistente(int id): id(id) {}
 	AtletaInexistente(string nome): nome(nome){}
 	int getID(){return id;}
+	string getNome(){return nome;}
+};
+
+class EquipaInexistente{
+public:
+	string nome;
+	EquipaInexistente(string n): nome(n) {}
 	string getNome(){return nome;}
 };
 

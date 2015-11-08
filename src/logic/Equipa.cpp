@@ -150,6 +150,12 @@ void Equipa::readFile(string filename){
 	}
 }
 
+void Equipa::imprime() {
+	cout << nome << endl;
+	cout << pais << endl;
+	cout << patrocinador << endl;
+}
+
 bool Equipa::operator<(const Equipa &e){ // para insertionSort
 
 

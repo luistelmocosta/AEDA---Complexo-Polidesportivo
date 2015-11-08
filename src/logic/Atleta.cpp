@@ -5,12 +5,12 @@ using namespace std;
 
 int Atleta::newID = 0;
 
-Atleta::Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a): uid(newID++){
+Atleta::Atleta(string n, string pais, unsigned int i, unsigned int a, unsigned int p): uid(newID++){
 	inf.nome=n;
 	inf.pais=pais;
 	inf.idade=i;
-	inf.peso=p;
 	inf.altura=a;
+	inf.peso=p;
 	pontuacao=0;
 }
 
@@ -104,8 +104,8 @@ void Atleta::imprime() const{
 	cout << "Nome: " << inf.nome << endl;
 	cout << "Pais: " << inf.pais << endl;
 	cout << "Idade: " << inf.idade << endl;
-	cout << "Peso: " << inf.peso << endl;
 	cout << "Altura: " << inf.altura << endl;
+	cout << "Peso: " << inf.peso << endl;
 	cout << "Pontuacao: "<< pontuacao << endl;
 	cout << "Equipa: " << nEquipa << endl;
 

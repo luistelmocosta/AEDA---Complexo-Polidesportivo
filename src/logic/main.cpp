@@ -245,6 +245,66 @@ void menuAtletas(){
 	} while (menu);
 }
 
+void alteraEquipa(Campeonato* c1) {
+
+	int pos;
+	string input;
+	int input_aux;
+	float pont;
+
+		cout << "Insira o nome da equipa a alterar: " << endl;
+		cin >> input;
+
+		pos=c1->findEquipa(input);
+
+		if(pos==-1)
+			throw EquipaInexistente(input);
+		else{
+			c1->getEquipas()[pos]->imprime();
+			cout << endl;
+			cout << "Insira o campo que pretende alterar: " << endl;
+			cin >> input;
+
+			if(input=="Nome"){
+				cout << "Insira o nome que pretende atribuir: " << endl;
+				cin >> input;
+				c1->getAtletas()[pos]->setNome(input);
+			}
+			else if(input=="Pais"){
+				cout << "Insira o país que pretende atribuir: " << endl;
+				cin >> input;
+				c1->getAtletas()[pos]->setPais(input);
+			}
+			else if(input=="Idade"){
+				cout << "Insira a idade que pretende atribuir: " << endl;
+				cin >> input_aux;
+				c1->getAtletas()[pos]->setIdade(input_aux);
+			}
+			else if(input=="Peso"){
+				cout << "Insira o peso que pretende atribuir: " << endl;
+				cin >> input_aux;
+				c1->getAtletas()[pos]->setPeso(input_aux);
+			}
+			else if(input=="Altura"){
+				cout << "Insira a altura que pretende atribuir: " << endl;
+				cin >> input_aux;
+				c1->getAtletas()[pos]->setAltura(input_aux);
+			}
+			else if(input=="Pontuacao"){
+				cout << "Insira a pontuacao que pretende atribuir: " << endl;
+				cin >> pont;
+				c1->getAtletas()[pos]->setPontuacao(pont);
+			}
+			else if(input=="Equipa"){
+				cout << "Insira o nome da equipa que pretende atribuir: " << endl;
+				cin >> input;
+				c1->getAtletas()[pos]->setEquipa(input);
+			}
+
+			c1->getAtletas()[pos]->imprime();
+		}
+}
+
 bool findNomeEmEquipas(){
 
 	string inputE;
@@ -400,8 +460,6 @@ void subMenuCalendario(Campeonato &c1){
 	menu(c1);
 }
 
-
-
 void menuCalendario(Campeonato &c1){
 
 	
@@ -489,7 +547,7 @@ void menu(Campeonato &c1){
 			c1.adicionaEquipa();
 			break;
 		case 3:
-			findNomeEmEquipas();
+			alteraEquipa(&c1);
 			break;
 		case 4:
 			c1.imprimeUmaEquipa();
