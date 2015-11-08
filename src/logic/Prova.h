@@ -20,7 +20,9 @@ class Prova{
 	vector<Equipa*> vs;
 	Modalidade* mod;
 	Equipa* vencedor;
+	bool provaT; // true -> Prova de Tempo (atletismo ,natacao, etc) false -> Prova de pontos(futebol, basket etc)
 	bool realizada;
+
 
 public:
 	Prova(){}
@@ -36,7 +38,7 @@ public:
 	Modalidade* getModalidade() const;
 	void setModalidade(Modalidade* modal);
 	Equipa* getVencedor() const;
-	void setVencedor(Equipa* v);
+	void setVencedor();
 	void setParticipantes (Atleta* a1, Atleta* a2);
 	void alterarModalidade();
 	void alterarLocal();
@@ -48,7 +50,10 @@ public:
 	Atleta* getParticipante(int i) const;
 
 	bool operator !=(const Prova &p);
-	bool operator ==(const Prova &p);
+};
+
+class ParticipanteNaoEncontrado{
+
 };
 
 #endif /* SRC_PROVA_H_ */

@@ -74,8 +74,20 @@ Equipa* Prova::getVencedor() const {
 	return vencedor;
 }
 
-void Prova::setVencedor(Equipa* v){
-	this->vencedor = v;
+void Prova::setVencedor(){
+	string v;
+	v = mod->pontuacao(vs[0]->getNome(), vs[1]->getNome());
+
+	if (v == vs[0]->getNome())
+		vs[0]->setPontuacao(3);
+	if (v == vs[1]->getNome())
+		vs[1]->setPontuacao(3);
+
+	if(v == ""){
+		vs[0]->setPontuacao(1);
+		vs[1]->setPontuacao(1);
+	}
+
 }
 
 void Prova::setRealizada(){
@@ -101,8 +113,9 @@ Atleta* Prova::getParticipante(int i) const{
 		if(position !=-1){
 			return vs[i]->getAtletas()[j];
 		}
-
 	}
+
+	throw ParticipanteNaoEncontrado();
 
 }
 void Prova::alterarModalidade(){
@@ -133,11 +146,6 @@ void Prova::alterarVencedor(){
 
 }
 
-bool Prova::operator ==(const Prova &p){
-	if(this->mod==p.getModalidade())
-		return true;
-	else return false;
-}
 
 bool Prova::operator !=(const Prova &p){
 
@@ -171,3 +179,5 @@ string Prova::getDataFormatada() const {
 	return data;
 
 }
+
+

@@ -23,6 +23,7 @@ public:
     bool getSingular() const;
 
     unsigned int getNJogadores() const;
+    string pontuacao(string e1, string e2);
 
     bool operator ==(const Modalidade &mod);
 };

@@ -41,7 +41,7 @@ float Equipa::getPontuacao() const {
 }
 
 void Equipa::setPontuacao(float p) {
-	pontuacao=p;
+	pontuacao = pontuacao + p;
 }
 
 vector<Atleta*> Equipa::getAtletas() const {
