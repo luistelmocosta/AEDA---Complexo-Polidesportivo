@@ -130,6 +130,9 @@ void removerAtleta(Equipa &e1){
 void alteraAtleta(Campeonato* c1){
 	int id;
 	int pos;
+	string input;
+	int input_aux;
+	float pont;
 
 	cout << "Insira o ID do atleta a alterar: " << endl;
 	cin >> id;
@@ -140,9 +143,47 @@ void alteraAtleta(Campeonato* c1){
 		throw AtletaInexistente(id);
 	else{
 		c1->getAtletas()[pos]->imprime();
-		/*
-		 * pergunta o que quer alterar
-		 */
+		cout << endl;
+		cout << "Insira o campo que pretende alterar: " << endl;
+		cin >> input;
+
+		if(input=="Nome"){
+			cout << "Insira o nome que pretende atribuir: " << endl;
+			cin >> input;
+			c1->getAtletas()[pos]->setNome(input);
+		}
+		else if(input=="Pais"){
+			cout << "Insira o país que pretende atribuir: " << endl;
+			cin >> input;
+			c1->getAtletas()[pos]->setPais(input);
+		}
+		else if(input=="Idade"){
+			cout << "Insira a idade que pretende atribuir: " << endl;
+			cin >> input_aux;
+			c1->getAtletas()[pos]->setIdade(input_aux);
+		}
+		else if(input=="Peso"){
+			cout << "Insira o peso que pretende atribuir: " << endl;
+			cin >> input_aux;
+			c1->getAtletas()[pos]->setPeso(input_aux);
+		}
+		else if(input=="Altura"){
+			cout << "Insira a altura que pretende atribuir: " << endl;
+			cin >> input_aux;
+			c1->getAtletas()[pos]->setAltura(input_aux);
+		}
+		else if(input=="Pontuacao"){
+			cout << "Insira a pontuacao que pretende atribuir: " << endl;
+			cin >> pont;
+			c1->getAtletas()[pos]->setPontuacao(pont);
+		}
+		else if(input=="Equipa"){
+			cout << "Insira o nome da equipa que pretende atribuir: " << endl;
+			cin >> input;
+			c1->getAtletas()[pos]->setEquipa(input);
+		}
+
+		c1->getAtletas()[pos]->imprime();
 	}
 }
 
@@ -170,8 +211,8 @@ void menuAtletas(){
 		switch (option)
 		{
 		case 1:
-			e1.showAtletas();
-			cout << endl << endl;
+			c1->imprimeAtletas();
+			//cout << endl;
 			break;
 		case 2:
 			e1.adicionaAtleta();
@@ -451,6 +492,7 @@ void menu(Campeonato &c1){
 			findNomeEmEquipas();
 			break;
 		case 4:
+			c1.imprimeUmaEquipa();
 			break;
 		case 5:
 			break;

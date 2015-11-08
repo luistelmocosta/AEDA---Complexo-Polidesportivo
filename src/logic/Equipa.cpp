@@ -66,18 +66,8 @@ bool Equipa::eliminaAtleta(unsigned int n){
 
 void Equipa::showAtletas(){
 
-	cout << endl << this->nome << endl;
-	cout << "Pais: "<< this->pais << endl;
-	cout << "Pontuacao: "<< this->pontuacao << endl;
-
-	vector<Atleta*>::iterator it;
-	for(it = atletas.begin(); it != atletas.end() ;  ++it) {
-		cout << (*it)->getID() << endl;
-		cout << (*it)->getNome() << endl;
-		cout << (*it)->getPais() << endl;
-		cout << (*it)->getIdade() << endl;
-		cout << (*it)->getPeso() << endl;
-		cout << (*it)->getAltura() << endl << endl;
+	for(unsigned int i=0; i<atletas.size(); i++){
+		atletas[i]->imprime();
 	}
 
 }

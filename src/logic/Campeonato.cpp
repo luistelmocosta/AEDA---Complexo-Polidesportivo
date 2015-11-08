@@ -99,51 +99,80 @@ void Campeonato::readFileEquipas(string filename){
 }
 
 void Campeonato::readFileAtletas(string filename){
+
 	ifstream ficheiro_leitura(filename.c_str());
 
 	if(!ficheiro_leitura)
-		throw ErroNoFicheiro(filename);
-	else {
-		string nome, pais, temp1, temp2, temp3, nEquipa;
-		int idade, altura, peso;
+			throw ErroNoFicheiro(filename);
+		else {
+			string nome, pais, temp1, temp2, temp3, nEquipa;
+			int idade, altura, peso;
 
-		while (!ficheiro_leitura.eof()) {
+			while (!ficheiro_leitura.eof()) {
 
-			getline(ficheiro_leitura, nEquipa);
-			getline(ficheiro_leitura, nome);
-			getline(ficheiro_leitura, pais);
-			getline(ficheiro_leitura, temp1);
-			getline(ficheiro_leitura, temp2);
-			getline(ficheiro_leitura, temp3);
+				getline(ficheiro_leitura, nome);
+				getline(ficheiro_leitura, pais);
+				getline(ficheiro_leitura, temp1);
+				getline(ficheiro_leitura, temp2);
+				getline(ficheiro_leitura, temp3);
+				getline(ficheiro_leitura, nEquipa);
 
-			idade = atoi(temp1.c_str());
-			peso = atoi(temp2.c_str());
-			altura = atoi(temp3.c_str());
+				idade = atoi(temp1.c_str());
+				peso = atoi(temp2.c_str());
+				altura = atoi(temp3.c_str());
 
-			Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
-			for(unsigned int i = 0; i < equipas.size(); i++){
-				if(equipas[i]->getNome() == nEquipa){
-					equipas[i]->inserirAtleta(*a1);
-					break;
+				Atleta *a1 = new Atleta(nome, pais, idade, peso, altura);
+				a1->setEquipa(nEquipa);
+				for(unsigned int i = 0; i < equipas.size(); i++){
+					if(equipas[i]->getNome() == nEquipa){
+						equipas[i]->inserirAtleta(*a1);
+						break;
+					}
 				}
-			}
-			atletas.push_back(a1);
+				atletas.push_back(a1);
+	 		}
 		}
-	}
 }
 
 int Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
-
 		if(equipas[i]->getNome() == nomeEquipa){
 			cout << nomeEquipa << " na posicao " << i << endl;
 			return i;
 		}
+	}
+	return -1;
+}
+
+void Campeonato::imprimeUmaEquipa() {
+	string n;
+	int i;
+
+	bool found = false;
+
+	while(!found){
+
+		cout << "Nome da equipa a consultar (0 para sair): ";
+		cin >> n;
+
+		i = this->findEquipa(n);
+
+		if(n== "0")
+			return;
+
+		if(i == -1)
+			cout << "merda" << endl;
+		//else if(i == -1)
+			//cout << "Equipa nao encontrada!" << endl;
+		else{
+			found=true;
+			equipas[i]->showAtletas();
+		}
+
 
 	}
 
-	return -1;
 }
 
 int Campeonato::findAtleta(unsigned int id) {
@@ -179,53 +208,18 @@ vector<Atleta*> Campeonato::findAtletaVect(string nomeAtleta) {
 
 void Campeonato::imprimeAtletas() const {
 	for(unsigned int i = 0; i < atletas.size(); i++){
-		cout << atletas[i]->getID() << endl;
-		cout << atletas[i]->getNome() << endl;
-		cout << atletas[i]->getPais() << endl;
-		cout << atletas[i]->getIdade() << endl;
-		cout << atletas[i]->getPeso() << endl;
-		cout << atletas[i]->getAltura() << endl << endl;
+		atletas[i]->imprime();
 	}
-	cout << endl;
+	cout << endl << endl;
 }
 
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
-		cout << equipas[i]->getNome() << endl;
-		cout << equipas[i]->getPais() << endl;
-		cout << equipas[i]->getPatrocinador() << endl;
+		cout << endl << equipas[i]->getNome();
+		cout << equipas[i]->getPais();
+		cout << equipas[i]->getPatrocinador();
 	}
-	cout << endl;
-}
-
-void Campeonato::imprimeUmaEquipa() {
-	string n;
-	int i = 9999;
-
-	bool found = false;
-
-	while(!found){
-
-		cout << "Nome da equipa a consultar (0 para sair): ";
-		cin >> n;
-
-
-		if(n== "0")
-			return;
-		i = findEquipa(n);
-		if(i == 9999)
-			cout << "merda" << endl;
-		if(i == -1)
-			cout << "Equipa nao encontrada!" << endl;
-		else{
-			equipas[i]->showAtletas();
-		}
-
-
-	}
-
-
-
+	cout << endl << endl;
 }
 
 void Campeonato::imprimeAtletasPorEquipa() const{
