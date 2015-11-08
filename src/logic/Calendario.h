@@ -9,17 +9,21 @@ using namespace std;
 
 class Calendario{
 
+	string nomeF;
     vector<Prova*> provas;
+    vector <string> modalidades;
+    vector <string> atletas;
+    vector <string> equipas;
 
 public:
     Calendario(){}
-    Calendario(vector <Prova*> p);  
+    Calendario(vector <Prova*> p, vector <string> m, vector <string> a, vector <string> e, string nome);
 
     vector<Prova*> getProvas() const;
     vector<string> getModalidades() const;
     vector<string> getEquipas() const;
     vector<string> getAtletas() const;
-    vector<Prova*> getProvas() const;
+    string getNomeFich() const;
 
     int findProva(int id);
     vector<Prova*> findProva_Data(date d);
@@ -29,7 +33,7 @@ public:
 
     bool checkProva(Prova* p);
     void showUmaProva(int i) const;
-
+    bool fichExiste(string n);
     bool adicionaProva (Prova* p);
     void deleteProva(int i);
     void removeProva();

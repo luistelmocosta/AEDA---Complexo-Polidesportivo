@@ -5,15 +5,46 @@
 using namespace std;
 
 
-Calendario::Calendario(vector <Prova*> p) {
+Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,vector <string> e, string nome) {
 
 	for(unsigned int i = 0; i<p.size();i++){
 		provas.push_back(p[i]);
 	}
+
+	for(unsigned int i = 0; i<m.size();i++){
+		modalidades.push_back(m[i]);
+	}
+
+	for(unsigned int i = 0; i<a.size();i++){
+		atletas.push_back(a[i]);
+	}
+
+	for(unsigned int i = 0; i<e.size();i++){
+		equipas.push_back(e[i]);
+	}
+
+	this->nomeF = nome;
+
+
 }
 
 vector<Prova*> Calendario::getProvas() const {
 	return provas;
+}
+
+
+vector<string> Calendario::getModalidades() const{
+	return this->modalidades;
+}
+vector<string> Calendario::getEquipas() const{
+	return this->equipas;
+}
+vector<string> Calendario::getAtletas() const{
+	return this->atletas;
+}
+
+string Calendario::getNomeFich() const{
+	return this->nomeF;
 }
 
 int Calendario::findProva(int id) {
@@ -29,12 +60,12 @@ vector<Prova*> Calendario::findProva_Data(date d) {
 	vector<Prova*> aux;
 
 	for(unsigned int i=0; i<provas.size(); i++){
-			if(provas[i]->getData().ano==d.ano && provas[i]->getData().mes==d.mes &&
-					provas[i]->getData().dia==d.dia && provas[i]->getData().hora==d.hora){
-				aux.push_back(provas[i]);
-			}
+		if(provas[i]->getData().ano==d.ano && provas[i]->getData().mes==d.mes &&
+				provas[i]->getData().dia==d.dia && provas[i]->getData().hora==d.hora){
+			aux.push_back(provas[i]);
 		}
-		return aux;
+	}
+	return aux;
 }
 
 vector<Prova*> Calendario::findProva_Local(string loc) {
@@ -42,10 +73,10 @@ vector<Prova*> Calendario::findProva_Local(string loc) {
 	vector<Prova*> aux;
 
 	for(unsigned int i=0; i<provas.size(); i++){
-			if(provas[i]->getLocal()==loc)
-				aux.push_back(provas[i]);
-		}
-		return aux;
+		if(provas[i]->getLocal()==loc)
+			aux.push_back(provas[i]);
+	}
+	return aux;
 }
 
 vector<Prova*> Calendario::findProva_Modal(Modalidade* m) {
@@ -89,6 +120,17 @@ bool Calendario::checkProva(Prova* p){
 		}
 	}
 	return isDiff;
+}
+
+bool Calendario::fichExiste(string n){
+
+	if (FILE *file = fopen(n.c_str(), "r")) {
+		fclose(file);
+		return true;
+	} else {
+		return false;
+	}
+
 }
 
 void Calendario::showUmaProva(int i) const {
@@ -329,11 +371,11 @@ void Calendario::criaProvas(){
 	}
 
 	string nomeFich;
-	if(!fichExiste(this->nomeFicheiro)){
+	if(!fichExiste(this->nomeF)){
 		cout << "Com que nome gostaria de guardar o ficheiro das provas? ";
 		cin >> nomeFich;
 		nomeFich =+ ".txt";
-		nomeFicheiro = nomeFich;
+		nomeF = nomeFich;
 		criaFich(0, 0); // criar um ficheiro novo
 	}
 	else{
@@ -346,20 +388,20 @@ void Calendario::criaProvas(){
 }
 
 void Calendario::criaFich(bool alterar, bool adicionar){
-	
+
 	ofstream provasFich;
-	
+
 	if (adicionar && !alterar){
-		provasFich.open(this->nomeFicheiro.c_str(), std::fstream::app);
+		provasFich.open(this->nomeF.c_str(), std::fstream::app);
 	}
 	else if(!adicionar && alterar){
 
-		if( remove( this->nomeFicheiro.c_str() ) != 0 ){
+		if( remove( this->nomeF.c_str() ) != 0 ){
 			cout <<  "Erro a apagar ficheiro" << endl;
-			provasFich.open(this->nomeFicheiro.c_str(), std::fstream::out);
+			provasFich.open(this->nomeF.c_str(), std::fstream::out);
 		}
 		else
-			provasFich.open(this->nomeFicheiro.c_str(), std::fstream::out);
+			provasFich.open(this->nomeF.c_str(), std::fstream::out);
 	}
 
 	vector<Prova*>::iterator it;
@@ -373,7 +415,7 @@ void Calendario::criaFich(bool alterar, bool adicionar){
 
 	}
 
-	out << "Ficheiro de provas gravado com o nome " << this->nomeFicheiro << endl;
+	cout << "Ficheiro de provas gravado com o nome " << this->nomeF << endl;
 
 
 }
