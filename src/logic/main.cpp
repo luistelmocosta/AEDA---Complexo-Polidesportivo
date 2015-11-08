@@ -193,16 +193,17 @@ bool findNomeEmEquipas(){
 	cin.ignore();
 	getline(cin, inputE);
 
-		if(c1.findEquipa(inputE)){
-			cout << "cheguei aqui" << endl;
-			cout << "encontrei !" << endl;
-			subMenuEquipas();
-			return true;
-		}
-		else{
-			return false;
-			cout << "peido" << endl;
-		}
+	if(c1.findEquipa(inputE)){
+		cout << "cheguei aqui" << endl;
+		cout << "encontrei !" << endl;
+		subMenuEquipas();
+		return true;
+	}
+	else{
+		cout << "peido" << endl;
+		return false;
+
+	}
 }
 
 void subMenuEquipas(){
@@ -228,35 +229,166 @@ void subMenuEquipas(){
 		cout << "\n";
 
 		switch (option){
-			case 1:
-				cout << "Insira o novo nome da Equipa: ";
-				cin.ignore();
-				getline(cin, change);
-				e1.setNome(change);
-				break;
-			case 2:
-				cout << "Insira o novo paise da Equipa: ";
-				cin.ignore();
-				getline(cin, change);
-				e1.setPais(change);
-				break;
-			case 3:
-				cout << "Insira o novo patrocinio da Equipa: ";
-				cin.ignore();
-				getline(cin, change);
-				e1.setPatrocinador(change);
-				break;
-			case 4:
-				menu(c1);
-				break;
-			default:
-				cout << "Opcao invalida. Tente outra vez.\n" << endl;
-				ss.clear();
-				str.clear();
-				break;
-			}
-				ss.clear();
-			} while(menub);
+		case 1:
+			cout << "Insira o novo nome da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setNome(change);
+			break;
+		case 2:
+			cout << "Insira o novo paise da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setPais(change);
+			break;
+		case 3:
+			cout << "Insira o novo patrocinio da Equipa: ";
+			cin.ignore();
+			getline(cin, change);
+			e1.setPatrocinador(change);
+			break;
+		case 4:
+			menu(c1);
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	} while(menub);
+}
+
+void subMenuCalendario(Campeonato &c1){
+
+	bool subMC = true;
+
+
+	while (subMC){
+		int id = -1, option;
+
+		bool idInvalido = true;
+		while(idInvalido){
+			cout << "ID da prova a alterar: ";
+			cin >> id;
+			id--;
+			if(id < 0 || id > c1.getCalendario()->getProvas().size())
+				cout << "ID invalido!" << endl;
+			else
+				idInvalido = false;
+
+		}
+
+		c1.getCalendario()->showUmaProva(id);
+
+		string str;
+		stringstream ss;
+		cout << endl;
+		cout << "1. Alterar modalidade" << endl;
+		cout << "2. Alterar local" << endl;
+		cout << "3. Alterar data" << endl;
+		cout << "4. Alterar duracao" << endl;
+		cout << "5. Alterar equipa da esquerda" << endl;
+		cout << "6. Alterar equipa da direita" << endl;
+		cout << "7. Alterar vencedor" << endl;
+		cout << "8. Menu anterior" << endl;
+
+		cout << "\nEscolha uma opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> option;
+		cout << "\n";
+
+		switch(option){
+		case 1:
+			c1.getCalendario()->getProvas()[id]->alterarModalidade();
+			break;
+		case 2:
+			c1.getCalendario()->getProvas()[id]->alterarLocal();
+			break;
+		case 3:
+			c1.getCalendario()->getProvas()[id]->alterarData();
+			break;
+		case 4://falta
+			c1.getCalendario()->getProvas()[id]->alterarDuracao();
+			break;
+		case 5:
+			c1.getCalendario()->getProvas()[id]->alterarEquipa(0);
+			break;
+		case 6:
+			c1.getCalendario()->getProvas()[id]->alterarEquipa(1);
+			break;
+		case 7:
+			c1.getCalendario()->getProvas()[id]->alterarVencedor();
+		case 8:
+			subMC = false;
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	}
+
+
+	menu(c1);
+}
+
+
+
+void menuCalendario(Campeonato &c1){
+
+	bool menuC = true;
+	while (menuC){
+		string str;
+		stringstream ss;
+		int option;
+		cout << endl;
+		cout << "1. Listagem das provas" << endl;
+		cout << "2. Adicionar Prova" << endl;
+		cout << "3. Alterar Prova" << endl;
+		cout << "4. Remover uma Prova" << endl;
+		cout << "5. Menu Anterior" << endl;
+
+		cout << "\nEscolha uma opcao: ";
+		cin >> str;
+		ss << str;
+		ss >> option;
+		cout << "\n";
+
+		switch(option){
+		case 1:
+			c1.getCalendario()->showProvas();
+			break;
+		case 2:
+			c1.getCalendario()->criaProvas(); //falta o append
+			break;
+		case 3:
+			c1.getCalendario()->showProvas();
+			subMenuCalendario(c1);
+			break;
+		case 4:
+			c1.getCalendario()->showProvas();
+			c1.getCalendario()->removeProva(); //atualizar ficheiro
+			break;
+		case 5:
+			menuC = false;
+			break;
+		default:
+			cout << "Opcao invalida. Tente outra vez.\n" << endl;
+			ss.clear();
+			str.clear();
+			break;
+		}
+		ss.clear();
+	}
+
+
+	menu(c1);
+
 }
 
 void menu(Campeonato &c1){
@@ -304,6 +436,9 @@ void menu(Campeonato &c1){
 			menuAtletas();
 			break;
 		case 7:
+			//c1.getCalendario()->showProvas();
+			//c1.getCalendario()->criaProvas();
+			menuCalendario(c1);
 			break;
 		case 8:
 			menu = false;
@@ -320,6 +455,12 @@ void menu(Campeonato &c1){
 	} while(menu);
 
 }
+
+
+
+
+
+
 
 /*Atleta* a1 = new Atleta("Luis", "Portugal", 30, 70, 170);
 	Atleta* a2 = new Atleta("Alexandre", "Portugal", 30, 70, 170);

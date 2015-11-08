@@ -1,6 +1,8 @@
 #include "Prova.h"
 
-Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal){
+int Prova::newID = 0;
+
+Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal):id(newID++){
 
 	/*
 	fstream fich;
@@ -36,6 +38,12 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 		this->vs.push_back(v[i]);
 	}
 
+	realizada = false;
+
+}
+
+int Prova::getId()const {
+	return id;
 }
 
 date Prova::getData() const {
@@ -63,7 +71,16 @@ Equipa* Prova::getVencedor() const {
 }
 
 void Prova::setVencedor(Equipa* v){
-	vencedor = v;
+	this->vencedor = v;
+}
+
+void Prova::setRealizada(){
+	this->realizada = true;
+}
+
+void Prova::setParticipantes (Atleta* a1, Atleta* a2){
+	vs[0]->inserirAtleta(*a1);
+	vs[1]->inserirAtleta(*a2);
 }
 
 Atleta* Prova::getParticipante(int i) const{
@@ -84,11 +101,38 @@ Atleta* Prova::getParticipante(int i) const{
 	}
 
 }
+void Prova::alterarModalidade(){
+
+}
+void Prova::alterarLocal(){
+	string l;
+	cout << endl << "Novo local: ";
+	cin >> l;
+	//TODO ATUALIZAR FICHEIRO
+
+}
+void Prova::alterarData(){
+
+}
+void Prova::alterarDuracao(){
+
+	int dur;
+	cout << endl << "Nova duracao: ";
+	cin >> dur;
+	//TODO ATUALIZAR FICHEIRO
+
+}
+void Prova::alterarEquipa(bool equipaEsq){
+
+}
+void Prova::alterarVencedor(){
+
+}
 
 bool Prova::operator !=(const Prova &p){
 
 	bool result = true;
-
+	cout << "ffdsvasv" << endl;
 	if (this->local == p.getLocal() || (this->getData().ano == p.getData().ano && this->getData().dia == p.getData().dia && this->getData().mes == p.getData().mes && this->getData().hora == p.getData().hora)){
 		result = false;
 	}
@@ -101,5 +145,19 @@ bool Prova::operator !=(const Prova &p){
 	//TODO verificar hora + duracao este esta mal feito
 
 	return result;
+
+}
+
+string Prova::getDataFormatada() const {
+
+	string data = "";
+
+	data = getData().dia;
+	data =+ "-";
+	data =+ getData().mes;
+	data =+ "-";
+	data =+ getData().ano;
+
+	return data;
 
 }
