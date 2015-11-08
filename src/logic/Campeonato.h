@@ -53,6 +53,8 @@ public:
 	void imprimeAtletas() const;
 	void imprimeEquipas() const;
 	void imprimeAtletasPorEquipa() const;
+	void ordenaClassificacoes();
+
 
 };
 

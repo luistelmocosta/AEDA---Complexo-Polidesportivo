@@ -142,7 +142,7 @@ bool Prova::operator ==(const Prova &p){
 bool Prova::operator !=(const Prova &p){
 
 	bool result = true;
-	cout << "ffdsvasv" << endl;
+
 	if (this->local == p.getLocal() || (this->getData().ano == p.getData().ano && this->getData().dia == p.getData().dia && this->getData().mes == p.getData().mes && this->getData().hora == p.getData().hora)){
 		result = false;
 	}

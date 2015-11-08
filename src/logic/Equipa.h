@@ -48,6 +48,9 @@ public:
 
 	void readFile(string filename);
 	void writeFile(string filename);
+	bool operator<(const Equipa &e);
+
+
 };
 
 #endif /* SRC_EQUIPA_H_ */

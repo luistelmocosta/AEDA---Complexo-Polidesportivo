@@ -177,3 +177,11 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 	}
 	cout << endl;
 }
+
+void Campeonato::ordenaClassificacoes(){
+
+	insertionSort(equipas);
+
+}
+
+

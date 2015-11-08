@@ -156,6 +156,19 @@ void Equipa::readFile(string filename){
 	}
 }
 
+bool Equipa::operator<(const Equipa &e){ // para insertionSort
+
+
+	if(this->pontuacao < e.pontuacao)
+		return true;
+	else if(this->pontuacao == e.pontuacao)
+		return (this->nome > e.nome);
+
+	return false;
+
+
+}
+
 /*void Equipa::writeFile(string filename) {
 	ofstream ficheiro_escrita(filename.c_str());
 	vector<Atleta*>::iterator it;
