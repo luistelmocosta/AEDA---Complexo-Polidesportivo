@@ -31,7 +31,7 @@ int main(){
 	vector <string> atl;
 	vector <Prova*> p;
 
-	Calendario c(p, moda, atl, equi, "das");
+	//Calendario c(p, moda, atl, equi, "das");
 
 
 	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
@@ -76,6 +76,14 @@ int main(){
 		delete e2;
 
 		cout << endl;
+	}
+
+	try{
+		c1->getCalendario()->readFileProvas(*c1, "Provas.txt");
+	}
+	catch (ErroNoFicheiro &e)
+	{
+		cout << "erro" << endl;
 	}
 
 	cout << c1->getNome() << endl << endl;

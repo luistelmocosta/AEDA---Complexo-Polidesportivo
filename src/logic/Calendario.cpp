@@ -298,7 +298,7 @@ void Calendario::criaProvas(Campeonato &c1){
 
 				cout << "Nome do atleta da equipa " << equi1.getNome() <<": ";
 
-				cin >> nAtleta;
+				cin >> nAtleta; // GETLINE BURRO
 
 				for(unsigned int i = 0; i < c1.getAtletas().size(); i++){
 					if (c1.getAtletas()[i]->getNome() == nAtleta){
@@ -388,16 +388,16 @@ void Calendario::criaProvas(Campeonato &c1){
 		while(!bomInput){
 			cout << "Adicionar nova prova?(S/N)";
 			cin >> input;
-			if(input != "S" || input !="N" || input !="s" ||input !="n")
+			/*if(input != "S" || input !="N" || input !="s" ||input !="n")
 				cout << "Input invalido." << endl;
-			else
+			else*/
 				bomInput =true;
 		}
 
 	}
 
 	string nomeFich;
-	if(!fichExiste(this->nomeF)){
+	if(!fichExiste("Provas.txt")){
 		cout << "Com que nome gostaria de guardar o ficheiro das provas? ";
 		cin >> nomeFich;
 		nomeFich =+ ".txt";
@@ -405,7 +405,8 @@ void Calendario::criaProvas(Campeonato &c1){
 		criaFich(0, 0); // criar um ficheiro novo
 	}
 	else{
-		cout << "Provas adicionadas ao ficheiro " << getNomeFich() << endl;
+		cout << "Provas adicionadas ao ficheiro " << endl;
+		nomeF = "Provas.txt";
 		criaFich(0, 1); // alterar um ficheiro existente
 
 	}
@@ -417,7 +418,7 @@ void Calendario::criaFich(bool alterar, bool adicionar){
 
 	ofstream provasFich;
 
-	if (adicionar && !alterar){
+	/*if (adicionar && !alterar){
 		provasFich.open(this->nomeF.c_str(), std::fstream::app);
 	}
 	else if(!adicionar && alterar){
@@ -428,7 +429,8 @@ void Calendario::criaFich(bool alterar, bool adicionar){
 		}
 		else
 			provasFich.open(this->nomeF.c_str(), std::fstream::out);
-	}
+	}*/
+	provasFich.open(this->nomeF.c_str(), std::fstream::app);
 
 	vector<Prova*>::iterator it;
 
@@ -464,18 +466,79 @@ void Calendario::removeProva(){
 }
 
 void Calendario::showProvas()const{
-
+	cout << provas.size() << endl;
 	for (unsigned int i = 0; i < provas.size(); i++){
 		cout << "ID : " << provas[i]->getId() << endl;
 		cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
 		cout << provas[i]->getModalidade()->getNome()<< endl;
 		cout << provas[i]->getLocal()<<endl;
 		cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
-		cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
+		//cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
 		cout << "Data: " << provas[i]->getDataFormatada()<< endl;
 
 	}
 
+}
+
+void Calendario::readFileProvas(Campeonato &c1, string filename) {
+	ifstream ficheiro_leitura(filename.c_str());
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else{
+		string data, local, durtmp, adv1, adv2, venc, modal;
+		unsigned int duracao;
+
+		while (!ficheiro_leitura.eof()){
+
+			getline(ficheiro_leitura, data);
+			getline(ficheiro_leitura, local);
+			getline(ficheiro_leitura, durtmp);
+			getline(ficheiro_leitura, adv1);
+			getline(ficheiro_leitura, adv2);
+			getline(ficheiro_leitura, venc);
+			getline(ficheiro_leitura, modal);
+
+			duracao=atoi(durtmp.c_str());
+
+			stringstream dataSs;
+			date d;
+			dataSs << data;
+			int dia, mes, ano;
+			char tmp;
+			dataSs >> dia >> tmp >> mes >> tmp >> ano;
+
+			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
+				cout << "Data invalida!";
+			}
+
+			else{
+				d.dia = dia;
+				d.mes = mes;
+				d.ano = ano;
+			}
+
+			vector<Equipa*> vs;
+
+
+			if(c1.findEquipa(adv1)!=-1 && c1.findEquipa(adv2)!=-1){
+
+				vs.push_back(c1.getEquipas()[c1.findEquipa(adv1)]);
+				vs.push_back(c1.getEquipas()[c1.findEquipa(adv2)]);
+				Modalidade* m= new Modalidade(modal, false);
+				Prova* p = new Prova(d, local, duracao, vs, m);
+				cout << p->getData().ano << endl;
+				//calendario->adicionaProva(*p);
+				provas.push_back(p);
+				//cout << calendario->getProvas()[0]->getLocal() << endl;
+				//inserirProva(*p);
+			}
+			else
+				throw EquipaInexistente("abc");
+		}
+	}
+
+	showProvas();
 }
 
 /*

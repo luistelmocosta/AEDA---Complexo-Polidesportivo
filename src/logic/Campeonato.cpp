@@ -2,7 +2,10 @@
 
 Campeonato::Campeonato() {}
 
-Campeonato::Campeonato(string nome): nome(nome) {}
+Campeonato::Campeonato(string nome): nome(nome) {
+	Calendario* c = new Calendario;
+	calendario = c;
+}
 
 string Campeonato::getNome() const {
 	return nome;
@@ -190,6 +193,10 @@ void Campeonato::readFileAtletas(string filename){
 	}
 }
 
+void Campeonato::inserirProva(Prova &p1){
+	calendario->getProvas().push_back(&p1);
+}
+
 void Campeonato::readFileProvas(string filename) {
 	ifstream ficheiro_leitura(filename.c_str());
 
@@ -230,12 +237,17 @@ void Campeonato::readFileProvas(string filename) {
 
 			vector<Equipa*> vs;
 
+
 			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
 				vs.push_back(getEquipas()[findEquipa(adv1)]);
 				vs.push_back(getEquipas()[findEquipa(adv2)]);
 				Modalidade* m= new Modalidade(modal, false);
 				Prova* p = new Prova(d, local, duracao, vs, m);
-				calendario->adicionaProva(*p);
+				cout << p->getData().ano << endl;
+				//calendario->adicionaProva(*p);
+				calendario->getProvas().push_back(p);
+				//cout << calendario->getProvas()[0]->getLocal() << endl;
+				//inserirProva(*p);
 			}
 			else
 				throw EquipaInexistente("abc");

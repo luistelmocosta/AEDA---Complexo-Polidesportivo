@@ -28,6 +28,8 @@ public:
     vector<string> getAtletas() const;
     string getNomeFich() const;
 
+    void readFileProvas(Campeonato &c1, string filename);
+
     int findProva(int id);
     vector<Prova*> findProva_Data(date d);
     vector<Prova*> findProva_Local(string loc);

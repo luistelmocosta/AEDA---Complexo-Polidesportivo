@@ -50,9 +50,12 @@ public:
 	void inserirEquipa(Equipa &e1);
 	void alteraEquipa();
 
+	void inserirProva(Prova &p1);
+
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);
 	void readFileProvas(string filename);
+	void writeFileAtletas(string filename);
 
 	void imprimeUmaEquipa();
 
