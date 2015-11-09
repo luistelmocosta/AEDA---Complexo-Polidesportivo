@@ -23,7 +23,6 @@ void menu(Campeonato &c1);
 void menuAtletas();
 void removerAtleta(Equipa &e1);
 void alteraAtleta(Campeonato* c1);
-void alteraEquipa(Campeonato* c1);
 void subMenuEquipas();
 bool findNomeEmEquipas();
 
