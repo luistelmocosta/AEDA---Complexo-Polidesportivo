@@ -39,7 +39,6 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 	}
 
 
-
 }
 
 int Prova::getId()const {

@@ -105,20 +105,27 @@ vector<Prova*> Calendario::findProva_Vence(Equipa* e) {
 	return aux;
 }
 
-bool Calendario::checkProva(Prova* p){
+bool Calendario::checkProva(Prova &p){
 
 	bool isDiff = true; //prova diferente das restantes
-
-	for(unsigned int i = 0; i < provas.size(); i++){
-
-		if(*provas[i]!=*p){
-			isDiff = true;
-		}
-		else{
-			isDiff = false;
-			break;
-		}
+	cout << "tao2?" <<endl;
+	/*if (provas.empty()){
+		cout << "tao?" << endl;
+		return true;
 	}
+	else{
+		cout << "tao3?" << endl;
+		for(unsigned int i = 0; i < provas.size(); i++){
+
+			if(*provas[i]!=p){
+				isDiff = true;
+			}
+			else{
+				isDiff = false;
+				break;
+			}
+		}
+	}*/
 	return isDiff;
 }
 
@@ -146,15 +153,17 @@ void Calendario::showUmaProva(int i) const {
 
 }
 
-bool Calendario::adicionaProva (Prova* p){
+bool Calendario::adicionaProva (Prova &p){
+
+	cout << "antes check" << endl;
 
 	if(checkProva(p)){
-		provas.push_back(p);
+		provas.push_back(&p);
 		return true;
 	}
 
 	else
-		cout << "impossivel adicionar prova " << p->getLocal() << "(sobreposicao de provas)" << endl;
+		cout << "impossivel adicionar prova " << p.getLocal() << "(sobreposicao de provas)" << endl;
 
 	return false;
 }
@@ -163,7 +172,7 @@ void Calendario::deleteProva(int i){
 	provas.erase(provas.begin()+i);
 }
 
-void Calendario::criaProvas(){
+void Calendario::criaProvas(Campeonato &c1){
 
 	cout << "Criador de Provas!" << endl;
 
@@ -186,10 +195,11 @@ void Calendario::criaProvas(){
 			cout << "Nome da modalidade: ";
 			cin >> modN;
 
-			for (unsigned int i = 0; i < getModalidades().size(); i++){
+			/*for (unsigned int i = 0; i < getModalidades().size(); i++){
 				if(getModalidades()[i] == modN)
-					boaMod = true;
-			}
+					boaMod = true;*/
+			boaMod = true;
+
 			if(!boaMod)
 				cout << "Nome da modalidade nao encontrad!!" << endl;
 
@@ -267,12 +277,18 @@ void Calendario::criaProvas(){
 
 				cout << "Nome da primeira equipa a participar: ";
 				cin >> nEquipa;
-				for(unsigned int k = 0; k < getEquipas().size(); k++){
-					if(getEquipas()[k] == nEquipa)
-						boaEquipa = true;
+				int find;
+				find = c1.findEquipa(nEquipa);
+
+				if(find != -1){
+
+					boaEquipa = true;
 				}
-				if(!boaEquipa)
+				else{
 					cout << "Equipa nao encontrada!" << endl;
+				}
+
+
 			}
 
 			Equipa equi1(nEquipa,"temp","temp");
@@ -284,9 +300,11 @@ void Calendario::criaProvas(){
 
 				cin >> nAtleta;
 
-				for (unsigned int k = 0; k < getAtletas().size(); k++){
-					if(getAtletas()[k] == nAtleta)
+				for(unsigned int i = 0; i < c1.getAtletas().size(); i++){
+					if (c1.getAtletas()[i]->getNome() == nAtleta){
 						atletaEncontrado = true;
+						break;
+					}
 				}
 
 				if (!atletaEncontrado)
@@ -302,12 +320,15 @@ void Calendario::criaProvas(){
 			while(!boaEquipa){
 				cout << "Nome da segunda equipa a participar: ";
 				cin >> nEquipa;
-				for(unsigned int k = 0; k < getEquipas().size(); k++){
-					if(getEquipas()[k] == nEquipa)
-						boaEquipa = true;
+				int find;
+				find = c1.findEquipa(nEquipa);
+
+				if(find != -1){
+					boaEquipa = true;
 				}
-				if(!boaEquipa)
+				else{
 					cout << "Equipa nao encontrada!" << endl;
+				}
 			}
 
 
@@ -319,9 +340,12 @@ void Calendario::criaProvas(){
 
 				cin >> nAtleta;
 
-				for (unsigned int k = 0; k < getAtletas().size(); k++){
-					if(getAtletas()[k] == nAtleta)
+
+				for(unsigned int i = 0; i < c1.getAtletas().size(); i++){
+					if (c1.getAtletas()[i]->getNome() == nAtleta){
 						atletaEncontrado = true;
+						break;
+					}
 				}
 
 				if (!atletaEncontrado)
@@ -336,8 +360,10 @@ void Calendario::criaProvas(){
 			Modalidade *m = new Modalidade(modN,0);
 			Prova p1(d1,local, min, vs,m);
 
+			cout << "hello" << endl;
 
-			if(adicionaProva(&p1)){
+			if(adicionaProva(p1)){
+				cout << "add" << endl;
 				provaSobrep=false;
 			}
 			else{ // falhou por reposicao

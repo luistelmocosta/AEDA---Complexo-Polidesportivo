@@ -12,6 +12,28 @@ using namespace std;
 int main(){
 
 
+	vector <string> moda;
+	string moda1 ="Futebol";
+	string moda2 = "Natacao";
+	string moda3 = "Corrida";
+	moda.push_back(moda1);
+	moda.push_back(moda2);
+	moda.push_back(moda3);
+
+	vector <string> equi;
+	string equi1 = "Benfica";
+	string equi2 = "Porto";
+	string equi3 = "Sporting";
+	equi.push_back(equi1);
+	equi.push_back(equi2);
+	equi.push_back(equi3);
+
+	vector <string> atl;
+	vector <Prova*> p;
+
+	Calendario c(p, moda, atl, equi, "das");
+
+
 	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
 	string NOME_F = "Equipas.txt", NOME_F_TMP = "equipas_tmp.txt";
 	string campeonato, pais, patrocinio;
@@ -253,17 +275,16 @@ bool findNomeEmEquipas(){
 	cout << "Insira a equipa que pretende alterar: ";
 	cin.ignore();
 	getline(cin, inputE);
+	int i =c1->findEquipa(inputE);
 
 	if(c1->findEquipa(inputE)!=-1){
-		cout << "cheguei aqui" << endl;
-		cout << "encontrei !" << endl;
-		subMenuEquipas();
+		subMenuEquipas(*c1->getEquipas()[i]);
 		return true;
 	}
 	else return false;
 }
 
-void subMenuEquipas(){
+void subMenuEquipas(Equipa &e1){
 
 	bool menub = true;
 
@@ -273,11 +294,11 @@ void subMenuEquipas(){
 		string str;
 		string change;
 
-		cout << "O que deseja alterar na equipa? ";
+		cout << "O que deseja alterar na equipa? " << endl;
 		cout << "1. Nome" << endl;
 		cout << "2. Pais" << endl;
 		cout << "3. Patrocinador" << endl;
-		cout << "4. Sair" << endl;
+		cout << "4. Menu Principal" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -293,7 +314,7 @@ void subMenuEquipas(){
 			e1.setNome(change);
 			break;
 		case 2:
-			cout << "Insira o novo paise da Equipa: ";
+			cout << "Insira o novo pais da Equipa: ";
 			cin.ignore();
 			getline(cin, change);
 			e1.setPais(change);
@@ -412,7 +433,7 @@ void menuCalendario(Campeonato &c1){
 			c1.getCalendario()->showProvas();
 			break;
 		case 2:
-			c1.getCalendario()->criaProvas(); //falta o append
+			c1.getCalendario()->criaProvas(c1); //falta o append
 			break;
 		case 3:
 			c1.getCalendario()->showProvas();
@@ -473,7 +494,8 @@ void menu(Campeonato &c1){
 			c1.adicionaEquipa();
 			break;
 		case 3:
-			c1.alteraEquipa();
+			//c1.alteraEquipa();
+			findNomeEmEquipas();
 			break;
 		case 4:
 			c1.imprimeUmaEquipa();

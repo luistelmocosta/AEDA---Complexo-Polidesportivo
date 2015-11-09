@@ -4,9 +4,12 @@
 #include <string>
 #include <vector>
 #include "Prova.h"
+#include "Campeonato.h"
 
 using namespace std;
 
+
+class Campeonato;
 class Calendario{
 
 	string nomeF;
@@ -31,15 +34,15 @@ public:
     vector<Prova*> findProva_Modal(Modalidade* m);
     vector<Prova*> findProva_Vence(Equipa* e);
 
-    bool checkProva(Prova* p);
+    bool checkProva(Prova &p);
     void showUmaProva(int i) const;
     bool fichExiste(string n);
-    bool adicionaProva (Prova* p);
+    bool adicionaProva (Prova &p);
     void deleteProva(int i);
     void removeProva();
 
 
-    void criaProvas();
+    void criaProvas(Campeonato &c1);
     void showProvas() const;
 
     void criaFich(bool alterar, bool adicionar);

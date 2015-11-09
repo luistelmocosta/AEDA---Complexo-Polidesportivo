@@ -10,7 +10,12 @@
 #include "Atleta.h"
 #include <iostream>
 
+
+
 using namespace std;
+
+class Calendario;
+
 
 class Campeonato{
 

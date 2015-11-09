@@ -101,6 +101,7 @@ void Atleta::inserirModalidade(Modalidade &mod){
 
 void Atleta::imprime() const{
 
+	cout << endl;
 	cout << "Nome: " << inf.nome << endl;
 	cout << "Pais: " << inf.pais << endl;
 	cout << "Idade: " << inf.idade << endl;
@@ -108,6 +109,7 @@ void Atleta::imprime() const{
 	cout << "Peso: " << inf.peso << endl;
 	cout << "Pontuacao: "<< pontuacao << endl;
 	cout << "Equipa: " << nEquipa << endl;
+	cout << endl;
 
 }
 

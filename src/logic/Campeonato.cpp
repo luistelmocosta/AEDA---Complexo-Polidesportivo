@@ -56,18 +56,18 @@ void Campeonato::adicionaEquipa(){
 }
 
 bool Campeonato::eliminaEquipa() {
-		string str;
-		cout << "Nome da equipa a eliminar: ";
-		cin >> str;
-		int i = findEquipa(str);
-		if(i == -1){
-			cout << "Equipa nao encontrada" << endl;
-			return false;
-		}
-		else{
-			equipas.erase(equipas.begin()+i);
-			return true;
-		}
+	string str;
+	cout << "Nome da equipa a eliminar: ";
+	cin >> str;
+	int i = findEquipa(str);
+	if(i == -1){
+		cout << "Equipa nao encontrada" << endl;
+		return false;
+	}
+	else{
+		equipas.erase(equipas.begin()+i);
+		return true;
+	}
 }
 
 void Campeonato::inserirEquipa(Equipa &e1){
@@ -76,61 +76,61 @@ void Campeonato::inserirEquipa(Equipa &e1){
 
 void Campeonato::alteraEquipa(){
 	int pos;
-		string input;
-		int input_aux;
-		float pont;
+	string input;
+	int input_aux;
+	float pont;
 
-			cout << "Insira o nome da equipa a alterar: " << endl;
+	cout << "Insira o nome da equipa a alterar: " << endl;
+	cin >> input;
+
+	pos=findEquipa(input);
+
+	if(pos==-1)
+		throw EquipaInexistente(input);
+	else{
+		getEquipas()[pos]->imprime();
+		cout << endl;
+		cout << "Insira o campo que pretende alterar: " << endl;
+		cin >> input;
+
+		if(input=="Nome"){
+			cout << "Insira o nome que pretende atribuir: " << endl;
 			cin >> input;
+			getAtletas()[pos]->setNome(input);
+		}
+		else if(input=="Pais"){
+			cout << "Insira o país que pretende atribuir: " << endl;
+			cin >> input;
+			getAtletas()[pos]->setPais(input);
+		}
+		else if(input=="Idade"){
+			cout << "Insira a idade que pretende atribuir: " << endl;
+			cin >> input_aux;
+			getAtletas()[pos]->setIdade(input_aux);
+		}
+		else if(input=="Peso"){
+			cout << "Insira o peso que pretende atribuir: " << endl;
+			cin >> input_aux;
+			getAtletas()[pos]->setPeso(input_aux);
+		}
+		else if(input=="Altura"){
+			cout << "Insira a altura que pretende atribuir: " << endl;
+			cin >> input_aux;
+			getAtletas()[pos]->setAltura(input_aux);
+		}
+		else if(input=="Pontuacao"){
+			cout << "Insira a pontuacao que pretende atribuir: " << endl;
+			cin >> pont;
+			getAtletas()[pos]->setPontuacao(pont);
+		}
+		else if(input=="Equipa"){
+			cout << "Insira o nome da equipa que pretende atribuir: " << endl;
+			cin >> input;
+			getAtletas()[pos]->setEquipa(input);
+		}
 
-			pos=findEquipa(input);
-
-			if(pos==-1)
-				throw EquipaInexistente(input);
-			else{
-				getEquipas()[pos]->imprime();
-				cout << endl;
-				cout << "Insira o campo que pretende alterar: " << endl;
-				cin >> input;
-
-				if(input=="Nome"){
-					cout << "Insira o nome que pretende atribuir: " << endl;
-					cin >> input;
-					getAtletas()[pos]->setNome(input);
-				}
-				else if(input=="Pais"){
-					cout << "Insira o país que pretende atribuir: " << endl;
-					cin >> input;
-					getAtletas()[pos]->setPais(input);
-				}
-				else if(input=="Idade"){
-					cout << "Insira a idade que pretende atribuir: " << endl;
-					cin >> input_aux;
-					getAtletas()[pos]->setIdade(input_aux);
-				}
-				else if(input=="Peso"){
-					cout << "Insira o peso que pretende atribuir: " << endl;
-					cin >> input_aux;
-					getAtletas()[pos]->setPeso(input_aux);
-				}
-				else if(input=="Altura"){
-					cout << "Insira a altura que pretende atribuir: " << endl;
-					cin >> input_aux;
-					getAtletas()[pos]->setAltura(input_aux);
-				}
-				else if(input=="Pontuacao"){
-					cout << "Insira a pontuacao que pretende atribuir: " << endl;
-					cin >> pont;
-					getAtletas()[pos]->setPontuacao(pont);
-				}
-				else if(input=="Equipa"){
-					cout << "Insira o nome da equipa que pretende atribuir: " << endl;
-					cin >> input;
-					getAtletas()[pos]->setEquipa(input);
-				}
-
-				getAtletas()[pos]->imprime();
-			}
+		getAtletas()[pos]->imprime();
+	}
 }
 
 void Campeonato::readFileEquipas(string filename){
@@ -159,42 +159,42 @@ void Campeonato::readFileAtletas(string filename){
 	ifstream ficheiro_leitura(filename.c_str());
 
 	if(!ficheiro_leitura)
-			throw ErroNoFicheiro(filename);
-		else {
-			string nome, pais, temp1, temp2, temp3, nEquipa;
-			int idade, altura, peso;
+		throw ErroNoFicheiro(filename);
+	else {
+		string nome, pais, temp1, temp2, temp3, nEquipa;
+		int idade, altura, peso;
 
-			while (!ficheiro_leitura.eof()) {
+		while (!ficheiro_leitura.eof()) {
 
-				getline(ficheiro_leitura, nome);
-				getline(ficheiro_leitura, pais);
-				getline(ficheiro_leitura, temp1);
-				getline(ficheiro_leitura, temp2);
-				getline(ficheiro_leitura, temp3);
-				getline(ficheiro_leitura, nEquipa);
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, pais);
+			getline(ficheiro_leitura, temp1);
+			getline(ficheiro_leitura, temp2);
+			getline(ficheiro_leitura, temp3);
+			getline(ficheiro_leitura, nEquipa);
 
-				idade = atoi(temp1.c_str());
-				altura = atoi(temp2.c_str());
-				peso = atoi(temp3.c_str());
+			idade = atoi(temp1.c_str());
+			altura = atoi(temp2.c_str());
+			peso = atoi(temp3.c_str());
 
-				Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
-				a1->setEquipa(nEquipa);
-				for(unsigned int i = 0; i < equipas.size(); i++){
-					if(equipas[i]->getNome() == nEquipa){
-						equipas[i]->inserirAtleta(*a1);
-						break;
-					}
+			Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
+			a1->setEquipa(nEquipa);
+			for(unsigned int i = 0; i < equipas.size(); i++){
+				if(equipas[i]->getNome() == nEquipa){
+					equipas[i]->inserirAtleta(*a1);
+					break;
 				}
-				atletas.push_back(a1);
-	 		}
+			}
+			atletas.push_back(a1);
 		}
+	}
 }
 
 int Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		if(equipas[i]->getNome() == nomeEquipa){
-			cout << nomeEquipa << " na posicao " << i << endl;
+			//cout << nomeEquipa << " na posicao " << i << endl;
 			return i;
 		}
 	}
@@ -207,7 +207,9 @@ void Campeonato::adicionaAtleta() {
 	string equipa;
 
 	cout << "Nome: " << endl;
-	cin >> i.nome;
+	cin.ignore();
+	getline(cin, i.nome);
+	//cin >> i.nome;
 	cout << "Pais: " << endl;
 	cin >> i.pais;
 	cout << "Idade: " << endl;
@@ -259,9 +261,8 @@ void Campeonato::imprimeUmaEquipa() {
 			return;
 
 		if(i == -1)
-			cout << "merda" << endl;
-		//else if(i == -1)
-			//cout << "Equipa nao encontrada!" << endl;
+			//else if(i == -1)
+			cout << "Equipa nao encontrada!" << endl;
 		else{
 			found=true;
 			equipas[i]->showAtletas();
@@ -312,9 +313,10 @@ void Campeonato::imprimeAtletas() const {
 
 void Campeonato::imprimeEquipas() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
-		cout << equipas[i]->getNome() << endl;
-		cout << equipas[i]->getPais() << endl;
-		cout << equipas[i]->getPatrocinador() << endl;
+		cout << endl;
+		cout << "Nome: " << equipas[i]->getNome() << endl;
+		cout << "Pais: " << equipas[i]->getPais() << endl;
+		cout << "Patrocinador: " << equipas[i]->getPatrocinador() << endl;
 	}
 	cout << endl << endl;
 }
