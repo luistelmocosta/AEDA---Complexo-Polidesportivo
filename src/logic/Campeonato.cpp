@@ -190,6 +190,62 @@ void Campeonato::readFileAtletas(string filename){
 	}
 }
 
+void Campeonato::readFileProvas(string filename) {
+	ifstream ficheiro_leitura(filename.c_str());
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else{
+		string data, local, durtmp, adv1, adv2, venc, modal;
+		unsigned int duracao;
+
+		while (!ficheiro_leitura.eof()){
+
+			getline(ficheiro_leitura, data);
+			getline(ficheiro_leitura, local);
+			getline(ficheiro_leitura, durtmp);
+			getline(ficheiro_leitura, adv1);
+			getline(ficheiro_leitura, adv2);
+			getline(ficheiro_leitura, venc);
+			getline(ficheiro_leitura, modal);
+
+			duracao=atoi(durtmp.c_str());
+
+			stringstream dataSs;
+			date d;
+			dataSs << data;
+			int dia, mes, ano;
+			char tmp;
+			dataSs >> dia >> tmp >> mes >> tmp >> ano;
+
+			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
+				cout << "Data invalida!";
+			}
+
+			else{
+				d.dia = dia;
+				d.mes = mes;
+				d.ano = ano;
+			}
+
+			vector<Equipa*> vs;
+
+			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
+				vs.push_back(getEquipas()[findEquipa(adv1)]);
+				vs.push_back(getEquipas()[findEquipa(adv2)]);
+				Modalidade* m= new Modalidade(modal, false);
+				Prova* p = new Prova(d, local, duracao, vs, m);
+				calendario->adicionaProva(*p);
+			}
+			else
+				throw EquipaInexistente("abc");
+		}
+	}
+
+	getCalendario()->showProvas();
+}
+
+
 int Campeonato::findEquipa(string nomeEquipa){
 
 	for(unsigned int i = 0; i < equipas.size(); i++){
@@ -333,5 +389,6 @@ void Campeonato::ordenaClassificacoes(){
 	insertionSort(equipas);
 
 }
+
 
 

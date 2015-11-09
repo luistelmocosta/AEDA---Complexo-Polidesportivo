@@ -52,6 +52,7 @@ public:
 
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);
+	void readFileProvas(string filename);
 
 	void imprimeUmaEquipa();
 
