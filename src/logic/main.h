@@ -24,7 +24,9 @@ void menuAtletas();
 void removerAtleta(Equipa &e1);
 void alteraAtleta(Campeonato* c1);
 void subMenuEquipas(Equipa &e1);
+void subMenuAtletas(Atleta &a1);
 bool findNomeEmEquipas();
+bool findNomeEmAtletas();
 
 
 #endif /* SRC_LOGIC_MAIN_H_ */
