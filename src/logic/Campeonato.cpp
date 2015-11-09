@@ -245,16 +245,21 @@ void Campeonato::readFileProvas(string filename) {
 				Prova* p = new Prova(d, local, duracao, vs, m);
 				cout << p->getData().ano << endl;
 				//calendario->adicionaProva(*p);
-				calendario->getProvas().push_back(p);
+				//calendario->getProvas().push_back(p);
 				//cout << calendario->getProvas()[0]->getLocal() << endl;
 				//inserirProva(*p);
+				calendario->addProva(*p);
 			}
 			else
 				throw EquipaInexistente("abc");
+
+			if(!ficheiro_leitura.eof())
+						break;
 		}
+
 	}
 
-	getCalendario()->showProvas();
+	//getCalendario()->showProvas();
 }
 
 

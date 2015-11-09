@@ -28,13 +28,14 @@ public:
     vector<string> getAtletas() const;
     string getNomeFich() const;
 
-    void readFileProvas(Campeonato &c1, string filename);
+
 
     int findProva(int id);
     vector<Prova*> findProva_Data(date d);
     vector<Prova*> findProva_Local(string loc);
     vector<Prova*> findProva_Modal(Modalidade* m);
     vector<Prova*> findProva_Vence(Equipa* e);
+    bool addProva(Prova &p);
 
     bool checkProva(Prova &p);
     void showUmaProva(int i) const;

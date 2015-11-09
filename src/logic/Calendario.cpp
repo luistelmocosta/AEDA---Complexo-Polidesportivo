@@ -55,6 +55,13 @@ int Calendario::findProva(int id) {
 	return -1;
 }
 
+bool Calendario::addProva(Prova &p){
+
+	provas.push_back(&p);
+	return true;
+
+}
+
 vector<Prova*> Calendario::findProva_Data(date d) {
 
 	vector<Prova*> aux;
@@ -109,7 +116,7 @@ bool Calendario::checkProva(Prova &p){
 
 	bool isDiff = true; //prova diferente das restantes
 	cout << "tao2?" <<endl;
-	/*if (provas.empty()){
+	if (provas.empty()){
 		cout << "tao?" << endl;
 		return true;
 	}
@@ -125,7 +132,7 @@ bool Calendario::checkProva(Prova &p){
 				break;
 			}
 		}
-	}*/
+	}
 	return isDiff;
 }
 
@@ -276,7 +283,9 @@ void Calendario::criaProvas(Campeonato &c1){
 			while(!boaEquipa){
 
 				cout << "Nome da primeira equipa a participar: ";
-				cin >> nEquipa;
+				cin.ignore();
+				getline(cin, nEquipa);
+
 				int find;
 				find = c1.findEquipa(nEquipa);
 
@@ -298,7 +307,9 @@ void Calendario::criaProvas(Campeonato &c1){
 
 				cout << "Nome do atleta da equipa " << equi1.getNome() <<": ";
 
-				cin >> nAtleta; // GETLINE BURRO
+				cin.ignore();
+				getline(cin,nAtleta);
+
 
 				for(unsigned int i = 0; i < c1.getAtletas().size(); i++){
 					if (c1.getAtletas()[i]->getNome() == nAtleta){
@@ -319,7 +330,8 @@ void Calendario::criaProvas(Campeonato &c1){
 
 			while(!boaEquipa){
 				cout << "Nome da segunda equipa a participar: ";
-				cin >> nEquipa;
+				cin.ignore();
+				getline(cin,nEquipa);
 				int find;
 				find = c1.findEquipa(nEquipa);
 
@@ -337,9 +349,8 @@ void Calendario::criaProvas(Campeonato &c1){
 			while (!atletaEncontrado){
 
 				cout << "Nome do atleta da equipa " << equi2.getNome() <<": ";
-
-				cin >> nAtleta;
-
+				cin.ignore();
+				getline(cin,nAtleta);
 
 				for(unsigned int i = 0; i < c1.getAtletas().size(); i++){
 					if (c1.getAtletas()[i]->getNome() == nAtleta){
@@ -480,86 +491,5 @@ void Calendario::showProvas()const{
 
 }
 
-void Calendario::readFileProvas(Campeonato &c1, string filename) {
-	ifstream ficheiro_leitura(filename.c_str());
-
-	if(!ficheiro_leitura)
-		throw ErroNoFicheiro(filename);
-	else{
-		string data, local, durtmp, adv1, adv2, venc, modal;
-		unsigned int duracao;
-
-		while (!ficheiro_leitura.eof()){
-
-			getline(ficheiro_leitura, data);
-			getline(ficheiro_leitura, local);
-			getline(ficheiro_leitura, durtmp);
-			getline(ficheiro_leitura, adv1);
-			getline(ficheiro_leitura, adv2);
-			getline(ficheiro_leitura, venc);
-			getline(ficheiro_leitura, modal);
-
-			duracao=atoi(durtmp.c_str());
-
-			stringstream dataSs;
-			date d;
-			dataSs << data;
-			int dia, mes, ano;
-			char tmp;
-			dataSs >> dia >> tmp >> mes >> tmp >> ano;
-
-			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
-				cout << "Data invalida!";
-			}
-
-			else{
-				d.dia = dia;
-				d.mes = mes;
-				d.ano = ano;
-			}
-
-			vector<Equipa*> vs;
 
 
-			if(c1.findEquipa(adv1)!=-1 && c1.findEquipa(adv2)!=-1){
-
-				vs.push_back(c1.getEquipas()[c1.findEquipa(adv1)]);
-				vs.push_back(c1.getEquipas()[c1.findEquipa(adv2)]);
-				Modalidade* m= new Modalidade(modal, false);
-				Prova* p = new Prova(d, local, duracao, vs, m);
-				cout << p->getData().ano << endl;
-				//calendario->adicionaProva(*p);
-				provas.push_back(p);
-				//cout << calendario->getProvas()[0]->getLocal() << endl;
-				//inserirProva(*p);
-			}
-			else
-				throw EquipaInexistente("abc");
-		}
-	}
-
-	showProvas();
-}
-
-/*
-int main(){
-
-	Calendario* c1;
-	Modalidade* m;
-	Prova* p;
-
-	cout << "1" << endl;
-	m->setNome("Abc");
-
-	cout << "2" << endl;
-
-	p->setModalidade(m);
-
-
-
-	c1->getProvas().push_back(p);
-
-	c1->findProva_Modal(m);
-
-	return 0;
-}*/

@@ -79,7 +79,8 @@ int main(){
 	}
 
 	try{
-		c1->getCalendario()->readFileProvas(*c1, "Provas.txt");
+		//c1->getCalendario()->readFileProvas(*c1, "Provas.txt");
+		c1->readFileProvas("Provas.txt");
 	}
 	catch (ErroNoFicheiro &e)
 	{
