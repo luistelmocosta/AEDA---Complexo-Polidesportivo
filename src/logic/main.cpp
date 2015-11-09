@@ -362,31 +362,48 @@ void subMenuAtletas(Atleta &a1){
 			break;
 		case 3:
 			cout << endl;
-			cout << "Insira a nova idade do Atleta: ";
-			cin.ignore();
-			cin >> changeINT;
+			do
+			{
+				cout << "Insira a nova idade do Atleta: ";
+				cin >> change;
+			} while (!isNumber(change));
+
+			changeINT = atoi(change.c_str());
+
 			a1.setIdade(changeINT);
 			break;
 		case 4:
 			cout << endl;
 
-			cout << "Insira a nova altura do Atleta: ";
-			cin.ignore();
-			cin >> changeINT;
+			do
+			{
+				cout << "Insira a nova altura do Atleta: ";
+				cin >> change;
+			} while (!isNumber(change));
+
+			changeINT = atoi(change.c_str());
 			a1.setAltura(changeINT);
 			break;
 		case 5:
 			cout << endl;
-			cout << "Insira o novo peso do Atleta: ";
-			cin.ignore();
-			cin >> changeINT;
+			do
+			{
+				cout << "Insira o novo peso do Atleta: ";
+				cin >> change;
+			} while (!isNumber(change));
+
+			changeINT = atoi(change.c_str());
 			a1.setPeso(changeINT);
 			break;
 		case 6:
 			cout << endl;
-			cout << "Insira a nova pontuacao do Atleta: ";
-			cin.ignore();
-			cin >> changeINT;
+			do
+			{
+				cout << "Insira a nova pontuacao do Atleta: ";
+				cin >> change;
+			} while (!isNumber(change));
+
+			changeINT = atoi(change.c_str());
 			a1.setPontuacao(changeINT);
 			break;
 		case 7:
