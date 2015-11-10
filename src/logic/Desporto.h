@@ -1,5 +1,5 @@
-#ifndef SRC_DESPORTO_H_
-#define SRC_DESPORTO_H_
+#ifndef SRC_LOGIC_DESPORTO_H_
+#define SRC_LOGIC_DESPORTO_H_
 
 #include <vector>
 #include <string>
@@ -24,4 +24,4 @@ public:
 };
 
 
-#endif /* SRC_DESPORTO_H_ */
+#endif /* SRC_LOGIC_DESPORTO_H_ */

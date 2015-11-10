@@ -1,10 +1,3 @@
-/*
- * main.h
- *
- *  Created on: 5 Nov 2015
- *      Author: luistelmocosta
- */
-
 #ifndef SRC_LOGIC_MAIN_H_
 #define SRC_LOGIC_MAIN_H_
 

@@ -1,0 +1,243 @@
+\hypertarget{class_equipa}{}\section{Equipa Class Reference}
+\label{class_equipa}\index{Equipa@{Equipa}}
+
+
+{\ttfamily \#include $<$Equipa.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_equipa_a2721072fa0d6b4451d22fdfe3c3f3c0e}{Equipa} (string n, string p, string pat)
+\item 
+\hyperlink{class_equipa_a71e864835165c2be093784ef38fd634d}{Equipa} ()
+\item 
+string \hyperlink{class_equipa_a9d20d0c8daa94e7562c5ea173337a224}{get\+Nome} () const 
+\item 
+void \hyperlink{class_equipa_a13e90216eb9ca9d6b2c144295a2b6730}{set\+Nome} (string novo\+Nome)
+\item 
+string \hyperlink{class_equipa_ac0d2108875ef6ed5833bfbd2f9921625}{get\+Pais} () const 
+\item 
+void \hyperlink{class_equipa_a2360f13c75fdcf75395cef84a9d0f589}{set\+Pais} (string novo\+Pais)
+\item 
+string \hyperlink{class_equipa_a241ab40d7dfe77af53b834482c79b94f}{get\+Patrocinador} () const 
+\item 
+void \hyperlink{class_equipa_aca1891ba657401bff00291ab22bb430a}{set\+Patrocinador} (string novo\+Patrocinio)
+\item 
+float \hyperlink{class_equipa_aeccebdc0af7faf1553e7c7eefe9e66af}{get\+Pontuacao} () const 
+\item 
+void \hyperlink{class_equipa_a9b63be5bd83117f9bd71bfa6e140da0d}{set\+Pontuacao} (float p)
+\item 
+vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a24c4de83cc1171ce42f442ef7be8a7c4}{get\+Atletas} () const 
+\item 
+void \hyperlink{class_equipa_a67f982e822a7772f2668301db0e147eb}{inserir\+Atleta} (\hyperlink{class_atleta}{Atleta} \&a1)
+\item 
+bool \hyperlink{class_equipa_a09a08b1ae3c9b0d782215265c667c364}{elimina\+Atleta} (unsigned int n)
+\item 
+void \hyperlink{class_equipa_ab17ae44fbe5b5dd2d7eea4a6d752f518}{show\+Atletas} ()
+\item 
+bool \hyperlink{class_equipa_a044a129ad5749cb2307cbbae97f279dd}{existe\+Atleta} (string \hyperlink{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}{nome})
+\item 
+void \hyperlink{class_equipa_afead1fbf9a337c39bb771b37dad578d3}{adiciona\+Atleta} ()
+\item 
+\hyperlink{class_atleta}{Atleta} $\ast$ \hyperlink{class_equipa_a1318f74738bd81955135ba3fa12385f6}{get\+Atleta} (unsigned int n)
+\item 
+void \hyperlink{class_equipa_a42c427428a2177d3c56a519d18f5b7af}{read\+File} (string filename)
+\item 
+void \hyperlink{class_equipa_a2ac887e059391da1ff682a8005c12543}{write\+File} (string filename)
+\item 
+void \hyperlink{class_equipa_a1329201fd3f78cf3b7c9c146578af92f}{imprime} ()
+\item 
+bool \hyperlink{class_equipa_a74c301834fdd69406680d35ec0abdca6}{operator$<$} (const \hyperlink{class_equipa}{Equipa} \&e)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}{nome}
+\item 
+string \hyperlink{class_equipa_a9972aebf308a7adcd5e23d127639311f}{pais}
+\item 
+string \hyperlink{class_equipa_ac9a1c45750e118888d61930c3bf4d185}{patrocinador}
+\item 
+float \hyperlink{class_equipa_a1b047e8ef3d73dd54b656af9dbfcf9ae}{pontuacao}
+\item 
+vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a391f6bca285bedd992f0104a17b79719}{atletas}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_equipa_a2721072fa0d6b4451d22fdfe3c3f3c0e}{}\index{Equipa@{Equipa}!Equipa@{Equipa}}
+\index{Equipa@{Equipa}!Equipa@{Equipa}}
+\subsubsection[{Equipa(string n, string p, string pat)}]{\setlength{\rightskip}{0pt plus 5cm}Equipa\+::\+Equipa (
+\begin{DoxyParamCaption}
+\item[{string}]{n, }
+\item[{string}]{p, }
+\item[{string}]{pat}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a2721072fa0d6b4451d22fdfe3c3f3c0e}
+\hypertarget{class_equipa_a71e864835165c2be093784ef38fd634d}{}\index{Equipa@{Equipa}!Equipa@{Equipa}}
+\index{Equipa@{Equipa}!Equipa@{Equipa}}
+\subsubsection[{Equipa()}]{\setlength{\rightskip}{0pt plus 5cm}Equipa\+::\+Equipa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a71e864835165c2be093784ef38fd634d}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_equipa_afead1fbf9a337c39bb771b37dad578d3}{}\index{Equipa@{Equipa}!adiciona\+Atleta@{adiciona\+Atleta}}
+\index{adiciona\+Atleta@{adiciona\+Atleta}!Equipa@{Equipa}}
+\subsubsection[{adiciona\+Atleta()}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::adiciona\+Atleta (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_equipa_afead1fbf9a337c39bb771b37dad578d3}
+\hypertarget{class_equipa_a09a08b1ae3c9b0d782215265c667c364}{}\index{Equipa@{Equipa}!elimina\+Atleta@{elimina\+Atleta}}
+\index{elimina\+Atleta@{elimina\+Atleta}!Equipa@{Equipa}}
+\subsubsection[{elimina\+Atleta(unsigned int n)}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::elimina\+Atleta (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a09a08b1ae3c9b0d782215265c667c364}
+\hypertarget{class_equipa_a044a129ad5749cb2307cbbae97f279dd}{}\index{Equipa@{Equipa}!existe\+Atleta@{existe\+Atleta}}
+\index{existe\+Atleta@{existe\+Atleta}!Equipa@{Equipa}}
+\subsubsection[{existe\+Atleta(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::existe\+Atleta (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a044a129ad5749cb2307cbbae97f279dd}
+\hypertarget{class_equipa_a1318f74738bd81955135ba3fa12385f6}{}\index{Equipa@{Equipa}!get\+Atleta@{get\+Atleta}}
+\index{get\+Atleta@{get\+Atleta}!Equipa@{Equipa}}
+\subsubsection[{get\+Atleta(unsigned int n)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Atleta} $\ast$ Equipa\+::get\+Atleta (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a1318f74738bd81955135ba3fa12385f6}
+\hypertarget{class_equipa_a24c4de83cc1171ce42f442ef7be8a7c4}{}\index{Equipa@{Equipa}!get\+Atletas@{get\+Atletas}}
+\index{get\+Atletas@{get\+Atletas}!Equipa@{Equipa}}
+\subsubsection[{get\+Atletas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Atleta} $\ast$ $>$ Equipa\+::get\+Atletas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a24c4de83cc1171ce42f442ef7be8a7c4}
+\hypertarget{class_equipa_a9d20d0c8daa94e7562c5ea173337a224}{}\index{Equipa@{Equipa}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Equipa@{Equipa}}
+\subsubsection[{get\+Nome() const }]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a9d20d0c8daa94e7562c5ea173337a224}
+\hypertarget{class_equipa_ac0d2108875ef6ed5833bfbd2f9921625}{}\index{Equipa@{Equipa}!get\+Pais@{get\+Pais}}
+\index{get\+Pais@{get\+Pais}!Equipa@{Equipa}}
+\subsubsection[{get\+Pais() const }]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::get\+Pais (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_ac0d2108875ef6ed5833bfbd2f9921625}
+\hypertarget{class_equipa_a241ab40d7dfe77af53b834482c79b94f}{}\index{Equipa@{Equipa}!get\+Patrocinador@{get\+Patrocinador}}
+\index{get\+Patrocinador@{get\+Patrocinador}!Equipa@{Equipa}}
+\subsubsection[{get\+Patrocinador() const }]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::get\+Patrocinador (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a241ab40d7dfe77af53b834482c79b94f}
+\hypertarget{class_equipa_aeccebdc0af7faf1553e7c7eefe9e66af}{}\index{Equipa@{Equipa}!get\+Pontuacao@{get\+Pontuacao}}
+\index{get\+Pontuacao@{get\+Pontuacao}!Equipa@{Equipa}}
+\subsubsection[{get\+Pontuacao() const }]{\setlength{\rightskip}{0pt plus 5cm}float Equipa\+::get\+Pontuacao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_aeccebdc0af7faf1553e7c7eefe9e66af}
+\hypertarget{class_equipa_a1329201fd3f78cf3b7c9c146578af92f}{}\index{Equipa@{Equipa}!imprime@{imprime}}
+\index{imprime@{imprime}!Equipa@{Equipa}}
+\subsubsection[{imprime()}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::imprime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a1329201fd3f78cf3b7c9c146578af92f}
+\hypertarget{class_equipa_a67f982e822a7772f2668301db0e147eb}{}\index{Equipa@{Equipa}!inserir\+Atleta@{inserir\+Atleta}}
+\index{inserir\+Atleta@{inserir\+Atleta}!Equipa@{Equipa}}
+\subsubsection[{inserir\+Atleta(\+Atleta \&a1)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::inserir\+Atleta (
+\begin{DoxyParamCaption}
+\item[{{\bf Atleta} \&}]{a1}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a67f982e822a7772f2668301db0e147eb}
+\hypertarget{class_equipa_a74c301834fdd69406680d35ec0abdca6}{}\index{Equipa@{Equipa}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Equipa@{Equipa}}
+\subsubsection[{operator$<$(const Equipa \&e)}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Equipa} \&}]{e}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a74c301834fdd69406680d35ec0abdca6}
+\hypertarget{class_equipa_a42c427428a2177d3c56a519d18f5b7af}{}\index{Equipa@{Equipa}!read\+File@{read\+File}}
+\index{read\+File@{read\+File}!Equipa@{Equipa}}
+\subsubsection[{read\+File(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::read\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a42c427428a2177d3c56a519d18f5b7af}
+\hypertarget{class_equipa_a13e90216eb9ca9d6b2c144295a2b6730}{}\index{Equipa@{Equipa}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Equipa@{Equipa}}
+\subsubsection[{set\+Nome(string novo\+Nome)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Nome (
+\begin{DoxyParamCaption}
+\item[{string}]{novo\+Nome}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a13e90216eb9ca9d6b2c144295a2b6730}
+\hypertarget{class_equipa_a2360f13c75fdcf75395cef84a9d0f589}{}\index{Equipa@{Equipa}!set\+Pais@{set\+Pais}}
+\index{set\+Pais@{set\+Pais}!Equipa@{Equipa}}
+\subsubsection[{set\+Pais(string novo\+Pais)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Pais (
+\begin{DoxyParamCaption}
+\item[{string}]{novo\+Pais}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a2360f13c75fdcf75395cef84a9d0f589}
+\hypertarget{class_equipa_aca1891ba657401bff00291ab22bb430a}{}\index{Equipa@{Equipa}!set\+Patrocinador@{set\+Patrocinador}}
+\index{set\+Patrocinador@{set\+Patrocinador}!Equipa@{Equipa}}
+\subsubsection[{set\+Patrocinador(string novo\+Patrocinio)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Patrocinador (
+\begin{DoxyParamCaption}
+\item[{string}]{novo\+Patrocinio}
+\end{DoxyParamCaption}
+)}\label{class_equipa_aca1891ba657401bff00291ab22bb430a}
+\hypertarget{class_equipa_a9b63be5bd83117f9bd71bfa6e140da0d}{}\index{Equipa@{Equipa}!set\+Pontuacao@{set\+Pontuacao}}
+\index{set\+Pontuacao@{set\+Pontuacao}!Equipa@{Equipa}}
+\subsubsection[{set\+Pontuacao(float p)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Pontuacao (
+\begin{DoxyParamCaption}
+\item[{float}]{p}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a9b63be5bd83117f9bd71bfa6e140da0d}
+\hypertarget{class_equipa_ab17ae44fbe5b5dd2d7eea4a6d752f518}{}\index{Equipa@{Equipa}!show\+Atletas@{show\+Atletas}}
+\index{show\+Atletas@{show\+Atletas}!Equipa@{Equipa}}
+\subsubsection[{show\+Atletas()}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::show\+Atletas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_equipa_ab17ae44fbe5b5dd2d7eea4a6d752f518}
+\hypertarget{class_equipa_a2ac887e059391da1ff682a8005c12543}{}\index{Equipa@{Equipa}!write\+File@{write\+File}}
+\index{write\+File@{write\+File}!Equipa@{Equipa}}
+\subsubsection[{write\+File(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::write\+File (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a2ac887e059391da1ff682a8005c12543}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_equipa_a391f6bca285bedd992f0104a17b79719}{}\index{Equipa@{Equipa}!atletas@{atletas}}
+\index{atletas@{atletas}!Equipa@{Equipa}}
+\subsubsection[{atletas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Atleta}$\ast$$>$ Equipa\+::atletas\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a391f6bca285bedd992f0104a17b79719}
+\hypertarget{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}{}\index{Equipa@{Equipa}!nome@{nome}}
+\index{nome@{nome}!Equipa@{Equipa}}
+\subsubsection[{nome}]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::nome\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}
+\hypertarget{class_equipa_a9972aebf308a7adcd5e23d127639311f}{}\index{Equipa@{Equipa}!pais@{pais}}
+\index{pais@{pais}!Equipa@{Equipa}}
+\subsubsection[{pais}]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::pais\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a9972aebf308a7adcd5e23d127639311f}
+\hypertarget{class_equipa_ac9a1c45750e118888d61930c3bf4d185}{}\index{Equipa@{Equipa}!patrocinador@{patrocinador}}
+\index{patrocinador@{patrocinador}!Equipa@{Equipa}}
+\subsubsection[{patrocinador}]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::patrocinador\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_ac9a1c45750e118888d61930c3bf4d185}
+\hypertarget{class_equipa_a1b047e8ef3d73dd54b656af9dbfcf9ae}{}\index{Equipa@{Equipa}!pontuacao@{pontuacao}}
+\index{pontuacao@{pontuacao}!Equipa@{Equipa}}
+\subsubsection[{pontuacao}]{\setlength{\rightskip}{0pt plus 5cm}float Equipa\+::pontuacao\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a1b047e8ef3d73dd54b656af9dbfcf9ae}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_equipa_8h}{Equipa.\+h}\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_equipa_8cpp}{Equipa.\+cpp}\end{DoxyCompactItemize}

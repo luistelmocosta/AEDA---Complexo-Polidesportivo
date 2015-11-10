@@ -1,5 +1,5 @@
-#ifndef SRC_UTILITIES_H_
-#define SRC_UTILITIES_H_
+#ifndef SRC_LOGIC_UTILITIES_H_
+#define SRC_LOGIC_UTILITIES_H_
 
 #include <vector>
 #include <string>
@@ -107,4 +107,4 @@ public:
 	string getNome(){return nome;}
 };
 
-#endif /* SRC_UTILITIES_H_ */
+#endif /* SRC_LOGIC_UTILITIES_H_ */

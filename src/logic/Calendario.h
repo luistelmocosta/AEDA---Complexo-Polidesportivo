@@ -1,5 +1,5 @@
-#ifndef SRC_CALENDARIO_H_
-#define SRC_CALENDARIO_H_
+#ifndef SRC_LOGIC_CALENDARIO_H_
+#define SRC_LOGIC_CALENDARIO_H_
 
 #include <string>
 #include <vector>
@@ -51,4 +51,4 @@ public:
     void criaFich(bool alterar, bool adicionar);
 };
 
-#endif /* SRC_CALENDARIO_H_ */
+#endif /* SRC_LOGIC_CALENDARIO_H_ */

@@ -1,5 +1,5 @@
-#ifndef SRC_MODALIDADE_H_
-#define SRC_MODALIDADE_H_
+#ifndef SRC_LOGIC_MODALIDADE_H_
+#define SRC_LOGIC_MODALIDADE_H_
 
 #include "Desporto.h"
 
@@ -28,4 +28,4 @@ public:
     bool operator ==(const Modalidade &mod);
 };
 
-#endif /* SRC_MODALIDADE_H_ */
+#endif /* SRC_LOGIC_MODALIDADE_H_ */

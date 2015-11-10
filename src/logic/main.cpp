@@ -37,18 +37,6 @@ int main(){
 	string nCampeonato, nEquipa, pais, patrocinio;
 
 	try{
-		c1->readFileEquipas(FICHEIRO_EQUIPAS);
-	}
-	catch (ErroNoFicheiro &e){
-
-		cout << "Tentativa de abrir o ficheiro falhou.\n";
-		cout << "Insira o nome para o campeonato a ser criado: " << endl;
-		cin >> nCampeonato;
-		c1->setNome(nCampeonato);
-		cout << endl;
-	}
-
-	try{
 		c1->readFileAtletas(FICHEIRO_ATLETAS);
 	}
 	catch (ErroNoFicheiro &e){
@@ -62,6 +50,18 @@ int main(){
 		cin >> patrocinio;
 		Equipa* e_aux = new Equipa(nEquipa, pais, patrocinio);
 		c1->inserirEquipa(*e_aux);
+		cout << endl;
+	}
+
+	try{
+		c1->readFileEquipas(FICHEIRO_EQUIPAS);
+	}
+	catch (ErroNoFicheiro &e){
+
+		cout << "Tentativa de abrir o ficheiro falhou.\n";
+		cout << "Insira o nome para o campeonato a ser criado: " << endl;
+		cin >> nCampeonato;
+		c1->setNome(nCampeonato);
 		cout << endl;
 	}
 
@@ -269,7 +269,7 @@ bool findNomeEmAtletas(){
 
 	unsigned int id;
 
-	cout << "Insira o atleta que pretende alterar: ";
+	cout << "Insira o ID do atleta que pretende alterar: ";
 	cin.ignore();
 	cin >> id;
 	unsigned int i =c1->findAtleta(id);
@@ -289,7 +289,7 @@ bool findNomeEmEquipas(){
 
 	string inputE;
 
-	cout << "Insira a equipa que pretende alterar: ";
+	cout << "Insira o nome da equipa que pretende alterar: ";
 	cin.ignore();
 	getline(cin, inputE);
 	int i =c1->findEquipa(inputE);

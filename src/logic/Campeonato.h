@@ -1,5 +1,5 @@
-#ifndef SRC_CAMPEONATO_H_
-#define SRC_CAMPEONATO_H_
+#ifndef SRC_LOGIC_CAMPEONATO_H_
+#define SRC_LOGIC_CAMPEONATO_H_
 
 #include <vector>
 #include <string>
@@ -74,4 +74,4 @@ public:
 
 };
 
-#endif /* SRC_CAMPEONATO_H_ */
+#endif /* SRC_LOGIC_CAMPEONATO_H_ */

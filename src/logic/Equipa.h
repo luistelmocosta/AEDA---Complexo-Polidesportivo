@@ -1,5 +1,5 @@
-#ifndef SRC_EQUIPA_H_
-#define SRC_EQUIPA_H_
+#ifndef SRC_LOGIC_EQUIPA_H_
+#define SRC_LOGIC_EQUIPA_H_
 
 #include <vector>
 #include <string>
@@ -53,7 +53,6 @@ public:
 
 	bool operator<(const Equipa &e);
 
-
 };
 
-#endif /* SRC_EQUIPA_H_ */
+#endif /* SRC_LOGIC_EQUIPA_H_ */

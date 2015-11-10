@@ -1,5 +1,5 @@
-#ifndef SRC_ATLETA_H_
-#define SRC_ATLETA_H_
+#ifndef SRC_LOGIC_ATLETA_H_
+#define SRC_LOGIC_ATLETA_H_
 
 #include <vector>
 #include <string>
@@ -55,4 +55,4 @@ public:
 	void imprime() const;
 };
 
-#endif /* SRC_ATLETA_H_ */
+#endif /* SRC_LOGIC_ATLETA_H_ */

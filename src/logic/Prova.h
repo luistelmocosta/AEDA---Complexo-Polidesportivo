@@ -1,5 +1,5 @@
-#ifndef SRC_PROVA_H_
-#define SRC_PROVA_H_
+#ifndef SRC_LOGIC_PROVA_H_
+#define SRC_LOGIC_PROVA_H_
 
 #include <vector>
 #include "Equipa.h"
@@ -52,4 +52,4 @@ class ParticipanteNaoEncontrado{
 
 };
 
-#endif /* SRC_PROVA_H_ */
+#endif /* SRC_LOGIC_PROVA_H_ */
