@@ -142,14 +142,17 @@ bool Prova::operator !=(const Prova &p){
 }
 
 string Prova::getDataFormatada() const {
+		string dta = "";
 
-	string data = "";
+		stringstream ss;
 
-	data = getData().dia;
-	data =+ "-";
-	data =+ getData().mes;
-	data =+ "-";
-	data =+ getData().ano;
+		ss << data.dia;
+		ss << "-";
+		ss << data.mes;
+		ss << "-";
+		ss << data.ano;
 
-	return data;
+		ss >> dta;
+
+		return dta;
 }

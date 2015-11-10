@@ -474,23 +474,25 @@ void subMenuCalendario(Campeonato &c1){
 
 	bool subMC = true;
 
-
 	while (subMC){
-		int id = -1, option;
+		int id = -2, option = 0;
 
 		bool idInvalido = true;
 		while(idInvalido){
-			cout << "ID da prova a realizar ou alterar: ";
+			cout << "ID da prova a realizar ou alterar (-1 para cancelar): ";
 			cin >> id;
-			id--;
-			if(id < 0 || id > c1.getCalendario()->getProvas().size())
+			if(id == -1){
+				option = -1;
+				break;
+			}
+			if((id < 0 && id != -1) || id > c1.getCalendario()->getProvas().size())
 				cout << "ID invalido!" << endl;
 			else
 				idInvalido = false;
-
 		}
 
-		c1.getCalendario()->showUmaProva(id);
+		if(id != -1)
+			c1.getCalendario()->showUmaProva(id);
 
 		string str;
 		stringstream ss;
@@ -514,16 +516,14 @@ void subMenuCalendario(Campeonato &c1){
 			break;
 		case 2:
 			c1.getCalendario()->getProvas()[id]->alterarLocal();
-			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 3:
 			c1.getCalendario()->getProvas()[id]->alterarData();
-			c1.getCalendario()->criaFich(1,0);
 			break;
 		case 4:
 			c1.getCalendario()->getProvas()[id]->alterarDuracao();
-			c1.getCalendario()->criaFich(1,0);
 			break;
+		case -1:
 		case 5:
 			subMC = false;
 			break;
@@ -541,7 +541,6 @@ void subMenuCalendario(Campeonato &c1){
 
 void menuCalendario(Campeonato &c1){
 
-
 	bool menuC = true;
 	while (menuC){
 		string str;
@@ -550,7 +549,7 @@ void menuCalendario(Campeonato &c1){
 		cout << endl;
 		cout << "1. Listagem das provas" << endl;
 		cout << "2. Adicionar Prova" << endl;
-		cout << "3. Alterar Prova" << endl;
+		cout << "3. Realizar/Alterar Prova" << endl;
 		cout << "4. Remover uma Prova" << endl;
 		cout << "5. Menu Anterior" << endl;
 

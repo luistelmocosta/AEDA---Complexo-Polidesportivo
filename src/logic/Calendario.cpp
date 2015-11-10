@@ -158,12 +158,14 @@ void Calendario::removeProva(){
 		cout << endl  << "Prova nao encontrada!" << endl;
 		return;
 	}
-	provas.erase(provas.begin()+n-1);
+	provas.erase(provas.begin()+n);
 }
 
 void Calendario::criaProvas(Campeonato &c1){
 
 	cout << "Criador de Provas!" << endl;
+
+	vector<Equipa*> vs;
 
 	string input = "s";
 	string restart;
@@ -276,13 +278,13 @@ void Calendario::criaProvas(Campeonato &c1){
 					cout << "Equipa nao encontrada!" << endl;
 				}
 			}
+			vs.push_back(c1.getEquipas()[c1.findEquipa(nEquipa)]);
 
-			Equipa equi1(nEquipa,"temp","temp");
 			boaEquipa = false;
 
 			while (!atletaEncontrado){
 
-				cout << "Nome do atleta da equipa " << equi1.getNome() <<": ";
+				cout << "Nome do atleta da equipa " << nEquipa <<": ";
 
 				cin.ignore();
 				getline(cin,nAtleta);
@@ -300,8 +302,6 @@ void Calendario::criaProvas(Campeonato &c1){
 
 			}
 			atletaEncontrado = false;
-
-			Atleta a1(nAtleta, "temp", 0 ,0 ,0);
 
 			// Equipa 2
 
@@ -321,11 +321,11 @@ void Calendario::criaProvas(Campeonato &c1){
 			}
 
 
-			Equipa equi2(nEquipa, "temp", "temp");
+			vs.push_back(c1.getEquipas()[c1.findEquipa(nEquipa)]);
 
 			while (!atletaEncontrado){
 
-				cout << "Nome do atleta da equipa " << equi2.getNome() <<": ";
+				cout << "Nome do atleta da equipa " << nEquipa <<": ";
 				cin.ignore();
 				getline(cin,nAtleta);
 
@@ -341,17 +341,16 @@ void Calendario::criaProvas(Campeonato &c1){
 
 			}
 
-			Atleta a2(nAtleta, "temp",0,0,0);
 
-			vector<Equipa*> vs;
+
 
 			Modalidade *m = new Modalidade(modN,0);
 			Prova* p1= new Prova(d1,local, min, vs,m);
 
-			cout << "hello" << endl;
+
 
 			if(adicionaProva(*p1)){
-				cout << "add" << endl;
+				cout << "Prova adicionada com sucesso!!" << endl;
 				provaSobrep=false;
 			}
 			else{ // falhou por reposicao
@@ -382,33 +381,21 @@ void Calendario::criaProvas(Campeonato &c1){
 		}
 	}
 
-	string nomeFich;
-	if(!fichExiste("Provas.txt")){
-		cout << "Com que nome gostaria de guardar o ficheiro das provas? ";
-		cin >> nomeFich;
-		nomeFich =+ ".txt";
-		nomeF = nomeFich;
-		criaFich(0, 0); // criar um ficheiro novo
-	}
-	else{
-		cout << "Provas adicionadas ao ficheiro " << endl;
-		nomeF = "Provas.txt";
-		criaFich(0, 1); // alterar um ficheiro existente
-	}
+
 }
 
 void Calendario::showUmaProva(int i) const {
 	cout << "ID : " << provas[i]->getId() << endl;
-	cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
-	cout << provas[i]->getModalidade()->getNome()<< endl;
-	cout << provas[i]->getLocal()<<endl;
-	cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
-	cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
+	cout <<"Despoto: " << provas[i]->getModalidade()->getNomeDesporto() << endl;
+	cout <<"Modalidade: " <<provas[i]->getModalidade()->getNome()<< endl;
+	cout << "Local: "<< provas[i]->getLocal()<<endl;
+	//cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
+	//cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
 	cout << "Data: " << provas[i]->getDataFormatada()<< endl;
 }
 
 void Calendario::showProvas()const{
-	cout << provas.size() << endl;
+	cout << "Numero de provas: " << provas.size() << endl;
 	for (unsigned int i = 0; i < provas.size(); i++){
 		cout << "ID : " << provas[i]->getId() << endl;
 		cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
@@ -420,44 +407,3 @@ void Calendario::showProvas()const{
 	}
 }
 
-bool Calendario::fichExiste(string n){
-
-	if (FILE *file = fopen(n.c_str(), "r")) {
-		fclose(file);
-		return true;
-	} else {
-		return false;
-	}
-}
-
-void Calendario::criaFich(bool alterar, bool adicionar){
-
-	ofstream provasFich;
-
-	/*if (adicionar && !alterar){
-		provasFich.open(this->nomeF.c_str(), std::fstream::app);
-	}
-	else if(!adicionar && alterar){
-
-		if( remove( this->nomeF.c_str() ) != 0 ){
-			cout <<  "Erro a apagar ficheiro" << endl;
-			provasFich.open(this->nomeF.c_str(), std::fstream::out);
-		}
-		else
-			provasFich.open(this->nomeF.c_str(), std::fstream::out);
-	}*/
-	provasFich.open(this->nomeF.c_str(), std::fstream::app);
-
-	vector<Prova*>::iterator it;
-
-	for(it=provas.begin(); it!= provas.end(); it++) {
-
-		provasFich << (*it)->getModalidade()->getNome() << endl << (*it)->getAdversarios()[0]->getNome() << " vs " << (*it)->getAdversarios()[1]->getNome()<< endl;
-		provasFich << "Local: " << (*it)->getLocal() <<endl;
-		provasFich << "Duracao: " << (*it)->getDuracao() << endl;
-		provasFich << "Vencedor: " << (*it)->getVencedor()->getNome() << "!!" << endl << endl;
-
-	}
-
-	cout << "Ficheiro de provas gravado com o nome " << this->nomeF << endl;
-}
