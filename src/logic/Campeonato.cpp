@@ -1,10 +1,11 @@
 #include "Campeonato.h"
 
-Campeonato::Campeonato() {}
+Campeonato::Campeonato(){
+
+}
 
 Campeonato::Campeonato(string nome): nome(nome) {
-	Calendario* c = new Calendario;
-	calendario = c;
+	calendario = new Calendario();
 }
 
 string Campeonato::getNome() const {
@@ -39,6 +40,48 @@ Calendario* Campeonato::getCalendario() const {
 	return calendario;
 }
 
+void Campeonato::adicionaAtleta() {
+
+	info i;
+	string equipa;
+
+	cout << "Nome: " << endl;
+	cin.ignore();
+	getline(cin, i.nome);
+	//cin >> i.nome;
+	cout << "Pais: " << endl;
+	cin >> i.pais;
+	cout << "Idade: " << endl;
+	cin >> i.idade;
+	cout << "Altura: " << endl;
+	cin >> i.altura;
+	cout << "Peso: " << endl;
+	cin >> i.peso;
+	cout << "Equipa: " << endl;
+	cin >> equipa;
+
+	Atleta *a = new Atleta(i.nome, i.pais, i.idade, i.altura, i.peso);
+	a->setNEquipa(equipa);
+
+	if(findEquipa(equipa)!=-1){
+		equipas[findEquipa(equipa)]->inserirAtleta(*a);
+	}
+
+	atletas.push_back(a);
+}
+
+void Campeonato::removerAtleta() {
+
+	unsigned int id;
+
+	cout << "Insira o ID do atleta a remover: " << endl;
+	cin >> id;
+
+	if(findAtleta(id)!=-1){
+		atletas.erase(atletas.begin() + findAtleta(id));
+	}
+}
+
 void Campeonato::adicionaEquipa(){
 	string nome, pais, patrocinio;
 
@@ -57,24 +100,8 @@ void Campeonato::adicionaEquipa(){
 	getline(cin, patrocinio);
 	cout << endl;
 
-
 	Equipa *e1 = new Equipa(nome, pais, patrocinio);
 	inserirEquipa(*e1);
-}
-
-bool Campeonato::eliminaEquipa() {
-	string str;
-	cout << "Nome da equipa a eliminar: ";
-	cin >> str;
-	int i = findEquipa(str);
-	if(i == -1){
-		cout << "Equipa nao encontrada" << endl;
-		return false;
-	}
-	else{
-		equipas.erase(equipas.begin()+i);
-		return true;
-	}
 }
 
 void Campeonato::inserirEquipa(Equipa &e1){
@@ -133,31 +160,25 @@ void Campeonato::alteraEquipa(){
 		else if(input=="Equipa"){
 			cout << "Insira o nome da equipa que pretende atribuir: " << endl;
 			cin >> input;
-			getAtletas()[pos]->setEquipa(input);
+			getAtletas()[pos]->setNEquipa(input);
 		}
 
 		getAtletas()[pos]->imprime();
 	}
 }
 
-void Campeonato::readFileEquipas(string filename){
-
-	ifstream ficheiro_leitura (filename.c_str());
-
-	if(!ficheiro_leitura)
-		throw ErroNoFicheiro(filename);
-	else {
-		string nome, pais, patrocinador;
-
-		while (!ficheiro_leitura.eof()) {
-
-			getline(ficheiro_leitura, nome);
-			getline(ficheiro_leitura, pais);
-			getline(ficheiro_leitura, patrocinador);
-
-			Equipa *e1 = new Equipa(nome, pais, patrocinador);
-			inserirEquipa(*e1);
-		}
+bool Campeonato::eliminaEquipa() {
+	string str;
+	cout << "Nome da equipa a eliminar: ";
+	cin >> str;
+	int i = findEquipa(str);
+	if(i == -1){
+		cout << "Equipa nao encontrada" << endl;
+		return false;
+	}
+	else{
+		equipas.erase(equipas.begin()+i);
+		return true;
 	}
 }
 
@@ -185,7 +206,7 @@ void Campeonato::readFileAtletas(string filename){
 			peso = atoi(temp3.c_str());
 
 			Atleta *a1 = new Atleta(nome, pais, idade, altura, peso);
-			a1->setEquipa(nEquipa);
+			a1->setNEquipa(nEquipa);
 			for(unsigned int i = 0; i < equipas.size(); i++){
 				if(equipas[i]->getNome() == nEquipa){
 					equipas[i]->inserirAtleta(*a1);
@@ -197,8 +218,25 @@ void Campeonato::readFileAtletas(string filename){
 	}
 }
 
-void Campeonato::inserirProva(Prova &p1){
-	calendario->getProvas().push_back(&p1);
+void Campeonato::readFileEquipas(string filename){
+
+	ifstream ficheiro_leitura (filename.c_str());
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else {
+		string nome, pais, patrocinador;
+
+		while (!ficheiro_leitura.eof()) {
+
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, pais);
+			getline(ficheiro_leitura, patrocinador);
+
+			Equipa *e1 = new Equipa(nome, pais, patrocinador);
+			inserirEquipa(*e1);
+		}
+	}
 }
 
 void Campeonato::readFileProvas(string filename) {
@@ -232,7 +270,6 @@ void Campeonato::readFileProvas(string filename) {
 			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
 				cout << "Data invalida!";
 			}
-
 			else{
 				d.dia = dia;
 				d.mes = mes;
@@ -241,18 +278,18 @@ void Campeonato::readFileProvas(string filename) {
 
 			vector<Equipa*> vs;
 
-
 			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
 				vs.push_back(getEquipas()[findEquipa(adv1)]);
 				vs.push_back(getEquipas()[findEquipa(adv2)]);
 				Modalidade* m= new Modalidade(modal, false);
 				Prova* p = new Prova(d, local, duracao, vs, m);
-				cout << p->getData().ano << endl;
+
 				//calendario->adicionaProva(*p);
 				//calendario->getProvas().push_back(p);
 				//cout << calendario->getProvas()[0]->getLocal() << endl;
 				//inserirProva(*p);
-				calendario->addProva(*p);
+				calendario->adicionaProva(*p);
+				//cout << calendario->getProvas()[0]->getLocal() << endl;
 			}
 			else
 				throw EquipaInexistente("abc");
@@ -260,94 +297,8 @@ void Campeonato::readFileProvas(string filename) {
 			if(!ficheiro_leitura.eof())
 						break;
 		}
-
 	}
-
 	//getCalendario()->showProvas();
-}
-
-
-int Campeonato::findEquipa(string nomeEquipa){
-
-	for(unsigned int i = 0; i < equipas.size(); i++){
-		if(equipas[i]->getNome() == nomeEquipa){
-			//cout << nomeEquipa << " na posicao " << i << endl;
-			return i;
-		}
-	}
-	return -1;
-}
-
-void Campeonato::adicionaAtleta() {
-
-	info i;
-	string equipa;
-
-	cout << "Nome: " << endl;
-	cin.ignore();
-	getline(cin, i.nome);
-	//cin >> i.nome;
-	cout << "Pais: " << endl;
-	cin >> i.pais;
-	cout << "Idade: " << endl;
-	cin >> i.idade;
-	cout << "Altura: " << endl;
-	cin >> i.altura;
-	cout << "Peso: " << endl;
-	cin >> i.peso;
-	cout << "Equipa: " << endl;
-	cin >> equipa;
-
-	Atleta *a = new Atleta(i.nome, i.pais, i.idade, i.altura, i.peso);
-	a->setEquipa(equipa);
-
-	if(findEquipa(equipa)!=-1){
-		equipas[findEquipa(equipa)]->inserirAtleta(*a);
-	}
-
-	atletas.push_back(a);
-}
-
-void Campeonato::removerAtleta() {
-
-	unsigned int id;
-
-	cout << "Insira o ID do atleta a remover: " << endl;
-	cin >> id;
-
-	if(findAtleta(id)!=-1){
-		atletas.erase(atletas.begin() + findAtleta(id));
-	}
-
-}
-
-void Campeonato::imprimeUmaEquipa() {
-	string n;
-	int i;
-
-	bool found = false;
-
-	while(!found){
-
-		cout << "Nome da equipa a consultar (0 para sair): ";
-		cin >> n;
-
-		i = this->findEquipa(n);
-
-		if(n== "0")
-			return;
-
-		if(i == -1)
-			//else if(i == -1)
-			cout << "Equipa nao encontrada!" << endl;
-		else{
-			found=true;
-			equipas[i]->showAtletas();
-		}
-
-
-	}
-
 }
 
 int Campeonato::findAtleta(unsigned int id) {
@@ -355,6 +306,17 @@ int Campeonato::findAtleta(unsigned int id) {
 	for(unsigned int i=0; i< atletas.size(); i++){
 		if(atletas[i]->getID()==id){
 			cout << id << " na posicao " << i << endl;
+			return i;
+		}
+	}
+	return -1;
+}
+
+int Campeonato::findEquipa(string nomeEquipa){
+
+	for(unsigned int i = 0; i < equipas.size(); i++){
+		if(equipas[i]->getNome() == nomeEquipa){
+			//cout << nomeEquipa << " na posicao " << i << endl;
 			return i;
 		}
 	}
@@ -398,6 +360,31 @@ void Campeonato::imprimeEquipas() const{
 	cout << endl << endl;
 }
 
+void Campeonato::imprimeUmaEquipa() {
+	string n;
+	int i;
+	bool found = false;
+
+	while(!found){
+
+		cout << "Nome da equipa a consultar (0 para sair): ";
+		cin >> n;
+
+		i = this->findEquipa(n);
+
+		if(n== "0")
+			return;
+
+		if(i == -1)
+			//else if(i == -1)
+			cout << "Equipa nao encontrada!" << endl;
+		else{
+			found=true;
+			equipas[i]->showAtletas();
+		}
+	}
+}
+
 void Campeonato::imprimeAtletasPorEquipa() const{
 	for(unsigned int i = 0; i < equipas.size(); i++){
 		equipas[i]->showAtletas();
@@ -406,10 +393,5 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 }
 
 void Campeonato::ordenaClassificacoes(){
-
 	insertionSort(equipas);
-
 }
-
-
-

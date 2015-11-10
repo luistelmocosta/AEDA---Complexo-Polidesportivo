@@ -48,8 +48,6 @@ public:
 	bool operator !=(const Prova &p);
 };
 
-class ParticipanteNaoEncontrado{
 
-};
 
 #endif /* SRC_LOGIC_PROVA_H_ */

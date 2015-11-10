@@ -8,18 +8,17 @@ using namespace std;
 
 bool debug=false;
 Equipa e1;
-Campeonato* c1 = new Campeonato("Main");
+Campeonato* c1 = new Campeonato("Campeonato Polidesportivo");
 
 bool isNumber(string str);
 int pedirValor();
 void menu(Campeonato &c1);
 void menuAtletas();
 void removerAtleta(Equipa &e1);
-void alteraAtleta(Campeonato* c1);
+void alteraAtleta(Campeonato &c1);
 void subMenuEquipas(Equipa &e1);
 void subMenuAtletas(Atleta &a1);
 bool findNomeEmEquipas();
 bool findNomeEmAtletas();
-
 
 #endif /* SRC_LOGIC_MAIN_H_ */

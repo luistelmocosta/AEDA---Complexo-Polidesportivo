@@ -1,6 +1,6 @@
-#include "Equipa.h"
 #include <iostream>
 #include <iterator>
+#include "Equipa.h"
 
 using namespace std;
 

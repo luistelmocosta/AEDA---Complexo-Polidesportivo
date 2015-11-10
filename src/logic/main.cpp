@@ -1,16 +1,15 @@
-#include "Campeonato.h"
-#include "main.h"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Campeonato.h"
+#include "main.h"
 
 using namespace std;
 
 
 int main(){
-
 
 	vector <string> moda;
 	string moda1 ="Futebol";
@@ -91,8 +90,7 @@ bool isNumber(string str)
 	return ret;
 }
 
-int pedirValor()
-{
+int pedirValor(){
 
 	stringstream ss;
 	string str;
@@ -122,6 +120,7 @@ void removerAtleta(Equipa &e1){
 	string str;
 	int nr;
 	bool valid = true;
+
 	do
 	{
 		cout << "Insira o numero do atleta que pretende eliminar: " << endl;
@@ -143,7 +142,7 @@ void removerAtleta(Equipa &e1){
 	e1.eliminaAtleta(nr);
 }
 
-/*void alteraAtleta(Campeonato* c1){
+void alteraAtleta(Campeonato &c1){
 	int id;
 	int pos;
 	string input;
@@ -153,12 +152,12 @@ void removerAtleta(Equipa &e1){
 	cout << "Insira o ID do atleta a alterar: " << endl;
 	cin >> id;
 
-	pos=c1->findAtleta(id);
+	pos=c1.findAtleta(id);
 
 	if(pos==-1)
 		throw AtletaInexistente(id);
 	else{
-		c1->getAtletas()[pos]->imprime();
+		c1.getAtletas()[pos]->imprime();
 		cout << endl;
 		cout << "Insira o campo que pretende alterar: " << endl;
 		cin >> input;
@@ -166,42 +165,42 @@ void removerAtleta(Equipa &e1){
 		if(input=="Nome"){
 			cout << "Insira o nome que pretende atribuir: " << endl;
 			cin >> input;
-			c1->getAtletas()[pos]->setNome(input);
+			c1.getAtletas()[pos]->setNome(input);
 		}
 		else if(input=="Pais"){
 			cout << "Insira o país que pretende atribuir: " << endl;
 			cin >> input;
-			c1->getAtletas()[pos]->setPais(input);
+			c1.getAtletas()[pos]->setPais(input);
 		}
 		else if(input=="Idade"){
 			cout << "Insira a idade que pretende atribuir: " << endl;
 			cin >> input_aux;
-			c1->getAtletas()[pos]->setIdade(input_aux);
+			c1.getAtletas()[pos]->setIdade(input_aux);
 		}
 		else if(input=="Peso"){
 			cout << "Insira o peso que pretende atribuir: " << endl;
 			cin >> input_aux;
-			c1->getAtletas()[pos]->setPeso(input_aux);
+			c1.getAtletas()[pos]->setPeso(input_aux);
 		}
 		else if(input=="Altura"){
 			cout << "Insira a altura que pretende atribuir: " << endl;
 			cin >> input_aux;
-			c1->getAtletas()[pos]->setAltura(input_aux);
+			c1.getAtletas()[pos]->setAltura(input_aux);
 		}
 		else if(input=="Pontuacao"){
 			cout << "Insira a pontuacao que pretende atribuir: " << endl;
 			cin >> pont;
-			c1->getAtletas()[pos]->setPontuacao(pont);
+			c1.getAtletas()[pos]->setPontuacao(pont);
 		}
 		else if(input=="Equipa"){
 			cout << "Insira o nome da equipa que pretende atribuir: " << endl;
 			cin >> input;
-			c1->getAtletas()[pos]->setEquipa(input);
+			c1.getAtletas()[pos]->setNEquipa(input);
 		}
 
-		c1->getAtletas()[pos]->imprime();
+		c1.getAtletas()[pos]->imprime();
 	}
-}*/
+}
 
 void menuAtletas(){
 	bool menub = true;
@@ -272,7 +271,7 @@ bool findNomeEmAtletas(){
 	cout << "Insira o ID do atleta que pretende alterar: ";
 	cin.ignore();
 	cin >> id;
-	unsigned int i =c1->findAtleta(id);
+	int i =c1->findAtleta(id);
 
 	cout << i << endl;
 
@@ -397,7 +396,7 @@ void subMenuAtletas(Atleta &a1){
 			cout << "Insira a nova equipa do Atleta: ";
 			cin.ignore();
 			getline(cin, change);
-			a1.setEquipa(change);
+			a1.setNEquipa(change);
 			break;
 		case 8:
 			menuAtletas();
@@ -508,7 +507,7 @@ void subMenuCalendario(Campeonato &c1){
 		ss << str;
 		ss >> option;
 		cout << "\n";
-		int i;
+		//int i;
 
 		switch(option){
 		case 1:

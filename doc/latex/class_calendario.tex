@@ -15,9 +15,9 @@ vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_
 \item 
 vector$<$ string $>$ \hyperlink{class_calendario_aa92791918d953f34250063a67d0d6232}{get\+Modalidades} () const 
 \item 
-vector$<$ string $>$ \hyperlink{class_calendario_aff13d470983e46172aca04dda560332d}{get\+Equipas} () const 
-\item 
 vector$<$ string $>$ \hyperlink{class_calendario_abfc38a3a96e33ec237496ed83c3259a5}{get\+Atletas} () const 
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_aff13d470983e46172aca04dda560332d}{get\+Equipas} () const 
 \item 
 string \hyperlink{class_calendario_a8ec3b8d1862fc893922561d97e4341cb}{get\+Nome\+Fich} () const 
 \item 
@@ -31,30 +31,26 @@ vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_
 \item 
 vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a269e064b1ef6d757eff9b3bd185c6542}{find\+Prova\+\_\+\+Vence} (\hyperlink{class_equipa}{Equipa} $\ast$e)
 \item 
-bool \hyperlink{class_calendario_a6b17f3bbf936cb19e043e652a3555c33}{add\+Prova} (\hyperlink{class_prova}{Prova} \&p)
-\item 
 bool \hyperlink{class_calendario_a912aa3dbadbdd82a002ccb251d5281fc}{check\+Prova} (\hyperlink{class_prova}{Prova} \&p)
-\item 
-void \hyperlink{class_calendario_ae65b9add220bbfdf1f029816333aa656}{show\+Uma\+Prova} (int i) const 
-\item 
-bool \hyperlink{class_calendario_a84536a437d503ca5c200c103d480b0a8}{fich\+Existe} (string n)
 \item 
 bool \hyperlink{class_calendario_abf3471ce630be60d0658223017d47ec9}{adiciona\+Prova} (\hyperlink{class_prova}{Prova} \&p)
 \item 
-void \hyperlink{class_calendario_a433a356a61afcfcb732dd249ee2037d3}{delete\+Prova} (int i)
+void \hyperlink{class_calendario_ade16f3f0e666b8b4dec08eec05caf707}{delete\+Prova} (int id)
 \item 
 void \hyperlink{class_calendario_a81be652b39d3c12492aae44b7d7d5603}{remove\+Prova} ()
 \item 
 void \hyperlink{class_calendario_a6a97d6bec106682ba1ec68f7b8339be0}{cria\+Provas} (\hyperlink{class_campeonato}{Campeonato} \&\hyperlink{main_8h_a4c89d9526ade3cc45c84a58a6319054a}{c1})
 \item 
+void \hyperlink{class_calendario_ae65b9add220bbfdf1f029816333aa656}{show\+Uma\+Prova} (int i) const 
+\item 
 void \hyperlink{class_calendario_af6bfda8df20c96b8e77773de3da16cee}{show\+Provas} () const 
+\item 
+bool \hyperlink{class_calendario_a84536a437d503ca5c200c103d480b0a8}{fich\+Existe} (string n)
 \item 
 void \hyperlink{class_calendario_ad2e3618170e62906c32fd072d75cf1a7}{cria\+Fich} (bool alterar, bool adicionar)
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
-\item 
-string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
 \item 
 vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}{provas}
 \item 
@@ -63,6 +59,8 @@ vector$<$ string $>$ \hyperlink{class_calendario_a6a492724444ed6b468fe230d09fd80
 vector$<$ string $>$ \hyperlink{class_calendario_abac0d74a48d544302a57fd3857ce3cf2}{atletas}
 \item 
 vector$<$ string $>$ \hyperlink{class_calendario_a4c49ca003a72d9d1aa32fcef57066467}{equipas}
+\item 
+string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
 \end{DoxyCompactItemize}
 
 
@@ -88,13 +86,6 @@ vector$<$ string $>$ \hyperlink{class_calendario_a4c49ca003a72d9d1aa32fcef570664
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_calendario_a6b17f3bbf936cb19e043e652a3555c33}{}\index{Calendario@{Calendario}!add\+Prova@{add\+Prova}}
-\index{add\+Prova@{add\+Prova}!Calendario@{Calendario}}
-\subsubsection[{add\+Prova(\+Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::add\+Prova (
-\begin{DoxyParamCaption}
-\item[{{\bf Prova} \&}]{p}
-\end{DoxyParamCaption}
-)}\label{class_calendario_a6b17f3bbf936cb19e043e652a3555c33}
 \hypertarget{class_calendario_abf3471ce630be60d0658223017d47ec9}{}\index{Calendario@{Calendario}!adiciona\+Prova@{adiciona\+Prova}}
 \index{adiciona\+Prova@{adiciona\+Prova}!Calendario@{Calendario}}
 \subsubsection[{adiciona\+Prova(\+Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::adiciona\+Prova (
@@ -124,13 +115,13 @@ vector$<$ string $>$ \hyperlink{class_calendario_a4c49ca003a72d9d1aa32fcef570664
 \item[{{\bf Campeonato} \&}]{c1}
 \end{DoxyParamCaption}
 )}\label{class_calendario_a6a97d6bec106682ba1ec68f7b8339be0}
-\hypertarget{class_calendario_a433a356a61afcfcb732dd249ee2037d3}{}\index{Calendario@{Calendario}!delete\+Prova@{delete\+Prova}}
+\hypertarget{class_calendario_ade16f3f0e666b8b4dec08eec05caf707}{}\index{Calendario@{Calendario}!delete\+Prova@{delete\+Prova}}
 \index{delete\+Prova@{delete\+Prova}!Calendario@{Calendario}}
-\subsubsection[{delete\+Prova(int i)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::delete\+Prova (
+\subsubsection[{delete\+Prova(int id)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::delete\+Prova (
 \begin{DoxyParamCaption}
-\item[{int}]{i}
+\item[{int}]{id}
 \end{DoxyParamCaption}
-)}\label{class_calendario_a433a356a61afcfcb732dd249ee2037d3}
+)}\label{class_calendario_ade16f3f0e666b8b4dec08eec05caf707}
 \hypertarget{class_calendario_a84536a437d503ca5c200c103d480b0a8}{}\index{Calendario@{Calendario}!fich\+Existe@{fich\+Existe}}
 \index{fich\+Existe@{fich\+Existe}!Calendario@{Calendario}}
 \subsubsection[{fich\+Existe(string n)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::fich\+Existe (

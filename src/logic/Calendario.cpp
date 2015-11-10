@@ -23,8 +23,7 @@ Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,v
 		equipas.push_back(e[i]);
 	}
 
-	this->nomeF = nome;
-
+	nomeF = nome;
 
 }
 
@@ -32,19 +31,20 @@ vector<Prova*> Calendario::getProvas() const {
 	return provas;
 }
 
-
 vector<string> Calendario::getModalidades() const{
-	return this->modalidades;
+	return modalidades;
 }
-vector<string> Calendario::getEquipas() const{
-	return this->equipas;
-}
+
 vector<string> Calendario::getAtletas() const{
-	return this->atletas;
+	return atletas;
+}
+
+vector<string> Calendario::getEquipas() const{
+	return equipas;
 }
 
 string Calendario::getNomeFich() const{
-	return this->nomeF;
+	return nomeF;
 }
 
 int Calendario::findProva(int id) {
@@ -53,13 +53,6 @@ int Calendario::findProva(int id) {
 			return i;
 	}
 	return -1;
-}
-
-bool Calendario::addProva(Prova &p){
-
-	provas.push_back(&p);
-	return true;
-
 }
 
 vector<Prova*> Calendario::findProva_Data(date d) {
@@ -87,7 +80,7 @@ vector<Prova*> Calendario::findProva_Local(string loc) {
 }
 
 vector<Prova*> Calendario::findProva_Modal(Modalidade* m) {
-	Prova* p;
+	Prova* p = new Prova();
 	int i;
 	p->setModalidade(m);
 	vector<Prova*> aux;
@@ -115,13 +108,13 @@ vector<Prova*> Calendario::findProva_Vence(Equipa* e) {
 bool Calendario::checkProva(Prova &p){
 
 	bool isDiff = true; //prova diferente das restantes
-	cout << "tao2?" <<endl;
+	//cout << "tao2?" <<endl;
 	if (provas.empty()){
-		cout << "tao?" << endl;
+		//cout << "tao?" << endl;
 		return true;
 	}
 	else{
-		cout << "tao3?" << endl;
+		//cout << "tao3?" << endl;
 		for(unsigned int i = 0; i < provas.size(); i++){
 
 			if(*provas[i]!=p){
@@ -136,47 +129,36 @@ bool Calendario::checkProva(Prova &p){
 	return isDiff;
 }
 
-bool Calendario::fichExiste(string n){
-
-	if (FILE *file = fopen(n.c_str(), "r")) {
-		fclose(file);
-		return true;
-	} else {
-		return false;
-	}
-
-}
-
-void Calendario::showUmaProva(int i) const {
-
-	cout << "ID : " << provas[i]->getId() << endl;
-	cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
-	cout << provas[i]->getModalidade()->getNome()<< endl;
-	cout << provas[i]->getLocal()<<endl;
-	cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
-	cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
-	cout << "Data: " << provas[i]->getDataFormatada()<< endl;
-
-
-}
-
 bool Calendario::adicionaProva (Prova &p){
-
-	cout << "antes check" << endl;
 
 	if(checkProva(p)){
 		provas.push_back(&p);
 		return true;
 	}
-
-	else
-		cout << "impossivel adicionar prova " << p.getLocal() << "(sobreposicao de provas)" << endl;
-
-	return false;
+	else{
+		cout << "Impossivel adicionar prova no local " << p.getLocal() << "(sobreposicao de provas)" << endl;
+		return false;
+	}
 }
 
-void Calendario::deleteProva(int i){
-	provas.erase(provas.begin()+i);
+void Calendario::deleteProva(int id){
+	if(findProva(id)!=-1)
+		provas.erase(provas.begin() + findProva(id));
+	else throw ProvaInexistente(id);
+}
+
+void Calendario::removeProva(){
+	unsigned int n;
+	cout << endl << "ID da prova a remover(0 para cancelar): ";
+	cin >> n;
+
+	if(n == 0)
+		return;
+	else if(n > provas.size() || n < 0){
+		cout << endl  << "Prova nao encontrada!" << endl;
+		return;
+	}
+	provas.erase(provas.begin()+n-1);
 }
 
 void Calendario::criaProvas(Campeonato &c1){
@@ -262,9 +244,6 @@ void Calendario::criaProvas(Campeonato &c1){
 
 			}
 
-
-
-
 			int min;
 			while(!boaDur){
 				cout << "Qual a duracao da prova?(Em minutos) ";
@@ -275,11 +254,11 @@ void Calendario::criaProvas(Campeonato &c1){
 				}
 				else
 					boaDur = true;
-
 			}
+
+			// Equipa 1
 			string nEquipa;
 			bool boaEquipa = false;
-			// Equipa 1
 			while(!boaEquipa){
 
 				cout << "Nome da primeira equipa a participar: ";
@@ -296,8 +275,6 @@ void Calendario::criaProvas(Campeonato &c1){
 				else{
 					cout << "Equipa nao encontrada!" << endl;
 				}
-
-
 			}
 
 			Equipa equi1(nEquipa,"temp","temp");
@@ -369,11 +346,11 @@ void Calendario::criaProvas(Campeonato &c1){
 			vector<Equipa*> vs;
 
 			Modalidade *m = new Modalidade(modN,0);
-			Prova p1(d1,local, min, vs,m);
+			Prova* p1= new Prova(d1,local, min, vs,m);
 
 			cout << "hello" << endl;
 
-			if(adicionaProva(p1)){
+			if(adicionaProva(*p1)){
 				cout << "add" << endl;
 				provaSobrep=false;
 			}
@@ -382,7 +359,6 @@ void Calendario::criaProvas(Campeonato &c1){
 				cin >> restart;
 				provaSobrep=true;
 			}
-
 
 			boaData = false;
 			boaHora = false;
@@ -404,7 +380,6 @@ void Calendario::criaProvas(Campeonato &c1){
 			else*/
 				bomInput =true;
 		}
-
 	}
 
 	string nomeFich;
@@ -419,10 +394,40 @@ void Calendario::criaProvas(Campeonato &c1){
 		cout << "Provas adicionadas ao ficheiro " << endl;
 		nomeF = "Provas.txt";
 		criaFich(0, 1); // alterar um ficheiro existente
-
 	}
+}
 
+void Calendario::showUmaProva(int i) const {
+	cout << "ID : " << provas[i]->getId() << endl;
+	cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
+	cout << provas[i]->getModalidade()->getNome()<< endl;
+	cout << provas[i]->getLocal()<<endl;
+	cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
+	cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
+	cout << "Data: " << provas[i]->getDataFormatada()<< endl;
+}
 
+void Calendario::showProvas()const{
+	cout << provas.size() << endl;
+	for (unsigned int i = 0; i < provas.size(); i++){
+		cout << "ID : " << provas[i]->getId() << endl;
+		cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
+		cout << provas[i]->getModalidade()->getNome()<< endl;
+		cout << provas[i]->getLocal()<<endl;
+		cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
+		//cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
+		cout << "Data: " << provas[i]->getDataFormatada()<< endl;
+	}
+}
+
+bool Calendario::fichExiste(string n){
+
+	if (FILE *file = fopen(n.c_str(), "r")) {
+		fclose(file);
+		return true;
+	} else {
+		return false;
+	}
 }
 
 void Calendario::criaFich(bool alterar, bool adicionar){
@@ -455,41 +460,4 @@ void Calendario::criaFich(bool alterar, bool adicionar){
 	}
 
 	cout << "Ficheiro de provas gravado com o nome " << this->nomeF << endl;
-
-
 }
-
-void Calendario::removeProva(){
-	int n;
-	cout << endl << "ID da prova a remover(0 para cancelar): ";
-	cin >> n;
-
-	if(n == 0)
-		return;
-
-	if(n > provas.size() || n < 0){
-		cout << endl  << "Prova nao encontrada!" << endl;
-		return;
-	}
-
-
-	provas.erase(provas.begin()+n-1);
-}
-
-void Calendario::showProvas()const{
-	cout << provas.size() << endl;
-	for (unsigned int i = 0; i < provas.size(); i++){
-		cout << "ID : " << provas[i]->getId() << endl;
-		cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
-		cout << provas[i]->getModalidade()->getNome()<< endl;
-		cout << provas[i]->getLocal()<<endl;
-		cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
-		//cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
-		cout << "Data: " << provas[i]->getDataFormatada()<< endl;
-
-	}
-
-}
-
-
-

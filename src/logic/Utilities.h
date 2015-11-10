@@ -107,4 +107,15 @@ public:
 	string getNome(){return nome;}
 };
 
+class ProvaInexistente{
+public:
+	int id;
+	ProvaInexistente(int i): id(i) {}
+	int getID(){return id;}
+};
+
+class ParticipanteInexistente{
+
+};
+
 #endif /* SRC_LOGIC_UTILITIES_H_ */

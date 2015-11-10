@@ -12,15 +12,17 @@
 
 using namespace std;
 
+class Prova;
+
 class Atleta {
 
 	int uid;
 	static int newID;
 	info inf;
 	float pontuacao;
-	//vector<Prova*> provas;
 	string nEquipa;
-	vector<Modalidade*> modalidades;		//"Requisitos Obrigatórios: Associar atletas de uma equipa às respectivas modalidades"
+	vector<Modalidade*> modalidades;		//"Requisitos Obrigatorios: Associar atletas de uma equipa às respectivas modalidades"
+	vector<Prova*> provas;
 
 public:
 	Atleta(string n, string pais, unsigned int i, unsigned int p, unsigned int a);
@@ -46,11 +48,14 @@ public:
  	float getPontuacao() const;
 	void setPontuacao(float p);
 
-	string getEquipa() const;
-	void setEquipa(string equipa);
+	string getNEquipa() const;
+	void setNEquipa(string nEq);
 
 	vector<Modalidade*> getModalidades() const;
-	void inserirModalidade(Modalidade &mod1);
+	void inserirModalidade(Modalidade &mod);
+
+	vector<Prova*> getProvas() const;
+	void inserirProva(Prova &prov);
 
 	void imprime() const;
 };

@@ -2,10 +2,10 @@ var searchData=
 [
   ['sequentialsearch',['sequentialSearch',['../_utilities_8h.html#acd555ad1f1fc3b2011aab63641f98151',1,'Utilities.h']]],
   ['setaltura',['setAltura',['../class_atleta.html#a559420bb8aa5e5ee881ffe284f24a7df',1,'Atleta']]],
-  ['setequipa',['setEquipa',['../class_atleta.html#acfad68eb32ba1ee1485368f1c7dc8b3f',1,'Atleta']]],
   ['setidade',['setIdade',['../class_atleta.html#a62b5097c74ad66181a05d6562c1a9a25',1,'Atleta']]],
   ['setinfo',['setInfo',['../class_atleta.html#ada229ccfc2a898c893c0a34c9c996892',1,'Atleta']]],
   ['setmodalidade',['setModalidade',['../class_prova.html#a50060ead08c573c9ab96c92592907975',1,'Prova']]],
+  ['setnequipa',['setNEquipa',['../class_atleta.html#ae6f75c0295ae244256caab4af4345fae',1,'Atleta']]],
   ['setnome',['setNome',['../class_atleta.html#a35fcdb190f9b6b5100fba23cc98e5304',1,'Atleta::setNome()'],['../class_campeonato.html#ab2654ae701c2418dab5c70aa4cd74b57',1,'Campeonato::setNome()'],['../class_desporto.html#ac5babc7f79c7765c48a1ebe8ea9ba3b4',1,'Desporto::setNome()'],['../class_equipa.html#a13e90216eb9ca9d6b2c144295a2b6730',1,'Equipa::setNome()']]],
   ['setpais',['setPais',['../class_atleta.html#a3a4c881326e44433537d44727d7d60de',1,'Atleta::setPais()'],['../class_equipa.html#a2360f13c75fdcf75395cef84a9d0f589',1,'Equipa::setPais()']]],
   ['setparticipantes',['setParticipantes',['../class_prova.html#a639f48a55d8036891b21f4710a484eb0',1,'Prova']]],

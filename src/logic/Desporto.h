@@ -23,5 +23,4 @@ public:
 	virtual void calcPont(){}
 };
 
-
 #endif /* SRC_LOGIC_DESPORTO_H_ */

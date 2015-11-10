@@ -4,8 +4,7 @@ int Prova::newID = 0;
 
 Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade* modal):id(newID++){
 
-	/*
-	fstream fich;
+	/*fstream fich;
 
 	fich.open("Provas.txt", ios::in);
 
@@ -23,7 +22,6 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 			provas.push_back(x);
 		}
 	}
-
 	else
 		throw UnableOpenFile(filename);
 	fich.close();
@@ -37,8 +35,6 @@ Prova::Prova(date d, string l, unsigned int dur, vector <Equipa*> v, Modalidade*
 	for (unsigned int i = 0; i < v.size(); i++){
 		this->vs.push_back(v[i]);
 	}
-
-
 }
 
 int Prova::getId()const {
@@ -89,8 +85,6 @@ void Prova::realizarProva(){
 
 }
 
-
-
 void Prova::setParticipantes (Atleta* a1, Atleta* a2){
 	vs[0]->inserirAtleta(*a1);
 	vs[1]->inserirAtleta(*a2);
@@ -112,30 +106,24 @@ Atleta* Prova::getParticipante(int i) const{
 		}
 	}
 
-	throw ParticipanteNaoEncontrado();
-
+	throw ParticipanteInexistente();
 }
 
 void Prova::alterarLocal(){
 	string l;
 	cout << endl << "Novo local: ";
 	cin >> l;
-
-
 }
+
 void Prova::alterarData(){
 
 }
-void Prova::alterarDuracao(){
 
+void Prova::alterarDuracao(){
 	int dur;
 	cout << endl << "Nova duracao: ";
 	cin >> dur;
-
-
 }
-
-
 
 bool Prova::operator !=(const Prova &p){
 
@@ -150,9 +138,7 @@ bool Prova::operator !=(const Prova &p){
 		result = false;
 	}*/
 
-
 	return result;
-
 }
 
 string Prova::getDataFormatada() const {
@@ -166,7 +152,4 @@ string Prova::getDataFormatada() const {
 	data =+ getData().ano;
 
 	return data;
-
 }
-
-

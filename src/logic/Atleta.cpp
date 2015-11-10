@@ -14,6 +14,10 @@ Atleta::Atleta(string n, string pais, unsigned int i, unsigned int a, unsigned i
 	pontuacao=0;
 }
 
+Atleta::Atleta(){
+
+}
+
 Atleta::~Atleta(){
 
 }
@@ -79,15 +83,14 @@ void Atleta::setPontuacao(float p){
 		throw ValorInvalido(p);
 
 	pontuacao = p;
-
 }
 
-string Atleta::getEquipa() const {
+string Atleta::getNEquipa() const {
 	return nEquipa;
 }
 
-void Atleta::setEquipa(string nE) {
-	nEquipa=nE;
+void Atleta::setNEquipa(string nEq) {
+	nEquipa=nEq;
 }
 
 vector<Modalidade*> Atleta::getModalidades() const{
@@ -98,9 +101,15 @@ void Atleta::inserirModalidade(Modalidade &mod){
 	modalidades.push_back(&mod);
 }
 
+vector<Prova*> Atleta::getProvas() const {
+	return provas;
+}
+
+void Atleta::inserirProva(Prova& prov) {
+	provas.push_back(&prov);
+}
 
 void Atleta::imprime() const{
-
 	cout << endl;
 	cout << "ID: " << uid << endl;
 	cout << "Nome: " << inf.nome << endl;
@@ -111,20 +120,4 @@ void Atleta::imprime() const{
 	cout << "Pontuacao: "<< pontuacao << endl;
 	cout << "Equipa: " << nEquipa << endl;
 	cout << endl;
-
 }
-
-/*vector<Prova*> Atleta::getProvas() const{
-	return provas;
-}
-
-
-bool Atleta::eliminaProva(string prova){
-	for (unsigned int i = 0; i < provas.size(); i++){
-		if(provas[i] == prova){
-			provas.erase(provas.begin() + i);
-			return true;
-		}
-	}
-	return false;
-}*/

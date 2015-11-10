@@ -11,7 +11,6 @@ Modalidade::Modalidade(string n, bool s): nome(n), singular(s) {
 	}
 
 
-
 	else if(nome=="Corrida 100m"){
 		Desporto::setNome("Corrida");
 		nJogadores = 8;
@@ -22,7 +21,6 @@ Modalidade::Modalidade(string n, bool s): nome(n), singular(s) {
 	}
 
 
-
 	else if(nome=="Salto Altura"){
 		Desporto::setNome("Salto");
 		nJogadores = 8;
@@ -31,7 +29,6 @@ Modalidade::Modalidade(string n, bool s): nome(n), singular(s) {
 		Desporto::setNome("Salto");
 		nJogadores = 8;
 	}
-
 
 
 	else if(nome=="Crawl 100m"){
@@ -52,12 +49,10 @@ Modalidade::Modalidade(string n, bool s): nome(n), singular(s) {
 	}
 
 
-
 	else if(nome=="Voleibol"){
 		Desporto::setNome("Voleibol");
 		nJogadores = 12;
 	}
-
 
 
 	else if(nome=="Judo"){
@@ -164,23 +159,6 @@ string Modalidade::pontuacao(string e1, string e2){
 
 	}
 
-
 	cout << "Empate!!" << endl;
 	return empate;
-
 }
-
-/*
-int main(){
-
-	//Desporto* d = new Modalidade("Corrida 100m", false);
-
-	Modalidade* m = new Modalidade("Corrida 100m", false);
-
-
-	cout << m->getNome() << endl;
-	cout << m->getNomeDesporto() << endl;
-
-	return 0;
-}*/
-

@@ -7,7 +7,6 @@
 #include <sstream>
 #include <fstream>
 #include <cstdlib>
-
 #include "Atleta.h"
 
 using namespace std;
@@ -52,7 +51,6 @@ public:
 	void imprime();
 
 	bool operator<(const Equipa &e);
-
 };
 
 #endif /* SRC_LOGIC_EQUIPA_H_ */

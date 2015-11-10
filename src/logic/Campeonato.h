@@ -10,12 +10,9 @@
 #include "Atleta.h"
 #include <iostream>
 
-
-
 using namespace std;
 
 class Calendario;
-
 
 class Campeonato{
 
@@ -39,39 +36,32 @@ public:
 	vector<Atleta*> getAtletas() const;
 	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
-
 	Calendario* getCalendario() const;
-
-	void adicionaEquipa();
-	bool eliminaEquipa();
 
 	void adicionaAtleta();
 	void removerAtleta();
 
+	void adicionaEquipa();
 	void inserirEquipa(Equipa &e1);
 	void alteraEquipa();
-
-	void inserirProva(Prova &p1);
+	bool eliminaEquipa();
 
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);
 	void readFileProvas(string filename);
 	void writeFileAtletas(string filename);
 
-	void imprimeUmaEquipa();
-
-	int findEquipa(string nomeEquipa);				//return index if success
-	int findAtleta(unsigned int id);				//else
-	int findDesporto(string nomeDesporto);			//return -1
+	int findAtleta(unsigned int id);			//return index if success
+	int findEquipa(string nomeEquipa);			//else
+	int findDesporto(string nomeDesporto);		//return -1
 
 	vector<Atleta*> findAtletaVect(string nomeAtleta);	//return a vector, in case there are several athletes with the same name
 
 	void imprimeAtletas() const;
 	void imprimeEquipas() const;
+	void imprimeUmaEquipa();
 	void imprimeAtletasPorEquipa() const;
 	void ordenaClassificacoes();
-
-
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

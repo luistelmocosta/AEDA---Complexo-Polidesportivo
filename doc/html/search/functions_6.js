@@ -7,8 +7,8 @@ var searchData=
   ['imprimeumaequipa',['imprimeUmaEquipa',['../class_campeonato.html#a47a2b89c44b6705afa2478109d8b6b78',1,'Campeonato']]],
   ['inseriratleta',['inserirAtleta',['../class_equipa.html#a67f982e822a7772f2668301db0e147eb',1,'Equipa']]],
   ['inserirequipa',['inserirEquipa',['../class_campeonato.html#a5c09e9bc272f96875121ef9026c26434',1,'Campeonato']]],
-  ['inserirmodalidade',['inserirModalidade',['../class_atleta.html#abd96127243b44401924386b4d6e5ceea',1,'Atleta']]],
-  ['inserirprova',['inserirProva',['../class_campeonato.html#a44b358a3216e7a1687dfed2a6078551e',1,'Campeonato']]],
+  ['inserirmodalidade',['inserirModalidade',['../class_atleta.html#ad0d0e9f9f781ddfce8b628dcd57d2a6e',1,'Atleta']]],
+  ['inserirprova',['inserirProva',['../class_atleta.html#aba485676bf190d09e19044660b2af329',1,'Atleta']]],
   ['insertionsort',['insertionSort',['../_utilities_8h.html#a2d750432a373f9dab8039bef160b71a0',1,'Utilities.h']]],
   ['isnumber',['isNumber',['../main_8cpp.html#a8b7d6df0a5c5370062d569818fa7e1cb',1,'isNumber(string str):&#160;main.cpp'],['../main_8h.html#a8b7d6df0a5c5370062d569818fa7e1cb',1,'isNumber(string str):&#160;main.cpp']]]
 ];
