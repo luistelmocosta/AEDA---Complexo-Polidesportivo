@@ -40,6 +40,10 @@ Calendario* Campeonato::getCalendario() const {
 	return calendario;
 }
 
+void Campeonato::insereAtleta(Atleta& a) {
+	atletas.push_back(&a);
+}
+
 void Campeonato::adicionaAtleta() {
 
 	info i;
@@ -87,16 +91,17 @@ void Campeonato::adicionaEquipa(){
 
 	cout << "Insira o nome da equipa a criar: ";
 	cin.ignore();
+	cin.clear();
 	getline(cin, nome);
 	cout << endl;
 
 	cout << "Insira o pais da equipa a criar: ";
-	cin.ignore();
+	cin.clear();
 	getline(cin, pais);
 	cout << endl;
 
 	cout << "Insira o patocinador da equipa a criar: ";
-	cin.ignore();
+	cin.clear();
 	getline(cin, patrocinio);
 	cout << endl;
 
@@ -213,7 +218,7 @@ void Campeonato::readFileAtletas(string filename){
 					break;
 				}
 			}
-			atletas.push_back(a1);
+			insereAtleta(*a1);
 		}
 	}
 }
@@ -295,8 +300,9 @@ void Campeonato::readFileProvas(string filename) {
 				throw EquipaInexistente("abc");
 
 			if(!ficheiro_leitura.eof())
-						break;
+				break;
 		}
+
 	}
 	//getCalendario()->showProvas();
 }
@@ -375,14 +381,10 @@ void Campeonato::imprimeUmaEquipa() {
 		if(n== "0")
 			return;
 		else if(i == -1)
-			cout << "Equipa nao encontrada!" << endl;
+			cout << endl << "Equipa nao encontrada!" << endl;
 		else{
 			found=true;
-			equipas[i]->showAtletas();
-			cout << "Encontrou" << endl;
-			/*
-			 * PROBLEMA AQUI
-			 */
+			equipas[i]->imprime();
 		}
 	}
 }

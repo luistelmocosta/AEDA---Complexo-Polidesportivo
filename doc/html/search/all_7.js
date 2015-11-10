@@ -9,6 +9,7 @@ var searchData=
   ['imprimeumaequipa',['imprimeUmaEquipa',['../class_campeonato.html#a47a2b89c44b6705afa2478109d8b6b78',1,'Campeonato']]],
   ['inf',['inf',['../class_atleta.html#a1492a3f905e1915797e128b7e0be8017',1,'Atleta']]],
   ['info',['info',['../structinfo.html',1,'']]],
+  ['insereatleta',['insereAtleta',['../class_campeonato.html#a72a3e9bea86e4f5d1a0029296bd10824',1,'Campeonato']]],
   ['inseriratleta',['inserirAtleta',['../class_equipa.html#a67f982e822a7772f2668301db0e147eb',1,'Equipa']]],
   ['inserirequipa',['inserirEquipa',['../class_campeonato.html#a5c09e9bc272f96875121ef9026c26434',1,'Campeonato']]],
   ['inserirmodalidade',['inserirModalidade',['../class_atleta.html#ad0d0e9f9f781ddfce8b628dcd57d2a6e',1,'Atleta']]],

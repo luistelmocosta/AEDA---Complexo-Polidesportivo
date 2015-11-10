@@ -150,13 +150,14 @@ void Equipa::readFile(string filename){
 }
 
 void Equipa::imprime() {
-	cout << nome << endl;
-	cout << pais << endl;
-	cout << patrocinador << endl;
+	cout << endl;
+	cout << "Nome: " << nome << endl;
+	cout << "Pais: " << pais << endl;
+	cout << "Patrocinador: " << patrocinador << endl;
+	cout << endl;
 }
 
 bool Equipa::operator<(const Equipa &e){ // para insertionSort
-
 
 	if(this->pontuacao < e.pontuacao)
 		return true;
@@ -164,17 +165,5 @@ bool Equipa::operator<(const Equipa &e){ // para insertionSort
 		return (this->nome > e.nome);
 
 	return false;
-
-
 }
 
-/*void Equipa::writeFile(string filename) {
-	ofstream ficheiro_escrita(filename.c_str());
-	vector<Atleta*>::iterator it;
-
-	while(it!=atletas.end()) {
-		cout << (*it)->getNome();
-		ficheiro_escrita<<(*it)->getNome()<<endl<<(*it)->getIdade()<<endl<<(*it)->getPeso()<<endl << (*it)->getAltura();
-		it++;
-	}
-}*/

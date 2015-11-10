@@ -38,6 +38,7 @@ public:
 	vector<Desporto*> getDeportos() const;
 	Calendario* getCalendario() const;
 
+	void insereAtleta(Atleta &a);
 	void adicionaAtleta();
 	void removerAtleta();
 
