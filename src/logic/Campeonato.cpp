@@ -90,18 +90,20 @@ void Campeonato::adicionaEquipa(){
 	string nome, pais, patrocinio;
 
 	cout << "Insira o nome da equipa a criar: ";
-	cin.ignore();
 	cin.clear();
+	fflush(stdin);
 	getline(cin, nome);
 	cout << endl;
 
 	cout << "Insira o pais da equipa a criar: ";
 	cin.clear();
+	fflush(stdin);
 	getline(cin, pais);
 	cout << endl;
 
 	cout << "Insira o patocinador da equipa a criar: ";
 	cin.clear();
+	fflush(stdin);
 	getline(cin, patrocinio);
 	cout << endl;
 
