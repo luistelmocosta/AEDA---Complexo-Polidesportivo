@@ -31,60 +31,45 @@ int main(){
 	vector <string> atl;
 	vector <Prova*> p;
 
-	//Calendario c(p, moda, atl, equi, "das");
+	string FICHEIRO_ATLETAS = "txt_data/Atletas.txt";
+	string FICHEIRO_EQUIPAS = "txt_data/Equipas.txt";
+	string FICHEIRO_PROVAS = "txt_data/Provas.txt";
+	string nCampeonato, nEquipa, pais, patrocinio;
 
-
-	string NOME_FICHEIRO = "Atletas.txt", NOME_FICHEIRO_TMP = "atletas_tmp.txt";
-	string NOME_F = "Equipas.txt", NOME_F_TMP = "equipas_tmp.txt";
-	string campeonato, pais, patrocinio;
-	//Equipa e1;
-
-	ifstream ficheiro_leitura(NOME_FICHEIRO.c_str());
-	ofstream ficheiro_escrita(NOME_FICHEIRO_TMP.c_str());
-	ifstream f_leitura(NOME_F.c_str());
-	ofstream f_escrita(NOME_F_TMP.c_str());
-
-	try
-	{
-		c1->readFileEquipas("Equipas.txt");
-	} catch (ErroNoFicheiro &e)
-	{
-		cout << "Tentativa de abrir o ficheiro falhou.\n";
-		cout << "Insira o nome para o campeonato a a ser criado: " << endl;
-		cin >> campeonato;
-		Campeonato* c2 = new Campeonato(campeonato);
-		*c1 = *c2;
-		delete c2;
-
-		cout << endl;
+	try{
+		c1->readFileEquipas(FICHEIRO_EQUIPAS);
 	}
+	catch (ErroNoFicheiro &e){
 
-	try
-	{
-		c1->readFileAtletas("Atletas.txt");
-	} catch (ErroNoFicheiro &e)
-	{
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
-		cout << "Insira o nome para a Equipa a ser criada: " << endl;
-		cin >> campeonato;
-		cout << "Insira o pais da equipa a criar: " << endl;
-		cin >> pais;
-		cout << "Insira o patrocinio da equipa a criar: " << endl;
-		cin >> patrocinio;
-		Equipa* e2 = new Equipa(campeonato, pais, patrocinio);
-		//e1 = *e2;
-		delete e2;
-
+		cout << "Insira o nome para o campeonato a ser criado: " << endl;
+		cin >> nCampeonato;
+		c1->setNome(nCampeonato);
 		cout << endl;
 	}
 
 	try{
-		//c1->getCalendario()->readFileProvas(*c1, "Provas.txt");
-		c1->readFileProvas("Provas.txt");
+		c1->readFileAtletas(FICHEIRO_ATLETAS);
 	}
-	catch (ErroNoFicheiro &e)
-	{
-		cout << "erro" << endl;
+	catch (ErroNoFicheiro &e){
+
+		cout << "Tentativa de abrir o ficheiro falhou.\n";
+		cout << "Insira o nome para a Equipa a ser criada: " << endl;
+		cin >> nEquipa;
+		cout << "Insira o pais da equipa a criar: " << endl;
+		cin >> pais;
+		cout << "Insira o patrocinio da equipa a criar: " << endl;
+		cin >> patrocinio;
+		Equipa* e_aux = new Equipa(nEquipa, pais, patrocinio);
+		c1->inserirEquipa(*e_aux);
+		cout << endl;
+	}
+
+	try{
+		c1->readFileProvas(FICHEIRO_PROVAS);
+	}
+	catch (ErroNoFicheiro &e){
+
 	}
 
 	cout << c1->getNome() << endl << endl;

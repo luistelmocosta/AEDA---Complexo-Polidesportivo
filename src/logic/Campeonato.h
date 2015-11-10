@@ -32,6 +32,7 @@ public:
 	Campeonato(string nome);
 
 	string getNome() const;
+	void setNome(string n);
 	date getData() const;
 	string getPais() const;
 

@@ -11,6 +11,10 @@ string Campeonato::getNome() const {
 	return nome;
 }
 
+void Campeonato::setNome(string n){
+	nome=n;
+}
+
 date Campeonato::getData() const {
 	return data;
 }
