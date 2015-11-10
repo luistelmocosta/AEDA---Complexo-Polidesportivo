@@ -91,10 +91,10 @@ string Modalidade::pontuacao(string e1, string e2){
 	float p1, p2;
 	string empate = "";
 	if(Desporto::getNome() == "Futebol"){
-		cout << "Golos da equipa" << e1;
+		cout << "Golos da equipa " << e1 << ": ";
 		cin >> p1;
 
-		cout << "Golos da equipa" << e2;
+		cout << "Golos da equipa " << e2 << ": ";
 		cin >> p2;
 
 		if(p1 > p2){
@@ -111,7 +111,7 @@ string Modalidade::pontuacao(string e1, string e2){
 		cout << "Tempo da equipa " << e1 << " (em segundos)";
 		cin >> p1;
 
-		cout << "Tempo da equipa" << e2 << " (em segundos)";;
+		cout << "Tempo da equipa " << e2 << " (em segundos)";;
 		cin >> p2;
 
 		if(p1 > p2){
@@ -125,10 +125,10 @@ string Modalidade::pontuacao(string e1, string e2){
 	}
 
 	if(Desporto::getNome() == "Salto"){
-		cout << "Altura maxima da equipa " << e1;
+		cout << "Altura maxima da equipa " << e1 << ": ";
 		cin >> p1;
 
-		cout << "Altura maxima da equipa" << e2;
+		cout << "Altura maxima da equipa" << e2 << ": ";
 		cin >> p2;
 
 		if(p1 > p2){
@@ -142,10 +142,10 @@ string Modalidade::pontuacao(string e1, string e2){
 	}
 
 	if(Desporto::getNome() == "Combate"){
-		cout << "Pontuacao da equipa " << e1;
+		cout << "Pontuacao da equipa " << e1 << ": ";
 		cin >> p1;
 
-		cout << "Pontuacao da equipa " << e2;
+		cout << "Pontuacao da equipa " << e2 << ": ";
 		cin >> p2;
 
 		if(p1 > p2){

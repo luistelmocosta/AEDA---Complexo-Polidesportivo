@@ -63,6 +63,7 @@ public:
 	void imprimeUmaEquipa();
 	void imprimeAtletasPorEquipa() const;
 	void ordenaClassificacoes();
+	void realizarProva(int id);
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

@@ -159,7 +159,7 @@ void Equipa::imprime() {
 
 bool Equipa::operator<(const Equipa &e){ // para insertionSort
 
-	if(this->pontuacao < e.pontuacao)
+	if(this->pontuacao > e.pontuacao)
 		return true;
 	else if(this->pontuacao == e.pontuacao)
 		return (this->nome > e.nome);

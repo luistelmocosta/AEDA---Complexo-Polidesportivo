@@ -398,6 +398,28 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 	cout << endl;
 }
 
+void Campeonato::realizarProva(int id){
+	string v;
+	string equipa1 = calendario->getProvas()[id]->getAdversarios()[0]->getNome();
+	string equipa2 = calendario->getProvas()[id]->getAdversarios()[1]->getNome();
+
+	v = calendario->getProvas()[id]->getModalidade()->pontuacao(equipa1,equipa2);
+
+
+	if (v == calendario->getProvas()[id]->getAdversarios()[0]->getNome()){
+		equipas[findEquipa(equipa1)]->setPontuacao(3);
+	}
+
+	else if (v == calendario->getProvas()[id]->getAdversarios()[1]->getNome())
+			equipas[findEquipa(equipa2)]->setPontuacao(3);
+
+	else{
+		equipas[findEquipa(equipa1)]->setPontuacao(1);
+		equipas[findEquipa(equipa2)]->setPontuacao(1);
+	}
+
+}
+
 void Campeonato::ordenaClassificacoes(){
 	insertionSort(equipas);
 }

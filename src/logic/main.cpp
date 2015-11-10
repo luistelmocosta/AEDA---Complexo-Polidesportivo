@@ -512,7 +512,7 @@ void subMenuCalendario(Campeonato &c1){
 
 		switch(option){
 		case 1:
-			c1.getCalendario()->getProvas()[id]->realizarProva();
+			c1.realizarProva(id);
 			break;
 		case 2:
 			c1.getCalendario()->getProvas()[id]->alterarLocal();
@@ -547,11 +547,12 @@ void menuCalendario(Campeonato &c1){
 		stringstream ss;
 		int option;
 		cout << endl;
-		cout << "1. Listagem das provas" << endl;
-		cout << "2. Adicionar Prova" << endl;
-		cout << "3. Realizar/Alterar Prova" << endl;
-		cout << "4. Remover uma Prova" << endl;
-		cout << "5. Menu Anterior" << endl;
+		cout << "1. Classificacoes"<< endl;
+		cout << "2. Listagem das provas" << endl;
+		cout << "3. Adicionar Prova" << endl;
+		cout << "4. Realizar/Alterar Prova" << endl;
+		cout << "5. Remover uma Prova" << endl;
+		cout << "6. Menu Anterior" << endl;
 
 		cout << "\nEscolha uma opcao: ";
 		cin >> str;
@@ -561,20 +562,24 @@ void menuCalendario(Campeonato &c1){
 
 		switch(option){
 		case 1:
-			c1.getCalendario()->showProvas();
+			c1.ordenaClassificacoes();
+			c1.imprimeEquipas();
 			break;
 		case 2:
-			c1.getCalendario()->criaProvas(c1); //falta o append
+			c1.getCalendario()->showProvas();
 			break;
 		case 3:
-			c1.getCalendario()->showProvas();
-			subMenuCalendario(c1);
+			c1.getCalendario()->criaProvas(c1); //falta o append
 			break;
 		case 4:
 			c1.getCalendario()->showProvas();
-			c1.getCalendario()->removeProva(); //atualizar ficheiro
+			subMenuCalendario(c1);
 			break;
 		case 5:
+			c1.getCalendario()->showProvas();
+			c1.getCalendario()->removeProva(); //atualizar ficheiro
+			break;
+		case 6:
 			menuC = false;
 			break;
 		default:
