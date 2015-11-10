@@ -69,7 +69,6 @@ void Equipa::showAtletas(){
 	for(unsigned int i=0; i<atletas.size(); i++){
 		atletas[i]->imprime();
 	}
-
 }
 
 bool Equipa::existeAtleta(string nome){

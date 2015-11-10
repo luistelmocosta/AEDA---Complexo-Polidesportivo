@@ -370,17 +370,19 @@ void Campeonato::imprimeUmaEquipa() {
 		cout << "Nome da equipa a consultar (0 para sair): ";
 		cin >> n;
 
-		i = this->findEquipa(n);
+		i = findEquipa(n);
 
 		if(n== "0")
 			return;
-
-		if(i == -1)
-			//else if(i == -1)
+		else if(i == -1)
 			cout << "Equipa nao encontrada!" << endl;
 		else{
 			found=true;
 			equipas[i]->showAtletas();
+			cout << "Encontrou" << endl;
+			/*
+			 * PROBLEMA AQUI
+			 */
 		}
 	}
 }
