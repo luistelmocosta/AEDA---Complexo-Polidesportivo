@@ -1,0 +1,323 @@
+\hypertarget{class_campeonato}{}\section{Campeonato Class Reference}
+\label{class_campeonato}\index{Campeonato@{Campeonato}}
+
+
+{\ttfamily \#include $<$Campeonato.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_campeonato_aa14214a5863681b19922ad1515a3d14b}{Campeonato} ()
+\item 
+\hyperlink{class_campeonato_a6cdd161a2ea5ffd62810e8bfd4a4dc6c}{Campeonato} (string \hyperlink{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}{nome})
+\item 
+string \hyperlink{class_campeonato_ae014ca753715e808b6d67c73f241f27d}{get\+Nome} () const 
+\item 
+void \hyperlink{class_campeonato_ab2654ae701c2418dab5c70aa4cd74b57}{set\+Nome} (string n)
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_campeonato_ab78957e0803c30d318455d3d2b4f843b}{get\+Data} () const 
+\item 
+void \hyperlink{class_campeonato_a27bda42e9ca401475e70f5ab64bfc97a}{set\+Data} (string d)
+\item 
+string \hyperlink{class_campeonato_a152f1d8474275af981214ed24663bf3f}{get\+Pais} () const 
+\item 
+void \hyperlink{class_campeonato_a93bfc1733ef03cc4f0a71619f6f25701}{set\+Pais} (string p)
+\item 
+vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_campeonato_ab37dc7253ffed81cc81e90c569d83cf9}{get\+Atletas} () const 
+\item 
+vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ \hyperlink{class_campeonato_ac82ee7c13b116b71525cff9f557b45c2}{get\+Equipas} () const 
+\item 
+vector$<$ \hyperlink{class_desporto}{Desporto} $\ast$ $>$ \hyperlink{class_campeonato_aa07da18865320276e7ea4506cc81d8fe}{get\+Deportos} () const 
+\item 
+\hyperlink{class_calendario}{Calendario} $\ast$ \hyperlink{class_campeonato_afb142b85e3413714cb1eecfc3e474f5c}{get\+Calendario} () const 
+\item 
+void \hyperlink{class_campeonato_a10a9d48eb0f700e6f12e2b1d0d35af14}{inserir\+Equipa} (\hyperlink{class_equipa}{Equipa} \&e)
+\item 
+bool \hyperlink{class_campeonato_ae0967bb24d6fbb19ea384e6643fc1612}{eliminar\+Equipa} (string \hyperlink{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}{nome})
+\item 
+void \hyperlink{class_campeonato_ab42ec0da76a4a0f0eecf276ad32d2102}{inserir\+Atleta} (\hyperlink{class_atleta}{Atleta} \&a)
+\item 
+bool \hyperlink{class_campeonato_ad2325b03cc23f95cad86d0ca6fb7556b}{eliminar\+Atleta} (unsigned int id)
+\item 
+int \hyperlink{class_campeonato_a662db361dc8464fa6ced60048e45ca1a}{find\+Atleta} (unsigned int id)
+\item 
+int \hyperlink{class_campeonato_a8002616a409e12a1ba2798d60c04f9dc}{find\+Equipa} (string nome\+Equipa)
+\item 
+int \hyperlink{class_campeonato_a64574dd8d105367c49d794a42e4a2aa8}{find\+Desporto} (string nome\+Desporto)
+\item 
+vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_campeonato_abe0557f6d0fe33787a6d44e85fd8bda3}{find\+Atleta\+Vect} (string nome\+Atleta)
+\item 
+void \hyperlink{class_campeonato_a9e43dc72a8bf29c332209a37a8bdb1d8}{imprime\+Equipas} () const 
+\item 
+void \hyperlink{class_campeonato_aad257942dd3f514d80fd8a9292dd03e2}{imprime\+Uma\+Equipa} (string \hyperlink{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}{nome})
+\item 
+void \hyperlink{class_campeonato_a6a51ed1d4c6ca51bdc407144589d5894}{imprime\+Atletas} () const 
+\item 
+void \hyperlink{class_campeonato_a4bbcc137067e9f72c169e22ce1c28858}{imprime\+Atletas\+Por\+Equipa} () const 
+\item 
+void \hyperlink{class_campeonato_a4f443b1fb65733062b40dd529d5ad63e}{read\+File\+Atletas} (string filename)
+\item 
+void \hyperlink{class_campeonato_a93f60ccc2608b0c99a978bc93fd881ac}{read\+File\+Equipas} (string filename)
+\item 
+void \hyperlink{class_campeonato_a4098bb3bde66ead9ecaa61e10aef2a5e}{read\+File\+Provas} (string filename)
+\item 
+void \hyperlink{class_campeonato_ac00744815952c31c3d5ba905dbc1494c}{realizar\+Prova} (int id)
+\item 
+void \hyperlink{class_campeonato_ae1c0453864ac35ca78f076dd33c5c8a2}{ordena\+Classificacoes} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}{nome}
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_campeonato_ab9a3d4a07de27528556e0ffebda3ba97}{data}
+\item 
+string \hyperlink{class_campeonato_a9f7011b322e9ae5fe6504ca5946268bf}{pais}
+\item 
+vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_campeonato_a06b7fd65d33044bff509122140774509}{atletas}
+\item 
+vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ \hyperlink{class_campeonato_ab677d5217856ce0ff2887a0e335caf2d}{equipas}
+\item 
+vector$<$ \hyperlink{class_desporto}{Desporto} $\ast$ $>$ \hyperlink{class_campeonato_ab65bbad67e796b73176b696457ea39ea}{desportos}
+\item 
+\hyperlink{class_calendario}{Calendario} $\ast$ \hyperlink{class_campeonato_af4bf75bd6daa812d16ab2be60c356f21}{calendario}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_campeonato_aa14214a5863681b19922ad1515a3d14b}{}\index{Campeonato@{Campeonato}!Campeonato@{Campeonato}}
+\index{Campeonato@{Campeonato}!Campeonato@{Campeonato}}
+\subsubsection[{Campeonato()}]{\setlength{\rightskip}{0pt plus 5cm}Campeonato\+::\+Campeonato (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_aa14214a5863681b19922ad1515a3d14b}
+\hypertarget{class_campeonato_a6cdd161a2ea5ffd62810e8bfd4a4dc6c}{}\index{Campeonato@{Campeonato}!Campeonato@{Campeonato}}
+\index{Campeonato@{Campeonato}!Campeonato@{Campeonato}}
+\subsubsection[{Campeonato(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}Campeonato\+::\+Campeonato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a6cdd161a2ea5ffd62810e8bfd4a4dc6c}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_campeonato_ad2325b03cc23f95cad86d0ca6fb7556b}{}\index{Campeonato@{Campeonato}!eliminar\+Atleta@{eliminar\+Atleta}}
+\index{eliminar\+Atleta@{eliminar\+Atleta}!Campeonato@{Campeonato}}
+\subsubsection[{eliminar\+Atleta(unsigned int id)}]{\setlength{\rightskip}{0pt plus 5cm}bool Campeonato\+::eliminar\+Atleta (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ad2325b03cc23f95cad86d0ca6fb7556b}
+\hypertarget{class_campeonato_ae0967bb24d6fbb19ea384e6643fc1612}{}\index{Campeonato@{Campeonato}!eliminar\+Equipa@{eliminar\+Equipa}}
+\index{eliminar\+Equipa@{eliminar\+Equipa}!Campeonato@{Campeonato}}
+\subsubsection[{eliminar\+Equipa(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}bool Campeonato\+::eliminar\+Equipa (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ae0967bb24d6fbb19ea384e6643fc1612}
+\hypertarget{class_campeonato_a662db361dc8464fa6ced60048e45ca1a}{}\index{Campeonato@{Campeonato}!find\+Atleta@{find\+Atleta}}
+\index{find\+Atleta@{find\+Atleta}!Campeonato@{Campeonato}}
+\subsubsection[{find\+Atleta(unsigned int id)}]{\setlength{\rightskip}{0pt plus 5cm}int Campeonato\+::find\+Atleta (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a662db361dc8464fa6ced60048e45ca1a}
+\hypertarget{class_campeonato_abe0557f6d0fe33787a6d44e85fd8bda3}{}\index{Campeonato@{Campeonato}!find\+Atleta\+Vect@{find\+Atleta\+Vect}}
+\index{find\+Atleta\+Vect@{find\+Atleta\+Vect}!Campeonato@{Campeonato}}
+\subsubsection[{find\+Atleta\+Vect(string nome\+Atleta)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Atleta} $\ast$ $>$ Campeonato\+::find\+Atleta\+Vect (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\+Atleta}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_abe0557f6d0fe33787a6d44e85fd8bda3}
+\hypertarget{class_campeonato_a64574dd8d105367c49d794a42e4a2aa8}{}\index{Campeonato@{Campeonato}!find\+Desporto@{find\+Desporto}}
+\index{find\+Desporto@{find\+Desporto}!Campeonato@{Campeonato}}
+\subsubsection[{find\+Desporto(string nome\+Desporto)}]{\setlength{\rightskip}{0pt plus 5cm}int Campeonato\+::find\+Desporto (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\+Desporto}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a64574dd8d105367c49d794a42e4a2aa8}
+\hypertarget{class_campeonato_a8002616a409e12a1ba2798d60c04f9dc}{}\index{Campeonato@{Campeonato}!find\+Equipa@{find\+Equipa}}
+\index{find\+Equipa@{find\+Equipa}!Campeonato@{Campeonato}}
+\subsubsection[{find\+Equipa(string nome\+Equipa)}]{\setlength{\rightskip}{0pt plus 5cm}int Campeonato\+::find\+Equipa (
+\begin{DoxyParamCaption}
+\item[{string}]{nome\+Equipa}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a8002616a409e12a1ba2798d60c04f9dc}
+\hypertarget{class_campeonato_ab37dc7253ffed81cc81e90c569d83cf9}{}\index{Campeonato@{Campeonato}!get\+Atletas@{get\+Atletas}}
+\index{get\+Atletas@{get\+Atletas}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Atletas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Atleta} $\ast$ $>$ Campeonato\+::get\+Atletas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_ab37dc7253ffed81cc81e90c569d83cf9}
+\hypertarget{class_campeonato_afb142b85e3413714cb1eecfc3e474f5c}{}\index{Campeonato@{Campeonato}!get\+Calendario@{get\+Calendario}}
+\index{get\+Calendario@{get\+Calendario}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Calendario() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Calendario} $\ast$ Campeonato\+::get\+Calendario (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_afb142b85e3413714cb1eecfc3e474f5c}
+\hypertarget{class_campeonato_ab78957e0803c30d318455d3d2b4f843b}{}\index{Campeonato@{Campeonato}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Data() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Campeonato\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_ab78957e0803c30d318455d3d2b4f843b}
+\hypertarget{class_campeonato_aa07da18865320276e7ea4506cc81d8fe}{}\index{Campeonato@{Campeonato}!get\+Deportos@{get\+Deportos}}
+\index{get\+Deportos@{get\+Deportos}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Deportos() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Desporto} $\ast$ $>$ Campeonato\+::get\+Deportos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_aa07da18865320276e7ea4506cc81d8fe}
+\hypertarget{class_campeonato_ac82ee7c13b116b71525cff9f557b45c2}{}\index{Campeonato@{Campeonato}!get\+Equipas@{get\+Equipas}}
+\index{get\+Equipas@{get\+Equipas}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Equipas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Equipa} $\ast$ $>$ Campeonato\+::get\+Equipas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_ac82ee7c13b116b71525cff9f557b45c2}
+\hypertarget{class_campeonato_ae014ca753715e808b6d67c73f241f27d}{}\index{Campeonato@{Campeonato}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Nome() const }]{\setlength{\rightskip}{0pt plus 5cm}string Campeonato\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_ae014ca753715e808b6d67c73f241f27d}
+\hypertarget{class_campeonato_a152f1d8474275af981214ed24663bf3f}{}\index{Campeonato@{Campeonato}!get\+Pais@{get\+Pais}}
+\index{get\+Pais@{get\+Pais}!Campeonato@{Campeonato}}
+\subsubsection[{get\+Pais() const }]{\setlength{\rightskip}{0pt plus 5cm}string Campeonato\+::get\+Pais (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_a152f1d8474275af981214ed24663bf3f}
+\hypertarget{class_campeonato_a6a51ed1d4c6ca51bdc407144589d5894}{}\index{Campeonato@{Campeonato}!imprime\+Atletas@{imprime\+Atletas}}
+\index{imprime\+Atletas@{imprime\+Atletas}!Campeonato@{Campeonato}}
+\subsubsection[{imprime\+Atletas() const }]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::imprime\+Atletas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_a6a51ed1d4c6ca51bdc407144589d5894}
+\hypertarget{class_campeonato_a4bbcc137067e9f72c169e22ce1c28858}{}\index{Campeonato@{Campeonato}!imprime\+Atletas\+Por\+Equipa@{imprime\+Atletas\+Por\+Equipa}}
+\index{imprime\+Atletas\+Por\+Equipa@{imprime\+Atletas\+Por\+Equipa}!Campeonato@{Campeonato}}
+\subsubsection[{imprime\+Atletas\+Por\+Equipa() const }]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::imprime\+Atletas\+Por\+Equipa (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_a4bbcc137067e9f72c169e22ce1c28858}
+\hypertarget{class_campeonato_a9e43dc72a8bf29c332209a37a8bdb1d8}{}\index{Campeonato@{Campeonato}!imprime\+Equipas@{imprime\+Equipas}}
+\index{imprime\+Equipas@{imprime\+Equipas}!Campeonato@{Campeonato}}
+\subsubsection[{imprime\+Equipas() const }]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::imprime\+Equipas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_campeonato_a9e43dc72a8bf29c332209a37a8bdb1d8}
+\hypertarget{class_campeonato_aad257942dd3f514d80fd8a9292dd03e2}{}\index{Campeonato@{Campeonato}!imprime\+Uma\+Equipa@{imprime\+Uma\+Equipa}}
+\index{imprime\+Uma\+Equipa@{imprime\+Uma\+Equipa}!Campeonato@{Campeonato}}
+\subsubsection[{imprime\+Uma\+Equipa(string nome)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::imprime\+Uma\+Equipa (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_aad257942dd3f514d80fd8a9292dd03e2}
+\hypertarget{class_campeonato_ab42ec0da76a4a0f0eecf276ad32d2102}{}\index{Campeonato@{Campeonato}!inserir\+Atleta@{inserir\+Atleta}}
+\index{inserir\+Atleta@{inserir\+Atleta}!Campeonato@{Campeonato}}
+\subsubsection[{inserir\+Atleta(\+Atleta \&a)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::inserir\+Atleta (
+\begin{DoxyParamCaption}
+\item[{{\bf Atleta} \&}]{a}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ab42ec0da76a4a0f0eecf276ad32d2102}
+\hypertarget{class_campeonato_a10a9d48eb0f700e6f12e2b1d0d35af14}{}\index{Campeonato@{Campeonato}!inserir\+Equipa@{inserir\+Equipa}}
+\index{inserir\+Equipa@{inserir\+Equipa}!Campeonato@{Campeonato}}
+\subsubsection[{inserir\+Equipa(\+Equipa \&e)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::inserir\+Equipa (
+\begin{DoxyParamCaption}
+\item[{{\bf Equipa} \&}]{e}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a10a9d48eb0f700e6f12e2b1d0d35af14}
+\hypertarget{class_campeonato_ae1c0453864ac35ca78f076dd33c5c8a2}{}\index{Campeonato@{Campeonato}!ordena\+Classificacoes@{ordena\+Classificacoes}}
+\index{ordena\+Classificacoes@{ordena\+Classificacoes}!Campeonato@{Campeonato}}
+\subsubsection[{ordena\+Classificacoes()}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::ordena\+Classificacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ae1c0453864ac35ca78f076dd33c5c8a2}
+\hypertarget{class_campeonato_a4f443b1fb65733062b40dd529d5ad63e}{}\index{Campeonato@{Campeonato}!read\+File\+Atletas@{read\+File\+Atletas}}
+\index{read\+File\+Atletas@{read\+File\+Atletas}!Campeonato@{Campeonato}}
+\subsubsection[{read\+File\+Atletas(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::read\+File\+Atletas (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a4f443b1fb65733062b40dd529d5ad63e}
+\hypertarget{class_campeonato_a93f60ccc2608b0c99a978bc93fd881ac}{}\index{Campeonato@{Campeonato}!read\+File\+Equipas@{read\+File\+Equipas}}
+\index{read\+File\+Equipas@{read\+File\+Equipas}!Campeonato@{Campeonato}}
+\subsubsection[{read\+File\+Equipas(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::read\+File\+Equipas (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a93f60ccc2608b0c99a978bc93fd881ac}
+\hypertarget{class_campeonato_a4098bb3bde66ead9ecaa61e10aef2a5e}{}\index{Campeonato@{Campeonato}!read\+File\+Provas@{read\+File\+Provas}}
+\index{read\+File\+Provas@{read\+File\+Provas}!Campeonato@{Campeonato}}
+\subsubsection[{read\+File\+Provas(string filename)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::read\+File\+Provas (
+\begin{DoxyParamCaption}
+\item[{string}]{filename}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a4098bb3bde66ead9ecaa61e10aef2a5e}
+\hypertarget{class_campeonato_ac00744815952c31c3d5ba905dbc1494c}{}\index{Campeonato@{Campeonato}!realizar\+Prova@{realizar\+Prova}}
+\index{realizar\+Prova@{realizar\+Prova}!Campeonato@{Campeonato}}
+\subsubsection[{realizar\+Prova(int id)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::realizar\+Prova (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ac00744815952c31c3d5ba905dbc1494c}
+\hypertarget{class_campeonato_a27bda42e9ca401475e70f5ab64bfc97a}{}\index{Campeonato@{Campeonato}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Campeonato@{Campeonato}}
+\subsubsection[{set\+Data(string d)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{string}]{d}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a27bda42e9ca401475e70f5ab64bfc97a}
+\hypertarget{class_campeonato_ab2654ae701c2418dab5c70aa4cd74b57}{}\index{Campeonato@{Campeonato}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!Campeonato@{Campeonato}}
+\subsubsection[{set\+Nome(string n)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::set\+Nome (
+\begin{DoxyParamCaption}
+\item[{string}]{n}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_ab2654ae701c2418dab5c70aa4cd74b57}
+\hypertarget{class_campeonato_a93bfc1733ef03cc4f0a71619f6f25701}{}\index{Campeonato@{Campeonato}!set\+Pais@{set\+Pais}}
+\index{set\+Pais@{set\+Pais}!Campeonato@{Campeonato}}
+\subsubsection[{set\+Pais(string p)}]{\setlength{\rightskip}{0pt plus 5cm}void Campeonato\+::set\+Pais (
+\begin{DoxyParamCaption}
+\item[{string}]{p}
+\end{DoxyParamCaption}
+)}\label{class_campeonato_a93bfc1733ef03cc4f0a71619f6f25701}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_campeonato_a06b7fd65d33044bff509122140774509}{}\index{Campeonato@{Campeonato}!atletas@{atletas}}
+\index{atletas@{atletas}!Campeonato@{Campeonato}}
+\subsubsection[{atletas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Atleta}$\ast$$>$ Campeonato\+::atletas\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_a06b7fd65d33044bff509122140774509}
+\hypertarget{class_campeonato_af4bf75bd6daa812d16ab2be60c356f21}{}\index{Campeonato@{Campeonato}!calendario@{calendario}}
+\index{calendario@{calendario}!Campeonato@{Campeonato}}
+\subsubsection[{calendario}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Calendario}$\ast$ Campeonato\+::calendario\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_af4bf75bd6daa812d16ab2be60c356f21}
+\hypertarget{class_campeonato_ab9a3d4a07de27528556e0ffebda3ba97}{}\index{Campeonato@{Campeonato}!data@{data}}
+\index{data@{data}!Campeonato@{Campeonato}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Campeonato\+::data\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_ab9a3d4a07de27528556e0ffebda3ba97}
+\hypertarget{class_campeonato_ab65bbad67e796b73176b696457ea39ea}{}\index{Campeonato@{Campeonato}!desportos@{desportos}}
+\index{desportos@{desportos}!Campeonato@{Campeonato}}
+\subsubsection[{desportos}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Desporto}$\ast$$>$ Campeonato\+::desportos\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_ab65bbad67e796b73176b696457ea39ea}
+\hypertarget{class_campeonato_ab677d5217856ce0ff2887a0e335caf2d}{}\index{Campeonato@{Campeonato}!equipas@{equipas}}
+\index{equipas@{equipas}!Campeonato@{Campeonato}}
+\subsubsection[{equipas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Equipa}$\ast$$>$ Campeonato\+::equipas\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_ab677d5217856ce0ff2887a0e335caf2d}
+\hypertarget{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}{}\index{Campeonato@{Campeonato}!nome@{nome}}
+\index{nome@{nome}!Campeonato@{Campeonato}}
+\subsubsection[{nome}]{\setlength{\rightskip}{0pt plus 5cm}string Campeonato\+::nome\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_a670b0857b7a8bc3c5dbf0f927ee192fe}
+\hypertarget{class_campeonato_a9f7011b322e9ae5fe6504ca5946268bf}{}\index{Campeonato@{Campeonato}!pais@{pais}}
+\index{pais@{pais}!Campeonato@{Campeonato}}
+\subsubsection[{pais}]{\setlength{\rightskip}{0pt plus 5cm}string Campeonato\+::pais\hspace{0.3cm}{\ttfamily [private]}}\label{class_campeonato_a9f7011b322e9ae5fe6504ca5946268bf}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_campeonato_8h}{Campeonato.\+h}\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_campeonato_8cpp}{Campeonato.\+cpp}\end{DoxyCompactItemize}

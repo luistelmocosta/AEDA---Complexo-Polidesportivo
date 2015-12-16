@@ -1,0 +1,254 @@
+\hypertarget{class_calendario}{}\section{Calendario Class Reference}
+\label{class_calendario}\index{Calendario@{Calendario}}
+
+
+{\ttfamily \#include $<$Calendario.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_calendario_a2aa60aa6d3c27f696018cc09d2748ea5}{Calendario} ()
+\item 
+\hyperlink{class_calendario_aed6e937e701548fcd80f9c154232a358}{Calendario} (vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ p, vector$<$ string $>$ m, vector$<$ string $>$ a, vector$<$ string $>$ e, string n\+F)
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a614b94b28d14852af27b60c49342b52c}{get\+Provas} () const 
+\item 
+void \hyperlink{class_calendario_a8995f4994281e459ebb013a67ca782d0}{set\+Provas} (vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ vp)
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_aa92791918d953f34250063a67d0d6232}{get\+Modalidades} () const 
+\item 
+void \hyperlink{class_calendario_a7cb27d11676ca4fc42704be917469605}{set\+Modalidades} (vector$<$ string $>$ vm)
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_abfc38a3a96e33ec237496ed83c3259a5}{get\+Atletas} () const 
+\item 
+void \hyperlink{class_calendario_aa9691cb641df0e63197445f891e763a7}{set\+Atletas} (vector$<$ string $>$ va)
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_aff13d470983e46172aca04dda560332d}{get\+Equipas} () const 
+\item 
+void \hyperlink{class_calendario_a231a630e1b58f9637814169f8b5364fe}{set\+Equipas} (vector$<$ string $>$ ve)
+\item 
+string \hyperlink{class_calendario_a8ec3b8d1862fc893922561d97e4341cb}{get\+Nome\+Fich} () const 
+\item 
+void \hyperlink{class_calendario_af538ad94515f132774b870a9bfc2a01d}{set\+Nome\+Fich} (string n\+F)
+\item 
+int \hyperlink{class_calendario_a0232407ed153d613706113bad31d63ab}{find\+Prova} (int id)
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_acb99bce549da591f00766bde187c6ec2}{find\+Prova\+\_\+\+Data} (\hyperlink{structdate}{date} d)
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a793b4bc54543406742b0fcd16bd95c26}{find\+Prova\+\_\+\+Local} (string loc)
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a4213931fe492f55a4b6981c3dca02479}{find\+Prova\+\_\+\+Modal} (\hyperlink{class_modalidade}{Modalidade} $\ast$m)
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a269e064b1ef6d757eff9b3bd185c6542}{find\+Prova\+\_\+\+Vence} (\hyperlink{class_equipa}{Equipa} $\ast$e)
+\item 
+bool \hyperlink{class_calendario_a912aa3dbadbdd82a002ccb251d5281fc}{check\+Prova} (\hyperlink{class_prova}{Prova} \&p)
+\item 
+bool \hyperlink{class_calendario_a625c94503c65e12e0999b2e022f364c5}{inserir\+Prova} (\hyperlink{class_prova}{Prova} \&p)
+\item 
+void \hyperlink{class_calendario_a113deec80be420c7d7aabb416fe2e763}{eliminar\+Prova} (int id)
+\item 
+void \hyperlink{class_calendario_ae65b9add220bbfdf1f029816333aa656}{show\+Uma\+Prova} (int i) const 
+\item 
+void \hyperlink{class_calendario_af6bfda8df20c96b8e77773de3da16cee}{show\+Provas} () const 
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}{provas}
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_a6a492724444ed6b468fe230d09fd800b}{modalidades}
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_abac0d74a48d544302a57fd3857ce3cf2}{atletas}
+\item 
+vector$<$ string $>$ \hyperlink{class_calendario_a4c49ca003a72d9d1aa32fcef57066467}{equipas}
+\item 
+string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_calendario_a2aa60aa6d3c27f696018cc09d2748ea5}{}\index{Calendario@{Calendario}!Calendario@{Calendario}}
+\index{Calendario@{Calendario}!Calendario@{Calendario}}
+\subsubsection[{Calendario()}]{\setlength{\rightskip}{0pt plus 5cm}Calendario\+::\+Calendario (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_calendario_a2aa60aa6d3c27f696018cc09d2748ea5}
+\hypertarget{class_calendario_aed6e937e701548fcd80f9c154232a358}{}\index{Calendario@{Calendario}!Calendario@{Calendario}}
+\index{Calendario@{Calendario}!Calendario@{Calendario}}
+\subsubsection[{Calendario(vector$<$ Prova $\ast$ $>$ p, vector$<$ string $>$ m, vector$<$ string $>$ a, vector$<$ string $>$ e, string n\+F)}]{\setlength{\rightskip}{0pt plus 5cm}Calendario\+::\+Calendario (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Prova} $\ast$ $>$}]{p, }
+\item[{vector$<$ string $>$}]{m, }
+\item[{vector$<$ string $>$}]{a, }
+\item[{vector$<$ string $>$}]{e, }
+\item[{string}]{n\+F}
+\end{DoxyParamCaption}
+)}\label{class_calendario_aed6e937e701548fcd80f9c154232a358}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_calendario_a912aa3dbadbdd82a002ccb251d5281fc}{}\index{Calendario@{Calendario}!check\+Prova@{check\+Prova}}
+\index{check\+Prova@{check\+Prova}!Calendario@{Calendario}}
+\subsubsection[{check\+Prova(\+Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::check\+Prova (
+\begin{DoxyParamCaption}
+\item[{{\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a912aa3dbadbdd82a002ccb251d5281fc}
+\hypertarget{class_calendario_a113deec80be420c7d7aabb416fe2e763}{}\index{Calendario@{Calendario}!eliminar\+Prova@{eliminar\+Prova}}
+\index{eliminar\+Prova@{eliminar\+Prova}!Calendario@{Calendario}}
+\subsubsection[{eliminar\+Prova(int id)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::eliminar\+Prova (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a113deec80be420c7d7aabb416fe2e763}
+\hypertarget{class_calendario_a0232407ed153d613706113bad31d63ab}{}\index{Calendario@{Calendario}!find\+Prova@{find\+Prova}}
+\index{find\+Prova@{find\+Prova}!Calendario@{Calendario}}
+\subsubsection[{find\+Prova(int id)}]{\setlength{\rightskip}{0pt plus 5cm}int Calendario\+::find\+Prova (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a0232407ed153d613706113bad31d63ab}
+\hypertarget{class_calendario_acb99bce549da591f00766bde187c6ec2}{}\index{Calendario@{Calendario}!find\+Prova\+\_\+\+Data@{find\+Prova\+\_\+\+Data}}
+\index{find\+Prova\+\_\+\+Data@{find\+Prova\+\_\+\+Data}!Calendario@{Calendario}}
+\subsubsection[{find\+Prova\+\_\+\+Data(date d)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::find\+Prova\+\_\+\+Data (
+\begin{DoxyParamCaption}
+\item[{{\bf date}}]{d}
+\end{DoxyParamCaption}
+)}\label{class_calendario_acb99bce549da591f00766bde187c6ec2}
+\hypertarget{class_calendario_a793b4bc54543406742b0fcd16bd95c26}{}\index{Calendario@{Calendario}!find\+Prova\+\_\+\+Local@{find\+Prova\+\_\+\+Local}}
+\index{find\+Prova\+\_\+\+Local@{find\+Prova\+\_\+\+Local}!Calendario@{Calendario}}
+\subsubsection[{find\+Prova\+\_\+\+Local(string loc)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::find\+Prova\+\_\+\+Local (
+\begin{DoxyParamCaption}
+\item[{string}]{loc}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a793b4bc54543406742b0fcd16bd95c26}
+\hypertarget{class_calendario_a4213931fe492f55a4b6981c3dca02479}{}\index{Calendario@{Calendario}!find\+Prova\+\_\+\+Modal@{find\+Prova\+\_\+\+Modal}}
+\index{find\+Prova\+\_\+\+Modal@{find\+Prova\+\_\+\+Modal}!Calendario@{Calendario}}
+\subsubsection[{find\+Prova\+\_\+\+Modal(\+Modalidade $\ast$m)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::find\+Prova\+\_\+\+Modal (
+\begin{DoxyParamCaption}
+\item[{{\bf Modalidade} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a4213931fe492f55a4b6981c3dca02479}
+\hypertarget{class_calendario_a269e064b1ef6d757eff9b3bd185c6542}{}\index{Calendario@{Calendario}!find\+Prova\+\_\+\+Vence@{find\+Prova\+\_\+\+Vence}}
+\index{find\+Prova\+\_\+\+Vence@{find\+Prova\+\_\+\+Vence}!Calendario@{Calendario}}
+\subsubsection[{find\+Prova\+\_\+\+Vence(\+Equipa $\ast$e)}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::find\+Prova\+\_\+\+Vence (
+\begin{DoxyParamCaption}
+\item[{{\bf Equipa} $\ast$}]{e}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a269e064b1ef6d757eff9b3bd185c6542}
+\hypertarget{class_calendario_abfc38a3a96e33ec237496ed83c3259a5}{}\index{Calendario@{Calendario}!get\+Atletas@{get\+Atletas}}
+\index{get\+Atletas@{get\+Atletas}!Calendario@{Calendario}}
+\subsubsection[{get\+Atletas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Calendario\+::get\+Atletas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_abfc38a3a96e33ec237496ed83c3259a5}
+\hypertarget{class_calendario_aff13d470983e46172aca04dda560332d}{}\index{Calendario@{Calendario}!get\+Equipas@{get\+Equipas}}
+\index{get\+Equipas@{get\+Equipas}!Calendario@{Calendario}}
+\subsubsection[{get\+Equipas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Calendario\+::get\+Equipas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_aff13d470983e46172aca04dda560332d}
+\hypertarget{class_calendario_aa92791918d953f34250063a67d0d6232}{}\index{Calendario@{Calendario}!get\+Modalidades@{get\+Modalidades}}
+\index{get\+Modalidades@{get\+Modalidades}!Calendario@{Calendario}}
+\subsubsection[{get\+Modalidades() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Calendario\+::get\+Modalidades (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_aa92791918d953f34250063a67d0d6232}
+\hypertarget{class_calendario_a8ec3b8d1862fc893922561d97e4341cb}{}\index{Calendario@{Calendario}!get\+Nome\+Fich@{get\+Nome\+Fich}}
+\index{get\+Nome\+Fich@{get\+Nome\+Fich}!Calendario@{Calendario}}
+\subsubsection[{get\+Nome\+Fich() const }]{\setlength{\rightskip}{0pt plus 5cm}string Calendario\+::get\+Nome\+Fich (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_a8ec3b8d1862fc893922561d97e4341cb}
+\hypertarget{class_calendario_a614b94b28d14852af27b60c49342b52c}{}\index{Calendario@{Calendario}!get\+Provas@{get\+Provas}}
+\index{get\+Provas@{get\+Provas}!Calendario@{Calendario}}
+\subsubsection[{get\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::get\+Provas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_a614b94b28d14852af27b60c49342b52c}
+\hypertarget{class_calendario_a625c94503c65e12e0999b2e022f364c5}{}\index{Calendario@{Calendario}!inserir\+Prova@{inserir\+Prova}}
+\index{inserir\+Prova@{inserir\+Prova}!Calendario@{Calendario}}
+\subsubsection[{inserir\+Prova(\+Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::inserir\+Prova (
+\begin{DoxyParamCaption}
+\item[{{\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a625c94503c65e12e0999b2e022f364c5}
+\hypertarget{class_calendario_aa9691cb641df0e63197445f891e763a7}{}\index{Calendario@{Calendario}!set\+Atletas@{set\+Atletas}}
+\index{set\+Atletas@{set\+Atletas}!Calendario@{Calendario}}
+\subsubsection[{set\+Atletas(vector$<$ string $>$ va)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Atletas (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$}]{va}
+\end{DoxyParamCaption}
+)}\label{class_calendario_aa9691cb641df0e63197445f891e763a7}
+\hypertarget{class_calendario_a231a630e1b58f9637814169f8b5364fe}{}\index{Calendario@{Calendario}!set\+Equipas@{set\+Equipas}}
+\index{set\+Equipas@{set\+Equipas}!Calendario@{Calendario}}
+\subsubsection[{set\+Equipas(vector$<$ string $>$ ve)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Equipas (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$}]{ve}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a231a630e1b58f9637814169f8b5364fe}
+\hypertarget{class_calendario_a7cb27d11676ca4fc42704be917469605}{}\index{Calendario@{Calendario}!set\+Modalidades@{set\+Modalidades}}
+\index{set\+Modalidades@{set\+Modalidades}!Calendario@{Calendario}}
+\subsubsection[{set\+Modalidades(vector$<$ string $>$ vm)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Modalidades (
+\begin{DoxyParamCaption}
+\item[{vector$<$ string $>$}]{vm}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a7cb27d11676ca4fc42704be917469605}
+\hypertarget{class_calendario_af538ad94515f132774b870a9bfc2a01d}{}\index{Calendario@{Calendario}!set\+Nome\+Fich@{set\+Nome\+Fich}}
+\index{set\+Nome\+Fich@{set\+Nome\+Fich}!Calendario@{Calendario}}
+\subsubsection[{set\+Nome\+Fich(string n\+F)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Nome\+Fich (
+\begin{DoxyParamCaption}
+\item[{string}]{n\+F}
+\end{DoxyParamCaption}
+)}\label{class_calendario_af538ad94515f132774b870a9bfc2a01d}
+\hypertarget{class_calendario_a8995f4994281e459ebb013a67ca782d0}{}\index{Calendario@{Calendario}!set\+Provas@{set\+Provas}}
+\index{set\+Provas@{set\+Provas}!Calendario@{Calendario}}
+\subsubsection[{set\+Provas(vector$<$ Prova $\ast$ $>$ vp)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Provas (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Prova} $\ast$ $>$}]{vp}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a8995f4994281e459ebb013a67ca782d0}
+\hypertarget{class_calendario_af6bfda8df20c96b8e77773de3da16cee}{}\index{Calendario@{Calendario}!show\+Provas@{show\+Provas}}
+\index{show\+Provas@{show\+Provas}!Calendario@{Calendario}}
+\subsubsection[{show\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::show\+Provas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_af6bfda8df20c96b8e77773de3da16cee}
+\hypertarget{class_calendario_ae65b9add220bbfdf1f029816333aa656}{}\index{Calendario@{Calendario}!show\+Uma\+Prova@{show\+Uma\+Prova}}
+\index{show\+Uma\+Prova@{show\+Uma\+Prova}!Calendario@{Calendario}}
+\subsubsection[{show\+Uma\+Prova(int i) const }]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::show\+Uma\+Prova (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const}\label{class_calendario_ae65b9add220bbfdf1f029816333aa656}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_calendario_abac0d74a48d544302a57fd3857ce3cf2}{}\index{Calendario@{Calendario}!atletas@{atletas}}
+\index{atletas@{atletas}!Calendario@{Calendario}}
+\subsubsection[{atletas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Calendario\+::atletas\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_abac0d74a48d544302a57fd3857ce3cf2}
+\hypertarget{class_calendario_a4c49ca003a72d9d1aa32fcef57066467}{}\index{Calendario@{Calendario}!equipas@{equipas}}
+\index{equipas@{equipas}!Calendario@{Calendario}}
+\subsubsection[{equipas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Calendario\+::equipas\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_a4c49ca003a72d9d1aa32fcef57066467}
+\hypertarget{class_calendario_a6a492724444ed6b468fe230d09fd800b}{}\index{Calendario@{Calendario}!modalidades@{modalidades}}
+\index{modalidades@{modalidades}!Calendario@{Calendario}}
+\subsubsection[{modalidades}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ Calendario\+::modalidades\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_a6a492724444ed6b468fe230d09fd800b}
+\hypertarget{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{}\index{Calendario@{Calendario}!nome\+F@{nome\+F}}
+\index{nome\+F@{nome\+F}!Calendario@{Calendario}}
+\subsubsection[{nome\+F}]{\setlength{\rightskip}{0pt plus 5cm}string Calendario\+::nome\+F\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}
+\hypertarget{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}{}\index{Calendario@{Calendario}!provas@{provas}}
+\index{provas@{provas}!Calendario@{Calendario}}
+\subsubsection[{provas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Prova}$\ast$$>$ Calendario\+::provas\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_calendario_8h}{Calendario.\+h}\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_calendario_8cpp}{Calendario.\+cpp}\end{DoxyCompactItemize}

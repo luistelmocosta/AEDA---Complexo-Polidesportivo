@@ -1,0 +1,291 @@
+\hypertarget{class_prova}{}\section{Prova Class Reference}
+\label{class_prova}\index{Prova@{Prova}}
+
+
+{\ttfamily \#include $<$Prova.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_prova_a4f36eaf2032327c06f7f7accd1ff7359}{Prova} ()
+\item 
+\hyperlink{class_prova_ab7713d18e28afa59ab2f106ec125d065}{Prova} (\hyperlink{structdate}{date} dat, string loc, unsigned int dur, vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ vs\+E, \hyperlink{class_modalidade}{Modalidade} $\ast$\hyperlink{class_prova_a9a372fdc63a673192aca93e5b3cdba22}{mod})
+\item 
+unsigned int \hyperlink{class_prova_a012b548cc9df64e2d43e59091796602f}{get\+I\+D} () const 
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_prova_a88e20574edda3295f8dca8a06028348b}{get\+Data} () const 
+\item 
+void \hyperlink{class_prova_ad7b16cc7b4e09c0f0a149d3096eb66d4}{set\+Data} (\hyperlink{structdate}{date} d)
+\item 
+string \hyperlink{class_prova_a032f33dd9c442edda490029fff463898}{get\+Local} () const 
+\item 
+void \hyperlink{class_prova_a1d86cb87877a9dcaf3858078b12a4a7d}{set\+Local} (string l)
+\item 
+unsigned int \hyperlink{class_prova_aea1d2198c70bb49385f716df2addf7ae}{get\+Duracao} () const 
+\item 
+void \hyperlink{class_prova_addc2d33d4b2ef9ec2c7dfa66cefed083}{set\+Duracao} (unsigned int d)
+\item 
+vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ \hyperlink{class_prova_a015e691c4fa50bb756adced9cdc30eb7}{get\+Adversarios} () const 
+\item 
+void \hyperlink{class_prova_af805f91c0039ade3b1bab2ab0b43e592}{set\+Adversarios} (vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ v\+E)
+\item 
+\hyperlink{class_modalidade}{Modalidade} $\ast$ \hyperlink{class_prova_afbf918fbf8ddfd7a2b3785af51536e25}{get\+Modalidade} () const 
+\item 
+void \hyperlink{class_prova_aef40e220eca46c4fabc0a27b67768e3e}{set\+Modalidade} (\hyperlink{class_modalidade}{Modalidade} $\ast$m)
+\item 
+\hyperlink{class_equipa}{Equipa} $\ast$ \hyperlink{class_prova_a64d0727625b43e4382e4806c032b2868}{get\+Vencedor} () const 
+\item 
+void \hyperlink{class_prova_a97b48c140227e28e5a472f7b7bcedd07}{set\+Vencedor} (\hyperlink{class_equipa}{Equipa} $\ast$v)
+\item 
+bool \hyperlink{class_prova_a5f36832ceb6a8870f5f005cc2ceb5dd2}{get\+Completed} () const 
+\item 
+void \hyperlink{class_prova_a54eae0a267369ea33421d72418597386}{set\+Completed} (bool b)
+\item 
+bool \hyperlink{class_prova_a88b8cc8150bb374039a701a37101fbef}{get\+Prova\+Tempo} () const 
+\item 
+void \hyperlink{class_prova_afea493249261504dbb3629c5834831c8}{set\+Prova\+Temo} (bool b)
+\item 
+\hyperlink{class_atleta}{Atleta} $\ast$ \hyperlink{class_prova_a34d362f2cfa3c77966e0644203aae796}{get\+Participante} (int i) const 
+\item 
+string \hyperlink{class_prova_ae170e53e9684644c4cfb5c864413a8b7}{get\+Data\+Formatada} () const 
+\item 
+void \hyperlink{class_prova_a7bb057ccef0b2b0be425cecc6ab6545e}{print} ()
+\item 
+bool \hyperlink{class_prova_afc694469d1207f16ffb9525fe2ffda81}{operator!=} (const \hyperlink{class_prova}{Prova} \&p)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_prova_a23b51edf66d26661629b5330db67c3e7}{id}
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_prova_a534b71e749122e706bbdd68e6b3410f4}{data}
+\item 
+string \hyperlink{class_prova_a4ff729b96dc2198a40d05dc7fdc38081}{local}
+\item 
+unsigned int \hyperlink{class_prova_a858c1f2a4be696df02eebe6419c34dc5}{duracao}
+\item 
+vector$<$ \hyperlink{class_equipa}{Equipa} $\ast$ $>$ \hyperlink{class_prova_aa085e9c4905e762142b6b735f4dfda30}{vs}
+\item 
+\hyperlink{class_modalidade}{Modalidade} $\ast$ \hyperlink{class_prova_a9a372fdc63a673192aca93e5b3cdba22}{mod}
+\item 
+\hyperlink{class_equipa}{Equipa} $\ast$ \hyperlink{class_prova_a9da09789da7cc0ef43b38197c96558fc}{vencedor}
+\item 
+bool \hyperlink{class_prova_a9b551ecafa591456d49345ceb9ea790d}{prova\+T}
+\item 
+bool \hyperlink{class_prova_aad473b9a0e23d11ba133ebdeea317522}{completed}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_prova_a4f36eaf2032327c06f7f7accd1ff7359}{}\index{Prova@{Prova}!Prova@{Prova}}
+\index{Prova@{Prova}!Prova@{Prova}}
+\subsubsection[{Prova()}]{\setlength{\rightskip}{0pt plus 5cm}Prova\+::\+Prova (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_prova_a4f36eaf2032327c06f7f7accd1ff7359}
+\hypertarget{class_prova_ab7713d18e28afa59ab2f106ec125d065}{}\index{Prova@{Prova}!Prova@{Prova}}
+\index{Prova@{Prova}!Prova@{Prova}}
+\subsubsection[{Prova(date dat, string loc, unsigned int dur, vector$<$ Equipa $\ast$ $>$ vs\+E, Modalidade $\ast$mod)}]{\setlength{\rightskip}{0pt plus 5cm}Prova\+::\+Prova (
+\begin{DoxyParamCaption}
+\item[{{\bf date}}]{dat, }
+\item[{string}]{loc, }
+\item[{unsigned int}]{dur, }
+\item[{vector$<$ {\bf Equipa} $\ast$ $>$}]{vs\+E, }
+\item[{{\bf Modalidade} $\ast$}]{mod}
+\end{DoxyParamCaption}
+)}\label{class_prova_ab7713d18e28afa59ab2f106ec125d065}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_prova_a015e691c4fa50bb756adced9cdc30eb7}{}\index{Prova@{Prova}!get\+Adversarios@{get\+Adversarios}}
+\index{get\+Adversarios@{get\+Adversarios}!Prova@{Prova}}
+\subsubsection[{get\+Adversarios() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Equipa} $\ast$ $>$ Prova\+::get\+Adversarios (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a015e691c4fa50bb756adced9cdc30eb7}
+\hypertarget{class_prova_a5f36832ceb6a8870f5f005cc2ceb5dd2}{}\index{Prova@{Prova}!get\+Completed@{get\+Completed}}
+\index{get\+Completed@{get\+Completed}!Prova@{Prova}}
+\subsubsection[{get\+Completed() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::get\+Completed (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a5f36832ceb6a8870f5f005cc2ceb5dd2}
+\hypertarget{class_prova_a88e20574edda3295f8dca8a06028348b}{}\index{Prova@{Prova}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Prova@{Prova}}
+\subsubsection[{get\+Data() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Prova\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a88e20574edda3295f8dca8a06028348b}
+\hypertarget{class_prova_ae170e53e9684644c4cfb5c864413a8b7}{}\index{Prova@{Prova}!get\+Data\+Formatada@{get\+Data\+Formatada}}
+\index{get\+Data\+Formatada@{get\+Data\+Formatada}!Prova@{Prova}}
+\subsubsection[{get\+Data\+Formatada() const }]{\setlength{\rightskip}{0pt plus 5cm}string Prova\+::get\+Data\+Formatada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_ae170e53e9684644c4cfb5c864413a8b7}
+\hypertarget{class_prova_aea1d2198c70bb49385f716df2addf7ae}{}\index{Prova@{Prova}!get\+Duracao@{get\+Duracao}}
+\index{get\+Duracao@{get\+Duracao}!Prova@{Prova}}
+\subsubsection[{get\+Duracao() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Prova\+::get\+Duracao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_aea1d2198c70bb49385f716df2addf7ae}
+\hypertarget{class_prova_a012b548cc9df64e2d43e59091796602f}{}\index{Prova@{Prova}!get\+I\+D@{get\+I\+D}}
+\index{get\+I\+D@{get\+I\+D}!Prova@{Prova}}
+\subsubsection[{get\+I\+D() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Prova\+::get\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a012b548cc9df64e2d43e59091796602f}
+\hypertarget{class_prova_a032f33dd9c442edda490029fff463898}{}\index{Prova@{Prova}!get\+Local@{get\+Local}}
+\index{get\+Local@{get\+Local}!Prova@{Prova}}
+\subsubsection[{get\+Local() const }]{\setlength{\rightskip}{0pt plus 5cm}string Prova\+::get\+Local (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a032f33dd9c442edda490029fff463898}
+\hypertarget{class_prova_afbf918fbf8ddfd7a2b3785af51536e25}{}\index{Prova@{Prova}!get\+Modalidade@{get\+Modalidade}}
+\index{get\+Modalidade@{get\+Modalidade}!Prova@{Prova}}
+\subsubsection[{get\+Modalidade() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modalidade} $\ast$ Prova\+::get\+Modalidade (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_afbf918fbf8ddfd7a2b3785af51536e25}
+\hypertarget{class_prova_a34d362f2cfa3c77966e0644203aae796}{}\index{Prova@{Prova}!get\+Participante@{get\+Participante}}
+\index{get\+Participante@{get\+Participante}!Prova@{Prova}}
+\subsubsection[{get\+Participante(int i) const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Atleta} $\ast$ Prova\+::get\+Participante (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a34d362f2cfa3c77966e0644203aae796}
+\hypertarget{class_prova_a88b8cc8150bb374039a701a37101fbef}{}\index{Prova@{Prova}!get\+Prova\+Tempo@{get\+Prova\+Tempo}}
+\index{get\+Prova\+Tempo@{get\+Prova\+Tempo}!Prova@{Prova}}
+\subsubsection[{get\+Prova\+Tempo() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::get\+Prova\+Tempo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a88b8cc8150bb374039a701a37101fbef}
+\hypertarget{class_prova_a64d0727625b43e4382e4806c032b2868}{}\index{Prova@{Prova}!get\+Vencedor@{get\+Vencedor}}
+\index{get\+Vencedor@{get\+Vencedor}!Prova@{Prova}}
+\subsubsection[{get\+Vencedor() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf Equipa} $\ast$ Prova\+::get\+Vencedor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a64d0727625b43e4382e4806c032b2868}
+\hypertarget{class_prova_afc694469d1207f16ffb9525fe2ffda81}{}\index{Prova@{Prova}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Prova@{Prova}}
+\subsubsection[{operator"!=(const Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+)}\label{class_prova_afc694469d1207f16ffb9525fe2ffda81}
+\hypertarget{class_prova_a7bb057ccef0b2b0be425cecc6ab6545e}{}\index{Prova@{Prova}!print@{print}}
+\index{print@{print}!Prova@{Prova}}
+\subsubsection[{print()}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_prova_a7bb057ccef0b2b0be425cecc6ab6545e}
+\hypertarget{class_prova_af805f91c0039ade3b1bab2ab0b43e592}{}\index{Prova@{Prova}!set\+Adversarios@{set\+Adversarios}}
+\index{set\+Adversarios@{set\+Adversarios}!Prova@{Prova}}
+\subsubsection[{set\+Adversarios(vector$<$ Equipa $\ast$ $>$ v\+E)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Adversarios (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Equipa} $\ast$ $>$}]{v\+E}
+\end{DoxyParamCaption}
+)}\label{class_prova_af805f91c0039ade3b1bab2ab0b43e592}
+\hypertarget{class_prova_a54eae0a267369ea33421d72418597386}{}\index{Prova@{Prova}!set\+Completed@{set\+Completed}}
+\index{set\+Completed@{set\+Completed}!Prova@{Prova}}
+\subsubsection[{set\+Completed(bool b)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Completed (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)}\label{class_prova_a54eae0a267369ea33421d72418597386}
+\hypertarget{class_prova_ad7b16cc7b4e09c0f0a149d3096eb66d4}{}\index{Prova@{Prova}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!Prova@{Prova}}
+\subsubsection[{set\+Data(date d)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{{\bf date}}]{d}
+\end{DoxyParamCaption}
+)}\label{class_prova_ad7b16cc7b4e09c0f0a149d3096eb66d4}
+\hypertarget{class_prova_addc2d33d4b2ef9ec2c7dfa66cefed083}{}\index{Prova@{Prova}!set\+Duracao@{set\+Duracao}}
+\index{set\+Duracao@{set\+Duracao}!Prova@{Prova}}
+\subsubsection[{set\+Duracao(unsigned int d)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Duracao (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{d}
+\end{DoxyParamCaption}
+)}\label{class_prova_addc2d33d4b2ef9ec2c7dfa66cefed083}
+\hypertarget{class_prova_a1d86cb87877a9dcaf3858078b12a4a7d}{}\index{Prova@{Prova}!set\+Local@{set\+Local}}
+\index{set\+Local@{set\+Local}!Prova@{Prova}}
+\subsubsection[{set\+Local(string l)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Local (
+\begin{DoxyParamCaption}
+\item[{string}]{l}
+\end{DoxyParamCaption}
+)}\label{class_prova_a1d86cb87877a9dcaf3858078b12a4a7d}
+\hypertarget{class_prova_aef40e220eca46c4fabc0a27b67768e3e}{}\index{Prova@{Prova}!set\+Modalidade@{set\+Modalidade}}
+\index{set\+Modalidade@{set\+Modalidade}!Prova@{Prova}}
+\subsubsection[{set\+Modalidade(\+Modalidade $\ast$m)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Modalidade (
+\begin{DoxyParamCaption}
+\item[{{\bf Modalidade} $\ast$}]{m}
+\end{DoxyParamCaption}
+)}\label{class_prova_aef40e220eca46c4fabc0a27b67768e3e}
+\hypertarget{class_prova_afea493249261504dbb3629c5834831c8}{}\index{Prova@{Prova}!set\+Prova\+Temo@{set\+Prova\+Temo}}
+\index{set\+Prova\+Temo@{set\+Prova\+Temo}!Prova@{Prova}}
+\subsubsection[{set\+Prova\+Temo(bool b)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Prova\+Temo (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)}\label{class_prova_afea493249261504dbb3629c5834831c8}
+\hypertarget{class_prova_a97b48c140227e28e5a472f7b7bcedd07}{}\index{Prova@{Prova}!set\+Vencedor@{set\+Vencedor}}
+\index{set\+Vencedor@{set\+Vencedor}!Prova@{Prova}}
+\subsubsection[{set\+Vencedor(\+Equipa $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Vencedor (
+\begin{DoxyParamCaption}
+\item[{{\bf Equipa} $\ast$}]{v}
+\end{DoxyParamCaption}
+)}\label{class_prova_a97b48c140227e28e5a472f7b7bcedd07}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_prova_aad473b9a0e23d11ba133ebdeea317522}{}\index{Prova@{Prova}!completed@{completed}}
+\index{completed@{completed}!Prova@{Prova}}
+\subsubsection[{completed}]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::completed\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_aad473b9a0e23d11ba133ebdeea317522}
+\hypertarget{class_prova_a534b71e749122e706bbdd68e6b3410f4}{}\index{Prova@{Prova}!data@{data}}
+\index{data@{data}!Prova@{Prova}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Prova\+::data\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a534b71e749122e706bbdd68e6b3410f4}
+\hypertarget{class_prova_a858c1f2a4be696df02eebe6419c34dc5}{}\index{Prova@{Prova}!duracao@{duracao}}
+\index{duracao@{duracao}!Prova@{Prova}}
+\subsubsection[{duracao}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Prova\+::duracao\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a858c1f2a4be696df02eebe6419c34dc5}
+\hypertarget{class_prova_a23b51edf66d26661629b5330db67c3e7}{}\index{Prova@{Prova}!id@{id}}
+\index{id@{id}!Prova@{Prova}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int Prova\+::id\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a23b51edf66d26661629b5330db67c3e7}
+\hypertarget{class_prova_a4ff729b96dc2198a40d05dc7fdc38081}{}\index{Prova@{Prova}!local@{local}}
+\index{local@{local}!Prova@{Prova}}
+\subsubsection[{local}]{\setlength{\rightskip}{0pt plus 5cm}string Prova\+::local\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a4ff729b96dc2198a40d05dc7fdc38081}
+\hypertarget{class_prova_a9a372fdc63a673192aca93e5b3cdba22}{}\index{Prova@{Prova}!mod@{mod}}
+\index{mod@{mod}!Prova@{Prova}}
+\subsubsection[{mod}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Modalidade}$\ast$ Prova\+::mod\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a9a372fdc63a673192aca93e5b3cdba22}
+\hypertarget{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{}\index{Prova@{Prova}!new\+I\+D@{new\+I\+D}}
+\index{new\+I\+D@{new\+I\+D}!Prova@{Prova}}
+\subsubsection[{new\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int Prova\+::new\+I\+D = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{class_prova_aeaa338e40106c1be53f3f1134d3fb942}
+\hypertarget{class_prova_a9b551ecafa591456d49345ceb9ea790d}{}\index{Prova@{Prova}!prova\+T@{prova\+T}}
+\index{prova\+T@{prova\+T}!Prova@{Prova}}
+\subsubsection[{prova\+T}]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::prova\+T\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a9b551ecafa591456d49345ceb9ea790d}
+\hypertarget{class_prova_a9da09789da7cc0ef43b38197c96558fc}{}\index{Prova@{Prova}!vencedor@{vencedor}}
+\index{vencedor@{vencedor}!Prova@{Prova}}
+\subsubsection[{vencedor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Equipa}$\ast$ Prova\+::vencedor\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_a9da09789da7cc0ef43b38197c96558fc}
+\hypertarget{class_prova_aa085e9c4905e762142b6b735f4dfda30}{}\index{Prova@{Prova}!vs@{vs}}
+\index{vs@{vs}!Prova@{Prova}}
+\subsubsection[{vs}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Equipa}$\ast$$>$ Prova\+::vs\hspace{0.3cm}{\ttfamily [private]}}\label{class_prova_aa085e9c4905e762142b6b735f4dfda30}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_prova_8h}{Prova.\+h}\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_prova_8cpp}{Prova.\+cpp}\end{DoxyCompactItemize}
