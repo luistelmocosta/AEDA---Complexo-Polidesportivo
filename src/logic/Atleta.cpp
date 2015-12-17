@@ -18,6 +18,12 @@ Atleta::Atleta(){
 
 }
 
+Atleta::Atleta(string nome) {
+
+	inf.nome = nome;
+
+}
+
 Atleta::~Atleta(){
 
 }
@@ -122,3 +128,159 @@ void Atleta::imprime() const{
 	cout << "Equipa: " << nEquipa << endl;
 	cout << endl;
 }
+
+
+//class AtletasGuardados
+
+void AtletasGuardados::inserirAtleta(Atleta &a1){
+	Tabela::iterator it = atletas.find(a1);
+
+	if(it == atletas.end())
+		atletas.insert(a1);
+	else
+	{
+		atletas.erase(it);
+		atletas.insert(a1);
+	}
+}
+
+void AtletasGuardados::removerAtleta(string nome){
+	Tabela::iterator it = atletas.begin();
+
+	Atleta a1;
+
+	while(it!= atletas.end())
+	{
+		if(it->getNome() == nome)
+			atletas.erase(it);
+		it++;
+	}
+}
+
+int AtletasGuardados::removerAtletas(int pontuacao){
+
+	int counter = 0;
+
+	Tabela::iterator it = atletas.begin();
+
+	while(it != atletas.end()){
+		if(it->getPontuacao() < pontuacao){
+			atletas.erase(it);
+			counter++;
+		}
+		it++;
+	}
+
+	return counter;
+}
+
+void AtletasGuardados::alterarNacionalidade(string nome, string novaNacionalidade){
+
+	Atleta a1(nome);
+
+	Tabela::iterator it = atletas.find(a1);
+
+	if(it == atletas.end()){
+		throw AtletaInexistente(nome);
+	}
+	else
+	{
+		a1 = (*it);
+		atletas.erase(it);
+		a1.setPais(novaNacionalidade);
+		atletas.insert(a1);
+
+	}
+}
+
+void AtletasGuardados::alterarPontuacao(string nome, int pontuacao){
+
+	Atleta a1(nome);
+
+	Tabela::iterator it = atletas.find(a1);
+
+	if(it == atletas.end())
+		throw AtletaInexistente(nome);
+	else{
+		a1 = (*it);
+		atletas.erase(it);
+		a1.setPontuacao(pontuacao);
+		atletas.insert(a1);
+	}
+
+}
+
+bool AtletasGuardados::existeAtleta(string nome) {
+
+	Atleta a1(nome);
+	Tabela::iterator it=atletas.find(a1);
+
+	if(it==atletas.end())
+		return false;
+	else return true;
+}
+
+void AtletasGuardados::showAtletas() {
+
+	Tabela::iterator it=atletas.begin();
+
+	while(it!=atletas.end()) {
+		cout<<"Empresa: "<<it->getNome()<<", Pais: "<<it->getPais()<<", Idade: "<<it->getIdade()
+						<< ", Altura: " << it->getAltura() << ", Peso: "<< it->getPeso() << ", Pontuacao: " << it->getPontuacao() << ", Equipa: " << it->getNEquipa() << endl;
+		it++;
+	}
+}
+
+void AtletasGuardados::readFile(ifstream& filename) {
+
+	if(!filename)
+		throw ErroNoFicheiro();
+	else {
+		string nome, pais, temp1, temp2, temp3, nEquipa;
+				int idade, altura, peso;
+
+		while (!filename.eof()) {
+
+			getline(filename, nome);
+			getline(filename, pais);
+			getline(filename, temp1);
+			getline(filename, temp2);
+			getline(filename, temp3);
+			getline(filename, nEquipa);
+
+			idade = atoi(temp1.c_str());
+			altura = atoi(temp2.c_str());
+			peso = atoi(temp3.c_str());
+
+			Atleta a1(nome, pais, idade, altura, peso);
+			inserirAtleta(a1);
+		}
+	}
+}
+
+void AtletasGuardados::writeFile(ofstream& filename) {
+
+	Tabela::iterator it=atletas.begin();
+
+	while(it!=atletas.end()) {
+		filename
+		<<it->getNome()<<endl
+		<<it->getPais()<<endl
+		<<it->getIdade()<< endl
+		<< it->getAltura() << endl
+		<< it->getPeso() << endl
+		<< it->getPontuacao() << endl
+		<< it->getNEquipa() << endl;
+		it++;
+	}
+}
+
+
+
+
+
+
+
+
+
+
