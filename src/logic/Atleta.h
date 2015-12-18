@@ -71,7 +71,7 @@ struct hash_atletas{
 	int operator() (const Atleta & a1) const{
 		return a1.getNome().size(); }
 
-	bool operator() (const Atleta & a1, const Atleta & a2) const{
+	bool operator() (const Atleta &a1, const Atleta & a2) const{
 		return a1.getNome()==a2.getNome();}
 
 };
