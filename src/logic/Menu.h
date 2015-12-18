@@ -52,6 +52,9 @@ public:
 	void modificaProvaMenu();
 	void apagaProvaMenu();
 
+	// #ADEPTO
+	void espacoAdeptoMenu();
+
 	// #
 	void clearScreen();
 

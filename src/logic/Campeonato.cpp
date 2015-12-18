@@ -91,6 +91,10 @@ bool Campeonato::eliminarAtleta(unsigned int id) {
 	}
 }
 
+void Campeonato::inserirAdepto(Adepto &ad){
+	adeptos.push_back(&ad);
+}
+
 
 /*
  *
@@ -174,6 +178,14 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 	cout << endl;
 }
 
+void Campeonato::imprimeAdeptos() const{
+	cout << "hello2" << endl;
+	for(unsigned int i = 0; i < adeptos.size(); i++){
+		adeptos[i]->imprime();
+	}
+	cout << endl << endl;
+}
+
 
 /*
  *
@@ -238,7 +250,30 @@ void Campeonato::readFileEquipas(string filename){
 	}
 }
 
+void Campeonato::readFileAdeptos(string filename) {
+
+	ifstream ficheiro_leitura (filename.c_str());
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else {
+		string nome;
+		string email, equipa;
+
+		while (!ficheiro_leitura.eof()) {
+
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, email);
+			getline(ficheiro_leitura, equipa);
+
+			Adepto *a1 = new Adepto(nome, email, equipa);
+			inserirAdepto(*a1);
+		}
+	}
+}
+
 void Campeonato::readFileProvas(string filename) {
+
 	ifstream ficheiro_leitura(filename.c_str());
 
 	if(!ficheiro_leitura)
@@ -323,28 +358,6 @@ void Campeonato::realizarProva(int id){
 
 }
 
-
-
-bool Campeonato::compEquipas(const Equipa& e1, const Equipa& e2) {
-	if(e1.getMedalhas()[0] > e2.getMedalhas()[0])
-			return true;
-		if(e1.getMedalhas()[0] < e2.getMedalhas()[0])
-			return false;
-		else{
-			if(e1.getMedalhas()[1] > e2.getMedalhas()[1])
-				return true;
-			if(e1.getMedalhas()[1] < e2.getMedalhas()[1])
-				return false;
-			else{
-				if(e1.getMedalhas()[2] > e2.getMedalhas()[2])
-					return true;
-				else return false;
-			}
-		}
-}
-
 void Campeonato::ordenaClassificacoes(){
-	//sort(equipas.begin(), equipas.end(), compEquipas);
-	//insertionSort(equipas);
+	insertionSort(equipas);
 }
-

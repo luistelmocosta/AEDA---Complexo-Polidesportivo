@@ -1,10 +1,3 @@
-/*
- * Adepto.h
- *
- *  Created on: Dec 17, 2015
- *      Author: luiscosta
- */
-
 #ifndef SRC_LOGIC_ADEPTO_H_
 #define SRC_LOGIC_ADEPTO_H_
 
@@ -18,10 +11,10 @@
 #include <stdlib.h>
 #include "Bilhete.h"
 
-
+//using namespace __gnu_cxx;
 using namespace std;
 
-
+/*
 struct hash_bilhetes{
 	int operator() (const Bilhete &b1) const{
 		return b1.getID(); }
@@ -31,19 +24,22 @@ struct hash_bilhetes{
 
 };
 
+typedef tr1::unordered_set<Bilhete, hash_bilhetes, hash_bilhetes> TabelaBilhetes;*/
 
-typedef tr1::unordered_set<Bilhete, hash_bilhetes, hash_bilhetes> TabelaBilhetes;
+class Bilhete;
 
 class Adepto {
-	TabelaBilhetes bilhetes;
+	//TabelaBilhetes bilhetes;
 	int uid;
+	string email;
 	static int newID;
+	Bilhete* bilhete;
 	string nome;
 	string nEquipa;
 
 public:
 
-	Adepto(string nome);
+	Adepto(string nome, string email, string nEq);
 	//Adepto(string nome, Equipa* e1, vector<Bilhete*> bilhetes);
 	Adepto();
 
@@ -55,11 +51,17 @@ public:
 	string getEquipa() const;
 	void setEquipa(string nEq);
 
+	string getEmail() const;
+	void setEmail(string novoEmail);
+
 	//vector<Bilhete*> getBilhetes() const;
 	void inserirBilhete(Bilhete &b1);
 
 	void removerBilhete(Bilhete &b1);
 
+	string getInfo() const;
+
+	//void Adepto::readFile(ifstream &filename);
 
 	void imprime() const;
 

@@ -67,11 +67,12 @@ int Menu::readDB(){
 
 	try{
 		campeonato->readFileAtletas(FICHEIRO_ATLETAS);
-		campeonato->readFileEquipas(FICHEIRO_EQUIPAS);
+		//campeonato->readFileEquipas(FICHEIRO_EQUIPAS);
 		campeonato->readFileProvas(FICHEIRO_PROVAS);
 	}
 	catch (ErroNoFicheiro &e){
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
+		return -1;
 	}
 
 	return 0;
@@ -116,6 +117,7 @@ void Menu::criaDBMenu(){
  */
 
 void Menu::mainMenu(){
+
 	int input;
 
 	cout << "1. Gerir Equipas" << endl;
@@ -123,7 +125,8 @@ void Menu::mainMenu(){
 	cout << "3. Gerir Provas" << endl;
 	cout << "4. Ver Calendario" << endl;
 	cout << "5. Classificacoes" << endl;
-	cout << "6. Sair" << endl;
+	cout << "6. Espaco Adepto" << endl;
+	cout << "7. Sair" << endl;
 
 	cin >> input;
 
@@ -137,7 +140,7 @@ void Menu::mainMenu(){
 	break;
 
 	case 3: gerirProvaMenu();
-		break;
+	break;
 
 	case 4:
 		break;
@@ -145,7 +148,10 @@ void Menu::mainMenu(){
 	case 5:
 		break;
 
-	case 6: break;
+	case 6:	espacoAdeptoMenu();
+	break;
+
+	case 7: break;
 
 	default: mainMenu();
 	break;
@@ -592,6 +598,42 @@ void Menu::apagaProvaMenu(){
 	}
 
 }
+
+
+/*
+ * 	#PROVAS
+ *
+ */
+
+void Menu::espacoAdeptoMenu(){
+
+	int input;
+
+	cout << "==Espaco Adepto==" << endl;
+
+	cout << "1. Comprar Bilhete" << endl;
+	cout << "2. Mostrar Bilhetes" << endl;
+	cout << "3. Mostrar adeptos" << endl;
+	cout << endl;
+
+	cin >> input;
+
+	switch(input){
+
+	case 1:
+		clearScreen();
+		break;
+	case 2:
+		break;
+	case 3:
+		campeonato->imprimeAdeptos();
+		cout << endl;
+
+	default: break;
+	}
+
+}
+
 
 /*
  * 	#

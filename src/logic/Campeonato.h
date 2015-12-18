@@ -3,14 +3,13 @@
 
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <iostream>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
 #include "Atleta.h"
-
+#include "Adepto.h"
+#include <iostream>
 
 using namespace std;
 
@@ -24,6 +23,7 @@ class Campeonato{
 	vector<Atleta*> atletas;
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
+	vector<Adepto*> adeptos;
 	Calendario* calendario;
 
 public:
@@ -47,6 +47,8 @@ public:
 	void inserirEquipa(Equipa &e);
 	bool eliminarEquipa(string nome);
 
+	void inserirAdepto(Adepto &ad);
+
 	void inserirAtleta(Atleta &a);
 	bool eliminarAtleta(unsigned int id);
 
@@ -62,13 +64,14 @@ public:
 	void imprimeAtletas() const;
 	void imprimeAtletasPorEquipa() const;
 
+	void imprimeAdeptos() const;
+
 	void readFileAtletas(string filename);
 	void readFileEquipas(string filename);
 	void readFileProvas(string filename);
+	void readFileAdeptos(string filename);
 
 	void realizarProva(int id);
-
-	bool compEquipas(const Equipa &e1, const Equipa &e2);
 	void ordenaClassificacoes();
 };
 
