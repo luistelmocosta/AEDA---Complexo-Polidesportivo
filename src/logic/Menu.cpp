@@ -7,7 +7,7 @@
 #include "Campeonato.h"
 #include "Utilities.h"
 
-void initMenu(){
+void Menu::initMenu(){
 
 	cout << "# Campeonatos Polidesportivos #" << endl << endl;
 
@@ -20,7 +20,7 @@ void initMenu(){
 
 }
 
-void collectCampInfo(){
+void Menu::collectCampInfo(){
 	string nomeC, dataC, paisC;
 
 	cout << "Insira o nome do Campeonato a criar: ";
@@ -41,7 +41,7 @@ void collectCampInfo(){
  * 	#DATABASE
  */
 
-void dataBaseMenu(){
+void Menu::dataBaseMenu(){
 	int input;
 
 	cout << "1. Utilizar Base Dados existente" << endl;
@@ -60,7 +60,7 @@ void dataBaseMenu(){
 
 }
 
-int readDB(){
+int Menu::readDB(){
 	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
 	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
 	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
@@ -77,7 +77,7 @@ int readDB(){
 	return 0;
 }
 
-void criaDBMenu(){
+void Menu::criaDBMenu(){
 
 	int input;
 
@@ -115,7 +115,7 @@ void criaDBMenu(){
  * 	#MAINMENU
  */
 
-void mainMenu(){
+void Menu::mainMenu(){
 	int input;
 
 	cout << "1. Gerir Equipas" << endl;
@@ -123,8 +123,7 @@ void mainMenu(){
 	cout << "3. Gerir Provas" << endl;
 	cout << "4. Ver Calendario" << endl;
 	cout << "5. Classificacoes" << endl;
-	cout << "6. Espaco Adepto" << endl;
-	cout << "7. Sair" << endl;
+	cout << "6. Sair" << endl;
 
 	cin >> input;
 
@@ -146,11 +145,7 @@ void mainMenu(){
 	case 5:
 		break;
 
-	case 6:
-		break;
-
-	case 7:
-		break;
+	case 6: break;
 
 	default: mainMenu();
 	break;
@@ -163,7 +158,7 @@ void mainMenu(){
  * 	#EQUIPAS
  */
 
-void criaEquipaMenu(){
+void Menu::criaEquipaMenu(){
 	string nome, pais, pat;
 
 	cout << "==Criador Equipas==" << endl;
@@ -184,7 +179,7 @@ void criaEquipaMenu(){
 
 }
 
-void gerirEquipaMenu(){
+void Menu::gerirEquipaMenu(){
 
 	int input;
 
@@ -227,11 +222,11 @@ void gerirEquipaMenu(){
 
 }
 
-void verEquipas(){
+void Menu::verEquipas(){
 	campeonato->imprimeEquipas();
 }
 
-void modificaEquipaMenu(){
+void Menu::modificaEquipaMenu(){
 
 	int pos;
 	string input;
@@ -274,7 +269,7 @@ void modificaEquipaMenu(){
 	}
 }
 
-void apagaEquipaMenu(){
+void Menu::apagaEquipaMenu(){
 
 	string input;
 
@@ -293,7 +288,7 @@ void apagaEquipaMenu(){
  * 	#ATLETAS
  */
 
-void criaAtletaMenu(){
+void Menu::criaAtletaMenu(){
 	info i;
 	string equipa;
 
@@ -331,7 +326,7 @@ void criaAtletaMenu(){
 
 }
 
-void gerirAtletaMenu(){
+void Menu::gerirAtletaMenu(){
 
 	int input;
 
@@ -375,11 +370,11 @@ void gerirAtletaMenu(){
 
 }
 
-void verAtletas(){
+void Menu::verAtletas(){
 	campeonato->imprimeAtletas();
 }
 
-void modificaAtletaMenu(){
+void Menu::modificaAtletaMenu(){
 	unsigned int id;
 	int pos;
 	string input;
@@ -437,7 +432,7 @@ void modificaAtletaMenu(){
 	}
 }
 
-void apagaAtletaMenu(){
+void Menu::apagaAtletaMenu(){
 
 	unsigned int id;
 
@@ -456,7 +451,7 @@ void apagaAtletaMenu(){
  *
  */
 
-void criaProvaMenu(){
+void Menu::criaProvaMenu(){
 
 	string input;
 	unsigned int durac;
@@ -489,7 +484,7 @@ void criaProvaMenu(){
 	clearScreen();
 }
 
-void gerirProvaMenu(){
+void Menu::gerirProvaMenu(){
 
 	int input;
 
@@ -532,11 +527,11 @@ void gerirProvaMenu(){
 	}
 }
 
-void verProvas(){
+void Menu::verProvas(){
 	campeonato->getCalendario()->showProvas();
 }
 
-void modificaProvaMenu(){
+void Menu::modificaProvaMenu(){
 
 	unsigned int aux;
 	int pos;
@@ -582,7 +577,7 @@ void modificaProvaMenu(){
 
 }
 
-void apagaProvaMenu(){
+void Menu::apagaProvaMenu(){
 
 	unsigned int id;
 
@@ -602,16 +597,11 @@ void apagaProvaMenu(){
  * 	#
  */
 
-void clearScreen(){
+void Menu::clearScreen(){
 	cout << string(50, '\n');
 }
 
-int main(){
 
-	initMenu();
-
-	return 0;
-}
 
 
 

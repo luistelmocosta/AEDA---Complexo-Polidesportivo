@@ -20,6 +20,7 @@ class Equipa {
 	string patrocinador;
 	float pontuacao;
 	vector<Atleta*> atletas;
+	vector<unsigned int> medalhas;		// [0]-ouro	 [1]-prata	[2]-bronze
 
 public:
 	Equipa(string n, string p, string pat);
@@ -40,6 +41,9 @@ public:
 	vector<Atleta*> getAtletas() const;
 	Atleta* getAtleta(unsigned int id);
 
+	vector<unsigned int> getMedalhas() const;
+	void setMedalhas(vector<unsigned int> m);
+
 
 	void inserirAtleta(Atleta &a1);
 	bool eliminarAtleta(unsigned int id);
@@ -50,6 +54,7 @@ public:
 	void imprime();
 
 	bool operator<(const Equipa &e);
+	bool operator==(const Equipa &e);
 };
 
 #endif /* SRC_LOGIC_EQUIPA_H_ */

@@ -5,49 +5,56 @@
 
 using namespace std;
 
-bool debug=false;
+class Menu{
 
-Campeonato* campeonato = new Campeonato();
+	Campeonato* campeonato;
 
-// #INIT
-void initMenu();
-void collectCampInfo();
+public:
 
-// #DATABASE
-void dataBaseMenu();
-int readDB();
-void criaDBMenu();
+	Menu(){
+		campeonato = new Campeonato();
+	}
+	virtual ~Menu(){}
 
-// #MAINMENU
-void mainMenu();
+	// #INIT
+	void initMenu();
+	void collectCampInfo();
 
-// #EQUIPAS
-void criaEquipaMenu();
+	// #DATABASE
+	void dataBaseMenu();
+	int readDB();
+	void criaDBMenu();
 
-void gerirEquipaMenu();
-void verEquipas();
-void modificaEquipaMenu();
-void apagaEquipaMenu();
+	// #MAINMENU
+	void mainMenu();
 
-// #ATLETAS
-void criaAtletaMenu();
+	// #EQUIPAS
+	void criaEquipaMenu();
 
-void gerirAtletaMenu();
-void verAtletas();			//em bruto
-void modificaAtletaMenu();
-void apagaAtletaMenu();
+	void gerirEquipaMenu();
+	void verEquipas();
+	void modificaEquipaMenu();
+	void apagaEquipaMenu();
 
-// #PROVAS
-void criaProvaMenu();
+	// #ATLETAS
+	void criaAtletaMenu();
 
-void gerirProvaMenu();
-void verProvas();
-void modificaProvaMenu();
-void apagaProvaMenu();
+	void gerirAtletaMenu();
+	void verAtletas();			//em bruto
+	void modificaAtletaMenu();
+	void apagaAtletaMenu();
 
-// #
-void clearScreen();
+	// #PROVAS
+	void criaProvaMenu();
 
-int main();
+	void gerirProvaMenu();
+	void verProvas();
+	void modificaProvaMenu();
+	void apagaProvaMenu();
+
+	// #
+	void clearScreen();
+
+};
 
 #endif /* SRC_LOGIC_MENU_H_ */

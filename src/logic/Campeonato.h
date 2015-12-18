@@ -3,12 +3,14 @@
 
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <iostream>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
 #include "Atleta.h"
-#include <iostream>
+
 
 using namespace std;
 
@@ -65,6 +67,8 @@ public:
 	void readFileProvas(string filename);
 
 	void realizarProva(int id);
+
+	bool compEquipas(const Equipa &e1, const Equipa &e2);
 	void ordenaClassificacoes();
 };
 

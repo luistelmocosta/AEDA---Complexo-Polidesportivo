@@ -323,6 +323,28 @@ void Campeonato::realizarProva(int id){
 
 }
 
-void Campeonato::ordenaClassificacoes(){
-	insertionSort(equipas);
+
+
+bool Campeonato::compEquipas(const Equipa& e1, const Equipa& e2) {
+	if(e1.getMedalhas()[0] > e2.getMedalhas()[0])
+			return true;
+		if(e1.getMedalhas()[0] < e2.getMedalhas()[0])
+			return false;
+		else{
+			if(e1.getMedalhas()[1] > e2.getMedalhas()[1])
+				return true;
+			if(e1.getMedalhas()[1] < e2.getMedalhas()[1])
+				return false;
+			else{
+				if(e1.getMedalhas()[2] > e2.getMedalhas()[2])
+					return true;
+				else return false;
+			}
+		}
 }
+
+void Campeonato::ordenaClassificacoes(){
+	//sort(equipas.begin(), equipas.end(), compEquipas);
+	//insertionSort(equipas);
+}
+

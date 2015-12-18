@@ -5,10 +5,12 @@
 
 Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(pat) {
 	pontuacao=0;
+	medalhas.reserve(3);
 }
 
 Equipa::Equipa() {
 	pontuacao=0;
+	medalhas.reserve(3);
 }
 
 
@@ -63,6 +65,13 @@ Atleta* Equipa::getAtleta(unsigned int id){
 	else return atletas[pos];
 }
 
+vector<unsigned int> Equipa::getMedalhas() const{
+	return medalhas;
+}
+
+void Equipa::setMedalhas(vector<unsigned int> m){
+	medalhas=m;
+}
 
 /*
  *
@@ -144,11 +153,26 @@ void Equipa::imprime() {
 
 bool Equipa::operator<(const Equipa &e){ // para insertionSort
 
-	if(this->pontuacao > e.pontuacao)
+	if(medalhas[0] > e.getMedalhas()[0])
 		return true;
-	else if(this->pontuacao == e.pontuacao)
-		return (this->nome > e.nome);
+	if(medalhas[0] < e.getMedalhas()[0])
+		return false;
+	else{
+		if(medalhas[1] > e.getMedalhas()[1])
+			return true;
+		if(medalhas[1] < e.getMedalhas()[1])
+			return false;
+		else{
+			if(medalhas[2] > e.getMedalhas()[2])
+				return true;
+			else return false;
+		}
+	}
 
-	return false;
 }
 
+bool Equipa::operator==(const Equipa &e){
+	if(medalhas[0] == e.getMedalhas()[0] && medalhas[1] == e.getMedalhas()[1] && medalhas[2] == e.getMedalhas()[2])
+		return true;
+	else return false;
+}
