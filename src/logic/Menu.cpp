@@ -123,7 +123,8 @@ void mainMenu(){
 	cout << "3. Gerir Provas" << endl;
 	cout << "4. Ver Calendario" << endl;
 	cout << "5. Classificacoes" << endl;
-	cout << "6. Sair" << endl;
+	cout << "6. Espaco Adepto" << endl;
+	cout << "7. Sair" << endl;
 
 	cin >> input;
 
@@ -145,7 +146,11 @@ void mainMenu(){
 	case 5:
 		break;
 
-	case 6: break;
+	case 6:
+		break;
+
+	case 7:
+		break;
 
 	default: mainMenu();
 	break;
