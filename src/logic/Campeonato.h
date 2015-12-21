@@ -3,15 +3,13 @@
 
 #include <vector>
 #include <string>
-#include <queue>
-#include <iostream>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
 #include "Atleta.h"
 #include "Adepto.h"
-
+#include <iostream>
 
 using namespace std;
 
@@ -27,8 +25,6 @@ class Campeonato{
 	vector<Desporto*> desportos;
 	vector<Adepto*> adeptos;
 	Calendario* calendario;
-
-	priority_queue<Equipa*> classificacao;
 
 public:
 	Campeonato();
@@ -47,7 +43,6 @@ public:
 	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 	Calendario* getCalendario() const;
-	priority_queue<Equipa*> getClassificacao() const;
 
 	void inserirEquipa(Equipa &e);
 	bool eliminarEquipa(string nome);
@@ -75,6 +70,9 @@ public:
 	void readFileEquipas(string filename);
 	void readFileProvas(string filename);
 	void readFileAdeptos(string filename);
+
+	void outputFileEquipas(string fName);
+	void outputFileAtletas(string fName);
 
 	void realizarProva(int id);
 	void ordenaClassificacoes();

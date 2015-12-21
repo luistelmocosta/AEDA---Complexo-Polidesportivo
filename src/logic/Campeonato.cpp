@@ -56,11 +56,6 @@ Calendario* Campeonato::getCalendario() const {
 }
 
 
-priority_queue<Equipa*> Campeonato::getClassificacao() const{
-	return classificacao;
-}
-
-
 /*
  *
  * 		MANIPULAR EQUIPAS E ATLETAS
@@ -365,4 +360,37 @@ void Campeonato::realizarProva(int id){
 
 void Campeonato::ordenaClassificacoes(){
 	insertionSort(equipas);
+}
+
+
+void Campeonato::outputFileEquipas(string fName){
+
+	ofstream equipasFile;
+
+	equipasFile.open(fName.c_str(), ios::out | ios::trunc);
+
+	equipasFile << "Equipas Inscritas" << endl << endl;
+
+	for(unsigned int i = 0; i < equipas.size(); ++i){
+
+		equipasFile<< "Equipa " << i+1 << ": " << equipas[i]->getNome() << endl;
+
+	}
+
+}
+
+void Campeonato::outputFileAtletas(string fName){
+
+	ofstream atletasFile;
+
+	atletasFile.open(fName.c_str(), ios::out | ios::trunc);
+
+	atletasFile << "Atletas Inscritos" << endl << endl;
+
+	for(unsigned int i = 0; i < atletas.size(); ++i){
+
+		atletasFile<< "Atleta " << i+1 << ": " << atletas[i]->getNome() << endl;
+
+	}
+
 }

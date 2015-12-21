@@ -7,6 +7,10 @@
 #include "Campeonato.h"
 #include "Utilities.h"
 
+string FICHEIRO_ATLETAS;
+string FICHEIRO_EQUIPAS;
+string FICHEIRO_PROVAS;
+
 void Menu::initMenu(){
 
 	cout << "# Campeonatos Polidesportivos #" << endl << endl;
@@ -61,9 +65,9 @@ void Menu::dataBaseMenu(){
 }
 
 int Menu::readDB(){
-	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
-	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
-	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
+	FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
+	FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
+	FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
 
 	try{
 		campeonato->readFileAtletas(FICHEIRO_ATLETAS);
@@ -151,7 +155,9 @@ void Menu::mainMenu(){
 	case 6:	espacoAdeptoMenu();
 	break;
 
-	case 7: break;
+	case 7: campeonato->outputFileAtletas(FICHEIRO_ATLETAS);
+			campeonato->outputFileEquipas(FICHEIRO_EQUIPAS);
+		break;
 
 	default: mainMenu();
 	break;
