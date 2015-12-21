@@ -56,6 +56,11 @@ Calendario* Campeonato::getCalendario() const {
 }
 
 
+priority_queue<Equipa*> Campeonato::getClassificacao() const{
+	return classificacao;
+}
+
+
 /*
  *
  * 		MANIPULAR EQUIPAS E ATLETAS

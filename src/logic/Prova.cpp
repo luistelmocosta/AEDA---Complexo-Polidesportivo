@@ -148,7 +148,7 @@ void Prova::print(){
  *
  */
 
-bool Prova::operator !=(const Prova &p){
+bool Prova::operator !=(const Prova &p)const{
 
 	bool result = true;
 
@@ -162,5 +162,63 @@ bool Prova::operator !=(const Prova &p){
 
 	return result;
 }
+
+bool Prova::operator<(const Prova&rp) const{
+
+	bool result = false;
+
+	if(data.ano < rp.data.ano){
+		result = true;
+	}
+
+	if(data.ano == rp.data.ano){
+
+		if(data.mes < rp.data.mes){
+			result = true;
+		}
+
+		if(data.mes == rp.data.mes){
+
+			if(data.dia < rp.data.dia){
+				result = true;
+			}
+
+		}
+
+	}
+	return result;
+
+
+}
+/*bool Prova::operator>(const Prova &p){
+
+	bool result = false;
+
+	if(this->data.ano > p.data.ano){
+
+		result = true;
+
+	}
+
+	if(this->data.ano == p.data.ano){
+
+		if(this->data.mes < p.data.mes){
+			result = true;
+		}
+
+		if(this->data.mes == p.data.mes){
+
+			if (this->data.dia < p.data.dia){
+				result = true;
+			}
+		}
+
+	}
+	return result;
+
+}*/
+
+
+
 
 

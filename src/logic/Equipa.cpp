@@ -151,7 +151,7 @@ void Equipa::imprime() {
  *
  */
 
-bool Equipa::operator<(const Equipa &e){ // para insertionSort
+bool Equipa::operator<(const Equipa &e){ // para priority_queue
 
 	if(medalhas[0] > e.getMedalhas()[0])
 		return true;

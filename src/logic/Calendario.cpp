@@ -3,13 +3,19 @@
 #include "Calendario.h"
 
 
-Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,vector <string> e, string nF) {
+Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,vector <string> e, string nF):provasBST(Prova()) {
+
+
 
 	provas=p;
+
 	modalidades=m;
 	atletas=a;
 	equipas=e;
 	nomeF = nF;
+
+
+
 }
 
 
@@ -147,13 +153,15 @@ bool Calendario::checkProva(Prova &p){
 			}
 		}
 	}
+
+
 	return isDiff;
 }
 
 bool Calendario::inserirProva (Prova &p){
 
 	if(checkProva(p)){
-		provas.push_back(&p);
+		provasBST.insert(p);
 		return true;
 	}
 	else{

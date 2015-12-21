@@ -58,7 +58,10 @@ public:
 	string getDataFormatada() const;
 	void print();
 
-	bool operator !=(const Prova &p);
+	bool operator !=(const Prova &p)const;
+    bool operator <(const Prova &p) const;
+    bool operator >(const Prova &p)const;
+    bool operator ==(const Prova &p)const;
 };
 
 

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include "BST.h"
 #include "Prova.h"
 #include "Campeonato.h"
 
@@ -12,6 +13,7 @@ class Campeonato;
 
 class Calendario{
 
+	BST<Prova> provasBST;
     vector<Prova*> provas;
     vector <string> modalidades;
     vector <string> atletas;
@@ -19,7 +21,7 @@ class Calendario{
     string nomeF;
 
 public:
-    Calendario(){}
+    Calendario(): provasBST(Prova()){}
     Calendario(vector <Prova*> p, vector <string> m, vector <string> a, vector <string> e, string nF);
 
     vector<Prova*> getProvas() const;

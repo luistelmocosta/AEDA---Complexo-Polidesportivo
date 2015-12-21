@@ -1,5 +1,6 @@
 #include "Menu.h"
 
+
 int main(){
 
 	Menu menu;
@@ -13,6 +14,8 @@ int main(){
  *
  * 	NAO APAGAR
  *
+
+int main(){
 	Campeonato c;
 
 	vector<unsigned> eq1, eq2, eq3;
@@ -29,10 +32,17 @@ int main(){
 	c.inserirEquipa(e2);
 	c.inserirEquipa(e3);
 
-	c.ordenaClassificacoes();
+	c.getClassificacao().push(c.getEquipas()[0]);
+	c.getClassificacao().push(c.getEquipas()[1]);
+	c.getClassificacao().push(c.getEquipas()[2]);
 
-	cout << c.getEquipas()[0]->getMedalhas()[0] << c.getEquipas()[1]->getMedalhas()[0] << c.getEquipas()[2]->getMedalhas()[0];
-*/
+	while(!c.getClassificacao().empty()){
 
+		cout << c.getClassificacao().top()->getMedalhas()[0] << endl;
+		c.getClassificacao().pop();
+	}
 
+	//cout << c.getEquipas()[0]->getMedalhas()[0] << c.getEquipas()[1]->getMedalhas()[0] << c.getEquipas()[2]->getMedalhas()[0];
+
+}*/
 
