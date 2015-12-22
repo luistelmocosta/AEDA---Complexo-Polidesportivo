@@ -442,7 +442,12 @@ void Campeonato::readFileAdeptos(string filename) {
 	}
 }
 
+void Campeonato::inserirBilhete(Bilhete &b1) {
+	bilhetesCampeonato.push_back(&b1);
+}
+
 void Campeonato::readFileBilhetes(string filename) {
+
 
 	ifstream ficheiro_leitura(filename.c_str());
 
@@ -452,8 +457,7 @@ void Campeonato::readFileBilhetes(string filename) {
 	if(!ficheiro_leitura)
 		throw ErroNoFicheiro(filename);
 	else{
-		string dono, data, provasNoBilhete;
-		unsigned int duracao;
+		string dono, data, provasNoBilhete, vendido;
 
 		while (!ficheiro_leitura.eof()){
 
@@ -461,8 +465,6 @@ void Campeonato::readFileBilhetes(string filename) {
 			getline(ficheiro_leitura, data);
 			getline(ficheiro_leitura, provasNoBilhete);
 
-
-			//duracao=atoi(durtmp.c_str());
 
 			stringstream dataSs;
 			date d;
@@ -480,6 +482,11 @@ void Campeonato::readFileBilhetes(string filename) {
 				d.ano = ano;
 			}
 
+			cout << "DIA: " << d.dia << endl;
+
+			string s1 = "";
+			string s2= "";
+
 
 
 			stringstream provasS;
@@ -487,10 +494,12 @@ void Campeonato::readFileBilhetes(string filename) {
 			while (provasNoBilhete[i] != '\n' && provasNoBilhete[i] != '\0'){
 
 				if(provasNoBilhete[i] == ','){
-					int indice = provasS;
+					int indice;
 					provasS.clear();
+					provasS.str("");
+					provasS.str(s2);
+					provasS >> indice;
 
-					indices.push_back(indice);
 
 
 				}
@@ -499,25 +508,23 @@ void Campeonato::readFileBilhetes(string filename) {
 
 
 				++i;
-
+				Bilhete *bi1 = new Bilhete(d, dono, indices);
+				inserirBilhete(*bi1);
 			}
-
-			vector<Prova*> vectorProvas = calendario->getProvas();
-
-			for(int j = 0; j < indices.size(); j++){
-				for(int k = 0; k < vectorProvas.size(); k++) {
-					if(indices[k] == vectorProvas[k]){
-
-					}
-				}
-			}
-
 
 
 		}
-
-
-
 	}
 
+}
+
+void Campeonato::imprimeBilhetes() const {
+
+	cout << "ola" << endl;
+	cout << bilhetesCampeonato.size() << endl;
+	for(unsigned int i = 0; i < bilhetesCampeonato.size(); i++){
+		cout << "ola 2" << endl;
+		bilhetesCampeonato[i]->imprime();
+	}
+	cout << endl << endl;
 }

@@ -12,6 +12,8 @@ Prova::Prova(date dat, string loc, unsigned int dur, vector <Equipa*> vsE, Modal
 }
 
 
+
+
 /*
  *
  * 		GETS/SETS

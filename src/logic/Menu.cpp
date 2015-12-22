@@ -74,7 +74,7 @@ int Menu::readDB(){
 		campeonato->readFileEquipas(FICHEIRO_EQUIPAS);
 		campeonato->readFileProvas(FICHEIRO_PROVAS);
 		campeonato->readFileAdeptos(FICHEIRO_ADEPTOS);
-		campeonato->readFileAdeptos(FICHEIRO_BILHETES);
+		campeonato->readFileBilhetes(FICHEIRO_BILHETES);
 	}
 	catch (ErroNoFicheiro &e){
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
@@ -630,6 +630,7 @@ void Menu::espacoAdeptoMenu(){
 		clearScreen();
 		break;
 	case 2:
+		campeonato->imprimeBilhetes();
 		break;
 	case 3:
 		campeonato->showAdeptos();

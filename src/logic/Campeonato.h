@@ -11,13 +11,12 @@
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
-#include "Atleta.h"
 #include "Adepto.h"
 
 
 using namespace std;
 
-
+class Bilhete;
 struct eqAdepto {
 	bool operator() (const Adepto &a1, const Adepto &a2) const{
 		return a1.getID() == a2.getID();
@@ -48,6 +47,7 @@ class Campeonato{
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario* calendario;
+	vector<Bilhete*> bilhetesCampeonato;
 
 	priority_queue<Equipa*> classificacao;
 
@@ -108,6 +108,10 @@ public:
 	void alterarEmail(string nome, string email);
 	void showAdeptos();
 	bool existeAdepto(string nome);
+
+
+	void inserirBilhete(Bilhete &b1);
+	void imprimeBilhetes() const;
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

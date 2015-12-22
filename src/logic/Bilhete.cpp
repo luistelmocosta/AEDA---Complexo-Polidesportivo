@@ -4,13 +4,14 @@ using namespace std;
 
 int Bilhete::newID = 0;
 
-Bilhete::Bilhete(date v, bool vendido){
+Bilhete::Bilhete(date v, string d, vector<int> p){
 
 
 	uid = newID++;
 	validade = v;
-	//dono = d;
+	dono = d;
 	vendido = 0;
+	provas = p;
 
 }
 
@@ -21,7 +22,18 @@ int Bilhete::getID() const{
 	return uid;
 }
 
+vector<int> Bilhete::getProvas() const{
+	return provas;
+}
 
+void Bilhete::imprime() const{
+
+	cout << endl;
+	cout << "Data de Validade: " << validade.dia <<"/" << validade.mes <<"/" << validade.ano << endl;
+	cout << "Dono do Bilhete: " << dono << endl;
+	cout << "Provas: :";
+	cout << endl;
+}
 
 
 /*void Bilhete::setDono(Adepto* a1){

@@ -18,12 +18,16 @@ class Bilhete{
 	date validade;
 	float preco;
 	bool vendido;
-	vector<Prova*> provas;
+	string dono;
+	vector<int> provas;
 
 public:
 
-	Bilhete(date validade, bool vendido);
+	Bilhete(date validade, string dono, vector<int> provas);
 	Bilhete();
+
+	vector<int> getProvas() const;
+	void imprime() const;
 
 	int getID() const;
 
