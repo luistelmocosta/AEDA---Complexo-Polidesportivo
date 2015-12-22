@@ -62,7 +62,11 @@ void Bilhete::printProvas() const{
 	}
 }
 
+int Bilhete::getIdDono() const {
 
+	return dono->getID();
+
+}
 
 /*void Bilhete::setDono(Adepto* a1){
 

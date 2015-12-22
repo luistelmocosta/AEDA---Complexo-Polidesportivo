@@ -613,10 +613,22 @@ void Menu::apagaProvaMenu(){
 
 void Menu::vendaBilhete() {
 
+
+	int id, pos;
 	cout << "===VENDA DE BILHETES===" << endl;
 	cout << endl;
 
 	cout << "ID do Adepto que pretende efectuar uma venda: " << endl;
+	cin >> id;
+
+	pos=campeonato->findAdepto(id);
+
+	if(pos<0)
+		throw AdeptoInexistente(id);
+	else{
+
+		campeonato->venderBilhete(id);
+	}
 
 }
 
@@ -646,11 +658,22 @@ void Menu::espacoAdeptoMenu(){
 		clearScreen();
 		break;
 	case 2:
+		clearScreen();
 		campeonato->imprimeBilhetes();
+		cout << endl;
+		espacoAdeptoMenu();
 		break;
 	case 3:
-		//campeonato->showAdeptos();
+		campeonato->imprimeAdeptos();
 		cout << endl;
+	case 4:
+		campeonato->imprimeBilhetes();
+		break;
+	case 5:
+		clearScreen();
+		vendaBilhete();
+		espacoAdeptoMenu();
+		break;
 
 	default: break;
 	}

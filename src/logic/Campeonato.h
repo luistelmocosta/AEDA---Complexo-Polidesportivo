@@ -82,7 +82,7 @@ public:
 	int findAtleta(unsigned int id);			//return index if success
 	int findEquipa(string nomeEquipa);			//else
 	int findDesporto(string nomeDesporto);		//return -1
-
+	int findAdepto(unsigned int id);
 	vector<Atleta*> findAtletaVect(string nomeAtleta);	//return a vector, in case there are several athletes with the same name
 
 	void imprimeEquipas() const;
@@ -114,6 +114,8 @@ public:
 
 	void inserirBilhete(Bilhete &b1);
 	void imprimeBilhetes();
+	void venderBilhete(unsigned int id);
+	void comprarBilhete(unsigned int id);
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

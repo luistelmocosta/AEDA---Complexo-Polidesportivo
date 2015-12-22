@@ -30,10 +30,12 @@ public:
 	vector<int> getProvas() const;
 
 	int getID() const;
+	int getIdDono() const;
 	string getDataFormatada() const;
 	string getEmailDono() const;
 	string getNomeDono() const;
 	void printProvas() const;
+
 
 	/*void setID(int id);
 

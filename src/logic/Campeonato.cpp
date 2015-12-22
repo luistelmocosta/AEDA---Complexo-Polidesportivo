@@ -153,6 +153,17 @@ vector<Atleta*> Campeonato::findAtletaVect(string nomeAtleta) {
 	return aux;
 }
 
+int Campeonato::findAdepto(unsigned int id) {
+
+	for(unsigned int i = 0; i < adeptos.size(); i++) {
+		if(adeptos[i]->getID() == id) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+
 
 /*
  *
@@ -190,6 +201,11 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 }
 
 void Campeonato::imprimeAdeptos() const{
+
+	for(unsigned int i = 0; i < adeptos.size(); i++){
+		adeptos[i]->imprime();
+	}
+	cout << endl << endl;
 
 }
 
@@ -407,28 +423,8 @@ bool Campeonato::existeAdepto(string nome) {
 	else return true;
 
 
-}
-
-void Campeonato::showAdeptos() {
-
-
-	TabelaBilhetes::iterator it = bilhetes.begin();
-
-	cout << "===ADEPTOS===" << endl;
-
-
-	while(it != bilhetes.end()) {
-
-		cout << endl;
-		cout << "ID: " << it->getID() << endl;
-		cout << "Nome: " << it->getNome() << endl;
-		cout << "Email: " << it->getEmail() << endl;
-		cout << "Equipa Preferida: " << it->getEquipa() << endl;
-		cout << endl;
-		it++;
-	}
-
 }*/
+
 
 void Campeonato::readFileAdeptos(string filename) {
 
@@ -446,8 +442,10 @@ void Campeonato::readFileAdeptos(string filename) {
 			getline(ficheiro_leitura, email);
 			getline(ficheiro_leitura, equipa);
 
-			Adepto a1(nome, email, equipa);
-			inserirAdepto(a1);
+			Adepto *ad1 = new Adepto(nome, email, equipa);
+			inserirAdepto(*ad1);
+
+
 		}
 	}
 }
@@ -531,4 +529,21 @@ void Campeonato::imprimeBilhetes(){
 		cout << endl;
 		it++;
 	}
+}
+
+void Campeonato::venderBilhete(unsigned int id) {
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	while(it != bilhetes.end()) {
+		if(it->getIdDono() == id)
+			bilhetes.erase(it);
+		it++;
+
+	}
+
+}
+
+void Campeonato::comprarBilhete(unsigned int id) {
+
 }
