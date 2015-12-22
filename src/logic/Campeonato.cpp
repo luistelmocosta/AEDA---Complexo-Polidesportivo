@@ -338,9 +338,9 @@ void Campeonato::realizarProva(int id){
 
 }
 
-void Campeonato::ordenaClassificacoes(){
+/*void Campeonato::ordenaClassificacoes(){
 	insertionSort(equipas);
-}
+}*/
 
 
 void Campeonato::inserirAdepto(Adepto &ad){
