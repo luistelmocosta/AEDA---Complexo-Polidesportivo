@@ -192,6 +192,18 @@ bool Prova::operator<(const Prova&rp) const{
 
 
 }
+
+ostream& operator<<(ostream& os, const Prova& p)
+{
+	os <<"ID: " <<p.id << endl
+			<< "Data: "<< p.getDataFormatada() << endl
+			<< "Local: "<< p.local << endl
+			<< "Modalidade: " << p.getModalidade()->getNome() << endl
+			<< "Duracao: " << p.getDuracao() << endl;
+	return os;
+}
+
+
 /*bool Prova::operator>(const Prova &p){
 
 	bool result = false;

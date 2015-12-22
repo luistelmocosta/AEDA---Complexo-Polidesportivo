@@ -557,7 +557,7 @@ void Menu::modificaProvaMenu(){
 	if(pos<0)
 		throw ProvaInexistente(aux);
 	else{
-		campeonato->getCalendario()->getProvas()[pos]->print();
+		campeonato->getCalendario()->showUmaProva(pos);
 		cout << "Insira o campo que pretende alterar: " << endl;
 		cin >> input;
 
@@ -570,7 +570,7 @@ void Menu::modificaProvaMenu(){
 		else if(input=="Local" || input=="local"){
 			cout << "Insira o local que pretende atribuir: " << endl;
 			cin >> input;
-			campeonato->getCalendario()->getProvas()[pos]->setLocal(input);
+			campeonato->getCalendario()->getProvaID(pos)->setLocal(input);
 		}
 		else if(input=="Modalidade" || input=="modalidade"){
 			cout << "Insira a modalidade que pretende atribuir: " << endl;
@@ -581,7 +581,7 @@ void Menu::modificaProvaMenu(){
 		else if(input=="Duracao" || input=="duracao"){
 			cout << "Insira a duracao que pretende atribuir: " << endl;
 			cin >> aux;
-			campeonato->getCalendario()->getProvas()[pos]->setDuracao(aux);
+			campeonato->getCalendario()->getProvaID(pos)->setDuracao(pos);
 		}
 		else cout << "Campo invalido!" << endl;
 

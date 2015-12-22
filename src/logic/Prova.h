@@ -60,6 +60,8 @@ public:
 
 	bool operator !=(const Prova &p)const;
     bool operator <(const Prova &p) const;
+    friend ostream& operator<<(ostream& os, const Prova& dt);
+
     bool operator >(const Prova &p)const;
     bool operator ==(const Prova &p)const;
 };

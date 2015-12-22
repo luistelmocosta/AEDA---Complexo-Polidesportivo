@@ -7,7 +7,7 @@ Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,v
 
 
 
-	provas=p;
+	//provas=p;
 
 	modalidades=m;
 	atletas=a;
@@ -25,13 +25,13 @@ Calendario::Calendario(vector <Prova*> p, vector <string> m, vector <string> a,v
  *
  */
 
-vector<Prova*> Calendario::getProvas() const {
-	return provas;
+BST<Prova> Calendario::getProvas() const {
+	return provasBST;
 }
 
-void Calendario::setProvas(vector<Prova*> vp) {
+/*void Calendario::setProvas(vector<Prova*> vp) {
 	provas=vp;
-}
+}*/
 
 vector<string> Calendario::getModalidades() const{
 	return modalidades;
@@ -72,24 +72,55 @@ void Calendario::setNomeFich(string nF) {
  *
  */
 
-int Calendario::findProva(int id) {
-	for(unsigned int i=0; i<provas.size(); i++){
-		if(provas[i]->getID()==id)
-			return i;
+Prova* Calendario::getProvaID(int id) {
+	BSTItrIn<Prova> it = provasBST;
+
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getID() == id) {
+			return &it.retrieve();
+		}
+
+		it.advance();
+	}
+	Prova NOT_FOUND;
+	return &NOT_FOUND;
+}
+
+int Calendario::findProva(int id){
+
+	BSTItrIn<Prova> it = provasBST;
+
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getID() == id) {
+			return id;
+		}
+
+		it.advance();
 	}
 	return -1;
+
 }
 
 vector<Prova*> Calendario::findProva_Data(date d) {
 
 	vector<Prova*> aux;
 
-	for(unsigned int i=0; i<provas.size(); i++){
-		if(provas[i]->getData().ano==d.ano && provas[i]->getData().mes==d.mes &&
-				provas[i]->getData().dia==d.dia && provas[i]->getData().hora==d.hora){
-			aux.push_back(provas[i]);
+	BSTItrIn<Prova> it = provasBST;
+
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getData().ano == d.ano && it.retrieve().getData().mes == d.mes &&
+				it.retrieve().getData().dia == d.dia && it.retrieve().getData().hora == d.hora) {
+
+			aux.push_back(&(it.retrieve()));
+
 		}
+
+		it.advance();
 	}
+
+
+
+
 	return aux;
 }
 
@@ -97,9 +128,12 @@ vector<Prova*> Calendario::findProva_Local(string loc) {
 
 	vector<Prova*> aux;
 
-	for(unsigned int i=0; i<provas.size(); i++){
-		if(provas[i]->getLocal()==loc)
-			aux.push_back(provas[i]);
+	BSTItrIn<Prova> it = provasBST;
+
+	while(!it.isAtEnd()){
+		if(it.retrieve().getLocal()==loc)
+			aux.push_back(&it.retrieve());
+		it.advance();
 	}
 	return aux;
 }
@@ -109,7 +143,17 @@ vector<Prova*> Calendario::findProva_Modal(Modalidade* m) {
 	int i;
 	p->setModalidade(m);
 	vector<Prova*> aux;
-	vector<Prova*> copy = provas;
+	vector<Prova*> copy;
+
+
+	BSTItrIn<Prova> it = provasBST;
+
+	while(!it.isAtEnd()){
+		copy.push_back(&it.retrieve());
+		it.advance();
+	}
+
+
 	while(sequentialSearch(copy, p)!=-1){
 		i = sequentialSearch(copy, p);
 		aux.push_back(copy[i]);
@@ -123,10 +167,14 @@ vector<Prova*> Calendario::findProva_Modal(Modalidade* m) {
 vector<Prova*> Calendario::findProva_Vence(Equipa* e) {
 	vector<Prova*> aux;
 
-	for(unsigned int i = 0; i < provas.size(); i++){
-		if(provas[i]->getVencedor()->getNome()==e->getNome())
-			aux.push_back(provas[i]);
+	BSTItrIn<Prova> it = provasBST;
+
+	while(!it.isAtEnd()){
+		if(it.retrieve().getVencedor()->getNome() == e->getNome())
+			aux.push_back(&it.retrieve());
+		it.advance();
 	}
+
 	return aux;
 }
 
@@ -139,19 +187,18 @@ vector<Prova*> Calendario::findProva_Vence(Equipa* e) {
 
 bool Calendario::checkProva(Prova &p){
 
-	bool isDiff = true; //prova diferente das restantes
+	bool isDiff = false; //prova diferente das restantes
 
-	if (provas.empty())
-		return true;
+	if (provasBST.isEmpty())
+		isDiff = true;
 	else{
-		for(unsigned int i = 0; i < provas.size(); i++){
-			if(*provas[i]!=p)
-				isDiff = true;
-			else{
-				isDiff = false;
-				break;
-			}
-		}
+
+		Prova test = provasBST.find(p);
+		if(test.getID() != p.getID())
+			isDiff = true;
+
+		else isDiff = false;
+
 	}
 
 
@@ -176,7 +223,20 @@ void Calendario::eliminarProva(int id){
 
 	if(pos<0)
 		throw ProvaInexistente(id);
-	else provas.erase(provas.begin() + pos);
+	else {
+
+		BSTItrIn<Prova> it = provasBST;
+
+		while (!it.isAtEnd()) {
+			if (it.retrieve().getID() == id) {
+				provasBST.remove(it.retrieve());
+				break;
+			}
+
+			it.advance();
+		}
+
+	}
 
 }
 
@@ -188,26 +248,39 @@ void Calendario::eliminarProva(int id){
  */
 
 void Calendario::showUmaProva(int i) const {
-	cout << "ID : " << provas[i]->getID() << endl;
-	cout << "Data: " << provas[i]->getDataFormatada() << endl;
+
+	BSTItrIn<Prova> it = provasBST;
+
+	while (!it.isAtEnd()) {
+		if (it.retrieve().getID() == i) {
+
+			cout << it.retrieve();
+
+
+			break;
+		}
+
+		it.advance();
+	}
+
+	/*
+
+	//cout << "ID : " << provas[i]->getID() << endl;
+	cout << "ID: " << provasBST.find()
+					cout << "Data: " << provas[i]->getDataFormatada() << endl;
 	cout << "Local: "<< provas[i]->getLocal() << endl;
 	//cout << "Modalidade: " << provas[i]->getModalidade()->getNome() << endl;
-	cout << "Duracao (min): " << provas[i]->getDuracao() << endl;
+	cout << "Duracao (min): " << provas[i]->getDuracao() << endl;*/
 }
 
 void Calendario::showProvas()const{
-	cout << "Numero de provas: " << provas.size() << endl;
-	for(unsigned int i = 0; i < provas.size(); i++){
-		cout << "ID : " << provas[i]->getID() << endl;
-		cout << "Data: " << provas[i]->getDataFormatada() << endl;
-		cout << "Local: " << provas[i]->getLocal() << endl;
-		//cout <<"Modalidade: " << provas[i]->getModalidade()->getNome()<< endl;
-		cout << "Duracao (min): " << provas[i]->getDuracao() << endl;
-		//cout << provas[i]->getModalidade()->getNomeDesporto() << endl;
-		//cout << provas[i]->getAdversarios()[0]->getNome() << " vs " << provas[i]->getAdversarios()[1]->getNome()<<endl;
-		//cout << provas[i]->getParticipante(0)->getNome() << "    " << provas[i]->getParticipante(1)->getNome()<<endl;
-		cout << endl;
+	BSTItrIn<Prova> it = provasBST;
+
+	while (!it.isAtEnd()) {
+
+
+		cout << it.retrieve();
+		it.advance();
 	}
-	cout << endl;
 }
 

@@ -341,23 +341,35 @@ void Campeonato::readFileProvas(string filename) {
 
 void Campeonato::realizarProva(int id){
 	string v;
-	string equipa1 = calendario->getProvas()[id]->getAdversarios()[0]->getNome();
-	string equipa2 = calendario->getProvas()[id]->getAdversarios()[1]->getNome();
+	string equipa1;  // = calendario->getProvas()[id]->getAdversarios()[0]->getNome();
+	string equipa2; //= calendario->getProvas()[id]->getAdversarios()[1]->getNome();
 
-	v = calendario->getProvas()[id]->getModalidade()->pontuacao(equipa1,equipa2);
+	BSTItrIn<Prova> it = calendario->getProvas();
 
+	while(!it.isAtEnd()){
 
-	if (v == calendario->getProvas()[id]->getAdversarios()[0]->getNome()){
-		equipas[findEquipa(equipa1)]->setPontuacao(3);
+		if(it.retrieve().getID() == id){
+			equipa1 = it.retrieve().getAdversarios()[0]->getNome();
+			equipa2 = it.retrieve().getAdversarios()[1]->getNome();
+			v = it.retrieve().getModalidade()->pontuacao(equipa1, equipa2);
+
+			if(v == it.retrieve().getAdversarios()[0]->getNome())
+				equipas[findEquipa(equipa1)]->setPontuacao(3);
+
+			else if(v == it.retrieve().getAdversarios()[1]->getNome() )
+				equipas[findEquipa(equipa2)]->setPontuacao(3);
+
+			else{
+				equipas[findEquipa(equipa1)]->setPontuacao(1);
+				equipas[findEquipa(equipa2)]->setPontuacao(1);
+			}
+
+			break;
+		}
+
+		it.advance();
 	}
 
-	else if (v == calendario->getProvas()[id]->getAdversarios()[1]->getNome())
-		equipas[findEquipa(equipa2)]->setPontuacao(3);
-
-	else{
-		equipas[findEquipa(equipa1)]->setPontuacao(1);
-		equipas[findEquipa(equipa2)]->setPontuacao(1);
-	}
 
 }
 

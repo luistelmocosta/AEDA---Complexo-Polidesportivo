@@ -14,7 +14,7 @@ class Campeonato;
 class Calendario{
 
 	BST<Prova> provasBST;
-    vector<Prova*> provas;
+    //vector<Prova*> provas;
     vector <string> modalidades;
     vector <string> atletas;
     vector <string> equipas;
@@ -24,8 +24,9 @@ public:
     Calendario(): provasBST(Prova()){}
     Calendario(vector <Prova*> p, vector <string> m, vector <string> a, vector <string> e, string nF);
 
-    vector<Prova*> getProvas() const;
-    void setProvas(vector<Prova*> vp);
+    BST<Prova> getProvas() const;
+    Prova* getProvaID(int id);
+    //void setProvas(vector<Prova*> vp);
 
     vector<string> getModalidades() const;
     void setModalidades(vector<string> vm);
