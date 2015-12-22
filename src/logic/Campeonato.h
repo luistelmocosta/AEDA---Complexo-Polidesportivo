@@ -1,6 +1,8 @@
 #ifndef SRC_LOGIC_CAMPEONATO_H_
 #define SRC_LOGIC_CAMPEONATO_H_
 
+
+#include <tr1/unordered_set>
 #include <vector>
 #include <string>
 #include <queue>
@@ -15,9 +17,29 @@
 
 using namespace std;
 
+
+struct eqAdepto {
+	bool operator() (const Adepto &a1, const Adepto &a2) const{
+		return a1.getID() == a2.getID();
+	}
+};
+
+struct hAdepto{
+	int operator() (const Adepto &a1) const{
+		return a1.getID();
+	}
+
+
+};
+
+typedef tr1::unordered_set<Adepto, hAdepto, eqAdepto> TabelaBilhetes;
+
+
 class Calendario;
 
 class Campeonato{
+
+	TabelaBilhetes bilhetes;
 
 	string nome;
 	date data;
@@ -25,7 +47,6 @@ class Campeonato{
 	vector<Atleta*> atletas;
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
-	vector<Adepto*> adeptos;
 	Calendario* calendario;
 
 	priority_queue<Equipa*> classificacao;
@@ -52,7 +73,6 @@ public:
 	void inserirEquipa(Equipa &e);
 	bool eliminarEquipa(string nome);
 
-	void inserirAdepto(Adepto &ad);
 
 	void inserirAtleta(Atleta &a);
 	bool eliminarAtleta(unsigned int id);
@@ -75,9 +95,19 @@ public:
 	void readFileEquipas(string filename);
 	void readFileProvas(string filename);
 	void readFileAdeptos(string filename);
+	void readFileBilhetes(string filename);
+
+
 
 	void realizarProva(int id);
 	void ordenaClassificacoes();
+
+	void inserirAdepto(Adepto &ad);
+	void removerAdepto(string nome);
+	int removerAdeptos(date dataValidade);
+	void alterarEmail(string nome, string email);
+	void showAdeptos();
+	bool existeAdepto(string nome);
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

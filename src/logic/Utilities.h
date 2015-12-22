@@ -100,6 +100,16 @@ public:
 	string getNome(){return nome;}
 };
 
+class AdeptoInexistente {
+	public:
+		int id;
+		string nome;
+		AdeptoInexistente(int id): id(id) {}
+		AdeptoInexistente(string nome): nome(nome){}
+		int getID(){return id;}
+		string getNome(){return nome;}
+	};
+
 class EquipaInexistente{
 public:
 	string nome;

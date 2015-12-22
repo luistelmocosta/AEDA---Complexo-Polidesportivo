@@ -10,22 +10,8 @@
 #include <cstdlib>
 #include "Utilities.h"
 #include "Prova.h"
-#include "Adepto.h"
-
-/*struct hash_adeptos{
-	int operator() (const Adepto &a1) const{
-		return a1.getEmail().size(); }
-
-	bool operator() (const Adepto & a1, const Adepto & a2) const{
-		return a1.getEmail() == a2.getEmail();}
-
-};
-
-
-typedef tr1::unordered_set<Adepto, hash_adeptos, hash_adeptos> TabelaAdeptos;*/
 
 class Bilhete{
-	//TabelaAdeptos adeptos;
 
 	int uid;
 	static int newID;
@@ -40,7 +26,8 @@ public:
 	Bilhete();
 
 	int getID() const;
-	void setID(int id);
+
+	/*void setID(int id);
 
 	date getValidade() const;
 	void setValidade(date date);
@@ -50,12 +37,14 @@ public:
 	string getInfo() const;
 
 	//Adepto* getDono() const;
-	//void setDono (Adepto* a1);
+
 
 	bool getEstado() const;
 	bool setVendido(Bilhete &b1);
 
-	void inserirBilhete(Bilhete &b1);
+	void inserirBilhete(Bilhee &b1);*/
+
+
 };
 
 

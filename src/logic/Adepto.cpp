@@ -13,6 +13,11 @@ Adepto::Adepto(string n, string mail, string nEq): uid(newID++){
 
 }
 
+Adepto::Adepto(string n) {
+
+	nome = n;
+}
+
 Adepto::Adepto(){
 
 }
@@ -44,28 +49,15 @@ string Adepto::getEmail() const{
 	return email;
 }
 
-
-/*void Adepto::inserirBilhete(Bilhete &b1) {
-	TabelaBilhetes::iterator it = bilhetes.find(b1);
-
-	if(it == bilhetes.end())
-		bilhetes.insert(b1);
-	else
-	{
-		bilhetes.erase(it);
-		bilhetes.insert(b1);
-	}
+void Adepto::setEmail(string novoEmail){
+	email = novoEmail;
 }
 
-void Adepto::removerBilhete(Bilhete &b1){
-	TabelaBilhetes::iterator it = bilhetes.begin();
 
-	while(it!=bilhetes.end()) {
-		if(it->getID()== b1.getID())
-			bilhetes.erase(it);
-		it++;
-	}
-}*/
+void Adepto::setBilhete(Bilhete* b1) {
+	bilhete = b1;
+}
+
 
 void Adepto::imprime() const{
 	cout << endl;

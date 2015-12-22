@@ -61,14 +61,20 @@ void Menu::dataBaseMenu(){
 }
 
 int Menu::readDB(){
+	cout << "readDB" << endl;
 	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
 	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
 	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
+	string FICHEIRO_ADEPTOS = "txt_data/Adeptos_default.txt";
+	string FICHEIRO_BILHETES = "txt_data/Bilhetes_default.txt";
+
 
 	try{
 		campeonato->readFileAtletas(FICHEIRO_ATLETAS);
-		//campeonato->readFileEquipas(FICHEIRO_EQUIPAS);
+		campeonato->readFileEquipas(FICHEIRO_EQUIPAS);
 		campeonato->readFileProvas(FICHEIRO_PROVAS);
+		campeonato->readFileAdeptos(FICHEIRO_ADEPTOS);
+		campeonato->readFileAdeptos(FICHEIRO_BILHETES);
 	}
 	catch (ErroNoFicheiro &e){
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
@@ -601,7 +607,7 @@ void Menu::apagaProvaMenu(){
 
 
 /*
- * 	#PROVAS
+ * 	#ADEPTOS
  *
  */
 
@@ -626,7 +632,7 @@ void Menu::espacoAdeptoMenu(){
 	case 2:
 		break;
 	case 3:
-		campeonato->imprimeAdeptos();
+		campeonato->showAdeptos();
 		cout << endl;
 
 	default: break;

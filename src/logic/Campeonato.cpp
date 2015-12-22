@@ -96,9 +96,8 @@ bool Campeonato::eliminarAtleta(unsigned int id) {
 	}
 }
 
-void Campeonato::inserirAdepto(Adepto &ad){
-	adeptos.push_back(&ad);
-}
+
+
 
 
 /*
@@ -184,11 +183,7 @@ void Campeonato::imprimeAtletasPorEquipa() const{
 }
 
 void Campeonato::imprimeAdeptos() const{
-	cout << "hello2" << endl;
-	for(unsigned int i = 0; i < adeptos.size(); i++){
-		adeptos[i]->imprime();
-	}
-	cout << endl << endl;
+
 }
 
 
@@ -255,27 +250,7 @@ void Campeonato::readFileEquipas(string filename){
 	}
 }
 
-void Campeonato::readFileAdeptos(string filename) {
 
-	ifstream ficheiro_leitura (filename.c_str());
-
-	if(!ficheiro_leitura)
-		throw ErroNoFicheiro(filename);
-	else {
-		string nome;
-		string email, equipa;
-
-		while (!ficheiro_leitura.eof()) {
-
-			getline(ficheiro_leitura, nome);
-			getline(ficheiro_leitura, email);
-			getline(ficheiro_leitura, equipa);
-
-			Adepto *a1 = new Adepto(nome, email, equipa);
-			inserirAdepto(*a1);
-		}
-	}
-}
 
 void Campeonato::readFileProvas(string filename) {
 
@@ -365,4 +340,184 @@ void Campeonato::realizarProva(int id){
 
 void Campeonato::ordenaClassificacoes(){
 	insertionSort(equipas);
+}
+
+
+void Campeonato::inserirAdepto(Adepto &ad){
+
+
+	TabelaBilhetes::iterator it = bilhetes.find(ad);
+
+	if(it == bilhetes.end())
+		bilhetes.insert(ad);
+	else{
+		bilhetes.erase(it);
+		bilhetes.insert(ad);
+	}
+
+
+}
+
+void Campeonato::removerAdepto(string nome){
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+	Adepto ad;
+
+	while( it != bilhetes.end()) {
+		if(it->getNome() == nome)
+			bilhetes.erase(it);
+		it++;
+	}
+}
+
+void Campeonato::alterarEmail(string nome, string email){
+
+	Adepto ad(nome);
+	TabelaBilhetes::iterator it = bilhetes.find(ad);
+
+	if(it == bilhetes.end())
+		throw AdeptoInexistente(nome);
+	else{
+		ad = (*it);
+		bilhetes.erase(it);
+		ad.setEmail(email);
+		bilhetes.insert(ad);
+	}
+
+}
+
+
+bool Campeonato::existeAdepto(string nome) {
+
+	Adepto a1(nome);
+	TabelaBilhetes::iterator it = bilhetes.find(a1);
+
+	if(it == bilhetes.end())
+		return false;
+	else return true;
+
+
+}
+
+void Campeonato::showAdeptos() {
+
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	cout << "===ADEPTOS===" << endl;
+
+
+	while(it != bilhetes.end()) {
+
+		cout << endl;
+		cout << "ID: " << it->getID() << endl;
+		cout << "Nome: " << it->getNome() << endl;
+		cout << "Email: " << it->getEmail() << endl;
+		cout << "Equipa Preferida: " << it->getEquipa() << endl;
+		cout << endl;
+		it++;
+	}
+
+}
+
+void Campeonato::readFileAdeptos(string filename) {
+
+	ifstream ficheiro_leitura (filename.c_str());
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else {
+		string nome;
+		string email, equipa;
+
+		while (!ficheiro_leitura.eof()) {
+
+			getline(ficheiro_leitura, nome);
+			getline(ficheiro_leitura, email);
+			getline(ficheiro_leitura, equipa);
+
+			Adepto a1(nome, email, equipa);
+			inserirAdepto(a1);
+		}
+	}
+}
+
+void Campeonato::readFileBilhetes(string filename) {
+
+	ifstream ficheiro_leitura(filename.c_str());
+
+	vector<Prova*> vecprovas = calendario->getProvas();
+	vector <int> indices;
+
+	if(!ficheiro_leitura)
+		throw ErroNoFicheiro(filename);
+	else{
+		string dono, data, provasNoBilhete;
+		unsigned int duracao;
+
+		while (!ficheiro_leitura.eof()){
+
+			getline(ficheiro_leitura, dono);
+			getline(ficheiro_leitura, data);
+			getline(ficheiro_leitura, provasNoBilhete);
+
+
+			//duracao=atoi(durtmp.c_str());
+
+			stringstream dataSs;
+			date d;
+			dataSs << data;
+			int dia, mes, ano;
+			char tmp;
+			dataSs >> dia >> tmp >> mes >> tmp >> ano;
+
+			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
+				cout << "Data invalida!";
+			}
+			else{
+				d.dia = dia;
+				d.mes = mes;
+				d.ano = ano;
+			}
+
+
+
+			stringstream provasS;
+			int i = 0;
+			while (provasNoBilhete[i] != '\n' && provasNoBilhete[i] != '\0'){
+
+				if(provasNoBilhete[i] == ','){
+					int indice = provasS;
+					provasS.clear();
+
+					indices.push_back(indice);
+
+
+				}
+				else
+					provasS << provasNoBilhete[i];
+
+
+				++i;
+
+			}
+
+			vector<Prova*> vectorProvas = calendario->getProvas();
+
+			for(int j = 0; j < indices.size(); j++){
+				for(int k = 0; k < vectorProvas.size(); k++) {
+					if(indices[k] == vectorProvas[k]){
+
+					}
+				}
+			}
+
+
+
+		}
+
+
+
+	}
+
 }
