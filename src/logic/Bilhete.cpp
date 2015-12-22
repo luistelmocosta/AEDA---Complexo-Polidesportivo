@@ -4,7 +4,7 @@ using namespace std;
 
 int Bilhete::newID = 0;
 
-Bilhete::Bilhete(date v, string d, vector<int> p){
+Bilhete::Bilhete(date v, Adepto* d, vector<int> p){
 
 
 	uid = newID++;
@@ -26,14 +26,42 @@ vector<int> Bilhete::getProvas() const{
 	return provas;
 }
 
-void Bilhete::imprime() const{
+string Bilhete::getEmailDono() const {
 
-	cout << endl;
-	cout << "Data de Validade: " << validade.dia <<"/" << validade.mes <<"/" << validade.ano << endl;
-	cout << "Dono do Bilhete: " << dono << endl;
-	cout << "Provas: :";
-	cout << endl;
+	return dono->getEmail();
+
 }
+
+string Bilhete::getDataFormatada() const {
+
+	string dta = "";
+	stringstream ss;
+
+	ss << validade.dia;
+	ss << "-";
+	ss << validade.mes;
+	ss << "-";
+	ss << validade.ano;
+
+	ss >> dta;
+
+	return dta;
+}
+
+string Bilhete::getNomeDono() const {
+	return dono->getNome();
+}
+
+void Bilhete::printProvas() const{
+
+	cout << "ID: ";
+
+	for(unsigned int i = 0; i < provas.size(); i++) {
+
+		cout << provas[i] << ",";
+	}
+}
+
 
 
 /*void Bilhete::setDono(Adepto* a1){

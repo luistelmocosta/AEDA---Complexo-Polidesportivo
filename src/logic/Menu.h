@@ -54,6 +54,8 @@ public:
 
 	// #ADEPTO
 	void espacoAdeptoMenu();
+	void vendaBilhete();
+	void compraBilhete();
 
 	// #
 	void clearScreen();

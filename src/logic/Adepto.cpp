@@ -54,10 +54,6 @@ void Adepto::setEmail(string novoEmail){
 }
 
 
-void Adepto::setBilhete(Bilhete* b1) {
-	bilhete = b1;
-}
-
 
 void Adepto::imprime() const{
 	cout << endl;

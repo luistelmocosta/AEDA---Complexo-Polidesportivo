@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include "Utilities.h"
 #include "Prova.h"
+#include "Adepto.h"
 
 class Bilhete{
 
@@ -18,18 +19,21 @@ class Bilhete{
 	date validade;
 	float preco;
 	bool vendido;
-	string dono;
+	Adepto* dono;
 	vector<int> provas;
 
 public:
 
-	Bilhete(date validade, string dono, vector<int> provas);
+	Bilhete(date validade, Adepto* dono, vector<int> provas);
 	Bilhete();
 
 	vector<int> getProvas() const;
-	void imprime() const;
 
 	int getID() const;
+	string getDataFormatada() const;
+	string getEmailDono() const;
+	string getNomeDono() const;
+	void printProvas() const;
 
 	/*void setID(int id);
 

@@ -60,6 +60,13 @@ priority_queue<Equipa*> Campeonato::getClassificacao() const{
 	return classificacao;
 }
 
+TabelaBilhetes Campeonato::getBilhetes() const{
+	return bilhetes;
+}
+
+vector<Adepto*> Campeonato::getAdeptos() const {
+	return adeptos;
+}
 
 /*
  *
@@ -342,29 +349,32 @@ void Campeonato::realizarProva(int id){
 	insertionSort(equipas);
 }*/
 
+void Campeonato::inserirAdepto(Adepto &ad) {
+	adeptos.push_back(&ad);
+}
 
-void Campeonato::inserirAdepto(Adepto &ad){
+void Campeonato::inserirBilhete(Bilhete &b1){
 
 
-	TabelaBilhetes::iterator it = bilhetes.find(ad);
+	TabelaBilhetes::iterator it = bilhetes.find(b1);
 
 	if(it == bilhetes.end())
-		bilhetes.insert(ad);
+		bilhetes.insert(b1);
 	else{
 		bilhetes.erase(it);
-		bilhetes.insert(ad);
+		bilhetes.insert(b1);
 	}
 
 
 }
 
-void Campeonato::removerAdepto(string nome){
+/*void Campeonato::removerBilhete(string nome){
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
 	Adepto ad;
 
 	while( it != bilhetes.end()) {
-		if(it->getNome() == nome)
+		if(it-> == nome)
 			bilhetes.erase(it);
 		it++;
 	}
@@ -418,7 +428,7 @@ void Campeonato::showAdeptos() {
 		it++;
 	}
 
-}
+}*/
 
 void Campeonato::readFileAdeptos(string filename) {
 
@@ -442,89 +452,83 @@ void Campeonato::readFileAdeptos(string filename) {
 	}
 }
 
-void Campeonato::inserirBilhete(Bilhete &b1) {
-	bilhetesCampeonato.push_back(&b1);
-}
-
 void Campeonato::readFileBilhetes(string filename) {
 
 
-	ifstream ficheiro_leitura(filename.c_str());
+	fstream infile(filename.c_str());
+	string linha, dono;
+	int dia, mes, ano;
+	vector<int> campeonatoIds;
 
-	vector<Prova*> vecprovas = calendario->getProvas();
-	vector <int> indices;
+	while (getline(infile, dono)) // get name and check status file stream
+	{
+		cout << dono << endl;
+		// read in date
+		getline(infile, linha);
+		istringstream iss (linha);
+		string tmpstr1;
+		getline(iss, tmpstr1, '/');
+		dia = atoi(tmpstr1.c_str());
 
-	if(!ficheiro_leitura)
-		throw ErroNoFicheiro(filename);
-	else{
-		string dono, data, provasNoBilhete, vendido;
+		getline(iss, tmpstr1, '/');
+		mes = atoi(tmpstr1.c_str());
 
-		while (!ficheiro_leitura.eof()){
+		getline(iss, tmpstr1, '/');
+		ano = atoi(tmpstr1.c_str());
 
-			getline(ficheiro_leitura, dono);
-			getline(ficheiro_leitura, data);
-			getline(ficheiro_leitura, provasNoBilhete);
+		cout << dia << "/" << mes << "/" << ano << endl;
 
+		date d;
 
-			stringstream dataSs;
-			date d;
-			dataSs << data;
-			int dia, mes, ano;
-			char tmp;
-			dataSs >> dia >> tmp >> mes >> tmp >> ano;
-
-			if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
-				cout << "Data invalida!";
-			}
-			else{
-				d.dia = dia;
-				d.mes = mes;
-				d.ano = ano;
-			}
-
-			cout << "DIA: " << d.dia << endl;
-
-			string s1 = "";
-			string s2= "";
-
-
-
-			stringstream provasS;
-			int i = 0;
-			while (provasNoBilhete[i] != '\n' && provasNoBilhete[i] != '\0'){
-
-				if(provasNoBilhete[i] == ','){
-					int indice;
-					provasS.clear();
-					provasS.str("");
-					provasS.str(s2);
-					provasS >> indice;
-
-
-
-				}
-				else
-					provasS << provasNoBilhete[i];
-
-
-				++i;
-				Bilhete *bi1 = new Bilhete(d, dono, indices);
-				inserirBilhete(*bi1);
-			}
-
-
+		if(dia < 1 || dia > 31|| mes < 1 || mes > 12 || ano < 1 || (dia > 28 && mes == 2) || (dia > 30 && mes == 4) || (dia > 30 && mes == 6) || (dia > 30 && mes == 9) || (dia > 30 && mes == 11)){
+			cout << "Data invalida!";
 		}
-	}
+		else{
+			d.dia = dia;
+			d.mes = mes;
+			d.ano = ano;
+		}
 
+		// read in provas ids
+		getline(infile, linha);
+		istringstream iss2(linha);
+		string tmpstr2;
+		while (getline(iss2, tmpstr2, ','))
+
+		{
+			campeonatoIds.push_back(atoi(tmpstr2.c_str()));
+		}
+
+		cout << endl;
+
+
+		Adepto *a1 = new Adepto(dono);
+		Bilhete *b1 = new Bilhete(d, a1, campeonatoIds);
+		inserirBilhete(*b1);
+
+		campeonatoIds.clear();
+
+	}
 }
 
-void Campeonato::imprimeBilhetes() const {
+void Campeonato::imprimeBilhetes(){
 
-	cout << "ola" << endl;
-	cout << bilhetesCampeonato.size() << endl;
-	for(unsigned int i = 0; i < bilhetesCampeonato.size(); i++){
-		cout << "ola 2" << endl;
-		bilhetesCampeonato[i]->imprime();
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	cout << "===BILHETES===" << endl;
+
+
+	while(it != bilhetes.end()) {
+
+		cout << endl;
+		cout << endl;
+		cout << "Data de Validade: " << it->getDataFormatada() << endl;
+		cout << "Dono do Bilhete: " << it->getNomeDono() << endl;
+		cout << "Provas com acesso: ";
+		it ->printProvas();
+
+		cout << endl;
+		it++;
 	}
-	cout << endl << endl;
 }

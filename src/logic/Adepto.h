@@ -8,7 +8,6 @@
 #include <ctime>
 #include <sstream>
 #include <stdlib.h>
-#include "Bilhete.h"
 
 using namespace std;
 //class Bilhete;
@@ -24,7 +23,6 @@ class Adepto {
 	int uid;
 	string email;
 	static int newID;
-	Bilhete* bilhete;
 	string nome;
 	string nEquipa;
 
@@ -47,7 +45,6 @@ public:
 	string getEmail() const;
 	void setEmail(string novoEmail);
 
-	void setBilhete(Bilhete *b1);
 	void inserirAdepto(Adepto &ad);
 	//vector<Bilhete*> getBilhetes() const;
 

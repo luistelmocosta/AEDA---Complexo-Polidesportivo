@@ -7,31 +7,32 @@
 #include <string>
 #include <queue>
 #include <iostream>
+#include <fstream>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
-#include "Adepto.h"
+#include "Bilhete.h"
+#include <deque>
 
 
 using namespace std;
 
-class Bilhete;
-struct eqAdepto {
-	bool operator() (const Adepto &a1, const Adepto &a2) const{
-		return a1.getID() == a2.getID();
+struct eqBilhete {
+	bool operator() (const Bilhete &b1, const Bilhete &b2) const{
+		return b1.getID() == b2.getID();
 	}
 };
 
-struct hAdepto{
-	int operator() (const Adepto &a1) const{
-		return a1.getID();
+struct hBilhete{
+	int operator() (const Bilhete &b1) const{
+		return b1.getID();
 	}
 
 
 };
 
-typedef tr1::unordered_set<Adepto, hAdepto, eqAdepto> TabelaBilhetes;
+typedef tr1::unordered_set<Bilhete, hBilhete, eqBilhete> TabelaBilhetes;
 
 
 class Calendario;
@@ -47,8 +48,7 @@ class Campeonato{
 	vector<Equipa*> equipas;
 	vector<Desporto*> desportos;
 	Calendario* calendario;
-	vector<Bilhete*> bilhetesCampeonato;
-
+	vector<Adepto*> adeptos;
 	priority_queue<Equipa*> classificacao;
 
 public:
@@ -69,6 +69,8 @@ public:
 	vector<Desporto*> getDeportos() const;
 	Calendario* getCalendario() const;
 	priority_queue<Equipa*> getClassificacao() const;
+	TabelaBilhetes getBilhetes() const;
+	vector<Adepto*> getAdeptos() const;
 
 	void inserirEquipa(Equipa &e);
 	bool eliminarEquipa(string nome);
@@ -103,15 +105,15 @@ public:
 	void ordenaClassificacoes();
 
 	void inserirAdepto(Adepto &ad);
-	void removerAdepto(string nome);
-	int removerAdeptos(date dataValidade);
+	void removerBilhete(string nome);
+	int removerBilhetes(date dataValidade);
 	void alterarEmail(string nome, string email);
-	void showAdeptos();
-	bool existeAdepto(string nome);
+	void showBilhetes();
+	bool existeBilhete(string nome);
 
 
 	void inserirBilhete(Bilhete &b1);
-	void imprimeBilhetes() const;
+	void imprimeBilhetes();
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */
