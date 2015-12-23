@@ -82,6 +82,10 @@ void Bilhete::addProvas(vector<Prova*> p) {
 
 }
 
+void Bilhete::addProva(Prova *p1) {
+	provas.push_back(p1);
+}
+
 
 
 

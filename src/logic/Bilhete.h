@@ -41,6 +41,7 @@ public:
 	string getNomeDono() const;
 	void printProvas() const;
 	void addProvas(vector<Prova*> p);
+	void addProva(Prova *p1);
 
 
 

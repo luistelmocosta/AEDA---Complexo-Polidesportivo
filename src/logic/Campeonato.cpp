@@ -366,8 +366,9 @@ void Campeonato::realizarProva(){
 			equipas[findEquipa(equipa2)]->setPontuacao(1);
 		}
 
+		Prova p1 = it.retrieve();
 
-		calendario->getProvas().remove(it.retrieve());
+		calendario->getProvas().remove(p1);
 		updateClassificacoes();
 
 	}
@@ -770,6 +771,43 @@ void Campeonato::comprarBilhete(unsigned int id) {
 		bilhetes.insert(*b);
 
 	}
+
+}
+
+void Campeonato::comprarProva(unsigned int id) {
+
+
+
+	bool found = false;
+	int idx;
+	vector<Prova*> tmp;
+	cout << "Qual a prova que pretende adquirir:";
+	cin >> idx;
+
+	Prova* p1 = getCalendario()->getProvaID(idx);
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	while(it != bilhetes.end()) {
+		if(it->getIdDono() == id) {
+			Bilhete b = *it;
+			bilhetes.erase(it);
+			b.addProva(p1);
+			bilhetes.insert(b);
+
+		}
+		++it;
+
+	}
+
+
+
+
+
+
+
+
+
 
 }
 

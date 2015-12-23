@@ -794,6 +794,16 @@ void Menu::compraBilhete() {
 
 }
 
+void Menu::compraProvaMenu() {
+
+	int idProva;
+
+	cout << "Qual a prova que deseja adquirir: ";
+	cin >> idProva;
+
+
+}
+
 void Menu::espacoAdeptoMenu(){
 
 	int input;
@@ -801,7 +811,7 @@ void Menu::espacoAdeptoMenu(){
 
 	cout << "==Espaco Adepto==" << endl;
 
-	cout << "1. Comprar Bilhete" << endl;
+	cout << "1. Comprar Prova" << endl;
 	cout << "2. Mostrar Bilhetes" << endl;
 	cout << "3. Mostrar adeptos" << endl;
 	cout << "4. Efectuar compra de bilhete" << endl;
@@ -820,8 +830,8 @@ void Menu::espacoAdeptoMenu(){
 		cout <<"ID do adepto que pretende comprar um bilhete: ";
 		cin >> id;
 		cout << endl;
-		campeonato->imprimeBilhetes();
-		campeonato->comprarBilhete(id);
+		verProvas();
+		campeonato->comprarProva(id);
 		espacoAdeptoMenu();
 		break;
 	case 2:
@@ -842,7 +852,13 @@ void Menu::espacoAdeptoMenu(){
 		break;
 	case 5:
 		clearScreen();
-		vendaBilhete();
+		campeonato->imprimeAdeptos();
+		cout << endl;
+		cout <<"ID do adepto que pretende comprar um bilhete: ";
+		cin >> id;
+		cout << endl;
+		campeonato->imprimeBilhetes();
+		campeonato->comprarBilhete(id);
 		espacoAdeptoMenu();
 		break;
 

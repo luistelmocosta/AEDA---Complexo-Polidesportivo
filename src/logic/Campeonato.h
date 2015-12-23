@@ -121,6 +121,7 @@ public:
 	bool existeBilhete(string nome);
 
 
+	void comprarProva(unsigned int id);
 	void inserirBilhete(Bilhete &b1);
 	void imprimeBilhetes();
 	void venderBilhete(unsigned int id);

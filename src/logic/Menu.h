@@ -53,6 +53,7 @@ public:
 
 	// #PROVAS
 	void criaProvaMenu();
+	void compraProvaMenu();
 
 	void gerirProvaMenu();
 	void verProvas();
