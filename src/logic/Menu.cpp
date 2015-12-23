@@ -92,23 +92,24 @@ void Menu::criaDBMenu(){
 
 	int input;
 
-	cout << "Nome do ficheiro onde os atletas criados serao guardadas: ";
-	cin >>FICHEIRO_ATLETAS;
+	if(nomeFichDB==false){
+		cout << "Nome do ficheiro onde os atletas criados serao guardadas: ";
+		cin >>FICHEIRO_ATLETAS;
 
-	cout << "Nome do ficheiro onde as equipas criados serao guardadas: ";
-	cin >>FICHEIRO_EQUIPAS;
+		cout << "Nome do ficheiro onde as equipas criados serao guardadas: ";
+		cin >>FICHEIRO_EQUIPAS;
 
-	cout << "Nome do ficheiro onde as provas criados serao guardadas: ";
-	cin >>FICHEIRO_PROVAS;
+		cout << "Nome do ficheiro onde as provas criados serao guardadas: ";
+		cin >>FICHEIRO_PROVAS;
 
-	cout << "Nome do ficheiro onde os adeptos criados serao guardadas: ";
-	cin >>FICHEIRO_ADEPTOS;
+		cout << "Nome do ficheiro onde os adeptos criados serao guardadas: ";
+		cin >>FICHEIRO_ADEPTOS;
 
-	cout << "Nome do ficheiro onde os bilhetes criados serao guardadas: ";
-	cin >>FICHEIRO_BILHETES;
+		cout << "Nome do ficheiro onde os bilhetes criados serao guardadas: ";
+		cin >>FICHEIRO_BILHETES;
 
-
-
+		nomeFichDB=true;
+	}
 
 
 	cout << "1. Criar Equipa" << endl;
@@ -187,7 +188,7 @@ void Menu::mainMenu(){
 	campeonato->outputFileProvas(FICHEIRO_PROVAS);
 
 
-		break;
+	break;
 
 	default: mainMenu();
 	break;

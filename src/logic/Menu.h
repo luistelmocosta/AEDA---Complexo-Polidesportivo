@@ -8,6 +8,7 @@ using namespace std;
 class Menu{
 
 	Campeonato* campeonato;
+	bool nomeFichDB;
 	string FICHEIRO_ATLETAS;
 	string FICHEIRO_EQUIPAS;
 	string FICHEIRO_PROVAS;
@@ -18,6 +19,7 @@ public:
 
 	Menu(){
 		campeonato = new Campeonato();
+		nomeFichDB = false;
 	}
 	virtual ~Menu(){}
 
