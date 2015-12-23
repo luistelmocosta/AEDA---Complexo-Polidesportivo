@@ -1,8 +1,20 @@
 var searchData=
 [
-  ['nequipa',['nEquipa',['../class_atleta.html#af159b255beef6455905f0c871355b1ee',1,'Atleta']]],
-  ['newid',['newID',['../class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c',1,'Atleta::newID()'],['../class_prova.html#aeaa338e40106c1be53f3f1134d3fb942',1,'Prova::newID()']]],
-  ['njogadores',['nJogadores',['../class_modalidade.html#a2ad080095c3fc56d05cbca69048a2704',1,'Modalidade']]],
-  ['nome',['nome',['../class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe',1,'Campeonato::nome()'],['../class_desporto.html#ad7ccd705ac44cd574cbe1290a698d040',1,'Desporto::nome()'],['../class_equipa.html#a8373ab9d0fe95ae0c231bf2d9707e759',1,'Equipa::nome()'],['../class_modalidade.html#aaff7ae66117d1ee2bc9754bc45713c7e',1,'Modalidade::nome()'],['../structinfo.html#a28dfd13a605b5ae85eb5a27115b67593',1,'info::nome()'],['../class_atleta_inexistente.html#a07d9bf6ff375e2e3e955e73bc6ee93c9',1,'AtletaInexistente::nome()'],['../class_equipa_inexistente.html#a75deb0b7ca08921ff1f9e9cc558609d0',1,'EquipaInexistente::nome()']]],
-  ['nomef',['nomeF',['../class_calendario.html#ad14a413cc8b38380f6ea80f921cd16b4',1,'Calendario']]]
+  ['main',['main',['../main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.cpp']]],
+  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['mainmenu',['mainMenu',['../class_menu.html#aef9edee86d2ea460606361c92e061583',1,'Menu']]],
+  ['makeempty',['makeEmpty',['../class_b_s_t.html#a050d829503a88714c4ad0773cf6d3af6',1,'BST::makeEmpty()'],['../class_b_s_t.html#adf7cde06c85ed43f66ff88ccd263a648',1,'BST::makeEmpty(BinaryNode&lt; Comparable &gt; *&amp;t) const ']]],
+  ['medalhas',['medalhas',['../class_equipa.html#a80660d68792c53872f69973bfea0a5f4',1,'Equipa']]],
+  ['menu',['Menu',['../class_menu.html',1,'Menu'],['../class_menu.html#ad466dd83355124a6ed958430450bfe94',1,'Menu::Menu()']]],
+  ['menu_2ecpp',['Menu.cpp',['../_menu_8cpp.html',1,'']]],
+  ['menu_2eh',['Menu.h',['../_menu_8h.html',1,'']]],
+  ['mes',['mes',['../structdate.html#a017e212612160fd138ba2ebdc6cda30d',1,'date']]],
+  ['mod',['mod',['../class_prova.html#a9a372fdc63a673192aca93e5b3cdba22',1,'Prova']]],
+  ['modalidade',['Modalidade',['../class_modalidade.html',1,'Modalidade'],['../class_modalidade.html#a7d4201d3b89eb76cc5d147b642d32e72',1,'Modalidade::Modalidade(string n, bool s)'],['../class_modalidade.html#aa60765d8148536471b4429e48858f883',1,'Modalidade::Modalidade()']]],
+  ['modalidade_2ecpp',['Modalidade.cpp',['../_modalidade_8cpp.html',1,'']]],
+  ['modalidade_2eh',['Modalidade.h',['../_modalidade_8h.html',1,'']]],
+  ['modalidades',['modalidades',['../class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c',1,'Atleta::modalidades()'],['../class_calendario.html#a6a492724444ed6b468fe230d09fd800b',1,'Calendario::modalidades()']]],
+  ['modificaatletamenu',['modificaAtletaMenu',['../class_menu.html#a1803b57b4861a1a9c512a15657eba2f2',1,'Menu']]],
+  ['modificaequipamenu',['modificaEquipaMenu',['../class_menu.html#a3c905bac8a34821ba997bb5f4d68a74b',1,'Menu']]],
+  ['modificaprovamenu',['modificaProvaMenu',['../class_menu.html#a58d5cd0655078b665745f75af8bb43c4',1,'Menu']]]
 ];

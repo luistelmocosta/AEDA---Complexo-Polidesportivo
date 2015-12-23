@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['v',['v',['../class_valor_invalido.html#ad4b72e875677802b68fb511bc504f67c',1,'ValorInvalido']]],
-  ['valorinvalido',['ValorInvalido',['../class_valor_invalido.html',1,'ValorInvalido'],['../class_valor_invalido.html#a199b828bd45954617402cc9b3767d7fc',1,'ValorInvalido::ValorInvalido()']]],
-  ['vencedor',['vencedor',['../class_prova.html#a9da09789da7cc0ef43b38197c96558fc',1,'Prova']]],
-  ['veratletas',['verAtletas',['../_menu_8cpp.html#a7969b65cdb7e1f34b35841f28e23022c',1,'verAtletas():&#160;Menu.cpp'],['../_menu_8h.html#a7969b65cdb7e1f34b35841f28e23022c',1,'verAtletas():&#160;Menu.cpp']]],
-  ['verequipas',['verEquipas',['../_menu_8cpp.html#a46c9d7c1fd65b81dd3c83f066d611f34',1,'verEquipas():&#160;Menu.cpp'],['../_menu_8h.html#a46c9d7c1fd65b81dd3c83f066d611f34',1,'verEquipas():&#160;Menu.cpp']]],
-  ['verprovas',['verProvas',['../_menu_8cpp.html#a11a8895b9b22d6f21c8604400afc7b40',1,'verProvas():&#160;Menu.cpp'],['../_menu_8h.html#a11a8895b9b22d6f21c8604400afc7b40',1,'verProvas():&#160;Menu.cpp']]],
-  ['vs',['vs',['../class_prova.html#aa085e9c4905e762142b6b735f4dfda30',1,'Prova']]]
+  ['tabela',['Tabela',['../_atleta_8h.html#a989ebe08ebb28dadcb4325cf4cb123dc',1,'Atleta.h']]],
+  ['tabelabilhetes',['TabelaBilhetes',['../_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425',1,'Campeonato.h']]],
+  ['temmedalhas',['temMedalhas',['../class_equipa.html#a403ac4545ec90aee0f24e0af59f7f969',1,'Equipa']]],
+  ['testpq',['testPQ',['../class_campeonato.html#a8db02bd1c7ba93770064d1210a343d72',1,'Campeonato']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['modalidade',['Modalidade',['../class_modalidade.html',1,'']]]
+  ['hash_5fatletas',['hash_atletas',['../structhash__atletas.html',1,'']]],
+  ['hbilhete',['hBilhete',['../structh_bilhete.html',1,'']]]
 ];

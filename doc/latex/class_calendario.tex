@@ -11,9 +11,9 @@
 \item 
 \hyperlink{class_calendario_aed6e937e701548fcd80f9c154232a358}{Calendario} (vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ p, vector$<$ string $>$ m, vector$<$ string $>$ a, vector$<$ string $>$ e, string n\+F)
 \item 
-vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a614b94b28d14852af27b60c49342b52c}{get\+Provas} () const 
+\hyperlink{class_b_s_t}{B\+S\+T}$<$ \hyperlink{class_prova}{Prova} $>$ \hyperlink{class_calendario_ab5348c3d8e2126ae2ed0166090e72e55}{get\+Provas} () const 
 \item 
-void \hyperlink{class_calendario_a8995f4994281e459ebb013a67ca782d0}{set\+Provas} (vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ vp)
+\hyperlink{class_prova}{Prova} $\ast$ \hyperlink{class_calendario_a70c19efe918a727f0838e3fd94391230}{get\+Prova\+I\+D} (int id)
 \item 
 vector$<$ string $>$ \hyperlink{class_calendario_aa92791918d953f34250063a67d0d6232}{get\+Modalidades} () const 
 \item 
@@ -54,7 +54,7 @@ void \hyperlink{class_calendario_af6bfda8df20c96b8e77773de3da16cee}{show\+Provas
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}{provas}
+\hyperlink{class_b_s_t}{B\+S\+T}$<$ \hyperlink{class_prova}{Prova} $>$ \hyperlink{class_calendario_a4caf77f388a6250cfb463e11ff869519}{provas\+B\+S\+T}
 \item 
 vector$<$ string $>$ \hyperlink{class_calendario_a6a492724444ed6b468fe230d09fd800b}{modalidades}
 \item 
@@ -165,13 +165,20 @@ string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
 {}
 \end{DoxyParamCaption}
 ) const}\label{class_calendario_a8ec3b8d1862fc893922561d97e4341cb}
-\hypertarget{class_calendario_a614b94b28d14852af27b60c49342b52c}{}\index{Calendario@{Calendario}!get\+Provas@{get\+Provas}}
+\hypertarget{class_calendario_a70c19efe918a727f0838e3fd94391230}{}\index{Calendario@{Calendario}!get\+Prova\+I\+D@{get\+Prova\+I\+D}}
+\index{get\+Prova\+I\+D@{get\+Prova\+I\+D}!Calendario@{Calendario}}
+\subsubsection[{get\+Prova\+I\+D(int id)}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Prova} $\ast$ Calendario\+::get\+Prova\+I\+D (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+)}\label{class_calendario_a70c19efe918a727f0838e3fd94391230}
+\hypertarget{class_calendario_ab5348c3d8e2126ae2ed0166090e72e55}{}\index{Calendario@{Calendario}!get\+Provas@{get\+Provas}}
 \index{get\+Provas@{get\+Provas}!Calendario@{Calendario}}
-\subsubsection[{get\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Calendario\+::get\+Provas (
+\subsubsection[{get\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T}$<$ {\bf Prova} $>$ Calendario\+::get\+Provas (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}\label{class_calendario_a614b94b28d14852af27b60c49342b52c}
+) const}\label{class_calendario_ab5348c3d8e2126ae2ed0166090e72e55}
 \hypertarget{class_calendario_a625c94503c65e12e0999b2e022f364c5}{}\index{Calendario@{Calendario}!inserir\+Prova@{inserir\+Prova}}
 \index{inserir\+Prova@{inserir\+Prova}!Calendario@{Calendario}}
 \subsubsection[{inserir\+Prova(\+Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Calendario\+::inserir\+Prova (
@@ -207,13 +214,6 @@ string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
 \item[{string}]{n\+F}
 \end{DoxyParamCaption}
 )}\label{class_calendario_af538ad94515f132774b870a9bfc2a01d}
-\hypertarget{class_calendario_a8995f4994281e459ebb013a67ca782d0}{}\index{Calendario@{Calendario}!set\+Provas@{set\+Provas}}
-\index{set\+Provas@{set\+Provas}!Calendario@{Calendario}}
-\subsubsection[{set\+Provas(vector$<$ Prova $\ast$ $>$ vp)}]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::set\+Provas (
-\begin{DoxyParamCaption}
-\item[{vector$<$ {\bf Prova} $\ast$ $>$}]{vp}
-\end{DoxyParamCaption}
-)}\label{class_calendario_a8995f4994281e459ebb013a67ca782d0}
 \hypertarget{class_calendario_af6bfda8df20c96b8e77773de3da16cee}{}\index{Calendario@{Calendario}!show\+Provas@{show\+Provas}}
 \index{show\+Provas@{show\+Provas}!Calendario@{Calendario}}
 \subsubsection[{show\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}void Calendario\+::show\+Provas (
@@ -243,9 +243,9 @@ string \hyperlink{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{nome\+F}
 \hypertarget{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}{}\index{Calendario@{Calendario}!nome\+F@{nome\+F}}
 \index{nome\+F@{nome\+F}!Calendario@{Calendario}}
 \subsubsection[{nome\+F}]{\setlength{\rightskip}{0pt plus 5cm}string Calendario\+::nome\+F\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_ad14a413cc8b38380f6ea80f921cd16b4}
-\hypertarget{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}{}\index{Calendario@{Calendario}!provas@{provas}}
-\index{provas@{provas}!Calendario@{Calendario}}
-\subsubsection[{provas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Prova}$\ast$$>$ Calendario\+::provas\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_a1c917a3325a0ebd6cbe186e976326d06}
+\hypertarget{class_calendario_a4caf77f388a6250cfb463e11ff869519}{}\index{Calendario@{Calendario}!provas\+B\+S\+T@{provas\+B\+S\+T}}
+\index{provas\+B\+S\+T@{provas\+B\+S\+T}!Calendario@{Calendario}}
+\subsubsection[{provas\+B\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T}$<${\bf Prova}$>$ Calendario\+::provas\+B\+S\+T\hspace{0.3cm}{\ttfamily [private]}}\label{class_calendario_a4caf77f388a6250cfb463e11ff869519}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

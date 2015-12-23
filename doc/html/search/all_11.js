@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['_7eatleta',['~Atleta',['../class_atleta.html#a6002feaeb345f754cdfde63987815dd2',1,'Atleta']]],
-  ['_7edesporto',['~Desporto',['../class_desporto.html#a7b6a35a34e1b599f7531d1af92c35557',1,'Desporto']]],
-  ['_7emodalidade',['~Modalidade',['../class_modalidade.html#aea7526674a2128f030f58b8eff7c64bd',1,'Modalidade']]]
+  ['uid',['uid',['../class_adepto.html#a63a2ece257caf45c0c8ec6d04c19fe0b',1,'Adepto::uid()'],['../class_atleta.html#ae471f8c198a8a84275afa23598e03d44',1,'Atleta::uid()'],['../class_bilhete.html#a537bde09b332d1e4a06a8af3ad120732',1,'Bilhete::uid()']]],
+  ['updateclassificacoes',['updateClassificacoes',['../class_campeonato.html#a3344db540ea54bb822a551ab4890d8b3',1,'Campeonato']]],
+  ['utilities_2eh',['Utilities.h',['../_utilities_8h.html',1,'']]]
 ];

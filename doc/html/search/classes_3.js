@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['equipa',['Equipa',['../class_equipa.html',1,'']]],
-  ['equipainexistente',['EquipaInexistente',['../class_equipa_inexistente.html',1,'']]],
-  ['erronoficheiro',['ErroNoFicheiro',['../class_erro_no_ficheiro.html',1,'']]]
+  ['date',['date',['../structdate.html',1,'']]],
+  ['desporto',['Desporto',['../class_desporto.html',1,'']]]
 ];

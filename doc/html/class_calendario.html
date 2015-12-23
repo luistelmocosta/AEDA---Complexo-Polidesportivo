@@ -99,10 +99,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a2aa60aa6d3c27f696018cc09d2748ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed6e937e701548fcd80f9c154232a358"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#aed6e937e701548fcd80f9c154232a358">Calendario</a> (vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt; p, vector&lt; string &gt; m, vector&lt; string &gt; a, vector&lt; string &gt; e, string nF)</td></tr>
 <tr class="separator:aed6e937e701548fcd80f9c154232a358"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a614b94b28d14852af27b60c49342b52c"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a614b94b28d14852af27b60c49342b52c">getProvas</a> () const </td></tr>
-<tr class="separator:a614b94b28d14852af27b60c49342b52c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8995f4994281e459ebb013a67ca782d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a8995f4994281e459ebb013a67ca782d0">setProvas</a> (vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt; vp)</td></tr>
-<tr class="separator:a8995f4994281e459ebb013a67ca782d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5348c3d8e2126ae2ed0166090e72e55"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_prova.html">Prova</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#ab5348c3d8e2126ae2ed0166090e72e55">getProvas</a> () const </td></tr>
+<tr class="separator:ab5348c3d8e2126ae2ed0166090e72e55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70c19efe918a727f0838e3fd94391230"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_prova.html">Prova</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a70c19efe918a727f0838e3fd94391230">getProvaID</a> (int id)</td></tr>
+<tr class="separator:a70c19efe918a727f0838e3fd94391230"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa92791918d953f34250063a67d0d6232"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#aa92791918d953f34250063a67d0d6232">getModalidades</a> () const </td></tr>
 <tr class="separator:aa92791918d953f34250063a67d0d6232"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cb27d11676ca4fc42704be917469605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a7cb27d11676ca4fc42704be917469605">setModalidades</a> (vector&lt; string &gt; vm)</td></tr>
@@ -142,8 +142,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a1c917a3325a0ebd6cbe186e976326d06"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a1c917a3325a0ebd6cbe186e976326d06">provas</a></td></tr>
-<tr class="separator:a1c917a3325a0ebd6cbe186e976326d06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4caf77f388a6250cfb463e11ff869519"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_prova.html">Prova</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a4caf77f388a6250cfb463e11ff869519">provasBST</a></td></tr>
+<tr class="separator:a4caf77f388a6250cfb463e11ff869519"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a492724444ed6b468fe230d09fd800b"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#a6a492724444ed6b468fe230d09fd800b">modalidades</a></td></tr>
 <tr class="separator:a6a492724444ed6b468fe230d09fd800b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abac0d74a48d544302a57fd3857ce3cf2"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calendario.html#abac0d74a48d544302a57fd3857ce3cf2">atletas</a></td></tr>
@@ -394,12 +394,28 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a614b94b28d14852af27b60c49342b52c"></a>
+<a class="anchor" id="a70c19efe918a727f0838e3fd94391230"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt; Calendario::getProvas </td>
+          <td class="memname"><a class="el" href="class_prova.html">Prova</a> * Calendario::getProvaID </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab5348c3d8e2126ae2ed0166090e72e55"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_b_s_t.html">BST</a>&lt; <a class="el" href="class_prova.html">Prova</a> &gt; Calendario::getProvas </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -482,22 +498,6 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>nF</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8995f4994281e459ebb013a67ca782d0"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Calendario::setProvas </td>
-          <td>(</td>
-          <td class="paramtype">vector&lt; <a class="el" href="class_prova.html">Prova</a> * &gt;&#160;</td>
-          <td class="paramname"><em>vp</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -617,7 +617,7 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1c917a3325a0ebd6cbe186e976326d06"></a>
+<a class="anchor" id="a4caf77f388a6250cfb463e11ff869519"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -625,7 +625,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;<a class="el" href="class_prova.html">Prova</a>*&gt; Calendario::provas</td>
+          <td class="memname"><a class="el" href="class_b_s_t.html">BST</a>&lt;<a class="el" href="class_prova.html">Prova</a>&gt; Calendario::provasBST</td>
         </tr>
       </table>
   </td>

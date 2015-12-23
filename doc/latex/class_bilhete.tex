@@ -1,0 +1,184 @@
+\hypertarget{class_bilhete}{}\section{Bilhete Class Reference}
+\label{class_bilhete}\index{Bilhete@{Bilhete}}
+
+
+{\ttfamily \#include $<$Bilhete.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bilhete_abc0eccb3017774bf40eb09f25d63d008}{Bilhete} (\hyperlink{structdate}{date} \hyperlink{class_bilhete_adba6ea2eaaf920db79ed76698d7dcee6}{validade}, \hyperlink{class_adepto}{Adepto} $\ast$\hyperlink{class_bilhete_a10644168d3b284e0c4dad6c85e6a28ce}{dono}, vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_bilhete_aac89dc945d1b4a00d296cec8d6a755d9}{provas})
+\item 
+\hyperlink{class_bilhete_ab7981f3702f74c570688bd9db2afc854}{Bilhete} (int \hyperlink{class_bilhete_a537bde09b332d1e4a06a8af3ad120732}{uid})
+\item 
+\hyperlink{class_bilhete_a3c69ddb7c2df72c5393fd4d155827086}{Bilhete} ()
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_bilhete_afdb4654e2a2b32102e67e7aec3bc14bb}{get\+Provas} () const 
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_bilhete_a2261bf14cc65b43fa0312e15be051205}{get\+Data} () const 
+\item 
+int \hyperlink{class_bilhete_a10e93790a55f476b642630d76b7a0a26}{get\+I\+D} () const 
+\item 
+unsigned int \hyperlink{class_bilhete_ae9af9b7d7e95d09f1751d6954ab8485c}{get\+Id\+Dono} () const 
+\item 
+void \hyperlink{class_bilhete_ab9c561f39f792930691973f23b69c740}{set\+Dono} (\hyperlink{class_adepto}{Adepto} $\ast$ad)
+\item 
+string \hyperlink{class_bilhete_a81264c9ac5330e0c033e9ea8015653e1}{get\+Data\+Formatada} () const 
+\item 
+string \hyperlink{class_bilhete_a0906c4df61bb921c988ee076b35aa438}{get\+Email\+Dono} () const 
+\item 
+string \hyperlink{class_bilhete_a97571c40d6af971e66c28c82c1ba1235}{get\+Nome\+Dono} () const 
+\item 
+void \hyperlink{class_bilhete_a0a1c16bb609bb49d1a9a48e3d9ebce10}{print\+Provas} () const 
+\item 
+void \hyperlink{class_bilhete_a26fdc63b15aa11707a783b3c40ca22a6}{add\+Provas} (vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ p)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_bilhete_a537bde09b332d1e4a06a8af3ad120732}{uid}
+\item 
+\hyperlink{structdate}{date} \hyperlink{class_bilhete_adba6ea2eaaf920db79ed76698d7dcee6}{validade}
+\item 
+float \hyperlink{class_bilhete_a793d8499d737bdc6bebcaac9d1164b77}{preco}
+\item 
+bool \hyperlink{class_bilhete_abd52894914c56adb4fccf8a9c73a8c95}{vendido}
+\item 
+\hyperlink{class_adepto}{Adepto} $\ast$ \hyperlink{class_bilhete_a10644168d3b284e0c4dad6c85e6a28ce}{dono}
+\item 
+vector$<$ \hyperlink{class_prova}{Prova} $\ast$ $>$ \hyperlink{class_bilhete_aac89dc945d1b4a00d296cec8d6a755d9}{provas}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{class_bilhete_a0814ea538550a7a01ea1558bc6329496}{new\+I\+D} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_bilhete_abc0eccb3017774bf40eb09f25d63d008}{}\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\subsubsection[{Bilhete(date validade, Adepto $\ast$dono, vector$<$ Prova $\ast$ $>$ provas)}]{\setlength{\rightskip}{0pt plus 5cm}Bilhete\+::\+Bilhete (
+\begin{DoxyParamCaption}
+\item[{{\bf date}}]{validade, }
+\item[{{\bf Adepto} $\ast$}]{dono, }
+\item[{vector$<$ {\bf Prova} $\ast$ $>$}]{provas}
+\end{DoxyParamCaption}
+)}\label{class_bilhete_abc0eccb3017774bf40eb09f25d63d008}
+\hypertarget{class_bilhete_ab7981f3702f74c570688bd9db2afc854}{}\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\subsubsection[{Bilhete(int uid)}]{\setlength{\rightskip}{0pt plus 5cm}Bilhete\+::\+Bilhete (
+\begin{DoxyParamCaption}
+\item[{int}]{uid}
+\end{DoxyParamCaption}
+)}\label{class_bilhete_ab7981f3702f74c570688bd9db2afc854}
+\hypertarget{class_bilhete_a3c69ddb7c2df72c5393fd4d155827086}{}\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\index{Bilhete@{Bilhete}!Bilhete@{Bilhete}}
+\subsubsection[{Bilhete()}]{\setlength{\rightskip}{0pt plus 5cm}Bilhete\+::\+Bilhete (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_bilhete_a3c69ddb7c2df72c5393fd4d155827086}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_bilhete_a26fdc63b15aa11707a783b3c40ca22a6}{}\index{Bilhete@{Bilhete}!add\+Provas@{add\+Provas}}
+\index{add\+Provas@{add\+Provas}!Bilhete@{Bilhete}}
+\subsubsection[{add\+Provas(vector$<$ Prova $\ast$ $>$ p)}]{\setlength{\rightskip}{0pt plus 5cm}void Bilhete\+::add\+Provas (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf Prova} $\ast$ $>$}]{p}
+\end{DoxyParamCaption}
+)}\label{class_bilhete_a26fdc63b15aa11707a783b3c40ca22a6}
+\hypertarget{class_bilhete_a2261bf14cc65b43fa0312e15be051205}{}\index{Bilhete@{Bilhete}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Data() const }]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Bilhete\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a2261bf14cc65b43fa0312e15be051205}
+\hypertarget{class_bilhete_a81264c9ac5330e0c033e9ea8015653e1}{}\index{Bilhete@{Bilhete}!get\+Data\+Formatada@{get\+Data\+Formatada}}
+\index{get\+Data\+Formatada@{get\+Data\+Formatada}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Data\+Formatada() const }]{\setlength{\rightskip}{0pt plus 5cm}string Bilhete\+::get\+Data\+Formatada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a81264c9ac5330e0c033e9ea8015653e1}
+\hypertarget{class_bilhete_a0906c4df61bb921c988ee076b35aa438}{}\index{Bilhete@{Bilhete}!get\+Email\+Dono@{get\+Email\+Dono}}
+\index{get\+Email\+Dono@{get\+Email\+Dono}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Email\+Dono() const }]{\setlength{\rightskip}{0pt plus 5cm}string Bilhete\+::get\+Email\+Dono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a0906c4df61bb921c988ee076b35aa438}
+\hypertarget{class_bilhete_a10e93790a55f476b642630d76b7a0a26}{}\index{Bilhete@{Bilhete}!get\+I\+D@{get\+I\+D}}
+\index{get\+I\+D@{get\+I\+D}!Bilhete@{Bilhete}}
+\subsubsection[{get\+I\+D() const }]{\setlength{\rightskip}{0pt plus 5cm}int Bilhete\+::get\+I\+D (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a10e93790a55f476b642630d76b7a0a26}
+\hypertarget{class_bilhete_ae9af9b7d7e95d09f1751d6954ab8485c}{}\index{Bilhete@{Bilhete}!get\+Id\+Dono@{get\+Id\+Dono}}
+\index{get\+Id\+Dono@{get\+Id\+Dono}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Id\+Dono() const }]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Bilhete\+::get\+Id\+Dono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_ae9af9b7d7e95d09f1751d6954ab8485c}
+\hypertarget{class_bilhete_a97571c40d6af971e66c28c82c1ba1235}{}\index{Bilhete@{Bilhete}!get\+Nome\+Dono@{get\+Nome\+Dono}}
+\index{get\+Nome\+Dono@{get\+Nome\+Dono}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Nome\+Dono() const }]{\setlength{\rightskip}{0pt plus 5cm}string Bilhete\+::get\+Nome\+Dono (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a97571c40d6af971e66c28c82c1ba1235}
+\hypertarget{class_bilhete_afdb4654e2a2b32102e67e7aec3bc14bb}{}\index{Bilhete@{Bilhete}!get\+Provas@{get\+Provas}}
+\index{get\+Provas@{get\+Provas}!Bilhete@{Bilhete}}
+\subsubsection[{get\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Prova} $\ast$ $>$ Bilhete\+::get\+Provas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_afdb4654e2a2b32102e67e7aec3bc14bb}
+\hypertarget{class_bilhete_a0a1c16bb609bb49d1a9a48e3d9ebce10}{}\index{Bilhete@{Bilhete}!print\+Provas@{print\+Provas}}
+\index{print\+Provas@{print\+Provas}!Bilhete@{Bilhete}}
+\subsubsection[{print\+Provas() const }]{\setlength{\rightskip}{0pt plus 5cm}void Bilhete\+::print\+Provas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_bilhete_a0a1c16bb609bb49d1a9a48e3d9ebce10}
+\hypertarget{class_bilhete_ab9c561f39f792930691973f23b69c740}{}\index{Bilhete@{Bilhete}!set\+Dono@{set\+Dono}}
+\index{set\+Dono@{set\+Dono}!Bilhete@{Bilhete}}
+\subsubsection[{set\+Dono(\+Adepto $\ast$ad)}]{\setlength{\rightskip}{0pt plus 5cm}void Bilhete\+::set\+Dono (
+\begin{DoxyParamCaption}
+\item[{{\bf Adepto} $\ast$}]{ad}
+\end{DoxyParamCaption}
+)}\label{class_bilhete_ab9c561f39f792930691973f23b69c740}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_bilhete_a10644168d3b284e0c4dad6c85e6a28ce}{}\index{Bilhete@{Bilhete}!dono@{dono}}
+\index{dono@{dono}!Bilhete@{Bilhete}}
+\subsubsection[{dono}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Adepto}$\ast$ Bilhete\+::dono\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_a10644168d3b284e0c4dad6c85e6a28ce}
+\hypertarget{class_bilhete_a0814ea538550a7a01ea1558bc6329496}{}\index{Bilhete@{Bilhete}!new\+I\+D@{new\+I\+D}}
+\index{new\+I\+D@{new\+I\+D}!Bilhete@{Bilhete}}
+\subsubsection[{new\+I\+D}]{\setlength{\rightskip}{0pt plus 5cm}int Bilhete\+::new\+I\+D = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\label{class_bilhete_a0814ea538550a7a01ea1558bc6329496}
+\hypertarget{class_bilhete_a793d8499d737bdc6bebcaac9d1164b77}{}\index{Bilhete@{Bilhete}!preco@{preco}}
+\index{preco@{preco}!Bilhete@{Bilhete}}
+\subsubsection[{preco}]{\setlength{\rightskip}{0pt plus 5cm}float Bilhete\+::preco\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_a793d8499d737bdc6bebcaac9d1164b77}
+\hypertarget{class_bilhete_aac89dc945d1b4a00d296cec8d6a755d9}{}\index{Bilhete@{Bilhete}!provas@{provas}}
+\index{provas@{provas}!Bilhete@{Bilhete}}
+\subsubsection[{provas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Prova}$\ast$$>$ Bilhete\+::provas\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_aac89dc945d1b4a00d296cec8d6a755d9}
+\hypertarget{class_bilhete_a537bde09b332d1e4a06a8af3ad120732}{}\index{Bilhete@{Bilhete}!uid@{uid}}
+\index{uid@{uid}!Bilhete@{Bilhete}}
+\subsubsection[{uid}]{\setlength{\rightskip}{0pt plus 5cm}int Bilhete\+::uid\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_a537bde09b332d1e4a06a8af3ad120732}
+\hypertarget{class_bilhete_adba6ea2eaaf920db79ed76698d7dcee6}{}\index{Bilhete@{Bilhete}!validade@{validade}}
+\index{validade@{validade}!Bilhete@{Bilhete}}
+\subsubsection[{validade}]{\setlength{\rightskip}{0pt plus 5cm}{\bf date} Bilhete\+::validade\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_adba6ea2eaaf920db79ed76698d7dcee6}
+\hypertarget{class_bilhete_abd52894914c56adb4fccf8a9c73a8c95}{}\index{Bilhete@{Bilhete}!vendido@{vendido}}
+\index{vendido@{vendido}!Bilhete@{Bilhete}}
+\subsubsection[{vendido}]{\setlength{\rightskip}{0pt plus 5cm}bool Bilhete\+::vendido\hspace{0.3cm}{\ttfamily [private]}}\label{class_bilhete_abd52894914c56adb4fccf8a9c73a8c95}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_bilhete_8h}{Bilhete.\+h}\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_bilhete_8cpp}{Bilhete.\+cpp}\end{DoxyCompactItemize}

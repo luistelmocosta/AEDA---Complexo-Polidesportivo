@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_7eatleta',['~Atleta',['../class_atleta.html#a6002feaeb345f754cdfde63987815dd2',1,'Atleta']]],
-  ['_7edesporto',['~Desporto',['../class_desporto.html#a7b6a35a34e1b599f7531d1af92c35557',1,'Desporto']]],
-  ['_7emodalidade',['~Modalidade',['../class_modalidade.html#aea7526674a2128f030f58b8eff7c64bd',1,'Modalidade']]]
+  ['temmedalhas',['temMedalhas',['../class_equipa.html#a403ac4545ec90aee0f24e0af59f7f969',1,'Equipa']]],
+  ['testpq',['testPQ',['../class_campeonato.html#a8db02bd1c7ba93770064d1210a343d72',1,'Campeonato']]]
 ];

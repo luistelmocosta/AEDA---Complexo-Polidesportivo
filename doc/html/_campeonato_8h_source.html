@@ -91,92 +91,164 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="_campeonato_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SRC_LOGIC_CAMPEONATO_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SRC_LOGIC_CAMPEONATO_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_equipa_8h.html">Equipa.h</a>&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_desporto_8h.html">Desporto.h</a>&quot;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_calendario_8h.html">Calendario.h</a>&quot;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8h.html">Utilities.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_atleta_8h.html">Atleta.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;tr1/unordered_set&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;deque&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">class </span><a class="code" href="class_calendario.html">Calendario</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_campeonato.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_campeonato.html">Campeonato</a>{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_equipa_8h.html">Equipa.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_desporto_8h.html">Desporto.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_calendario_8h.html">Calendario.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8h.html">Utilities.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_bilhete_8h.html">Bilhete.h</a>&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">   19</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">nome</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">   20</a></span>&#160;    <a class="code" href="structdate.html">date</a> <a class="code" href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">data</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">   21</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">pais</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_campeonato.html#a06b7fd65d33044bff509122140774509">   22</a></span>&#160;    vector&lt;Atleta*&gt; <a class="code" href="class_campeonato.html#a06b7fd65d33044bff509122140774509">atletas</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">   23</a></span>&#160;    vector&lt;Equipa*&gt; <a class="code" href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">equipas</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">   24</a></span>&#160;    vector&lt;Desporto*&gt; <a class="code" href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">desportos</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">   25</a></span>&#160;    <a class="code" href="class_calendario.html">Calendario</a>* <a class="code" href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">calendario</a>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_campeonato.html">Campeonato</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_campeonato.html">Campeonato</a>(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">string</span> getNome() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setNome(<span class="keywordtype">string</span> n);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structeq_bilhete.html">   22</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structeq_bilhete.html">eqBilhete</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structeq_bilhete.html#a28de41742af6d1f7db86514d012dc979">   23</a></span>&#160;    <span class="keywordtype">bool</span> operator() (<span class="keyword">const</span> <a class="code" href="class_bilhete.html">Bilhete</a> &amp;b1, <span class="keyword">const</span> <a class="code" href="class_bilhete.html">Bilhete</a> &amp;b2)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keywordflow">return</span> b1.<a class="code" href="class_bilhete.html#a10e93790a55f476b642630d76b7a0a26">getID</a>() == b2.<a class="code" href="class_bilhete.html#a10e93790a55f476b642630d76b7a0a26">getID</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structh_bilhete.html">   28</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structh_bilhete.html">hBilhete</a>{</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structh_bilhete.html#a3faf68a632cf5e562b48ac02f0f9b0c7">   29</a></span>&#160;    <span class="keywordtype">int</span> operator() (<span class="keyword">const</span> <a class="code" href="class_bilhete.html">Bilhete</a> &amp;b1)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">return</span> b1.<a class="code" href="class_bilhete.html#a10e93790a55f476b642630d76b7a0a26">getID</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="structdate.html">date</a> getData() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setData(<span class="keywordtype">string</span> d);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">string</span> getPais() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setPais(<span class="keywordtype">string</span> p);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    vector&lt;Atleta*&gt; getAtletas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    vector&lt;Equipa*&gt; getEquipas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    vector&lt;Desporto*&gt; getDeportos() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_calendario.html">Calendario</a>* getCalendario() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425">   36</a></span>&#160;<span class="keyword">typedef</span> tr1::unordered_set&lt;Bilhete, hBilhete, eqBilhete&gt; <a class="code" href="_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425">TabelaBilhetes</a>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span><a class="code" href="class_calendario.html">Calendario</a>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="class_campeonato.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_campeonato.html">Campeonato</a>{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="class_campeonato.html#a249c44f11d932f372f9f78959e1ff5b6">   43</a></span>&#160;    <a class="code" href="_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425">TabelaBilhetes</a> <a class="code" href="class_campeonato.html#a249c44f11d932f372f9f78959e1ff5b6">bilhetes</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> inserirEquipa(<a class="code" href="class_equipa.html">Equipa</a> &amp;e);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> eliminarEquipa(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> inserirAtleta(<a class="code" href="class_atleta.html">Atleta</a> &amp;a);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">bool</span> eliminarAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">int</span> findAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);            <span class="comment">//return index if success</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">int</span> findEquipa(<span class="keywordtype">string</span> nomeEquipa);          <span class="comment">//else</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">int</span> findDesporto(<span class="keywordtype">string</span> nomeDesporto);      <span class="comment">//return -1</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">   45</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">nome</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">   46</a></span>&#160;    <a class="code" href="structdate.html">date</a> <a class="code" href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">data</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">   47</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">pais</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="class_campeonato.html#a06b7fd65d33044bff509122140774509">   48</a></span>&#160;    vector&lt;Atleta*&gt; <a class="code" href="class_campeonato.html#a06b7fd65d33044bff509122140774509">atletas</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">   49</a></span>&#160;    vector&lt;Equipa*&gt; <a class="code" href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">equipas</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">   50</a></span>&#160;    vector&lt;Desporto*&gt; <a class="code" href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">desportos</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">   51</a></span>&#160;    <a class="code" href="class_calendario.html">Calendario</a>* <a class="code" href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">calendario</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="class_campeonato.html#a9b261a1ed0720379641b15ef9fa2d4be">   52</a></span>&#160;    vector&lt;Adepto*&gt; <a class="code" href="class_campeonato.html#a9b261a1ed0720379641b15ef9fa2d4be">adeptos</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="class_campeonato.html#a18205708f31afeb6c1b172aecfb10cac">   53</a></span>&#160;    priority_queue&lt;Equipa*, vector&lt;Equipa*&gt;, <a class="code" href="struct_compara_equipa.html">ComparaEquipa</a>&gt; <a class="code" href="class_campeonato.html#a18205708f31afeb6c1b172aecfb10cac">classificacao</a>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    vector&lt;Atleta*&gt; findAtletaVect(<span class="keywordtype">string</span> nomeAtleta);  <span class="comment">//return a vector, in case there are several athletes with the same name</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> imprimeEquipas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> imprimeUmaEquipa(<span class="keywordtype">string</span> nome);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> imprimeAtletas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> imprimeAtletasPorEquipa() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> readFileAtletas(<span class="keywordtype">string</span> filename);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> readFileEquipas(<span class="keywordtype">string</span> filename);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> readFileProvas(<span class="keywordtype">string</span> filename);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> realizarProva(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> ordenaClassificacoes();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_CAMPEONATO_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_campeonato.html">Campeonato</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="class_campeonato.html">Campeonato</a>(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">string</span> getNome() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> setNome(<span class="keywordtype">string</span> n);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <a class="code" href="structdate.html">date</a> getData() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> setData(<span class="keywordtype">string</span> d);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">string</span> getPais() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> setPais(<span class="keywordtype">string</span> p);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    vector&lt;Atleta*&gt; getAtletas() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    vector&lt;Equipa*&gt; getEquipas() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    vector&lt;Desporto*&gt; getDeportos() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_calendario.html">Calendario</a>* getCalendario() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    priority_queue&lt;Equipa*, vector&lt;Equipa*&gt;, <a class="code" href="struct_compara_equipa.html">ComparaEquipa</a>&gt; getClassificacao() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425">TabelaBilhetes</a> getBilhetes() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    vector&lt;Adepto*&gt; getAdeptos() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> inserirEquipa(<a class="code" href="class_equipa.html">Equipa</a> &amp;e);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> eliminarEquipa(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> inserirAtleta(<a class="code" href="class_atleta.html">Atleta</a> &amp;a);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordtype">bool</span> eliminarAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordtype">int</span> findAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);            <span class="comment">//return index if success</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">int</span> findEquipa(<span class="keywordtype">string</span> nomeEquipa);          <span class="comment">//else</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">int</span> findDesporto(<span class="keywordtype">string</span> nomeDesporto);      <span class="comment">//return -1</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">int</span> findAdepto(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <a class="code" href="class_bilhete.html">Bilhete</a>* findBilheteByAdeptoID(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <a class="code" href="class_adepto.html">Adepto</a>* findAdeptoByName(<span class="keywordtype">string</span> name);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">int</span> findBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    vector&lt;Atleta*&gt; findAtletaVect(<span class="keywordtype">string</span> nomeAtleta);  <span class="comment">//return a vector, in case there are several athletes with the same name</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> imprimeEquipas() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> imprimeUmaEquipa(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> imprimeAtletas() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> imprimeAtletasPorEquipa() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordtype">void</span> imprimeAdeptos() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> readFileAtletas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">void</span> readFileEquipas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> readFileProvas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordtype">void</span> readFileAdeptos(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">void</span> readFileBilhetes(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">void</span> outputFileAtletas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">void</span> outputFileEquipas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordtype">void</span> outputFileProvas(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span> outputFileAdeptos(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordtype">void</span> outputFileBilhetes(<span class="keywordtype">string</span> filename);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> realizarProva(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">int</span> updateClassificacoes();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> inserirAdepto(<a class="code" href="class_adepto.html">Adepto</a> &amp;ad);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> removerBilhete(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordtype">int</span> removerBilhetes(<a class="code" href="structdate.html">date</a> dataValidade);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordtype">void</span> alterarEmail(<span class="keywordtype">string</span> nome, <span class="keywordtype">string</span> email);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">void</span> showBilhetes();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> existeBilhete(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> inserirBilhete(<a class="code" href="class_bilhete.html">Bilhete</a> &amp;b1);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> imprimeBilhetes();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> venderBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> comprarBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> testPQ();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;};</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_CAMPEONATO_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_calendario_8h_html"><div class="ttname"><a href="_calendario_8h.html">Calendario.h</a></div></div>
 <div class="ttc" id="class_equipa_html"><div class="ttname"><a href="class_equipa.html">Equipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:16</div></div>
-<div class="ttc" id="class_campeonato_html_a06b7fd65d33044bff509122140774509"><div class="ttname"><a href="class_campeonato.html#a06b7fd65d33044bff509122140774509">Campeonato::atletas</a></div><div class="ttdeci">vector&lt; Atleta * &gt; atletas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:22</div></div>
+<div class="ttc" id="class_campeonato_html_a06b7fd65d33044bff509122140774509"><div class="ttname"><a href="class_campeonato.html#a06b7fd65d33044bff509122140774509">Campeonato::atletas</a></div><div class="ttdeci">vector&lt; Atleta * &gt; atletas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:48</div></div>
+<div class="ttc" id="_campeonato_8h_html_a0efe3260dc555069d2fe679dc67d0425"><div class="ttname"><a href="_campeonato_8h.html#a0efe3260dc555069d2fe679dc67d0425">TabelaBilhetes</a></div><div class="ttdeci">tr1::unordered_set&lt; Bilhete, hBilhete, eqBilhete &gt; TabelaBilhetes</div><div class="ttdef"><b>Definition:</b> Campeonato.h:36</div></div>
+<div class="ttc" id="class_adepto_html"><div class="ttname"><a href="class_adepto.html">Adepto</a></div><div class="ttdef"><b>Definition:</b> Adepto.h:22</div></div>
 <div class="ttc" id="_equipa_8h_html"><div class="ttname"><a href="_equipa_8h.html">Equipa.h</a></div></div>
-<div class="ttc" id="class_campeonato_html_a670b0857b7a8bc3c5dbf0f927ee192fe"><div class="ttname"><a href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">Campeonato::nome</a></div><div class="ttdeci">string nome</div><div class="ttdef"><b>Definition:</b> Campeonato.h:19</div></div>
+<div class="ttc" id="class_campeonato_html_a670b0857b7a8bc3c5dbf0f927ee192fe"><div class="ttname"><a href="class_campeonato.html#a670b0857b7a8bc3c5dbf0f927ee192fe">Campeonato::nome</a></div><div class="ttdeci">string nome</div><div class="ttdef"><b>Definition:</b> Campeonato.h:45</div></div>
+<div class="ttc" id="class_campeonato_html_a249c44f11d932f372f9f78959e1ff5b6"><div class="ttname"><a href="class_campeonato.html#a249c44f11d932f372f9f78959e1ff5b6">Campeonato::bilhetes</a></div><div class="ttdeci">TabelaBilhetes bilhetes</div><div class="ttdef"><b>Definition:</b> Campeonato.h:43</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_campeonato_html_ab9a3d4a07de27528556e0ffebda3ba97"><div class="ttname"><a href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">Campeonato::data</a></div><div class="ttdeci">date data</div><div class="ttdef"><b>Definition:</b> Campeonato.h:20</div></div>
+<div class="ttc" id="class_campeonato_html_ab9a3d4a07de27528556e0ffebda3ba97"><div class="ttname"><a href="class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97">Campeonato::data</a></div><div class="ttdeci">date data</div><div class="ttdef"><b>Definition:</b> Campeonato.h:46</div></div>
+<div class="ttc" id="_bilhete_8h_html"><div class="ttname"><a href="_bilhete_8h.html">Bilhete.h</a></div></div>
+<div class="ttc" id="class_bilhete_html"><div class="ttname"><a href="class_bilhete.html">Bilhete</a></div><div class="ttdef"><b>Definition:</b> Bilhete.h:15</div></div>
 <div class="ttc" id="structdate_html"><div class="ttname"><a href="structdate.html">date</a></div><div class="ttdef"><b>Definition:</b> Utilities.h:26</div></div>
 <div class="ttc" id="_utilities_8h_html"><div class="ttname"><a href="_utilities_8h.html">Utilities.h</a></div></div>
-<div class="ttc" id="class_atleta_html"><div class="ttname"><a href="class_atleta.html">Atleta</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:16</div></div>
-<div class="ttc" id="class_calendario_html"><div class="ttname"><a href="class_calendario.html">Calendario</a></div><div class="ttdef"><b>Definition:</b> Calendario.h:13</div></div>
+<div class="ttc" id="class_bilhete_html_a10e93790a55f476b642630d76b7a0a26"><div class="ttname"><a href="class_bilhete.html#a10e93790a55f476b642630d76b7a0a26">Bilhete::getID</a></div><div class="ttdeci">int getID() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:21</div></div>
+<div class="ttc" id="class_campeonato_html_a18205708f31afeb6c1b172aecfb10cac"><div class="ttname"><a href="class_campeonato.html#a18205708f31afeb6c1b172aecfb10cac">Campeonato::classificacao</a></div><div class="ttdeci">priority_queue&lt; Equipa *, vector&lt; Equipa * &gt;, ComparaEquipa &gt; classificacao</div><div class="ttdef"><b>Definition:</b> Campeonato.h:53</div></div>
+<div class="ttc" id="class_atleta_html"><div class="ttname"><a href="class_atleta.html">Atleta</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:18</div></div>
+<div class="ttc" id="class_calendario_html"><div class="ttname"><a href="class_calendario.html">Calendario</a></div><div class="ttdef"><b>Definition:</b> Calendario.h:14</div></div>
 <div class="ttc" id="_desporto_8h_html"><div class="ttname"><a href="_desporto_8h.html">Desporto.h</a></div></div>
-<div class="ttc" id="class_campeonato_html_af4bf75bd6daa812d16ab2be60c356f21"><div class="ttname"><a href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">Campeonato::calendario</a></div><div class="ttdeci">Calendario * calendario</div><div class="ttdef"><b>Definition:</b> Campeonato.h:25</div></div>
-<div class="ttc" id="class_campeonato_html_ab677d5217856ce0ff2887a0e335caf2d"><div class="ttname"><a href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">Campeonato::equipas</a></div><div class="ttdeci">vector&lt; Equipa * &gt; equipas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:23</div></div>
-<div class="ttc" id="class_campeonato_html"><div class="ttname"><a href="class_campeonato.html">Campeonato</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:17</div></div>
-<div class="ttc" id="class_campeonato_html_ab65bbad67e796b73176b696457ea39ea"><div class="ttname"><a href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">Campeonato::desportos</a></div><div class="ttdeci">vector&lt; Desporto * &gt; desportos</div><div class="ttdef"><b>Definition:</b> Campeonato.h:24</div></div>
-<div class="ttc" id="_atleta_8h_html"><div class="ttname"><a href="_atleta_8h.html">Atleta.h</a></div></div>
-<div class="ttc" id="class_campeonato_html_a9f7011b322e9ae5fe6504ca5946268bf"><div class="ttname"><a href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">Campeonato::pais</a></div><div class="ttdeci">string pais</div><div class="ttdef"><b>Definition:</b> Campeonato.h:21</div></div>
+<div class="ttc" id="class_campeonato_html_af4bf75bd6daa812d16ab2be60c356f21"><div class="ttname"><a href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">Campeonato::calendario</a></div><div class="ttdeci">Calendario * calendario</div><div class="ttdef"><b>Definition:</b> Campeonato.h:51</div></div>
+<div class="ttc" id="structh_bilhete_html"><div class="ttname"><a href="structh_bilhete.html">hBilhete</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:28</div></div>
+<div class="ttc" id="struct_compara_equipa_html"><div class="ttname"><a href="struct_compara_equipa.html">ComparaEquipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:66</div></div>
+<div class="ttc" id="class_campeonato_html_ab677d5217856ce0ff2887a0e335caf2d"><div class="ttname"><a href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">Campeonato::equipas</a></div><div class="ttdeci">vector&lt; Equipa * &gt; equipas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:49</div></div>
+<div class="ttc" id="class_campeonato_html"><div class="ttname"><a href="class_campeonato.html">Campeonato</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:41</div></div>
+<div class="ttc" id="class_campeonato_html_a9b261a1ed0720379641b15ef9fa2d4be"><div class="ttname"><a href="class_campeonato.html#a9b261a1ed0720379641b15ef9fa2d4be">Campeonato::adeptos</a></div><div class="ttdeci">vector&lt; Adepto * &gt; adeptos</div><div class="ttdef"><b>Definition:</b> Campeonato.h:52</div></div>
+<div class="ttc" id="class_campeonato_html_ab65bbad67e796b73176b696457ea39ea"><div class="ttname"><a href="class_campeonato.html#ab65bbad67e796b73176b696457ea39ea">Campeonato::desportos</a></div><div class="ttdeci">vector&lt; Desporto * &gt; desportos</div><div class="ttdef"><b>Definition:</b> Campeonato.h:50</div></div>
+<div class="ttc" id="structeq_bilhete_html"><div class="ttname"><a href="structeq_bilhete.html">eqBilhete</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:22</div></div>
+<div class="ttc" id="class_campeonato_html_a9f7011b322e9ae5fe6504ca5946268bf"><div class="ttname"><a href="class_campeonato.html#a9f7011b322e9ae5fe6504ca5946268bf">Campeonato::pais</a></div><div class="ttdeci">string pais</div><div class="ttdef"><b>Definition:</b> Campeonato.h:47</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

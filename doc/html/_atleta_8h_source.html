@@ -91,82 +91,132 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="_atleta_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SRC_LOGIC_ATLETA_H_</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SRC_LOGIC_ATLETA_H_</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8h.html">Utilities.h</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_modalidade_8h.html">Modalidade.h</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;tr1/unordered_set&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8h.html">Utilities.h</a>&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_modalidade_8h.html">Modalidade.h</a>&quot;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">class </span><a class="code" href="class_prova.html">Prova</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_atleta.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_atleta.html">Atleta</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">class </span><a class="code" href="class_prova.html">Prova</a>;</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">uid</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">   19</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">newID</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">   20</a></span>&#160;    <a class="code" href="structinfo.html">info</a> <a class="code" href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">inf</a>;</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">   21</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">pontuacao</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_atleta.html#af159b255beef6455905f0c871355b1ee">   22</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_atleta.html#af159b255beef6455905f0c871355b1ee">nEquipa</a>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">   23</a></span>&#160;    vector&lt;Modalidade*&gt; <a class="code" href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">modalidades</a>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">   24</a></span>&#160;    vector&lt;Prova*&gt; <a class="code" href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">provas</a>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>(<span class="keywordtype">string</span> n, <span class="keywordtype">string</span> pais, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    ~<a class="code" href="class_atleta.html">Atleta</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getID() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="structinfo.html">info</a> getInfo() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> setInfo(<a class="code" href="structinfo.html">info</a> i);</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_atleta.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_atleta.html">Atleta</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">   20</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">uid</a>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">   21</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">newID</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">   22</a></span>&#160;    <a class="code" href="structinfo.html">info</a> <a class="code" href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">inf</a>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">   23</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">pontuacao</a>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_atleta.html#af159b255beef6455905f0c871355b1ee">   24</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_atleta.html#af159b255beef6455905f0c871355b1ee">nEquipa</a>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">   25</a></span>&#160;    vector&lt;Modalidade*&gt; <a class="code" href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">modalidades</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">   26</a></span>&#160;    vector&lt;Prova*&gt; <a class="code" href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">provas</a>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>(<span class="keywordtype">string</span> n, <span class="keywordtype">string</span> pais, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> p, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> a);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="class_atleta.html">Atleta</a>();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getID() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">string</span> getNome() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setNome(<span class="keywordtype">string</span> n);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="structinfo.html">info</a> getInfo() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setInfo(<a class="code" href="structinfo.html">info</a> i);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">string</span> getPais() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setPais(<span class="keywordtype">string</span> p);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">string</span> getNome() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> setNome(<span class="keywordtype">string</span> n);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIdade() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> setIdade(<span class="keywordtype">int</span> i);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">string</span> getPais() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> setPais(<span class="keywordtype">string</span> p);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getPeso() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setPeso(<span class="keywordtype">int</span> p);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIdade() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setIdade(<span class="keywordtype">int</span> i);</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getAltura() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setAltura(<span class="keywordtype">int</span> a);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getPeso() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setPeso(<span class="keywordtype">int</span> p);</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">float</span> getPontuacao() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setPontuacao(<span class="keywordtype">float</span> p);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getAltura() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> setAltura(<span class="keywordtype">int</span> a);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">string</span> getNEquipa() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setNEquipa(<span class="keywordtype">string</span> nEq);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">float</span> getPontuacao() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> setPontuacao(<span class="keywordtype">float</span> p);</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    vector&lt;Modalidade*&gt; getModalidades() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> inserirModalidade(<a class="code" href="class_modalidade.html">Modalidade</a> &amp;mod);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">string</span> getNEquipa() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setNEquipa(<span class="keywordtype">string</span> nEq);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    vector&lt;Prova*&gt; getProvas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> inserirProva(<a class="code" href="class_prova.html">Prova</a> &amp;prov);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    vector&lt;Modalidade*&gt; getModalidades() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> inserirModalidade(<a class="code" href="class_modalidade.html">Modalidade</a> &amp;mod);</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> imprime() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    vector&lt;Prova*&gt; getProvas() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> inserirProva(<a class="code" href="class_prova.html">Prova</a> &amp;prov);</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_ATLETA_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="class_atleta_html_ae471f8c198a8a84275afa23598e03d44"><div class="ttname"><a href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">Atleta::uid</a></div><div class="ttdeci">int uid</div><div class="ttdef"><b>Definition:</b> Atleta.h:18</div></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> imprime() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structhash__atletas.html">   70</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structhash__atletas.html">hash_atletas</a>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structhash__atletas.html#a587486cb48f2cbdab96d48dea441efb0">   71</a></span>&#160;    <span class="keywordtype">int</span> operator() (<span class="keyword">const</span> <a class="code" href="class_atleta.html">Atleta</a> &amp; a1)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">return</span> a1.<a class="code" href="class_atleta.html#a0f5be5cd0b18f224a7a5281216fc1bfd">getNome</a>().size(); }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="structhash__atletas.html#ac7f1ef34cb53777e99323c8bf58cde02">   74</a></span>&#160;    <span class="keywordtype">bool</span> operator() (<span class="keyword">const</span> <a class="code" href="class_atleta.html">Atleta</a> &amp;a1, <span class="keyword">const</span> <a class="code" href="class_atleta.html">Atleta</a> &amp; a2)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordflow">return</span> a1.<a class="code" href="class_atleta.html#a0f5be5cd0b18f224a7a5281216fc1bfd">getNome</a>()==a2.<a class="code" href="class_atleta.html#a0f5be5cd0b18f224a7a5281216fc1bfd">getNome</a>();}</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="_atleta_8h.html#a989ebe08ebb28dadcb4325cf4cb123dc">   80</a></span>&#160;<span class="keyword">typedef</span> tr1::unordered_set&lt;Atleta, hash_atletas, hash_atletas&gt; <a class="code" href="_atleta_8h.html#a989ebe08ebb28dadcb4325cf4cb123dc">Tabela</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="class_atletas_guardados.html">   83</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_atletas_guardados.html">AtletasGuardados</a> {</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="class_atletas_guardados.html#a9d112954ce96d18bf6950787a5a074e3">   84</a></span>&#160;    <a class="code" href="_atleta_8h.html#a989ebe08ebb28dadcb4325cf4cb123dc">Tabela</a> <a class="code" href="class_atletas_guardados.html#a9d112954ce96d18bf6950787a5a074e3">atletas</a>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span> inserirAtleta(<a class="code" href="class_atleta.html">Atleta</a> &amp;a1);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordtype">void</span> removerAtleta(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordtype">int</span> removerAtletas(<span class="keywordtype">int</span> pontuacao);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span> alterarNacionalidade(<span class="keywordtype">string</span> nome, <span class="keywordtype">string</span> novaNacionalidade);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordtype">void</span> alterarPontuacao(<span class="keywordtype">string</span> nome, <span class="keywordtype">int</span> pontuacao);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordtype">void</span> showAtletas();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span> existeAtleta(<span class="keywordtype">string</span> nome);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordtype">void</span> readFile(ifstream&amp; filename);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordtype">void</span> writeFile(ofstream&amp; filename);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="class_atletas_guardados_1_1_erro_no_ficheiro.html">   98</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_atletas_guardados_1_1_erro_no_ficheiro.html">ErroNoFicheiro</a>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="class_atletas_guardados_1_1_erro_no_ficheiro.html#ad9c18a84af81a0e430e2244fba89c828">  100</a></span>&#160;        <a class="code" href="class_atletas_guardados_1_1_erro_no_ficheiro.html#ad9c18a84af81a0e430e2244fba89c828">ErroNoFicheiro</a>(){</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_ATLETA_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="class_atletas_guardados_html_a9d112954ce96d18bf6950787a5a074e3"><div class="ttname"><a href="class_atletas_guardados.html#a9d112954ce96d18bf6950787a5a074e3">AtletasGuardados::atletas</a></div><div class="ttdeci">Tabela atletas</div><div class="ttdef"><b>Definition:</b> Atleta.h:84</div></div>
+<div class="ttc" id="class_atleta_html_ae471f8c198a8a84275afa23598e03d44"><div class="ttname"><a href="class_atleta.html#ae471f8c198a8a84275afa23598e03d44">Atleta::uid</a></div><div class="ttdeci">int uid</div><div class="ttdef"><b>Definition:</b> Atleta.h:20</div></div>
 <div class="ttc" id="_modalidade_8h_html"><div class="ttname"><a href="_modalidade_8h.html">Modalidade.h</a></div></div>
-<div class="ttc" id="class_atleta_html_a1492a3f905e1915797e128b7e0be8017"><div class="ttname"><a href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">Atleta::inf</a></div><div class="ttdeci">info inf</div><div class="ttdef"><b>Definition:</b> Atleta.h:20</div></div>
+<div class="ttc" id="class_atleta_html_a1492a3f905e1915797e128b7e0be8017"><div class="ttname"><a href="class_atleta.html#a1492a3f905e1915797e128b7e0be8017">Atleta::inf</a></div><div class="ttdeci">info inf</div><div class="ttdef"><b>Definition:</b> Atleta.h:22</div></div>
 <div class="ttc" id="structinfo_html"><div class="ttname"><a href="structinfo.html">info</a></div><div class="ttdef"><b>Definition:</b> Utilities.h:17</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="class_prova_html"><div class="ttname"><a href="class_prova.html">Prova</a></div><div class="ttdef"><b>Definition:</b> Prova.h:13</div></div>
-<div class="ttc" id="class_atleta_html_af159b255beef6455905f0c871355b1ee"><div class="ttname"><a href="class_atleta.html#af159b255beef6455905f0c871355b1ee">Atleta::nEquipa</a></div><div class="ttdeci">string nEquipa</div><div class="ttdef"><b>Definition:</b> Atleta.h:22</div></div>
+<div class="ttc" id="class_atletas_guardados_html"><div class="ttname"><a href="class_atletas_guardados.html">AtletasGuardados</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:83</div></div>
+<div class="ttc" id="class_atletas_guardados_1_1_erro_no_ficheiro_html"><div class="ttname"><a href="class_atletas_guardados_1_1_erro_no_ficheiro.html">AtletasGuardados::ErroNoFicheiro</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:98</div></div>
+<div class="ttc" id="_atleta_8h_html_a989ebe08ebb28dadcb4325cf4cb123dc"><div class="ttname"><a href="_atleta_8h.html#a989ebe08ebb28dadcb4325cf4cb123dc">Tabela</a></div><div class="ttdeci">tr1::unordered_set&lt; Atleta, hash_atletas, hash_atletas &gt; Tabela</div><div class="ttdef"><b>Definition:</b> Atleta.h:80</div></div>
+<div class="ttc" id="class_prova_html"><div class="ttname"><a href="class_prova.html">Prova</a></div><div class="ttdef"><b>Definition:</b> Prova.h:16</div></div>
+<div class="ttc" id="structhash__atletas_html"><div class="ttname"><a href="structhash__atletas.html">hash_atletas</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:70</div></div>
+<div class="ttc" id="class_atleta_html_a0f5be5cd0b18f224a7a5281216fc1bfd"><div class="ttname"><a href="class_atleta.html#a0f5be5cd0b18f224a7a5281216fc1bfd">Atleta::getNome</a></div><div class="ttdeci">string getNome() const </div><div class="ttdef"><b>Definition:</b> Atleta.cpp:43</div></div>
+<div class="ttc" id="class_atleta_html_af159b255beef6455905f0c871355b1ee"><div class="ttname"><a href="class_atleta.html#af159b255beef6455905f0c871355b1ee">Atleta::nEquipa</a></div><div class="ttdeci">string nEquipa</div><div class="ttdef"><b>Definition:</b> Atleta.h:24</div></div>
 <div class="ttc" id="_utilities_8h_html"><div class="ttname"><a href="_utilities_8h.html">Utilities.h</a></div></div>
-<div class="ttc" id="class_atleta_html_af206b52d53b2e4c5dfd4fec66bf1965c"><div class="ttname"><a href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">Atleta::newID</a></div><div class="ttdeci">static int newID</div><div class="ttdef"><b>Definition:</b> Atleta.h:19</div></div>
-<div class="ttc" id="class_atleta_html"><div class="ttname"><a href="class_atleta.html">Atleta</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:16</div></div>
-<div class="ttc" id="class_atleta_html_aefafb252cadc4ab80434bb697674e865"><div class="ttname"><a href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">Atleta::provas</a></div><div class="ttdeci">vector&lt; Prova * &gt; provas</div><div class="ttdef"><b>Definition:</b> Atleta.h:24</div></div>
-<div class="ttc" id="class_atleta_html_ac7fb325ccbe94fe9494d54da4c08b045"><div class="ttname"><a href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">Atleta::pontuacao</a></div><div class="ttdeci">float pontuacao</div><div class="ttdef"><b>Definition:</b> Atleta.h:21</div></div>
-<div class="ttc" id="class_atleta_html_a0f04a0dcd8724d10617db7b1e2482e1c"><div class="ttname"><a href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">Atleta::modalidades</a></div><div class="ttdeci">vector&lt; Modalidade * &gt; modalidades</div><div class="ttdef"><b>Definition:</b> Atleta.h:23</div></div>
+<div class="ttc" id="class_atleta_html_af206b52d53b2e4c5dfd4fec66bf1965c"><div class="ttname"><a href="class_atleta.html#af206b52d53b2e4c5dfd4fec66bf1965c">Atleta::newID</a></div><div class="ttdeci">static int newID</div><div class="ttdef"><b>Definition:</b> Atleta.h:21</div></div>
+<div class="ttc" id="class_atleta_html"><div class="ttname"><a href="class_atleta.html">Atleta</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:18</div></div>
+<div class="ttc" id="class_atletas_guardados_1_1_erro_no_ficheiro_html_ad9c18a84af81a0e430e2244fba89c828"><div class="ttname"><a href="class_atletas_guardados_1_1_erro_no_ficheiro.html#ad9c18a84af81a0e430e2244fba89c828">AtletasGuardados::ErroNoFicheiro::ErroNoFicheiro</a></div><div class="ttdeci">ErroNoFicheiro()</div><div class="ttdef"><b>Definition:</b> Atleta.h:100</div></div>
+<div class="ttc" id="class_atleta_html_aefafb252cadc4ab80434bb697674e865"><div class="ttname"><a href="class_atleta.html#aefafb252cadc4ab80434bb697674e865">Atleta::provas</a></div><div class="ttdeci">vector&lt; Prova * &gt; provas</div><div class="ttdef"><b>Definition:</b> Atleta.h:26</div></div>
+<div class="ttc" id="class_atleta_html_ac7fb325ccbe94fe9494d54da4c08b045"><div class="ttname"><a href="class_atleta.html#ac7fb325ccbe94fe9494d54da4c08b045">Atleta::pontuacao</a></div><div class="ttdeci">float pontuacao</div><div class="ttdef"><b>Definition:</b> Atleta.h:23</div></div>
+<div class="ttc" id="class_atleta_html_a0f04a0dcd8724d10617db7b1e2482e1c"><div class="ttname"><a href="class_atleta.html#a0f04a0dcd8724d10617db7b1e2482e1c">Atleta::modalidades</a></div><div class="ttdeci">vector&lt; Modalidade * &gt; modalidades</div><div class="ttdef"><b>Definition:</b> Atleta.h:25</div></div>
 <div class="ttc" id="class_modalidade_html"><div class="ttname"><a href="class_modalidade.html">Modalidade</a></div><div class="ttdef"><b>Definition:</b> Modalidade.h:8</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

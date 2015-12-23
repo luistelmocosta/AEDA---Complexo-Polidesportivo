@@ -31,6 +31,16 @@ vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a2
 \item 
 \hyperlink{class_atleta}{Atleta} $\ast$ \hyperlink{class_equipa_a9b3eaddbfd2944cffb37f242cba00fa1}{get\+Atleta} (unsigned int id)
 \item 
+vector$<$ unsigned int $>$ \hyperlink{class_equipa_a899dadeca3643a28b52487c6fb052c1f}{get\+Medalhas} () const 
+\item 
+void \hyperlink{class_equipa_a55fd939cdd5081a4221a4a3c643baf9a}{set\+Medalhas} (vector$<$ unsigned int $>$ m)
+\item 
+bool \hyperlink{class_equipa_a6558412092e6530d761d629cbe9c40a3}{get\+Doping} () const 
+\item 
+void \hyperlink{class_equipa_a13920c918f0a76970f077df3ed0267df}{set\+Doping} (bool b)
+\item 
+bool \hyperlink{class_equipa_a403ac4545ec90aee0f24e0af59f7f969}{tem\+Medalhas} ()
+\item 
 void \hyperlink{class_equipa_a67f982e822a7772f2668301db0e147eb}{inserir\+Atleta} (\hyperlink{class_atleta}{Atleta} \&a1)
 \item 
 bool \hyperlink{class_equipa_a12d4f1b639138a62482483e730f1c85f}{eliminar\+Atleta} (unsigned int id)
@@ -43,7 +53,9 @@ void \hyperlink{class_equipa_ab17ae44fbe5b5dd2d7eea4a6d752f518}{show\+Atletas} (
 \item 
 void \hyperlink{class_equipa_a1329201fd3f78cf3b7c9c146578af92f}{imprime} ()
 \item 
-bool \hyperlink{class_equipa_a74c301834fdd69406680d35ec0abdca6}{operator$<$} (const \hyperlink{class_equipa}{Equipa} \&e)
+bool \hyperlink{class_equipa_afec282eb4594c7decdff4e1ee6ce1082}{operator$<$} (const \hyperlink{class_equipa}{Equipa} \&e) const 
+\item 
+bool \hyperlink{class_equipa_a8eec4d0cdd5d10cb0d8ede684710207a}{operator==} (const \hyperlink{class_equipa}{Equipa} \&e) const 
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -57,6 +69,10 @@ string \hyperlink{class_equipa_ac9a1c45750e118888d61930c3bf4d185}{patrocinador}
 float \hyperlink{class_equipa_a1b047e8ef3d73dd54b656af9dbfcf9ae}{pontuacao}
 \item 
 vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a391f6bca285bedd992f0104a17b79719}{atletas}
+\item 
+vector$<$ unsigned int $>$ \hyperlink{class_equipa_a80660d68792c53872f69973bfea0a5f4}{medalhas}
+\item 
+bool \hyperlink{class_equipa_a3fa99ed0ff8e3be35194d6c3061beb34}{doping}
 \end{DoxyCompactItemize}
 
 
@@ -115,6 +131,20 @@ vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a3
 {}
 \end{DoxyParamCaption}
 ) const}\label{class_equipa_a24c4de83cc1171ce42f442ef7be8a7c4}
+\hypertarget{class_equipa_a6558412092e6530d761d629cbe9c40a3}{}\index{Equipa@{Equipa}!get\+Doping@{get\+Doping}}
+\index{get\+Doping@{get\+Doping}!Equipa@{Equipa}}
+\subsubsection[{get\+Doping() const }]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::get\+Doping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a6558412092e6530d761d629cbe9c40a3}
+\hypertarget{class_equipa_a899dadeca3643a28b52487c6fb052c1f}{}\index{Equipa@{Equipa}!get\+Medalhas@{get\+Medalhas}}
+\index{get\+Medalhas@{get\+Medalhas}!Equipa@{Equipa}}
+\subsubsection[{get\+Medalhas() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ unsigned int $>$ Equipa\+::get\+Medalhas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a899dadeca3643a28b52487c6fb052c1f}
 \hypertarget{class_equipa_a9d20d0c8daa94e7562c5ea173337a224}{}\index{Equipa@{Equipa}!get\+Nome@{get\+Nome}}
 \index{get\+Nome@{get\+Nome}!Equipa@{Equipa}}
 \subsubsection[{get\+Nome() const }]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::get\+Nome (
@@ -157,13 +187,34 @@ vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a3
 \item[{{\bf Atleta} \&}]{a1}
 \end{DoxyParamCaption}
 )}\label{class_equipa_a67f982e822a7772f2668301db0e147eb}
-\hypertarget{class_equipa_a74c301834fdd69406680d35ec0abdca6}{}\index{Equipa@{Equipa}!operator$<$@{operator$<$}}
+\hypertarget{class_equipa_afec282eb4594c7decdff4e1ee6ce1082}{}\index{Equipa@{Equipa}!operator$<$@{operator$<$}}
 \index{operator$<$@{operator$<$}!Equipa@{Equipa}}
-\subsubsection[{operator$<$(const Equipa \&e)}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::operator$<$ (
+\subsubsection[{operator$<$(const Equipa \&e) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::operator$<$ (
 \begin{DoxyParamCaption}
 \item[{const {\bf Equipa} \&}]{e}
 \end{DoxyParamCaption}
-)}\label{class_equipa_a74c301834fdd69406680d35ec0abdca6}
+) const}\label{class_equipa_afec282eb4594c7decdff4e1ee6ce1082}
+\hypertarget{class_equipa_a8eec4d0cdd5d10cb0d8ede684710207a}{}\index{Equipa@{Equipa}!operator==@{operator==}}
+\index{operator==@{operator==}!Equipa@{Equipa}}
+\subsubsection[{operator==(const Equipa \&e) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Equipa} \&}]{e}
+\end{DoxyParamCaption}
+) const}\label{class_equipa_a8eec4d0cdd5d10cb0d8ede684710207a}
+\hypertarget{class_equipa_a13920c918f0a76970f077df3ed0267df}{}\index{Equipa@{Equipa}!set\+Doping@{set\+Doping}}
+\index{set\+Doping@{set\+Doping}!Equipa@{Equipa}}
+\subsubsection[{set\+Doping(bool b)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Doping (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a13920c918f0a76970f077df3ed0267df}
+\hypertarget{class_equipa_a55fd939cdd5081a4221a4a3c643baf9a}{}\index{Equipa@{Equipa}!set\+Medalhas@{set\+Medalhas}}
+\index{set\+Medalhas@{set\+Medalhas}!Equipa@{Equipa}}
+\subsubsection[{set\+Medalhas(vector$<$ unsigned int $>$ m)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Medalhas (
+\begin{DoxyParamCaption}
+\item[{vector$<$ unsigned int $>$}]{m}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a55fd939cdd5081a4221a4a3c643baf9a}
 \hypertarget{class_equipa_a13e90216eb9ca9d6b2c144295a2b6730}{}\index{Equipa@{Equipa}!set\+Nome@{set\+Nome}}
 \index{set\+Nome@{set\+Nome}!Equipa@{Equipa}}
 \subsubsection[{set\+Nome(string novo\+Nome)}]{\setlength{\rightskip}{0pt plus 5cm}void Equipa\+::set\+Nome (
@@ -199,12 +250,25 @@ vector$<$ \hyperlink{class_atleta}{Atleta} $\ast$ $>$ \hyperlink{class_equipa_a3
 {}
 \end{DoxyParamCaption}
 )}\label{class_equipa_ab17ae44fbe5b5dd2d7eea4a6d752f518}
+\hypertarget{class_equipa_a403ac4545ec90aee0f24e0af59f7f969}{}\index{Equipa@{Equipa}!tem\+Medalhas@{tem\+Medalhas}}
+\index{tem\+Medalhas@{tem\+Medalhas}!Equipa@{Equipa}}
+\subsubsection[{tem\+Medalhas()}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::tem\+Medalhas (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_equipa_a403ac4545ec90aee0f24e0af59f7f969}
 
 
 \subsection{Member Data Documentation}
 \hypertarget{class_equipa_a391f6bca285bedd992f0104a17b79719}{}\index{Equipa@{Equipa}!atletas@{atletas}}
 \index{atletas@{atletas}!Equipa@{Equipa}}
 \subsubsection[{atletas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf Atleta}$\ast$$>$ Equipa\+::atletas\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a391f6bca285bedd992f0104a17b79719}
+\hypertarget{class_equipa_a3fa99ed0ff8e3be35194d6c3061beb34}{}\index{Equipa@{Equipa}!doping@{doping}}
+\index{doping@{doping}!Equipa@{Equipa}}
+\subsubsection[{doping}]{\setlength{\rightskip}{0pt plus 5cm}bool Equipa\+::doping\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a3fa99ed0ff8e3be35194d6c3061beb34}
+\hypertarget{class_equipa_a80660d68792c53872f69973bfea0a5f4}{}\index{Equipa@{Equipa}!medalhas@{medalhas}}
+\index{medalhas@{medalhas}!Equipa@{Equipa}}
+\subsubsection[{medalhas}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$unsigned int$>$ Equipa\+::medalhas\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a80660d68792c53872f69973bfea0a5f4}
 \hypertarget{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}{}\index{Equipa@{Equipa}!nome@{nome}}
 \index{nome@{nome}!Equipa@{Equipa}}
 \subsubsection[{nome}]{\setlength{\rightskip}{0pt plus 5cm}string Equipa\+::nome\hspace{0.3cm}{\ttfamily [private]}}\label{class_equipa_a8373ab9d0fe95ae0c231bf2d9707e759}

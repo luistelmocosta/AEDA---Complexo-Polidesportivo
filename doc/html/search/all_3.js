@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['eliminaratleta',['eliminarAtleta',['../class_campeonato.html#ad2325b03cc23f95cad86d0ca6fb7556b',1,'Campeonato::eliminarAtleta()'],['../class_equipa.html#a12d4f1b639138a62482483e730f1c85f',1,'Equipa::eliminarAtleta()']]],
-  ['eliminarequipa',['eliminarEquipa',['../class_campeonato.html#ae0967bb24d6fbb19ea384e6643fc1612',1,'Campeonato']]],
-  ['eliminarprova',['eliminarProva',['../class_calendario.html#a113deec80be420c7d7aabb416fe2e763',1,'Calendario']]],
-  ['equipa',['Equipa',['../class_equipa.html',1,'Equipa'],['../class_equipa.html#a2721072fa0d6b4451d22fdfe3c3f3c0e',1,'Equipa::Equipa(string n, string p, string pat)'],['../class_equipa.html#a71e864835165c2be093784ef38fd634d',1,'Equipa::Equipa()']]],
-  ['equipa_2ecpp',['Equipa.cpp',['../_equipa_8cpp.html',1,'']]],
-  ['equipa_2eh',['Equipa.h',['../_equipa_8h.html',1,'']]],
-  ['equipainexistente',['EquipaInexistente',['../class_equipa_inexistente.html',1,'EquipaInexistente'],['../class_equipa_inexistente.html#a9e501ec33356ba0deeebcc4679846939',1,'EquipaInexistente::EquipaInexistente()']]],
-  ['equipas',['equipas',['../class_calendario.html#a4c49ca003a72d9d1aa32fcef57066467',1,'Calendario::equipas()'],['../class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d',1,'Campeonato::equipas()']]],
-  ['erronoficheiro',['ErroNoFicheiro',['../class_erro_no_ficheiro.html',1,'ErroNoFicheiro'],['../class_erro_no_ficheiro.html#a23932fdaf17051c64d9131b92ee9876d',1,'ErroNoFicheiro::ErroNoFicheiro()']]],
-  ['existeatleta',['existeAtleta',['../class_equipa.html#a9ad2d95727dfd39cf788e5c5a49b03d9',1,'Equipa']]],
-  ['existeatletaid',['existeAtletaID',['../class_equipa.html#ade9df7fbce5c76b859cb15331f7d38b9',1,'Equipa']]]
+  ['data',['data',['../class_campeonato.html#ab9a3d4a07de27528556e0ffebda3ba97',1,'Campeonato::data()'],['../class_prova.html#a534b71e749122e706bbdd68e6b3410f4',1,'Prova::data()']]],
+  ['databasemenu',['dataBaseMenu',['../class_menu.html#ab0fbce7a52bf8645228d4c158e063884',1,'Menu']]],
+  ['date',['date',['../structdate.html',1,'']]],
+  ['desporto',['Desporto',['../class_desporto.html',1,'Desporto'],['../class_desporto.html#af6abc41a2b8a416e475afb9409226ef6',1,'Desporto::Desporto()'],['../class_desporto.html#adeb528d743b915077851def7c5ca61c2',1,'Desporto::Desporto(string n)']]],
+  ['desporto_2eh',['Desporto.h',['../_desporto_8h.html',1,'']]],
+  ['desportos',['desportos',['../class_campeonato.html#ab65bbad67e796b73176b696457ea39ea',1,'Campeonato']]],
+  ['dia',['dia',['../structdate.html#aa1b5940ff8435cabd727231a1a29eb10',1,'date']]],
+  ['dono',['dono',['../class_bilhete.html#a10644168d3b284e0c4dad6c85e6a28ce',1,'Bilhete']]],
+  ['doping',['doping',['../class_equipa.html#a3fa99ed0ff8e3be35194d6c3061beb34',1,'Equipa']]],
+  ['duracao',['duracao',['../class_prova.html#a858c1f2a4be696df02eebe6419c34dc5',1,'Prova']]]
 ];

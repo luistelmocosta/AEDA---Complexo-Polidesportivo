@@ -1,0 +1,79 @@
+\hypertarget{class_b_s_t_itr_in}{}\section{B\+S\+T\+Itr\+In$<$ Comparable $>$ Class Template Reference}
+\label{class_b_s_t_itr_in}\index{B\+S\+T\+Itr\+In$<$ Comparable $>$@{B\+S\+T\+Itr\+In$<$ Comparable $>$}}
+
+
+{\ttfamily \#include $<$B\+S\+T.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_b_s_t_itr_in_ac836e2f560fed9cc7ef8e5431a2836cc}{B\+S\+T\+Itr\+In} (const \hyperlink{class_b_s_t}{B\+S\+T}$<$ Comparable $>$ \&bt)
+\item 
+void \hyperlink{class_b_s_t_itr_in_ac772d3ebbac748c5f8cf9bc659f2e32c}{advance} ()
+\item 
+Comparable \& \hyperlink{class_b_s_t_itr_in_ac7ac215c1247bd25fc1fdb8053826a32}{retrieve} ()
+\item 
+bool \hyperlink{class_b_s_t_itr_in_a6f9a43217862c263a9bf15b9a08b889a}{is\+At\+End} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_b_s_t_itr_in_a896191c02da37364153df2363ff28e7e}{slide\+Left} (\hyperlink{class_binary_node}{Binary\+Node}$<$ Comparable $>$ $\ast$n)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+stack$<$ \hyperlink{class_binary_node}{Binary\+Node}$<$ Comparable $>$ $\ast$ $>$ \hyperlink{class_b_s_t_itr_in_ad7cb5e89f04cf08f5615aa53614dd916}{itr\+Stack}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_b_s_t_itr_in_ac836e2f560fed9cc7ef8e5431a2836cc}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{B\+S\+T\+Itr\+In(const B\+S\+T$<$ Comparable $>$ \&bt)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::{\bf B\+S\+T\+Itr\+In} (
+\begin{DoxyParamCaption}
+\item[{const {\bf B\+S\+T}$<$ Comparable $>$ \&}]{bt}
+\end{DoxyParamCaption}
+)}\label{class_b_s_t_itr_in_ac836e2f560fed9cc7ef8e5431a2836cc}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_b_s_t_itr_in_ac772d3ebbac748c5f8cf9bc659f2e32c}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!advance@{advance}}
+\index{advance@{advance}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{advance()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ void {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::advance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_b_s_t_itr_in_ac772d3ebbac748c5f8cf9bc659f2e32c}
+\hypertarget{class_b_s_t_itr_in_a6f9a43217862c263a9bf15b9a08b889a}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!is\+At\+End@{is\+At\+End}}
+\index{is\+At\+End@{is\+At\+End}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{is\+At\+End()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ bool {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::is\+At\+End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_b_s_t_itr_in_a6f9a43217862c263a9bf15b9a08b889a}
+\hypertarget{class_b_s_t_itr_in_ac7ac215c1247bd25fc1fdb8053826a32}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!retrieve@{retrieve}}
+\index{retrieve@{retrieve}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{retrieve()}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ Comparable\& {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::retrieve (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_b_s_t_itr_in_ac7ac215c1247bd25fc1fdb8053826a32}
+\hypertarget{class_b_s_t_itr_in_a896191c02da37364153df2363ff28e7e}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!slide\+Left@{slide\+Left}}
+\index{slide\+Left@{slide\+Left}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{slide\+Left(\+Binary\+Node$<$ Comparable $>$ $\ast$n)}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ void {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::slide\+Left (
+\begin{DoxyParamCaption}
+\item[{{\bf Binary\+Node}$<$ Comparable $>$ $\ast$}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_b_s_t_itr_in_a896191c02da37364153df2363ff28e7e}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_b_s_t_itr_in_ad7cb5e89f04cf08f5615aa53614dd916}{}\index{B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}!itr\+Stack@{itr\+Stack}}
+\index{itr\+Stack@{itr\+Stack}!B\+S\+T\+Itr\+In@{B\+S\+T\+Itr\+In}}
+\subsubsection[{itr\+Stack}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Comparable $>$ stack$<${\bf Binary\+Node}$<$Comparable$>$ $\ast$$>$ {\bf B\+S\+T\+Itr\+In}$<$ Comparable $>$\+::itr\+Stack\hspace{0.3cm}{\ttfamily [private]}}\label{class_b_s_t_itr_in_ad7cb5e89f04cf08f5615aa53614dd916}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Alexandre/\+Git\+Hub/\+A\+E\+D\+A\+\_\+\+P\+R\+O\+J\+E\+C\+T\+O\+\_\+1/src/logic/\hyperlink{_b_s_t_8h}{B\+S\+T.\+h}\end{DoxyCompactItemize}

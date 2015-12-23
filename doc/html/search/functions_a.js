@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['readdb',['readDB',['../_menu_8cpp.html#a91fca3ccbe21cdb19803f63fdefe902c',1,'readDB():&#160;Menu.cpp'],['../_menu_8h.html#a91fca3ccbe21cdb19803f63fdefe902c',1,'readDB():&#160;Menu.cpp']]],
-  ['readfileatletas',['readFileAtletas',['../class_campeonato.html#a4f443b1fb65733062b40dd529d5ad63e',1,'Campeonato']]],
-  ['readfileequipas',['readFileEquipas',['../class_campeonato.html#a93f60ccc2608b0c99a978bc93fd881ac',1,'Campeonato']]],
-  ['readfileprovas',['readFileProvas',['../class_campeonato.html#a4098bb3bde66ead9ecaa61e10aef2a5e',1,'Campeonato']]],
-  ['realizarprova',['realizarProva',['../class_campeonato.html#ac00744815952c31c3d5ba905dbc1494c',1,'Campeonato']]]
+  ['pontuacao',['pontuacao',['../class_modalidade.html#af7a45f3b8d73d45fd5cac46939344071',1,'Modalidade']]],
+  ['print',['print',['../class_prova.html#a7bb057ccef0b2b0be425cecc6ab6545e',1,'Prova']]],
+  ['printprovas',['printProvas',['../class_bilhete.html#a0a1c16bb609bb49d1a9a48e3d9ebce10',1,'Bilhete']]],
+  ['printtree',['printTree',['../class_b_s_t.html#a5270473db9e17e1737b92dd0d6cd0ee5',1,'BST::printTree() const '],['../class_b_s_t.html#ace2d68a869023df8700c42e6830a7e2c',1,'BST::printTree(BinaryNode&lt; Comparable &gt; *t) const ']]],
+  ['prova',['Prova',['../class_prova.html#a4f36eaf2032327c06f7f7accd1ff7359',1,'Prova::Prova()'],['../class_prova.html#ab7713d18e28afa59ab2f106ec125d065',1,'Prova::Prova(date dat, string loc, unsigned int dur, vector&lt; Equipa * &gt; vsE, Modalidade *mod)']]],
+  ['provainexistente',['ProvaInexistente',['../class_prova_inexistente.html#aea24919e23d55c0910c15dfbc890b0ac',1,'ProvaInexistente']]]
 ];

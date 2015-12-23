@@ -37,13 +37,15 @@ void \hyperlink{class_prova_aef40e220eca46c4fabc0a27b67768e3e}{set\+Modalidade} 
 \item 
 void \hyperlink{class_prova_a97b48c140227e28e5a472f7b7bcedd07}{set\+Vencedor} (\hyperlink{class_equipa}{Equipa} $\ast$v)
 \item 
+bool \hyperlink{class_prova_a88b8cc8150bb374039a701a37101fbef}{get\+Prova\+Tempo} () const 
+\item 
+void \hyperlink{class_prova_a0da4444f80f52ff473e2b035b1048476}{set\+Prova\+Tempo} (bool b)
+\item 
 bool \hyperlink{class_prova_a5f36832ceb6a8870f5f005cc2ceb5dd2}{get\+Completed} () const 
 \item 
 void \hyperlink{class_prova_a54eae0a267369ea33421d72418597386}{set\+Completed} (bool b)
 \item 
-bool \hyperlink{class_prova_a88b8cc8150bb374039a701a37101fbef}{get\+Prova\+Tempo} () const 
-\item 
-void \hyperlink{class_prova_afea493249261504dbb3629c5834831c8}{set\+Prova\+Temo} (bool b)
+unsigned \hyperlink{class_prova_a3615c7f67f37923abdf945e96f8eadd9}{controlo\+Doping} ()
 \item 
 \hyperlink{class_atleta}{Atleta} $\ast$ \hyperlink{class_prova_a34d362f2cfa3c77966e0644203aae796}{get\+Participante} (int i) const 
 \item 
@@ -51,7 +53,13 @@ string \hyperlink{class_prova_ae170e53e9684644c4cfb5c864413a8b7}{get\+Data\+Form
 \item 
 void \hyperlink{class_prova_a7bb057ccef0b2b0be425cecc6ab6545e}{print} ()
 \item 
-bool \hyperlink{class_prova_afc694469d1207f16ffb9525fe2ffda81}{operator!=} (const \hyperlink{class_prova}{Prova} \&p)
+bool \hyperlink{class_prova_ac608abbae0c1d4504db2b387e73dfbd6}{operator!=} (const \hyperlink{class_prova}{Prova} \&p) const 
+\item 
+bool \hyperlink{class_prova_a9ff163a077c304f0640a78cd384d724f}{operator$<$} (const \hyperlink{class_prova}{Prova} \&p) const 
+\item 
+bool \hyperlink{class_prova_ac357ed8e8138867b181cf4a146d379ee}{operator$>$} (const \hyperlink{class_prova}{Prova} \&p) const 
+\item 
+bool \hyperlink{class_prova_a3507b1045d13a0bc124c6d8ba36f0e24}{operator==} (const \hyperlink{class_prova}{Prova} \&p) const 
 \end{DoxyCompactItemize}
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -79,6 +87,11 @@ bool \hyperlink{class_prova_aad473b9a0e23d11ba133ebdeea317522}{completed}
 \item 
 static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} = 0
 \end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{class_prova_aec4ea869d7d5fddfd54f20dc74b80fe3}{operator$<$$<$} (ostream \&os, const \hyperlink{class_prova}{Prova} \&dt)
+\end{DoxyCompactItemize}
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -103,6 +116,13 @@ static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} 
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_prova_a3615c7f67f37923abdf945e96f8eadd9}{}\index{Prova@{Prova}!controlo\+Doping@{controlo\+Doping}}
+\index{controlo\+Doping@{controlo\+Doping}!Prova@{Prova}}
+\subsubsection[{controlo\+Doping()}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Prova\+::controlo\+Doping (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_prova_a3615c7f67f37923abdf945e96f8eadd9}
 \hypertarget{class_prova_a015e691c4fa50bb756adced9cdc30eb7}{}\index{Prova@{Prova}!get\+Adversarios@{get\+Adversarios}}
 \index{get\+Adversarios@{get\+Adversarios}!Prova@{Prova}}
 \subsubsection[{get\+Adversarios() const }]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Equipa} $\ast$ $>$ Prova\+::get\+Adversarios (
@@ -180,13 +200,34 @@ static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} 
 {}
 \end{DoxyParamCaption}
 ) const}\label{class_prova_a64d0727625b43e4382e4806c032b2868}
-\hypertarget{class_prova_afc694469d1207f16ffb9525fe2ffda81}{}\index{Prova@{Prova}!operator"!=@{operator"!=}}
+\hypertarget{class_prova_ac608abbae0c1d4504db2b387e73dfbd6}{}\index{Prova@{Prova}!operator"!=@{operator"!=}}
 \index{operator"!=@{operator"!=}!Prova@{Prova}}
-\subsubsection[{operator"!=(const Prova \&p)}]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator!= (
+\subsubsection[{operator"!=(const Prova \&p) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator!= (
 \begin{DoxyParamCaption}
 \item[{const {\bf Prova} \&}]{p}
 \end{DoxyParamCaption}
-)}\label{class_prova_afc694469d1207f16ffb9525fe2ffda81}
+) const}\label{class_prova_ac608abbae0c1d4504db2b387e73dfbd6}
+\hypertarget{class_prova_a9ff163a077c304f0640a78cd384d724f}{}\index{Prova@{Prova}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Prova@{Prova}}
+\subsubsection[{operator$<$(const Prova \&p) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a9ff163a077c304f0640a78cd384d724f}
+\hypertarget{class_prova_a3507b1045d13a0bc124c6d8ba36f0e24}{}\index{Prova@{Prova}!operator==@{operator==}}
+\index{operator==@{operator==}!Prova@{Prova}}
+\subsubsection[{operator==(const Prova \&p) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+) const}\label{class_prova_a3507b1045d13a0bc124c6d8ba36f0e24}
+\hypertarget{class_prova_ac357ed8e8138867b181cf4a146d379ee}{}\index{Prova@{Prova}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Prova@{Prova}}
+\subsubsection[{operator$>$(const Prova \&p) const }]{\setlength{\rightskip}{0pt plus 5cm}bool Prova\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Prova} \&}]{p}
+\end{DoxyParamCaption}
+) const}\label{class_prova_ac357ed8e8138867b181cf4a146d379ee}
 \hypertarget{class_prova_a7bb057ccef0b2b0be425cecc6ab6545e}{}\index{Prova@{Prova}!print@{print}}
 \index{print@{print}!Prova@{Prova}}
 \subsubsection[{print()}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::print (
@@ -236,13 +277,13 @@ static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} 
 \item[{{\bf Modalidade} $\ast$}]{m}
 \end{DoxyParamCaption}
 )}\label{class_prova_aef40e220eca46c4fabc0a27b67768e3e}
-\hypertarget{class_prova_afea493249261504dbb3629c5834831c8}{}\index{Prova@{Prova}!set\+Prova\+Temo@{set\+Prova\+Temo}}
-\index{set\+Prova\+Temo@{set\+Prova\+Temo}!Prova@{Prova}}
-\subsubsection[{set\+Prova\+Temo(bool b)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Prova\+Temo (
+\hypertarget{class_prova_a0da4444f80f52ff473e2b035b1048476}{}\index{Prova@{Prova}!set\+Prova\+Tempo@{set\+Prova\+Tempo}}
+\index{set\+Prova\+Tempo@{set\+Prova\+Tempo}!Prova@{Prova}}
+\subsubsection[{set\+Prova\+Tempo(bool b)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Prova\+Tempo (
 \begin{DoxyParamCaption}
 \item[{bool}]{b}
 \end{DoxyParamCaption}
-)}\label{class_prova_afea493249261504dbb3629c5834831c8}
+)}\label{class_prova_a0da4444f80f52ff473e2b035b1048476}
 \hypertarget{class_prova_a97b48c140227e28e5a472f7b7bcedd07}{}\index{Prova@{Prova}!set\+Vencedor@{set\+Vencedor}}
 \index{set\+Vencedor@{set\+Vencedor}!Prova@{Prova}}
 \subsubsection[{set\+Vencedor(\+Equipa $\ast$v)}]{\setlength{\rightskip}{0pt plus 5cm}void Prova\+::set\+Vencedor (
@@ -250,6 +291,17 @@ static int \hyperlink{class_prova_aeaa338e40106c1be53f3f1134d3fb942}{new\+I\+D} 
 \item[{{\bf Equipa} $\ast$}]{v}
 \end{DoxyParamCaption}
 )}\label{class_prova_a97b48c140227e28e5a472f7b7bcedd07}
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_prova_aec4ea869d7d5fddfd54f20dc74b80fe3}{}\index{Prova@{Prova}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Prova@{Prova}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{os, }
+\item[{const {\bf Prova} \&}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_prova_aec4ea869d7d5fddfd54f20dc74b80fe3}
 
 
 \subsection{Member Data Documentation}

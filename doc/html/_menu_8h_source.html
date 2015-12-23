@@ -95,80 +95,85 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using namespace </span><a class="code" href="namespacestd.html">std</a>;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="_menu_8h.html#a398527b3e9e358c345c5047b16871957">    8</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="_menu_8h.html#a398527b3e9e358c345c5047b16871957">debug</a>=<span class="keyword">false</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="class_menu.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_menu.html">Menu</a>{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_menu_8h.html#ac3ecdfaed808edbb33762c156c17f18e">   10</a></span>&#160;<a class="code" href="class_campeonato.html">Campeonato</a>* <a class="code" href="_menu_8h.html#ac3ecdfaed808edbb33762c156c17f18e">campeonato</a> = <span class="keyword">new</span> <a class="code" href="class_campeonato.html">Campeonato</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// #INIT</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a1e892d795309ff53c6e4c8436f88b483">initMenu</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ae755303b00ee8f09f73347b973a5a6fd">collectCampInfo</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">// #DATABASE</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ac45cf21a266f11d48e7b9c1a311771b3">dataBaseMenu</a>();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_menu_8h.html#a91fca3ccbe21cdb19803f63fdefe902c">readDB</a>();</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#af68d133b14f1dc7e828b24774e5056fe">criaDBMenu</a>();</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// #MAINMENU</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_menu.html#a4e0fbefabd4ca8f21a2cd7fe46740166">   10</a></span>&#160;    <a class="code" href="class_campeonato.html">Campeonato</a>* <a class="code" href="class_menu.html#a4e0fbefabd4ca8f21a2cd7fe46740166">campeonato</a>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_menu.html#a0ed6beccf2cea215fb8d7fbc6b8bfabd">   11</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_menu.html#a0ed6beccf2cea215fb8d7fbc6b8bfabd">FICHEIRO_ATLETAS</a>;</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_menu.html#ae54280f85716f145088ac12362643990">   12</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_menu.html#ae54280f85716f145088ac12362643990">FICHEIRO_EQUIPAS</a>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_menu.html#a01ed844b35f6f85bd5e71457309cee88">   13</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_menu.html#a01ed844b35f6f85bd5e71457309cee88">FICHEIRO_PROVAS</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_menu.html#a5d3e25021a6000471f857447f7ab96db">   14</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_menu.html#a5d3e25021a6000471f857447f7ab96db">FICHEIRO_ADEPTOS</a>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_menu.html#aa976bc24d00fe46961f952d5f50018bb">   15</a></span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_menu.html#aa976bc24d00fe46961f952d5f50018bb">FICHEIRO_BILHETES</a>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">   19</a></span>&#160;    <a class="code" href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu</a>(){</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        campeonato = <span class="keyword">new</span> <a class="code" href="class_campeonato.html">Campeonato</a>();</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_menu.html#a5bf168cbb40e28e718ced8f248b3d37a">   22</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_menu.html#a5bf168cbb40e28e718ced8f248b3d37a">~Menu</a>(){}</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// #EQUIPAS</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#abe44cd6d2103f076b3667bbd3c0f991b">criaEquipaMenu</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a87212ba0d1eb779afb6f4b186f5ebef7">gerirEquipaMenu</a>();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a46c9d7c1fd65b81dd3c83f066d611f34">verEquipas</a>();</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a29eeb98b57d4dfc281cf38cee0424ec9">modificaEquipaMenu</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ae4637b16aae04e77f1b049deda7ea3d4">apagaEquipaMenu</a>();</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// #ATLETAS</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a3ae0ee1972ef684f6715c8589e3112d8">criaAtletaMenu</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a512007b7cd84c140b86278cbbae44695">gerirAtletaMenu</a>();</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a7969b65cdb7e1f34b35841f28e23022c">verAtletas</a>();          <span class="comment">//em bruto</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a8c1446da9d6d287556839a9243aa1e6f">modificaAtletaMenu</a>();</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ad8899dca0e0d2982725ec1337b10e245">apagaAtletaMenu</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// #PROVAS</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ac8c9481776ee2f748bcf1c0b353558b0">criaProvaMenu</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#aadf1c2718b4429ed2bf230cffc003fc7">gerirProvaMenu</a>();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a11a8895b9b22d6f21c8604400afc7b40">verProvas</a>();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#ad4f657a078aaca137443a2d336033b7d">modificaProvaMenu</a>();</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a3cb09aff0bf76a43838df151f38d06c2">apagaProvaMenu</a>();</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// #</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">void</span> <a class="code" href="_menu_8h.html#a9d7e8af417b6d543da691e9c0e2f6f9f">clearScreen</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_menu_8h.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>();</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_MENU_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// #INIT</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">void</span> initMenu();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> collectCampInfo();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// #DATABASE</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> dataBaseMenu();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> readDB();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> criaDBMenu();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// #MAINMENU</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> mainMenu();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// #EQUIPAS</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> criaEquipaMenu();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> gerirEquipaMenu();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> verEquipas();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> modificaEquipaMenu();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> apagaEquipaMenu();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// #ATLETAS</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> criaAtletaMenu();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> gerirAtletaMenu();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> verAtletas();          <span class="comment">//em bruto</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> modificaAtletaMenu();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">void</span> apagaAtletaMenu();</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// #PROVAS</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> criaProvaMenu();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> gerirProvaMenu();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> verProvas();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> modificaProvaMenu();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> apagaProvaMenu();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> verClassificacoes();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="comment">// #ADEPTO</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">void</span> espacoAdeptoMenu();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> vendaBilhete();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">void</span> compraBilhete();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">void</span> criaAdeptoMenu();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> registarAdepto();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// #</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">void</span> clearScreen();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_MENU_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_campeonato_8h_html"><div class="ttname"><a href="_campeonato_8h.html">Campeonato.h</a></div></div>
-<div class="ttc" id="_menu_8h_html_ae755303b00ee8f09f73347b973a5a6fd"><div class="ttname"><a href="_menu_8h.html#ae755303b00ee8f09f73347b973a5a6fd">collectCampInfo</a></div><div class="ttdeci">void collectCampInfo()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:23</div></div>
-<div class="ttc" id="_menu_8h_html_a87212ba0d1eb779afb6f4b186f5ebef7"><div class="ttname"><a href="_menu_8h.html#a87212ba0d1eb779afb6f4b186f5ebef7">gerirEquipaMenu</a></div><div class="ttdeci">void gerirEquipaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:182</div></div>
-<div class="ttc" id="_menu_8h_html_a512007b7cd84c140b86278cbbae44695"><div class="ttname"><a href="_menu_8h.html#a512007b7cd84c140b86278cbbae44695">gerirAtletaMenu</a></div><div class="ttdeci">void gerirAtletaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:329</div></div>
-<div class="ttc" id="_menu_8h_html_a9d7e8af417b6d543da691e9c0e2f6f9f"><div class="ttname"><a href="_menu_8h.html#a9d7e8af417b6d543da691e9c0e2f6f9f">clearScreen</a></div><div class="ttdeci">void clearScreen()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:600</div></div>
+<div class="ttc" id="class_menu_html_ad466dd83355124a6ed958430450bfe94"><div class="ttname"><a href="class_menu.html#ad466dd83355124a6ed958430450bfe94">Menu::Menu</a></div><div class="ttdeci">Menu()</div><div class="ttdef"><b>Definition:</b> Menu.h:19</div></div>
+<div class="ttc" id="class_menu_html"><div class="ttname"><a href="class_menu.html">Menu</a></div><div class="ttdef"><b>Definition:</b> Menu.h:8</div></div>
+<div class="ttc" id="class_menu_html_ae54280f85716f145088ac12362643990"><div class="ttname"><a href="class_menu.html#ae54280f85716f145088ac12362643990">Menu::FICHEIRO_EQUIPAS</a></div><div class="ttdeci">string FICHEIRO_EQUIPAS</div><div class="ttdef"><b>Definition:</b> Menu.h:12</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
-<div class="ttc" id="_menu_8h_html_a46c9d7c1fd65b81dd3c83f066d611f34"><div class="ttname"><a href="_menu_8h.html#a46c9d7c1fd65b81dd3c83f066d611f34">verEquipas</a></div><div class="ttdeci">void verEquipas()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:225</div></div>
-<div class="ttc" id="_menu_8h_html_a91fca3ccbe21cdb19803f63fdefe902c"><div class="ttname"><a href="_menu_8h.html#a91fca3ccbe21cdb19803f63fdefe902c">readDB</a></div><div class="ttdeci">int readDB()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:63</div></div>
-<div class="ttc" id="_menu_8h_html_ac45cf21a266f11d48e7b9c1a311771b3"><div class="ttname"><a href="_menu_8h.html#ac45cf21a266f11d48e7b9c1a311771b3">dataBaseMenu</a></div><div class="ttdeci">void dataBaseMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:44</div></div>
-<div class="ttc" id="_menu_8h_html_af68d133b14f1dc7e828b24774e5056fe"><div class="ttname"><a href="_menu_8h.html#af68d133b14f1dc7e828b24774e5056fe">criaDBMenu</a></div><div class="ttdeci">void criaDBMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:80</div></div>
-<div class="ttc" id="_menu_8h_html_a1e892d795309ff53c6e4c8436f88b483"><div class="ttname"><a href="_menu_8h.html#a1e892d795309ff53c6e4c8436f88b483">initMenu</a></div><div class="ttdeci">void initMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:10</div></div>
-<div class="ttc" id="_menu_8h_html_a398527b3e9e358c345c5047b16871957"><div class="ttname"><a href="_menu_8h.html#a398527b3e9e358c345c5047b16871957">debug</a></div><div class="ttdeci">bool debug</div><div class="ttdef"><b>Definition:</b> Menu.h:8</div></div>
-<div class="ttc" id="_menu_8h_html_ac3ecdfaed808edbb33762c156c17f18e"><div class="ttname"><a href="_menu_8h.html#ac3ecdfaed808edbb33762c156c17f18e">campeonato</a></div><div class="ttdeci">Campeonato * campeonato</div><div class="ttdef"><b>Definition:</b> Menu.h:10</div></div>
-<div class="ttc" id="_menu_8h_html_a7969b65cdb7e1f34b35841f28e23022c"><div class="ttname"><a href="_menu_8h.html#a7969b65cdb7e1f34b35841f28e23022c">verAtletas</a></div><div class="ttdeci">void verAtletas()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:373</div></div>
-<div class="ttc" id="_menu_8h_html_a29eeb98b57d4dfc281cf38cee0424ec9"><div class="ttname"><a href="_menu_8h.html#a29eeb98b57d4dfc281cf38cee0424ec9">modificaEquipaMenu</a></div><div class="ttdeci">void modificaEquipaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:229</div></div>
-<div class="ttc" id="_menu_8h_html_a3cb09aff0bf76a43838df151f38d06c2"><div class="ttname"><a href="_menu_8h.html#a3cb09aff0bf76a43838df151f38d06c2">apagaProvaMenu</a></div><div class="ttdeci">void apagaProvaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:580</div></div>
-<div class="ttc" id="_menu_8h_html_ad8899dca0e0d2982725ec1337b10e245"><div class="ttname"><a href="_menu_8h.html#ad8899dca0e0d2982725ec1337b10e245">apagaAtletaMenu</a></div><div class="ttdeci">void apagaAtletaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:435</div></div>
-<div class="ttc" id="_menu_8h_html_aadf1c2718b4429ed2bf230cffc003fc7"><div class="ttname"><a href="_menu_8h.html#aadf1c2718b4429ed2bf230cffc003fc7">gerirProvaMenu</a></div><div class="ttdeci">void gerirProvaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:487</div></div>
-<div class="ttc" id="_menu_8h_html_ad4f657a078aaca137443a2d336033b7d"><div class="ttname"><a href="_menu_8h.html#ad4f657a078aaca137443a2d336033b7d">modificaProvaMenu</a></div><div class="ttdeci">void modificaProvaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:534</div></div>
-<div class="ttc" id="_menu_8h_html_ae4637b16aae04e77f1b049deda7ea3d4"><div class="ttname"><a href="_menu_8h.html#ae4637b16aae04e77f1b049deda7ea3d4">apagaEquipaMenu</a></div><div class="ttdeci">void apagaEquipaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:272</div></div>
-<div class="ttc" id="class_campeonato_html"><div class="ttname"><a href="class_campeonato.html">Campeonato</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:17</div></div>
-<div class="ttc" id="_menu_8h_html_abe44cd6d2103f076b3667bbd3c0f991b"><div class="ttname"><a href="_menu_8h.html#abe44cd6d2103f076b3667bbd3c0f991b">criaEquipaMenu</a></div><div class="ttdeci">void criaEquipaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:161</div></div>
-<div class="ttc" id="_menu_8h_html_ab3002fe8e0074c9e2ecb5b835e5e819f"><div class="ttname"><a href="_menu_8h.html#ab3002fe8e0074c9e2ecb5b835e5e819f">mainMenu</a></div><div class="ttdeci">void mainMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:118</div></div>
-<div class="ttc" id="_menu_8h_html_ac8c9481776ee2f748bcf1c0b353558b0"><div class="ttname"><a href="_menu_8h.html#ac8c9481776ee2f748bcf1c0b353558b0">criaProvaMenu</a></div><div class="ttdeci">void criaProvaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:454</div></div>
-<div class="ttc" id="_menu_8h_html_a3ae0ee1972ef684f6715c8589e3112d8"><div class="ttname"><a href="_menu_8h.html#a3ae0ee1972ef684f6715c8589e3112d8">criaAtletaMenu</a></div><div class="ttdeci">void criaAtletaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:291</div></div>
-<div class="ttc" id="_menu_8h_html_a11a8895b9b22d6f21c8604400afc7b40"><div class="ttname"><a href="_menu_8h.html#a11a8895b9b22d6f21c8604400afc7b40">verProvas</a></div><div class="ttdeci">void verProvas()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:530</div></div>
-<div class="ttc" id="_menu_8h_html_a8c1446da9d6d287556839a9243aa1e6f"><div class="ttname"><a href="_menu_8h.html#a8c1446da9d6d287556839a9243aa1e6f">modificaAtletaMenu</a></div><div class="ttdeci">void modificaAtletaMenu()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:377</div></div>
-<div class="ttc" id="_menu_8h_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="_menu_8h.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdef"><b>Definition:</b> Menu.cpp:604</div></div>
+<div class="ttc" id="class_menu_html_aa976bc24d00fe46961f952d5f50018bb"><div class="ttname"><a href="class_menu.html#aa976bc24d00fe46961f952d5f50018bb">Menu::FICHEIRO_BILHETES</a></div><div class="ttdeci">string FICHEIRO_BILHETES</div><div class="ttdef"><b>Definition:</b> Menu.h:15</div></div>
+<div class="ttc" id="class_menu_html_a4e0fbefabd4ca8f21a2cd7fe46740166"><div class="ttname"><a href="class_menu.html#a4e0fbefabd4ca8f21a2cd7fe46740166">Menu::campeonato</a></div><div class="ttdeci">Campeonato * campeonato</div><div class="ttdef"><b>Definition:</b> Menu.h:10</div></div>
+<div class="ttc" id="class_menu_html_a01ed844b35f6f85bd5e71457309cee88"><div class="ttname"><a href="class_menu.html#a01ed844b35f6f85bd5e71457309cee88">Menu::FICHEIRO_PROVAS</a></div><div class="ttdeci">string FICHEIRO_PROVAS</div><div class="ttdef"><b>Definition:</b> Menu.h:13</div></div>
+<div class="ttc" id="class_menu_html_a5bf168cbb40e28e718ced8f248b3d37a"><div class="ttname"><a href="class_menu.html#a5bf168cbb40e28e718ced8f248b3d37a">Menu::~Menu</a></div><div class="ttdeci">virtual ~Menu()</div><div class="ttdef"><b>Definition:</b> Menu.h:22</div></div>
+<div class="ttc" id="class_menu_html_a0ed6beccf2cea215fb8d7fbc6b8bfabd"><div class="ttname"><a href="class_menu.html#a0ed6beccf2cea215fb8d7fbc6b8bfabd">Menu::FICHEIRO_ATLETAS</a></div><div class="ttdeci">string FICHEIRO_ATLETAS</div><div class="ttdef"><b>Definition:</b> Menu.h:11</div></div>
+<div class="ttc" id="class_campeonato_html"><div class="ttname"><a href="class_campeonato.html">Campeonato</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:41</div></div>
+<div class="ttc" id="class_menu_html_a5d3e25021a6000471f857447f7ab96db"><div class="ttname"><a href="class_menu.html#a5d3e25021a6000471f857447f7ab96db">Menu::FICHEIRO_ADEPTOS</a></div><div class="ttdeci">string FICHEIRO_ADEPTOS</div><div class="ttdef"><b>Definition:</b> Menu.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
