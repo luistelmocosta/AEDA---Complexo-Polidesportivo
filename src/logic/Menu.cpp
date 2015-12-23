@@ -61,6 +61,10 @@ void Menu::dataBaseMenu(){
 }
 
 int Menu::readDB(){
+<<<<<<< HEAD
+=======
+
+>>>>>>> 209458ab3451ec05096e29cfbb4c8627a36ad62f
 	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
 	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
 	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
@@ -150,7 +154,7 @@ void Menu::mainMenu(){
 	case 4:
 		break;
 
-	case 5:
+	case 5: verClassificacoes();
 		break;
 
 	case 6:	espacoAdeptoMenu();
@@ -604,6 +608,18 @@ void Menu::apagaProvaMenu(){
 
 }
 
+
+void Menu::verClassificacoes(){
+	campeonato->updateClassificacoes();
+
+	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> copia = campeonato->getClassificacao();
+
+	while(!copia.empty()){
+		Equipa* aux = copia.top();
+		cout << aux->getNome() << " Ouro: " << aux->getMedalhas()[0] << " Prata: " << aux->getMedalhas()[1] << " Bronze: " << aux->getMedalhas()[2] << endl;
+		copia.pop();
+	}
+}
 
 /*
  * 	#ADEPTOS

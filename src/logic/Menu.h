@@ -52,6 +52,8 @@ public:
 	void modificaProvaMenu();
 	void apagaProvaMenu();
 
+	void verClassificacoes();
+
 	// #ADEPTO
 	void espacoAdeptoMenu();
 	void vendaBilhete();

@@ -6,12 +6,18 @@
 Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(pat) {
 	pontuacao=0;
 	medalhas.reserve(3);
+	medalhas[0]=0;
+	medalhas[1]=0;
+	medalhas[2]=0;
 	doping=0;
 }
 
 Equipa::Equipa() {
 	pontuacao=0;
 	medalhas.reserve(3);
+	medalhas[0]=0;
+	medalhas[1]=0;
+	medalhas[2]=0;
 	doping=0;
 }
 
