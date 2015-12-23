@@ -315,6 +315,8 @@ void Campeonato::readFileProvas(string filename) {
 
 			vector<Equipa*> vs;
 
+			cout << adv1 << adv2 << endl;
+
 			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
 				vs.push_back(getEquipas()[findEquipa(adv1)]);
 				vs.push_back(getEquipas()[findEquipa(adv2)]);
@@ -325,14 +327,15 @@ void Campeonato::readFileProvas(string filename) {
 				//calendario->getProvas().push_back(p);
 				//cout << calendario->getProvas()[0]->getLocal() << endl;
 				//inserirProva(*p);
+				cout << "hello" << endl;
 				calendario->inserirProva(*p);
 				//cout << calendario->getProvas()[0]->getLocal() << endl;
 			}
 			else
 				throw EquipaInexistente("abc");
 
-			if(!ficheiro_leitura.eof())
-				break;
+		/*	if(!ficheiro_leitura.eof())
+				break;*/
 		}
 
 	}
@@ -479,19 +482,13 @@ void Campeonato::readFileBilhetes(string filename) {
 		while (getline(iss2, tmpstr2, ','))
 
 		{
-
 			unsigned int provaID = atoi(tmpstr2.c_str());
-
-
-
 			tmp.push_back(calendario->getProvaID(provaID));
-
-
-
 			//campeonatoIds.push_back(atoi(tmpstr2.c_str()));
 		}
 
 		cout << endl;
+
 
 
 		Adepto *a1 = new Adepto(dono);
@@ -606,10 +603,10 @@ void Campeonato::imprimeBilhetes(){
 
 		cout << endl;
 		cout << endl;
+		cout << "======= " << it->getNomeDono() << " TICKET" << " =======" << endl;
 		cout << "Data de Validade: " << it->getDataFormatada() << endl;
-		cout << "Dono do Bilhete: " << it->getNomeDono() << endl;
-		cout << "Provas com acesso: ";
-		it ->printProvas();
+		cout << "Provas com acesso: " << endl;
+		it->printProvas();
 
 		cout << endl;
 		it++;

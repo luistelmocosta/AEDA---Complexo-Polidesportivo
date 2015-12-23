@@ -54,11 +54,9 @@ string Bilhete::getNomeDono() const {
 
 void Bilhete::printProvas() const{
 
-	cout << "ID: ";
-
 	for(unsigned int i = 0; i < provas.size(); i++) {
 
-		cout << provas[i] << ",";
+		provas[i]->print();
 	}
 }
 

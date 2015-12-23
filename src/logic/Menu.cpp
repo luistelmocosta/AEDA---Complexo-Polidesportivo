@@ -61,7 +61,6 @@ void Menu::dataBaseMenu(){
 }
 
 int Menu::readDB(){
-	cout << "readDB" << endl;
 	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
 	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
 	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";

@@ -157,11 +157,15 @@ string Prova::getDataFormatada() const {
  */
 
 void Prova::print(){
+	cout << endl;
 	cout << "ID : " << getID() << endl;
 	cout << "Data: " << getDataFormatada() << endl;
 	cout << "Local: " << getLocal() << endl;
 	cout << "Modalidade: " << getModalidade()->getNome() << endl;
+	cout << getAdversarios()[0]->getNome() << " vs "
+			<< getAdversarios()[1]->getNome() << endl;
 	cout << "Duracao (min): " << getDuracao() << endl;
+	cout << endl;
 }
 
 /*
@@ -218,8 +222,11 @@ ostream& operator<<(ostream& os, const Prova& p)
 	os <<"ID: " <<p.getID() << endl
 			<< "Data: "<< p.getDataFormatada() << endl
 			<< "Local: "<< p.getLocal() << endl
+			<< p.getAdversarios()[0]->getNome() << " vs "
+			<< p.getAdversarios()[1]->getNome() << endl
 			<< "Modalidade: " << p.getModalidade()->getNome() << endl
 			<< "Duracao: " << p.getDuracao() << endl;
+	cout << endl;
 	return os;
 }
 
