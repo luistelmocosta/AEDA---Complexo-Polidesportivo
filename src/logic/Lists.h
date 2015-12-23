@@ -1,10 +1,4 @@
 /*
- * Lists.h
- *
- *  Created on: 23 Dec 2015
- *      Author: luistelmocosta
- */
-
 #ifndef SRC_LOGIC_LISTS_H_
 #define SRC_LOGIC_LISTS_H_
 
@@ -242,3 +236,4 @@ public:
 
 
 #endif /* SRC_LOGIC_LISTS_H_ */
+

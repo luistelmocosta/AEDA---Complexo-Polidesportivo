@@ -9,7 +9,7 @@ Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(p
 	medalhas[0]=0;
 	medalhas[1]=0;
 	medalhas[2]=0;
-	doping=0;
+	doping=false;
 }
 
 Equipa::Equipa() {
@@ -18,7 +18,7 @@ Equipa::Equipa() {
 	medalhas[0]=0;
 	medalhas[1]=0;
 	medalhas[2]=0;
-	doping=0;
+	doping=false;
 }
 
 

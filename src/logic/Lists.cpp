@@ -1,11 +1,4 @@
 /*
- * Lists.cpp
- *
- *  Created on: 19/10/2015
- *      Author: Filipe
- */
-
-
 #include "Lists.h"
 #include <string>
 #include <vector>
@@ -57,3 +50,4 @@ outstr << n;
 return outstr.str();
 }
 
+*/

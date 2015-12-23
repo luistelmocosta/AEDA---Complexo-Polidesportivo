@@ -598,11 +598,18 @@ void Campeonato::outputFileAdeptos(string filename){
 
 }
 void Campeonato::outputFileBilhetes(string filename){
-
-
-
+	ofstream bFile;
+	bFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
+	TabelaBilhetes::iterator it = bilhetes.begin();
+	while(it != bilhetes.end()){
+		bFile << it->getNomeDono() << endl
+				<< it->getDataFormatada() << endl;
+		for(unsigned int i = 0; it->getProvas().size(); ++i){
+			bFile << it->getProvas()[i]->getID() << ",";
+		}
+		bFile << endl;
+	}
 }
-
 
 
 
@@ -628,6 +635,7 @@ void Campeonato::imprimeBilhetes(){
 		it++;
 	}
 }
+
 /*void Campeonato::removerBilhete(string nome){
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
@@ -680,7 +688,6 @@ int Campeonato::findBilhete(unsigned int id) {
 	return -1;
 
 }
-
 
 
 void Campeonato::comprarBilhete(unsigned int id) {
@@ -745,13 +752,11 @@ void Campeonato::comprarBilhete(unsigned int id) {
 
 		bilhetes.insert(*b);
 
-
 	}
-
-
 
 }
 
+/*
 void Campeonato::testPQ(){
 	Equipa *e1, *e2, *e3, *e4, *e5;
 
@@ -799,4 +804,4 @@ void Campeonato::testPQ(){
 		cout << aux.top()->getNome() << " " << aux.top()->getMedalhas()[0]<< endl;
 		aux.pop();
 	}
-}
+}*/

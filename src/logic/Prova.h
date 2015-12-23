@@ -56,7 +56,7 @@ public:
 	bool getCompleted() const;
 	void setCompleted(bool b);
 
-	unsigned controloDoping();
+	unsigned controloDoping(); 	// retorna numero de equipas do vector vs com doping
 
 	Atleta* getParticipante(int i) const;
 	string getDataFormatada() const;
