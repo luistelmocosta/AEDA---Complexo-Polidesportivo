@@ -110,8 +110,8 @@ public:
 
 
 
-	void realizarProva(int id);
-	int updateClassificacoes();
+	void realizarProva();
+	void updateClassificacoes();
 
 	void inserirAdepto(Adepto &ad);
 	void removerBilhete(string nome);

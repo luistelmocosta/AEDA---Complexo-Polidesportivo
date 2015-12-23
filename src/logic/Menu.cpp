@@ -173,6 +173,7 @@ void Menu::mainMenu(){
 	break;
 
 	case 4:
+		calendarioMenu();
 		break;
 
 	case 5: verClassificacoes();
@@ -635,6 +636,43 @@ void Menu::apagaProvaMenu(){
 	}
 
 }
+
+
+/*
+ * CALENDARIO
+ */
+
+void Menu::calendarioMenu(){
+
+
+
+	char input;
+
+	while(input != 'n'){
+		campeonato->getCalendario()->showProvas();
+		cout << "Deseja simular a prova seguinte? (s/n) ";
+		cin >> input;
+
+		if(input == 's'){
+
+			campeonato->realizarProva();
+
+		}
+
+
+		else if (input == 'n'){
+			clearScreen();
+			mainMenu();
+		}
+	}
+
+}
+
+
+
+
+
+
 
 
 void Menu::verClassificacoes(){

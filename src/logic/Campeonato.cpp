@@ -315,21 +315,13 @@ void Campeonato::readFileProvas(string filename) {
 
 			vector<Equipa*> vs;
 
-			cout << adv1 << adv2 << endl;
-
 			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
 				vs.push_back(getEquipas()[findEquipa(adv1)]);
 				vs.push_back(getEquipas()[findEquipa(adv2)]);
 				Modalidade* m= new Modalidade(modal, false);
 				Prova* p = new Prova(d, local, duracao, vs, m);
 
-				//calendario->adicionaProva(*p);
-				//calendario->getProvas().push_back(p);
-				//cout << calendario->getProvas()[0]->getLocal() << endl;
-				//inserirProva(*p);
-				cout << "hello" << endl;
 				calendario->inserirProva(*p);
-				//cout << calendario->getProvas()[0]->getLocal() << endl;
 			}
 			else
 				throw EquipaInexistente("abc");
@@ -342,52 +334,67 @@ void Campeonato::readFileProvas(string filename) {
 	//getCalendario()->showProvas();
 }
 
-void Campeonato::realizarProva(int id){
+void Campeonato::realizarProva(){
 	string v;
 	string equipa1;  // = calendario->getProvas()[id]->getAdversarios()[0]->getNome();
 	string equipa2; //= calendario->getProvas()[id]->getAdversarios()[1]->getNome();
 
 	BSTItrIn<Prova> it = calendario->getProvas();
 
-	while(!it.isAtEnd()){
 
-		if(it.retrieve().getID() == id){
-			equipa1 = it.retrieve().getAdversarios()[0]->getNome();
-			equipa2 = it.retrieve().getAdversarios()[1]->getNome();
-			v = it.retrieve().getModalidade()->pontuacao(equipa1, equipa2);
 
-			if(v == it.retrieve().getAdversarios()[0]->getNome())
-				equipas[findEquipa(equipa1)]->setPontuacao(3);
 
-			else if(v == it.retrieve().getAdversarios()[1]->getNome() )
-				equipas[findEquipa(equipa2)]->setPontuacao(3);
+	if(!it.isAtEnd()){
 
-			else{
-				equipas[findEquipa(equipa1)]->setPontuacao(1);
-				equipas[findEquipa(equipa2)]->setPontuacao(1);
-			}
 
-			break;
+
+		equipa1 = it.retrieve().getAdversarios()[0]->getNome();
+		equipa2 = it.retrieve().getAdversarios()[1]->getNome();
+		cout << "aqui"<< endl;
+		v = it.retrieve().getModalidade()->pontuacao(equipa1, equipa2);
+
+		if(v == it.retrieve().getAdversarios()[0]->getNome()){
+			equipas[findEquipa(equipa1)]->setPontuacao(3);
 		}
 
-		it.advance();
+		else if(v == it.retrieve().getAdversarios()[1]->getNome() ){
+			equipas[findEquipa(equipa2)]->setPontuacao(3);
+		}
+
+		else{
+			equipas[findEquipa(equipa1)]->setPontuacao(1);
+			equipas[findEquipa(equipa2)]->setPontuacao(1);
+		}
+
+
+		calendario->getProvas().remove(it.retrieve());
+		updateClassificacoes();
+
 	}
+
+	else
+		cout<< endl << "Nao existem mais provas a realizar" << endl;
+
 
 
 }
 
-int Campeonato::updateClassificacoes(){
+void Campeonato::updateClassificacoes(){
 
 	while(!classificacao.empty()){
 		classificacao.pop();
 	}
 
 	for(unsigned i=0; i<equipas.size(); i++){
-		if(equipas[i]->temMedalhas())
+		equipas[i]->setMedalhas();
+
+		if(equipas[i]->temMedalhas()){
 			classificacao.push(equipas[i]);
+		}
+
+
 	}
 
-	return 0;
 }
 
 void Campeonato::inserirAdepto(Adepto &ad) {
@@ -616,6 +623,7 @@ void Campeonato::outputFileBilhetes(string filename){
 
 		}
 
+		it++;
 		bFile << endl;
 	}
 }

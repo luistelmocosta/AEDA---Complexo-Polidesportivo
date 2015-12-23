@@ -10,6 +10,7 @@ Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(p
 	medalhas[1]=0;
 	medalhas[2]=0;
 	doping=false;
+
 }
 
 Equipa::Equipa() {
@@ -77,8 +78,35 @@ vector<unsigned int> Equipa::getMedalhas() const{
 	return medalhas;
 }
 
-void Equipa::setMedalhas(vector<unsigned int> m){
-	medalhas=m;
+
+
+
+void Equipa::setMedalhas(){
+	int p = pontuacao;
+
+	/* cada 10 pontos equivalem a uma medalha de ouro, 5 pontos uma de prata, 3 pontos uma de bronze */
+
+	while(p > 0){
+
+		while(p >= 10){
+			p -= 10;
+			medalhas[0]++;
+		}
+
+		while(p >= 5){
+
+			p -= 5;
+			medalhas[1]++;
+
+		}
+
+		while(p>=3){
+			p -= 3;
+			medalhas[2]++;
+		}
+
+	}
+
 }
 
 bool Equipa::getDoping() const{

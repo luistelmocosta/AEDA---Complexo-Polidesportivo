@@ -43,7 +43,9 @@ public:
 	Atleta* getAtleta(unsigned int id);
 
 	vector<unsigned int> getMedalhas() const;
-	void setMedalhas(vector<unsigned int> m);
+
+
+	void setMedalhas();
 
 	bool getDoping() const;
 	void setDoping(bool b);
