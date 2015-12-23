@@ -53,8 +53,32 @@ public:
 	void showAtletas();
 	void imprime();
 
-	bool operator<(const Equipa &e);
-	bool operator==(const Equipa &e);
+	bool operator<(const Equipa &e) const;
+	bool operator==(const Equipa &e) const;
+
+};
+
+struct ComparaEquipa{
+
+	bool operator()(const Equipa* lhs, const Equipa* rhs) const{
+
+		if(lhs->getMedalhas()[0] < rhs->getMedalhas()[0])
+			return true;
+		if(lhs->getMedalhas()[0] > rhs->getMedalhas()[0])
+			return false;
+		else{
+			if(lhs->getMedalhas()[1] < rhs->getMedalhas()[1])
+				return true;
+			if(lhs->getMedalhas()[1] > rhs->getMedalhas()[1])
+				return false;
+			else{
+				if(lhs->getMedalhas()[2] < rhs->getMedalhas()[2])
+					return true;
+				else return false;
+			}
+		}
+	}
+
 };
 
 #endif /* SRC_LOGIC_EQUIPA_H_ */

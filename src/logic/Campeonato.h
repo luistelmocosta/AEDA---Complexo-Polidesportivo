@@ -8,12 +8,13 @@
 #include <queue>
 #include <iostream>
 #include <fstream>
+#include <deque>
+
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Calendario.h"
 #include "Utilities.h"
 #include "Bilhete.h"
-#include <deque>
 
 
 using namespace std;
@@ -49,7 +50,7 @@ class Campeonato{
 	vector<Desporto*> desportos;
 	Calendario* calendario;
 	vector<Adepto*> adeptos;
-	priority_queue<Equipa*> classificacao;
+	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> classificacao;
 
 public:
 	Campeonato();
@@ -68,7 +69,7 @@ public:
 	vector<Equipa*> getEquipas() const;
 	vector<Desporto*> getDeportos() const;
 	Calendario* getCalendario() const;
-	priority_queue<Equipa*> getClassificacao() const;
+	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> getClassificacao() const;
 	TabelaBilhetes getBilhetes() const;
 	vector<Adepto*> getAdeptos() const;
 
@@ -116,6 +117,9 @@ public:
 	void imprimeBilhetes();
 	void venderBilhete(unsigned int id);
 	void comprarBilhete(unsigned int id);
+
+	void testPQ();
+
 };
 
 #endif /* SRC_LOGIC_CAMPEONATO_H_ */

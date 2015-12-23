@@ -151,27 +151,12 @@ void Equipa::imprime() {
  *
  */
 
-bool Equipa::operator<(const Equipa &e){ // para priority_queue
+bool Equipa::operator<(const Equipa &e) const{ // para insertion sort
 
-	if(medalhas[0] > e.getMedalhas()[0])
-		return true;
-	if(medalhas[0] < e.getMedalhas()[0])
-		return false;
-	else{
-		if(medalhas[1] > e.getMedalhas()[1])
-			return true;
-		if(medalhas[1] < e.getMedalhas()[1])
-			return false;
-		else{
-			if(medalhas[2] > e.getMedalhas()[2])
-				return true;
-			else return false;
-		}
-	}
 
 }
 
-bool Equipa::operator==(const Equipa &e){
+bool Equipa::operator==(const Equipa &e) const{
 	if(medalhas[0] == e.getMedalhas()[0] && medalhas[1] == e.getMedalhas()[1] && medalhas[2] == e.getMedalhas()[2])
 		return true;
 	else return false;

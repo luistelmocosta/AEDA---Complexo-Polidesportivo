@@ -56,7 +56,7 @@ Calendario* Campeonato::getCalendario() const {
 }
 
 
-priority_queue<Equipa*> Campeonato::getClassificacao() const{
+priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> Campeonato::getClassificacao() const{
 	return classificacao;
 }
 
@@ -558,4 +558,43 @@ void Campeonato::venderBilhete(unsigned int id) {
 
 void Campeonato::comprarBilhete(unsigned int id) {
 
+}
+
+void Campeonato::testPQ(){
+	Equipa *e1, *e2, *e3;
+
+	e1=new Equipa();
+	e2=new Equipa();
+	e3=new Equipa();
+
+	vector<unsigned> v1, v2, v3;
+
+	v1.push_back(100);
+	v2.push_back(20);
+	v3.push_back(500);
+
+	e1->setMedalhas(v1);
+	e2->setMedalhas(v2);
+	e3->setMedalhas(v3);
+
+	inserirEquipa(*e1);
+	inserirEquipa(*e2);
+	inserirEquipa(*e3);
+
+	classificacao.push(equipas[0]);
+	classificacao.push(equipas[1]);
+	classificacao.push(equipas[2]);
+
+	cout << equipas[0]->getMedalhas()[0] << endl;
+	cout << equipas[1]->getMedalhas()[0] << endl;
+	cout << equipas[2]->getMedalhas()[0] << endl;
+
+	cout << "FINALMENTE PQ P" << endl;
+
+	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> aux = classificacao;
+
+	while(!aux.empty()){
+		cout << aux.top()->getMedalhas()[0] << endl;
+		aux.pop();
+	}
 }
