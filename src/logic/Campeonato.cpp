@@ -254,7 +254,7 @@ void Campeonato::readFileAtletas(string filename){
 
 void Campeonato::readFileEquipas(string filename){
 
-	ifstream ficheiro_leitura (filename.c_str());
+	ifstream ficheiro_leitura(filename.c_str());
 
 	if(!ficheiro_leitura)
 		throw ErroNoFicheiro(filename);
@@ -481,17 +481,12 @@ void Campeonato::readFileBilhetes(string filename) {
 		{
 
 			unsigned int provaID = atoi(tmpstr2.c_str());
-			if(it.retrieve().getID() == provaID) {
 
-				/*cout << "ola" << endl;
-			for(unsigned int i = 0; i < provasCampeonato.size(); i++) {
-				cout << "aqui" << endl;
-				if(provasCampeonato[i]->getID() == provaID) {
-					cout << provasCampeonato[i];
-					tmp.push_back(provasCampeonato[i]);*/
-			}
-			else
-				continue;
+
+
+			tmp.push_back(calendario->getProvaID(provaID));
+
+
 
 			//campeonatoIds.push_back(atoi(tmpstr2.c_str()));
 		}
