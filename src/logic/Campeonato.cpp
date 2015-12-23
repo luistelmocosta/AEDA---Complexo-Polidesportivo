@@ -373,9 +373,19 @@ void Campeonato::realizarProva(int id){
 
 }
 
-/*void Campeonato::ordenaClassificacoes(){
-	insertionSort(equipas);
-}*/
+int Campeonato::updateClassificacoes(){
+
+	while(!classificacao.empty()){
+		classificacao.pop();
+	}
+
+	for(unsigned i=0; i<equipas.size(); i++){
+		if(equipas[i]->temMedalhas())
+			classificacao.push(equipas[i]);
+	}
+
+	return 0;
+}
 
 void Campeonato::inserirAdepto(Adepto &ad) {
 	adeptos.push_back(&ad);

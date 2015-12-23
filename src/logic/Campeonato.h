@@ -103,7 +103,7 @@ public:
 
 
 	void realizarProva(int id);
-	void ordenaClassificacoes();
+	int updateClassificacoes();
 
 	void inserirAdepto(Adepto &ad);
 	void removerBilhete(string nome);

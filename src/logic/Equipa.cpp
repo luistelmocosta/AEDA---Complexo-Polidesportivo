@@ -6,11 +6,13 @@
 Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(pat) {
 	pontuacao=0;
 	medalhas.reserve(3);
+	doping=0;
 }
 
 Equipa::Equipa() {
 	pontuacao=0;
 	medalhas.reserve(3);
+	doping=0;
 }
 
 
@@ -71,6 +73,21 @@ vector<unsigned int> Equipa::getMedalhas() const{
 
 void Equipa::setMedalhas(vector<unsigned int> m){
 	medalhas=m;
+}
+
+bool Equipa::getDoping() const{
+	return doping;
+}
+void Equipa::setDoping(bool b){
+	doping=b;
+}
+
+bool Equipa::temMedalhas(){
+	for(unsigned i=0; i<medalhas.size(); i++){
+		if(medalhas[i]>0)
+			return true;
+	}
+	return false;
 }
 
 /*

@@ -21,6 +21,7 @@ class Equipa {
 	float pontuacao;
 	vector<Atleta*> atletas;
 	vector<unsigned int> medalhas;		// [0]-ouro	 [1]-prata	[2]-bronze
+	bool doping;
 
 public:
 	Equipa(string n, string p, string pat);
@@ -44,6 +45,10 @@ public:
 	vector<unsigned int> getMedalhas() const;
 	void setMedalhas(vector<unsigned int> m);
 
+	bool getDoping() const;
+	void setDoping(bool b);
+
+	bool temMedalhas();
 
 	void inserirAtleta(Atleta &a1);
 	bool eliminarAtleta(unsigned int id);

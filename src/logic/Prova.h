@@ -2,6 +2,9 @@
 #define SRC_LOGIC_PROVA_H_
 
 #include <vector>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
 #include "Equipa.h"
 #include "Desporto.h"
 #include "Utilities.h"
@@ -47,23 +50,24 @@ public:
 	Equipa* getVencedor() const;
 	void setVencedor(Equipa* v);
 
+	bool getProvaTempo() const;
+	void setProvaTempo(bool b);
+
 	bool getCompleted() const;
 	void setCompleted(bool b);
 
-	bool getProvaTempo() const;
-	void setProvaTemo(bool b);
-
+	unsigned controloDoping();
 
 	Atleta* getParticipante(int i) const;
 	string getDataFormatada() const;
 	void print();
 
-	bool operator !=(const Prova &p)const;
+	bool operator !=(const Prova &p) const;
     bool operator <(const Prova &p) const;
     friend ostream& operator<<(ostream& os, const Prova& dt);
 
-    bool operator >(const Prova &p)const;
-    bool operator ==(const Prova &p)const;
+    bool operator >(const Prova &p) const;
+    bool operator ==(const Prova &p) const;
 };
 
 

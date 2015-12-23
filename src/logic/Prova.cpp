@@ -75,7 +75,7 @@ void Prova::setVencedor(Equipa* v){
 bool Prova::getProvaTempo() const{
 	return provaT;
 }
-void Prova::setProvaTemo(bool b){
+void Prova::setProvaTempo(bool b){
 	provaT=b;
 }
 
@@ -85,6 +85,26 @@ bool Prova::getCompleted() const{
 
 void Prova::setCompleted(bool b){
 	completed=b;
+}
+
+unsigned Prova::controloDoping(){
+
+	unsigned doping_control;
+	unsigned counter=0;
+
+	srand(time(NULL));
+
+	for(unsigned i=0; i<vs.size(); i++){
+		doping_control = rand() % 100;
+		if(doping_control>80){					//20% probabilidade ter doping
+			vs[i]->setDoping(true);
+			counter++;
+		}
+		else vs[i]->setDoping(false);
+	}
+
+	return counter;
+
 }
 
 
@@ -195,9 +215,9 @@ bool Prova::operator<(const Prova&rp) const{
 
 ostream& operator<<(ostream& os, const Prova& p)
 {
-	os <<"ID: " <<p.id << endl
+	os <<"ID: " <<p.getID() << endl
 			<< "Data: "<< p.getDataFormatada() << endl
-			<< "Local: "<< p.local << endl
+			<< "Local: "<< p.getLocal() << endl
 			<< "Modalidade: " << p.getModalidade()->getNome() << endl
 			<< "Duracao: " << p.getDuracao() << endl;
 	return os;
