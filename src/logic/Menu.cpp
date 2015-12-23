@@ -728,6 +728,7 @@ void Menu::compraBilhete() {
 void Menu::espacoAdeptoMenu(){
 
 	int input;
+	int id;
 
 	cout << "==Espaco Adepto==" << endl;
 
@@ -745,6 +746,14 @@ void Menu::espacoAdeptoMenu(){
 
 	case 1:
 		clearScreen();
+		campeonato->imprimeAdeptos();
+		cout << endl;
+		cout <<"ID do adepto que pretende comprar um bilhete: ";
+		cin >> id;
+		cout << endl;
+		campeonato->imprimeBilhetes();
+		campeonato->comprarBilhete(id);
+		espacoAdeptoMenu();
 		break;
 	case 2:
 		clearScreen();

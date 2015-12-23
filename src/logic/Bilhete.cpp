@@ -74,14 +74,17 @@ void Bilhete::setDono(Adepto *ad) {
 
 void Bilhete::addProvas(vector<Prova*> p) {
 
-	provas = p;
+	for (unsigned int i = 0; i < p.size(); ++i){
+
+		provas.push_back(p[i]);
+
+	}
 
 }
 
-/*void Bilhete::setDono(Adepto* a1){
 
-	dono = a1;
-}*/
+
+
 
 /*string Bilhete::getInfo() const {
 	string info;

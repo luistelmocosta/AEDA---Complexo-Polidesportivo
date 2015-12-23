@@ -619,6 +619,7 @@ void Campeonato::imprimeBilhetes(){
 		cout << endl;
 		cout << endl;
 		cout << "======= " << it->getNomeDono() << " TICKET" << " =======" << endl;
+		cout << "ID: " << it->getID() << endl;
 		cout << "Data de Validade: " << it->getDataFormatada() << endl;
 		cout << "Provas com acesso: " << endl;
 		it->printProvas();
@@ -685,17 +686,19 @@ int Campeonato::findBilhete(unsigned int id) {
 void Campeonato::comprarBilhete(unsigned int id) {
 
 
-
+	bool found = false;
 	int idx;
 	vector<Prova*> tmp;
-	cout << "Qual é o ticket que pretende adquirir:";
+	cout << "Qual o ticket que pretende adquirir:";
 	cin >> idx;
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
 
 	while(it != bilhetes.end()) {
-		if(it->getID() == idx)
+		if(it->getID() == idx){
 			tmp = it->getProvas();
+			bilhetes.erase(it);
+		}
 		it++;
 	}
 
@@ -703,9 +706,45 @@ void Campeonato::comprarBilhete(unsigned int id) {
 	it = bilhetes.begin();
 
 	while(it != bilhetes.end()) {
+
 		if(it->getIdDono() == id) {
+			found = true;
+			Bilhete b = *it;
+			bilhetes.erase(it);
+
+			b.addProvas(tmp);
+
+			for(unsigned int i = 0; i < adeptos.size(); ++i){
+
+				if(adeptos[i]->getID() == id){
+					b.setDono(adeptos[i]);
+					break;
+				}
+
+			}
+
+			bilhetes.insert(b);
+		}
+
+		++it;
+	}
+
+	if(!found){
+		// Bilhete(date validade, Adepto* dono, vector<Prova*> provas);
+		date d; //??
+		Bilhete* b;
+
+		for(unsigned int i = 0; i < adeptos.size(); ++i){
+
+			if(adeptos[i]->getID() == id){
+				b = new Bilhete(d, adeptos[id], tmp);
+				break;
+			}
 
 		}
+
+		bilhetes.insert(*b);
+
 
 	}
 
