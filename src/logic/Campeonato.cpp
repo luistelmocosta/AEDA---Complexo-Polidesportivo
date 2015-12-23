@@ -598,15 +598,24 @@ void Campeonato::outputFileAdeptos(string filename){
 
 }
 void Campeonato::outputFileBilhetes(string filename){
+
 	ofstream bFile;
+
 	bFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
 	TabelaBilhetes::iterator it = bilhetes.begin();
+
 	while(it != bilhetes.end()){
 		bFile << it->getNomeDono() << endl
 				<< it->getDataFormatada() << endl;
-		for(unsigned int i = 0; it->getProvas().size(); ++i){
-			bFile << it->getProvas()[i]->getID() << ",";
+
+		for(unsigned int i = 0; i < it->getProvas().size(); ++i){
+			bFile << it->getProvas()[i]->getID();
+
+			if(i < it->getProvas().size() -1 )
+				bFile << ",";
+
 		}
+
 		bFile << endl;
 	}
 }
