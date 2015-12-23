@@ -8,6 +8,11 @@ using namespace std;
 class Menu{
 
 	Campeonato* campeonato;
+	string FICHEIRO_ATLETAS;
+	string FICHEIRO_EQUIPAS;
+	string FICHEIRO_PROVAS;
+	string FICHEIRO_ADEPTOS;
+	string FICHEIRO_BILHETES;
 
 public:
 

@@ -7,6 +7,10 @@
 #include "Campeonato.h"
 #include "Utilities.h"
 
+
+
+
+
 void Menu::initMenu(){
 
 	cout << "# Campeonatos Polidesportivos #" << endl << endl;
@@ -62,11 +66,11 @@ void Menu::dataBaseMenu(){
 
 int Menu::readDB(){
 
-	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
-	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
-	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
-	string FICHEIRO_ADEPTOS = "txt_data/Adeptos_default.txt";
-	string FICHEIRO_BILHETES = "txt_data/Bilhetes_default.txt";
+	FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
+	FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
+	FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
+	FICHEIRO_ADEPTOS = "txt_data/Adeptos_default.txt";
+	FICHEIRO_BILHETES = "txt_data/Bilhetes_default.txt";
 
 
 	try{
@@ -87,6 +91,25 @@ int Menu::readDB(){
 void Menu::criaDBMenu(){
 
 	int input;
+
+	cout << "Nome do ficheiro onde os atletas criados serao guardadas: ";
+	cin >>FICHEIRO_ATLETAS;
+
+	cout << "Nome do ficheiro onde as equipas criados serao guardadas: ";
+	cin >>FICHEIRO_EQUIPAS;
+
+	cout << "Nome do ficheiro onde as provas criados serao guardadas: ";
+	cin >>FICHEIRO_PROVAS;
+
+	cout << "Nome do ficheiro onde os adeptos criados serao guardadas: ";
+	cin >>FICHEIRO_ADEPTOS;
+
+	cout << "Nome do ficheiro onde os bilhetes criados serao guardadas: ";
+	cin >>FICHEIRO_BILHETES;
+
+
+
+
 
 	cout << "1. Criar Equipa" << endl;
 	cout << "2. Criar Atleta" << endl;
@@ -152,12 +175,19 @@ void Menu::mainMenu(){
 		break;
 
 	case 5: verClassificacoes();
-		break;
+	break;
 
 	case 6:	espacoAdeptoMenu();
 	break;
 
-	case 7: break;
+	case 7:campeonato->outputFileAdeptos(FICHEIRO_ADEPTOS);
+	campeonato->outputFileAtletas(FICHEIRO_ATLETAS);
+	campeonato->outputFileBilhetes(FICHEIRO_BILHETES);
+	campeonato->outputFileEquipas(FICHEIRO_EQUIPAS);
+	campeonato->outputFileProvas(FICHEIRO_PROVAS);
+
+
+		break;
 
 	default: mainMenu();
 	break;
