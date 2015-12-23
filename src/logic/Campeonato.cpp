@@ -652,40 +652,50 @@ void Campeonato::comprarBilhete(unsigned int id) {
 }
 
 void Campeonato::testPQ(){
-	Equipa *e1, *e2, *e3;
+	Equipa *e1, *e2, *e3, *e4, *e5;
 
-	e1=new Equipa();
-	e2=new Equipa();
-	e3=new Equipa();
+	e1=new Equipa("equipa1", "pt", "slb");
+	e2=new Equipa("equipa2", "es", "barca");
+	e3=new Equipa("equipa3", "it", "milan");
+	e4=new Equipa("equipa4", "ing", "mu");
+	e5=new Equipa("equipa5", "fr", "psg");
 
-	vector<unsigned> v1, v2, v3;
+	vector<unsigned> v1, v2, v3, v4, v5;
 
 	v1.push_back(100);
 	v2.push_back(20);
 	v3.push_back(500);
+	v4.push_back(100);
+	v4.push_back(30);
+	v5.push_back(0);
 
 	e1->setMedalhas(v1);
 	e2->setMedalhas(v2);
 	e3->setMedalhas(v3);
+	e4->setMedalhas(v4);
+	e5->setMedalhas(v5);
 
 	inserirEquipa(*e1);
 	inserirEquipa(*e2);
 	inserirEquipa(*e3);
+	inserirEquipa(*e4);
+	inserirEquipa(*e5); //testar se nao adiciona equipas sem medalhas
 
-	classificacao.push(equipas[0]);
-	classificacao.push(equipas[1]);
-	classificacao.push(equipas[2]);
+
+	updateClassificacoes();
 
 	cout << equipas[0]->getMedalhas()[0] << endl;
 	cout << equipas[1]->getMedalhas()[0] << endl;
 	cout << equipas[2]->getMedalhas()[0] << endl;
+	cout << equipas[3]->getMedalhas()[0] << endl;
+	cout << equipas[4]->getMedalhas()[0] << endl;
 
 	cout << "FINALMENTE PQ P" << endl;
 
 	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> aux = classificacao;
 
 	while(!aux.empty()){
-		cout << aux.top()->getMedalhas()[0] << endl;
+		cout << aux.top()->getNome() << " " << aux.top()->getMedalhas()[0]<< endl;
 		aux.pop();
 	}
 }
