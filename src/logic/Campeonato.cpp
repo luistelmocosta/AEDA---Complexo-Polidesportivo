@@ -507,6 +507,98 @@ void Campeonato::readFileBilhetes(string filename) {
 
 	}
 }
+
+/*
+OUTPUT FILE FUNCS
+
+
+ */
+
+void Campeonato::outputFileAtletas(string filename){
+
+	ofstream aFile;
+
+	aFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
+
+
+
+	for (unsigned int i = 0; i < atletas.size(); ++i){
+
+		aFile << atletas[i]->getNome() << endl
+				<< atletas[i]->getPais() << endl
+				<< atletas[i]->getIdade() << endl
+				<< atletas[i]->getAltura() << endl
+				<< atletas[i]->getPeso() << endl;
+	}
+
+
+}
+void Campeonato::outputFileEquipas(string filename){
+
+	ofstream eFile;
+
+	eFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
+
+
+
+	for (unsigned int i = 0; i < equipas.size(); ++i){
+
+		eFile << equipas[i]->getNome() << endl
+				<< equipas[i]->getPais() << endl
+				<< equipas[i]->getPatrocinador() << endl;
+	}
+
+}
+void Campeonato::outputFileProvas(string filename){
+
+	ofstream pFile;
+
+	pFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
+
+	BSTItrIn<Prova> it = calendario->getProvas();
+
+	while(!it.isAtEnd()){
+
+
+		pFile << it.retrieve().getDataFormatada() << endl
+				<< it.retrieve().getLocal() << endl
+				<< it.retrieve().getDuracao() << endl
+				<< it.retrieve().getAdversarios()[0]->getNome() << endl
+				<< it.retrieve().getAdversarios()[1]->getNome() << endl
+				<< it.retrieve().getVencedor() << endl
+				<< it.retrieve().getModalidade()->getNome() << endl;
+
+		it.advance();
+	}
+
+}
+void Campeonato::outputFileAdeptos(string filename){
+
+	ofstream aFile;
+
+	aFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
+
+
+
+	for (unsigned int i = 0; i < adeptos.size(); ++i){
+
+		aFile <<adeptos[i]->getNome() << endl
+				<< adeptos[i]->getEmail() << endl
+				<< adeptos[i]->getEquipa() << endl;
+
+	}
+
+
+}
+void Campeonato::outputFileBilhetes(string filename){
+
+
+
+}
+
+
+
+
 void Campeonato::imprimeBilhetes(){
 
 
@@ -550,12 +642,12 @@ void Campeonato::venderBilhete(unsigned int id) {
 	while( it != bilhetes.end()) {
 		cout << "TESTE" << endl;
 		cout << "ID DONO: " << it->getNomeDono() << endl;
-			if(it->getIdDono() == id){
+		if(it->getIdDono() == id){
 
-				bilhetes.erase(it);
-			}
-			it++;
+			bilhetes.erase(it);
 		}
+		it++;
+	}
 
 	cout << "VENDI " << endl;
 }

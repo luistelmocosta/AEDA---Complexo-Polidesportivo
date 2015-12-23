@@ -100,6 +100,12 @@ public:
 	void readFileAdeptos(string filename);
 	void readFileBilhetes(string filename);
 
+	void outputFileAtletas(string filename);
+	void outputFileEquipas(string filename);
+	void outputFileProvas(string filename);
+	void outputFileAdeptos(string filename);
+	void outputFileBilhetes(string filename);
+
 
 
 	void realizarProva(int id);
