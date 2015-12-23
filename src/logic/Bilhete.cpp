@@ -4,7 +4,7 @@ using namespace std;
 
 int Bilhete::newID = 0;
 
-Bilhete::Bilhete(date v, Adepto* d, vector<int> p){
+Bilhete::Bilhete(date v, Adepto* d, vector<Prova*> p){
 
 
 	uid = newID++;
@@ -22,7 +22,7 @@ int Bilhete::getID() const{
 	return uid;
 }
 
-vector<int> Bilhete::getProvas() const{
+vector<Prova*> Bilhete::getProvas() const{
 	return provas;
 }
 
@@ -62,7 +62,7 @@ void Bilhete::printProvas() const{
 	}
 }
 
-int Bilhete::getIdDono() const {
+unsigned int Bilhete::getIdDono() const {
 
 	return dono->getID();
 

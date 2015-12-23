@@ -20,21 +20,26 @@ class Bilhete{
 	float preco;
 	bool vendido;
 	Adepto* dono;
-	vector<int> provas;
+	vector<Prova*> provas;
 
 public:
 
-	Bilhete(date validade, Adepto* dono, vector<int> provas);
+	Bilhete(date validade, Adepto* dono, vector<Prova*> provas);
+	Bilhete(int uid);
 	Bilhete();
 
-	vector<int> getProvas() const;
+	vector<Prova*> getProvas() const;
+
+	//void setProva(Prova* p);
+	date getData() const;
 
 	int getID() const;
-	int getIdDono() const;
+	unsigned int getIdDono() const;
 	string getDataFormatada() const;
 	string getEmailDono() const;
 	string getNomeDono() const;
 	void printProvas() const;
+
 
 
 	/*void setID(int id);

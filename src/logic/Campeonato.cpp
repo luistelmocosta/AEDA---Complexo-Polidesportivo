@@ -396,46 +396,6 @@ void Campeonato::inserirBilhete(Bilhete &b1){
 
 }
 
-/*void Campeonato::removerBilhete(string nome){
-
-	TabelaBilhetes::iterator it = bilhetes.begin();
-	Adepto ad;
-
-	while( it != bilhetes.end()) {
-		if(it-> == nome)
-			bilhetes.erase(it);
-		it++;
-	}
-}
-
-void Campeonato::alterarEmail(string nome, string email){
-
-	Adepto ad(nome);
-	TabelaBilhetes::iterator it = bilhetes.find(ad);
-
-	if(it == bilhetes.end())
-		throw AdeptoInexistente(nome);
-	else{
-		ad = (*it);
-		bilhetes.erase(it);
-		ad.setEmail(email);
-		bilhetes.insert(ad);
-	}
-
-}
-
-
-bool Campeonato::existeAdepto(string nome) {
-
-	Adepto a1(nome);
-	TabelaBilhetes::iterator it = bilhetes.find(a1);
-
-	if(it == bilhetes.end())
-		return false;
-	else return true;
-
-
-}*/
 
 
 void Campeonato::readFileAdeptos(string filename) {
@@ -469,9 +429,12 @@ void Campeonato::readFileBilhetes(string filename) {
 	string linha, dono;
 	int dia, mes, ano;
 	vector<int> campeonatoIds;
+	BSTItrIn<Prova> it = calendario->getProvas();
+	vector<Prova*> tmp;
 
 	while (getline(infile, dono)) // get name and check status file stream
 	{
+
 		cout << dono << endl;
 		// read in date
 		getline(infile, linha);
@@ -506,21 +469,34 @@ void Campeonato::readFileBilhetes(string filename) {
 		while (getline(iss2, tmpstr2, ','))
 
 		{
-			campeonatoIds.push_back(atoi(tmpstr2.c_str()));
+
+			unsigned int provaID = atoi(tmpstr2.c_str());
+			if(it.retrieve().getID() == provaID) {
+
+				/*cout << "ola" << endl;
+			for(unsigned int i = 0; i < provasCampeonato.size(); i++) {
+				cout << "aqui" << endl;
+				if(provasCampeonato[i]->getID() == provaID) {
+					cout << provasCampeonato[i];
+					tmp.push_back(provasCampeonato[i]);*/
+			}
+			else
+				continue;
+
+			//campeonatoIds.push_back(atoi(tmpstr2.c_str()));
 		}
 
 		cout << endl;
 
 
 		Adepto *a1 = new Adepto(dono);
-		Bilhete *b1 = new Bilhete(d, a1, campeonatoIds);
+		Bilhete *b1 = new Bilhete(d, a1, tmp);
 		inserirBilhete(*b1);
 
-		campeonatoIds.clear();
+		tmp.clear();
 
 	}
 }
-
 void Campeonato::imprimeBilhetes(){
 
 
@@ -542,18 +518,36 @@ void Campeonato::imprimeBilhetes(){
 		it++;
 	}
 }
+/*void Campeonato::removerBilhete(string nome){
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+	Adepto ad;
+
+	while( it != bilhetes.end()) {
+		if(it-> == nome)
+			bilhetes.erase(it);
+		it++;
+	}
+}*/
+
 
 void Campeonato::venderBilhete(unsigned int id) {
 
+	cout << "VOU VENDER" << endl;
+
 	TabelaBilhetes::iterator it = bilhetes.begin();
 
-	while(it != bilhetes.end()) {
-		if(it->getIdDono() == id)
-			bilhetes.erase(it);
-		it++;
+	while( it != bilhetes.end()) {
+		cout << "TESTE" << endl;
+		cout << "ID DONO: " << it->getNomeDono() << endl;
+			if(it->getIdDono() == id){
 
-	}
+				bilhetes.erase(it);
+			}
+			it++;
+		}
 
+	cout << "VENDI " << endl;
 }
 
 void Campeonato::comprarBilhete(unsigned int id) {

@@ -611,6 +611,56 @@ void Menu::apagaProvaMenu(){
  *
  */
 
+void Menu::criaAdeptoMenu(){
+	string nome, email, equipa;
+
+	cout << "==Criador Adepto==" << endl;
+
+	cout << "Nome: " << endl;
+	cin.ignore();
+	getline(cin, nome);
+
+	cout << "Email: " << endl;
+	cin >> email;
+
+	cout << "Equipa preferida: " << endl;
+	cin >> equipa;
+
+
+	Adepto *ad = new Adepto(nome, email, equipa);
+
+
+	campeonato->inserirAdepto(*ad);
+
+	clearScreen();
+
+}
+
+
+void Menu::registarAdepto() {
+
+	string nResposta;
+
+	cin >> nResposta;
+	if(nResposta == "Sim" || nResposta == "S" || nResposta == "sim" ||
+			nResposta == "s"){
+		clearScreen();
+		criaAdeptoMenu();
+		espacoAdeptoMenu();
+	}
+	else if(nResposta == "Nao" || nResposta == "N" || nResposta == "nao" ||
+			nResposta == "n")
+	{
+		clearScreen();
+		espacoAdeptoMenu();
+	}
+	else{
+		cout << "Resposta Invalida. Tente Novamente ";
+		registarAdepto();
+	}
+
+}
+
 void Menu::vendaBilhete() {
 
 
@@ -618,10 +668,11 @@ void Menu::vendaBilhete() {
 	cout << "===VENDA DE BILHETES===" << endl;
 	cout << endl;
 
-	cout << "ID do Adepto que pretende efectuar uma venda: " << endl;
+	cout << "ID do Adepto que pretende efectuar uma venda: ";
 	cin >> id;
 
 	pos=campeonato->findAdepto(id);
+	cout << pos;
 
 	if(pos<0)
 		throw AdeptoInexistente(id);
@@ -633,6 +684,33 @@ void Menu::vendaBilhete() {
 }
 
 void Menu::compraBilhete() {
+
+	int id, pos;
+
+	cout << "===COMPRA DE BILHETES===" << endl;
+	cout << endl;
+
+	cout << "ID do Adepto que pretende efectuar uma compra: ";
+	cin >> id;
+
+	pos=campeonato->findAdepto(id);
+
+	if(pos<0){
+		cout << "Adepto nao existe! Deseja realizar um registo? " << endl;
+
+		registarAdepto();
+
+	}
+
+	else{
+
+
+		campeonato->getCalendario()->getProvas();
+		cout << endl;
+		campeonato->comprarBilhete(id);
+	}
+
+
 
 }
 
@@ -666,8 +744,12 @@ void Menu::espacoAdeptoMenu(){
 	case 3:
 		campeonato->imprimeAdeptos();
 		cout << endl;
+		espacoAdeptoMenu();
+		break;
 	case 4:
-		campeonato->imprimeBilhetes();
+		clearScreen();
+		compraBilhete();
+		espacoAdeptoMenu();
 		break;
 	case 5:
 		clearScreen();
@@ -675,7 +757,9 @@ void Menu::espacoAdeptoMenu(){
 		espacoAdeptoMenu();
 		break;
 
-	default: break;
+	default:
+		espacoAdeptoMenu();
+		break;
 	}
 
 }
@@ -684,6 +768,7 @@ void Menu::espacoAdeptoMenu(){
 /*
  * 	#
  */
+
 
 void Menu::clearScreen(){
 	cout << string(50, '\n');

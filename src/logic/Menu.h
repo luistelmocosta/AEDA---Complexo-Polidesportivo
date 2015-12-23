@@ -56,6 +56,8 @@ public:
 	void espacoAdeptoMenu();
 	void vendaBilhete();
 	void compraBilhete();
+	void criaAdeptoMenu();
+	void registarAdepto();
 
 	// #
 	void clearScreen();
