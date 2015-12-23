@@ -84,8 +84,10 @@ public:
 	int findEquipa(string nomeEquipa);			//else
 	int findDesporto(string nomeDesporto);		//return -1
 	int findAdepto(unsigned int id);
+	Bilhete* findBilheteByAdeptoID(unsigned int id);
+	Adepto* findAdeptoByName(string name);
+	int findBilhete(unsigned int id);
 	vector<Atleta*> findAtletaVect(string nomeAtleta);	//return a vector, in case there are several athletes with the same name
-
 	void imprimeEquipas() const;
 	void imprimeUmaEquipa(string nome);
 

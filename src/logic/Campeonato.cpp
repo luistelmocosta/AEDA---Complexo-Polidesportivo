@@ -334,7 +334,7 @@ void Campeonato::readFileProvas(string filename) {
 			else
 				throw EquipaInexistente("abc");
 
-		/*	if(!ficheiro_leitura.eof())
+			/*	if(!ficheiro_leitura.eof())
 				break;*/
 		}
 
@@ -393,6 +393,22 @@ int Campeonato::updateClassificacoes(){
 void Campeonato::inserirAdepto(Adepto &ad) {
 	adeptos.push_back(&ad);
 }
+
+
+
+Adepto* Campeonato::findAdeptoByName (string name) {
+
+	for(unsigned int i = 0; i < adeptos.size(); i++) {
+		if(adeptos[i]->getNome() == name) {
+			return adeptos[i];
+		}
+	}
+	Adepto NOT_FOUND;
+	return &NOT_FOUND;
+	//TODO
+}
+
+
 
 void Campeonato::inserirBilhete(Bilhete &b1){
 
@@ -490,8 +506,7 @@ void Campeonato::readFileBilhetes(string filename) {
 		cout << endl;
 
 
-
-		Adepto *a1 = new Adepto(dono);
+		Adepto *a1 = findAdeptoByName(dono);
 		Bilhete *b1 = new Bilhete(d, a1, tmp);
 		inserirBilhete(*b1);
 
@@ -627,24 +642,74 @@ void Campeonato::imprimeBilhetes(){
 
 void Campeonato::venderBilhete(unsigned int id) {
 
-	cout << "VOU VENDER" << endl;
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
 
 	while( it != bilhetes.end()) {
-		cout << "TESTE" << endl;
-		cout << "ID DONO: " << it->getNomeDono() << endl;
 		if(it->getIdDono() == id){
 
 			bilhetes.erase(it);
 		}
 		it++;
 	}
-
-	cout << "VENDI " << endl;
 }
 
+/*Bilhete* Campeonato::findBilheteByAdeptoID(unsigned int id) {
+
+	TabelaBilhetes::iterator it;
+
+	for(it = bilhetes.begin(); it != bilhetes.end(); ++it) {
+		if(it->getIdDono() == id)
+			return &(*it);
+	}
+	return NULL;
+
+
+}*/
+
+int Campeonato::findBilhete(unsigned int id) {
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	while(it != bilhetes.end()) {
+		if(it->getIdDono() == id)
+			return 0;
+
+	}
+	return -1;
+
+}
+
+
+
 void Campeonato::comprarBilhete(unsigned int id) {
+
+
+
+	int idx;
+	vector<Prova*> tmp;
+	cout << "Qual é o ticket que pretende adquirir:";
+	cin >> idx;
+
+	TabelaBilhetes::iterator it = bilhetes.begin();
+
+	while(it != bilhetes.end()) {
+		if(it->getID() == idx)
+			tmp = it->getProvas();
+		it++;
+	}
+
+
+	it = bilhetes.begin();
+
+	while(it != bilhetes.end()) {
+		if(it->getIdDono() == id) {
+
+		}
+
+	}
+
+
 
 }
 

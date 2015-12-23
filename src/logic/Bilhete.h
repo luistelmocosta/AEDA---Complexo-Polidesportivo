@@ -35,10 +35,12 @@ public:
 
 	int getID() const;
 	unsigned int getIdDono() const;
+	void setDono(Adepto *ad);
 	string getDataFormatada() const;
 	string getEmailDono() const;
 	string getNomeDono() const;
 	void printProvas() const;
+	void addProvas(vector<Prova*> p);
 
 
 

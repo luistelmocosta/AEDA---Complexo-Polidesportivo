@@ -61,10 +61,7 @@ void Menu::dataBaseMenu(){
 }
 
 int Menu::readDB(){
-<<<<<<< HEAD
-=======
 
->>>>>>> 209458ab3451ec05096e29cfbb4c8627a36ad62f
 	string FICHEIRO_ATLETAS = "txt_data/Atletas_default.txt";
 	string FICHEIRO_EQUIPAS = "txt_data/Equipas_default.txt";
 	string FICHEIRO_PROVAS = "txt_data/Provas_default.txt";
@@ -720,7 +717,6 @@ void Menu::compraBilhete() {
 	else{
 
 
-		campeonato->getCalendario()->getProvas();
 		cout << endl;
 		campeonato->comprarBilhete(id);
 	}

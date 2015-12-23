@@ -66,6 +66,18 @@ unsigned int Bilhete::getIdDono() const {
 
 }
 
+void Bilhete::setDono(Adepto *ad) {
+
+	dono = ad;
+
+}
+
+void Bilhete::addProvas(vector<Prova*> p) {
+
+	provas = p;
+
+}
+
 /*void Bilhete::setDono(Adepto* a1){
 
 	dono = a1;
