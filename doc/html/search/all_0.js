@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['addprova',['addProva',['../class_bilhete.html#abe2917d80d3e04630fd6221155a7aabb',1,'Bilhete']]],
   ['addprovas',['addProvas',['../class_bilhete.html#a26fdc63b15aa11707a783b3c40ca22a6',1,'Bilhete']]],
   ['adepto',['Adepto',['../class_adepto.html',1,'Adepto'],['../class_adepto.html#a544f7724e93beda5d7894ebb75aa5b38',1,'Adepto::Adepto(string nome, string email, string nEq)'],['../class_adepto.html#a3837c098f59e89d052cc74ce609d10d2',1,'Adepto::Adepto()'],['../class_adepto.html#abf3f3fd153f85c802b709bba8f68b9f3',1,'Adepto::Adepto(string nome)']]],
   ['adepto_2ecpp',['Adepto.cpp',['../_adepto_8cpp.html',1,'']]],

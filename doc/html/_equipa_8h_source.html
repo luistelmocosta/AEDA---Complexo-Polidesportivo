@@ -133,53 +133,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_atleta.html">Atleta</a>* getAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    vector&lt;unsigned int&gt; getMedalhas() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> setMedalhas(vector&lt;unsigned int&gt; m);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">bool</span> getDoping() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> setDoping(<span class="keywordtype">bool</span> b);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> temMedalhas();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">void</span> setMedalhas();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordtype">bool</span> getDoping() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">void</span> setDoping(<span class="keywordtype">bool</span> b);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">void</span> inserirAtleta(<a class="code" href="class_atleta.html">Atleta</a> &amp;a1);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">bool</span> eliminarAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">int</span> existeAtleta(<span class="keywordtype">string</span> nome);                  <span class="comment">//retorna numero de atletas com nome nome que ha na equipa;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">int</span> existeAtletaID(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);            <span class="comment">//retorna posicao do atleta no vector. se nao existir retorna -1;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> showAtletas();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> imprime();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a> &amp;e) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a> &amp;e) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> temMedalhas();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> inserirAtleta(<a class="code" href="class_atleta.html">Atleta</a> &amp;a1);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">bool</span> eliminarAtleta(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">int</span> existeAtleta(<span class="keywordtype">string</span> nome);                  <span class="comment">//retorna numero de atletas com nome nome que ha na equipa;</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">int</span> existeAtletaID(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);            <span class="comment">//retorna posicao do atleta no vector. se nao existir retorna -1;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">void</span> showAtletas();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> imprime();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a> &amp;e) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a> &amp;e) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="struct_compara_equipa.html">   66</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_compara_equipa.html">ComparaEquipa</a>{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
-<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">   68</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">operator()</a>(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a>* lhs, <span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a>* rhs)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="struct_compara_equipa.html">   68</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_compara_equipa.html">ComparaEquipa</a>{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0])</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0] &gt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0])</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1])</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1] &gt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1])</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[2] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[2])</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">   70</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">operator()</a>(<span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a>* lhs, <span class="keyword">const</span> <a class="code" href="class_equipa.html">Equipa</a>* rhs)<span class="keyword"> const</span>{</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0])</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0] &gt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[0])</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1])</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1] &gt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[1])</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keywordflow">if</span>(lhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[2] &lt; rhs-&gt;<a class="code" href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">getMedalhas</a>()[2])</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">else</span> <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_EQUIPA_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_EQUIPA_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="class_equipa_html"><div class="ttname"><a href="class_equipa.html">Equipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:16</div></div>
-<div class="ttc" id="struct_compara_equipa_html_a74efea0541a03e2c63672617fa9b49d8"><div class="ttname"><a href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">ComparaEquipa::operator()</a></div><div class="ttdeci">bool operator()(const Equipa *lhs, const Equipa *rhs) const </div><div class="ttdef"><b>Definition:</b> Equipa.h:68</div></div>
-<div class="ttc" id="class_equipa_html_a899dadeca3643a28b52487c6fb052c1f"><div class="ttname"><a href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">Equipa::getMedalhas</a></div><div class="ttdeci">vector&lt; unsigned int &gt; getMedalhas() const </div><div class="ttdef"><b>Definition:</b> Equipa.cpp:76</div></div>
+<div class="ttc" id="struct_compara_equipa_html_a74efea0541a03e2c63672617fa9b49d8"><div class="ttname"><a href="struct_compara_equipa.html#a74efea0541a03e2c63672617fa9b49d8">ComparaEquipa::operator()</a></div><div class="ttdeci">bool operator()(const Equipa *lhs, const Equipa *rhs) const </div><div class="ttdef"><b>Definition:</b> Equipa.h:70</div></div>
+<div class="ttc" id="class_equipa_html_a899dadeca3643a28b52487c6fb052c1f"><div class="ttname"><a href="class_equipa.html#a899dadeca3643a28b52487c6fb052c1f">Equipa::getMedalhas</a></div><div class="ttdeci">vector&lt; unsigned int &gt; getMedalhas() const </div><div class="ttdef"><b>Definition:</b> Equipa.cpp:77</div></div>
 <div class="ttc" id="class_equipa_html_ac9a1c45750e118888d61930c3bf4d185"><div class="ttname"><a href="class_equipa.html#ac9a1c45750e118888d61930c3bf4d185">Equipa::patrocinador</a></div><div class="ttdeci">string patrocinador</div><div class="ttdef"><b>Definition:</b> Equipa.h:20</div></div>
 <div class="ttc" id="namespacestd_html"><div class="ttname"><a href="namespacestd.html">std</a></div></div>
 <div class="ttc" id="class_equipa_html_a80660d68792c53872f69973bfea0a5f4"><div class="ttname"><a href="class_equipa.html#a80660d68792c53872f69973bfea0a5f4">Equipa::medalhas</a></div><div class="ttdeci">vector&lt; unsigned int &gt; medalhas</div><div class="ttdef"><b>Definition:</b> Equipa.h:23</div></div>
@@ -187,7 +189,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_equipa_html_a1b047e8ef3d73dd54b656af9dbfcf9ae"><div class="ttname"><a href="class_equipa.html#a1b047e8ef3d73dd54b656af9dbfcf9ae">Equipa::pontuacao</a></div><div class="ttdeci">float pontuacao</div><div class="ttdef"><b>Definition:</b> Equipa.h:21</div></div>
 <div class="ttc" id="class_atleta_html"><div class="ttname"><a href="class_atleta.html">Atleta</a></div><div class="ttdef"><b>Definition:</b> Atleta.h:18</div></div>
 <div class="ttc" id="class_equipa_html_a8373ab9d0fe95ae0c231bf2d9707e759"><div class="ttname"><a href="class_equipa.html#a8373ab9d0fe95ae0c231bf2d9707e759">Equipa::nome</a></div><div class="ttdeci">string nome</div><div class="ttdef"><b>Definition:</b> Equipa.h:18</div></div>
-<div class="ttc" id="struct_compara_equipa_html"><div class="ttname"><a href="struct_compara_equipa.html">ComparaEquipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:66</div></div>
+<div class="ttc" id="struct_compara_equipa_html"><div class="ttname"><a href="struct_compara_equipa.html">ComparaEquipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:68</div></div>
 <div class="ttc" id="class_equipa_html_a391f6bca285bedd992f0104a17b79719"><div class="ttname"><a href="class_equipa.html#a391f6bca285bedd992f0104a17b79719">Equipa::atletas</a></div><div class="ttdeci">vector&lt; Atleta * &gt; atletas</div><div class="ttdef"><b>Definition:</b> Equipa.h:22</div></div>
 <div class="ttc" id="_atleta_8h_html"><div class="ttname"><a href="_atleta_8h.html">Atleta.h</a></div></div>
 <div class="ttc" id="class_equipa_html_a3fa99ed0ff8e3be35194d6c3061beb34"><div class="ttname"><a href="class_equipa.html#a3fa99ed0ff8e3be35194d6c3061beb34">Equipa::doping</a></div><div class="ttdeci">bool doping</div><div class="ttdef"><b>Definition:</b> Equipa.h:24</div></div>

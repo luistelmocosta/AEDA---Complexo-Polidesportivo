@@ -7,7 +7,7 @@ var searchData=
   ['readfilebilhetes',['readFileBilhetes',['../class_campeonato.html#a7cd0e87a1ca591e77af05efcf0614b1e',1,'Campeonato']]],
   ['readfileequipas',['readFileEquipas',['../class_campeonato.html#a93f60ccc2608b0c99a978bc93fd881ac',1,'Campeonato']]],
   ['readfileprovas',['readFileProvas',['../class_campeonato.html#a4098bb3bde66ead9ecaa61e10aef2a5e',1,'Campeonato']]],
-  ['realizarprova',['realizarProva',['../class_campeonato.html#ac00744815952c31c3d5ba905dbc1494c',1,'Campeonato']]],
+  ['realizarprova',['realizarProva',['../class_campeonato.html#a53c1d1469c287bcdff0469cd3785d9f2',1,'Campeonato']]],
   ['registaradepto',['registarAdepto',['../class_menu.html#a04fe7a1b1ef14f3629f0d837d1d7b287',1,'Menu']]],
   ['remove',['remove',['../class_b_s_t.html#a6f01a0b44daf82a42022b6eb4c0df7a2',1,'BST::remove(const Comparable &amp;x)'],['../class_b_s_t.html#aa0adaeade5fd57945de437d0a36e345b',1,'BST::remove(const Comparable &amp;x, BinaryNode&lt; Comparable &gt; *&amp;t) const ']]],
   ['removeratleta',['removerAtleta',['../class_atletas_guardados.html#a915cfb991d3bf0ce7373e41a106d92e7',1,'AtletasGuardados']]],

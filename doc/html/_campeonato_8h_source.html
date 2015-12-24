@@ -200,8 +200,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> realizarProva(<span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">int</span> updateClassificacoes();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordtype">void</span> realizarProva();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">void</span> updateClassificacoes();</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordtype">void</span> inserirAdepto(<a class="code" href="class_adepto.html">Adepto</a> &amp;ad);</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">void</span> removerBilhete(<span class="keywordtype">string</span> nome);</div>
@@ -211,16 +211,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordtype">bool</span> existeBilhete(<span class="keywordtype">string</span> nome);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> inserirBilhete(<a class="code" href="class_bilhete.html">Bilhete</a> &amp;b1);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> imprimeBilhetes();</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> venderBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> comprarBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <span class="keywordtype">void</span> testPQ();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;};</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_CAMPEONATO_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">void</span> comprarProva(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">void</span> inserirBilhete(<a class="code" href="class_bilhete.html">Bilhete</a> &amp;b1);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordtype">void</span> imprimeBilhetes();</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordtype">void</span> venderBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordtype">void</span> comprarBilhete(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keywordtype">void</span> testPQ();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;};</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_CAMPEONATO_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_calendario_8h_html"><div class="ttname"><a href="_calendario_8h.html">Calendario.h</a></div></div>
 <div class="ttc" id="class_equipa_html"><div class="ttname"><a href="class_equipa.html">Equipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:16</div></div>
 <div class="ttc" id="class_campeonato_html_a06b7fd65d33044bff509122140774509"><div class="ttname"><a href="class_campeonato.html#a06b7fd65d33044bff509122140774509">Campeonato::atletas</a></div><div class="ttdeci">vector&lt; Atleta * &gt; atletas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:48</div></div>
@@ -242,7 +243,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="_desporto_8h_html"><div class="ttname"><a href="_desporto_8h.html">Desporto.h</a></div></div>
 <div class="ttc" id="class_campeonato_html_af4bf75bd6daa812d16ab2be60c356f21"><div class="ttname"><a href="class_campeonato.html#af4bf75bd6daa812d16ab2be60c356f21">Campeonato::calendario</a></div><div class="ttdeci">Calendario * calendario</div><div class="ttdef"><b>Definition:</b> Campeonato.h:51</div></div>
 <div class="ttc" id="structh_bilhete_html"><div class="ttname"><a href="structh_bilhete.html">hBilhete</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:28</div></div>
-<div class="ttc" id="struct_compara_equipa_html"><div class="ttname"><a href="struct_compara_equipa.html">ComparaEquipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:66</div></div>
+<div class="ttc" id="struct_compara_equipa_html"><div class="ttname"><a href="struct_compara_equipa.html">ComparaEquipa</a></div><div class="ttdef"><b>Definition:</b> Equipa.h:68</div></div>
 <div class="ttc" id="class_campeonato_html_ab677d5217856ce0ff2887a0e335caf2d"><div class="ttname"><a href="class_campeonato.html#ab677d5217856ce0ff2887a0e335caf2d">Campeonato::equipas</a></div><div class="ttdeci">vector&lt; Equipa * &gt; equipas</div><div class="ttdef"><b>Definition:</b> Campeonato.h:49</div></div>
 <div class="ttc" id="class_campeonato_html"><div class="ttname"><a href="class_campeonato.html">Campeonato</a></div><div class="ttdef"><b>Definition:</b> Campeonato.h:41</div></div>
 <div class="ttc" id="class_campeonato_html_a9b261a1ed0720379641b15ef9fa2d4be"><div class="ttname"><a href="class_campeonato.html#a9b261a1ed0720379641b15ef9fa2d4be">Campeonato::adeptos</a></div><div class="ttdeci">vector&lt; Adepto * &gt; adeptos</div><div class="ttdef"><b>Definition:</b> Campeonato.h:52</div></div>

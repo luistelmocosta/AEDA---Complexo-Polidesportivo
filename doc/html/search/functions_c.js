@@ -15,7 +15,7 @@ var searchData=
   ['setidade',['setIdade',['../class_atleta.html#a62b5097c74ad66181a05d6562c1a9a25',1,'Atleta']]],
   ['setinfo',['setInfo',['../class_atleta.html#ada229ccfc2a898c893c0a34c9c996892',1,'Atleta']]],
   ['setlocal',['setLocal',['../class_prova.html#a1d86cb87877a9dcaf3858078b12a4a7d',1,'Prova']]],
-  ['setmedalhas',['setMedalhas',['../class_equipa.html#a55fd939cdd5081a4221a4a3c643baf9a',1,'Equipa']]],
+  ['setmedalhas',['setMedalhas',['../class_equipa.html#a3993315805fb947058e50adb238c929f',1,'Equipa']]],
   ['setmodalidade',['setModalidade',['../class_prova.html#aef40e220eca46c4fabc0a27b67768e3e',1,'Prova']]],
   ['setmodalidades',['setModalidades',['../class_calendario.html#a7cb27d11676ca4fc42704be917469605',1,'Calendario']]],
   ['setnequipa',['setNEquipa',['../class_atleta.html#ae6f75c0295ae244256caab4af4345fae',1,'Atleta']]],

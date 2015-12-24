@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateclassificacoes',['updateClassificacoes',['../class_campeonato.html#a3344db540ea54bb822a551ab4890d8b3',1,'Campeonato']]]
+  ['updateclassificacoes',['updateClassificacoes',['../class_campeonato.html#a27e5a93ec804bcc6e468471a7142f96a',1,'Campeonato']]]
 ];

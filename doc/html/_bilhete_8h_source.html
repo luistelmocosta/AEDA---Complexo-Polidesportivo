@@ -131,32 +131,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">string</span> <a class="code" href="class_bilhete.html#a97571c40d6af971e66c28c82c1ba1235">getNomeDono</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bilhete.html#a0a1c16bb609bb49d1a9a48e3d9ebce10">printProvas</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bilhete.html#a26fdc63b15aa11707a783b3c40ca22a6">addProvas</a>(vector&lt;Prova*&gt; p);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_bilhete.html#abe2917d80d3e04630fd6221155a7aabb">addProva</a>(<a class="code" href="class_prova.html">Prova</a> *p1);</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">/*void setID(int id);</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">    date getValidade() const;</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    void setValidade(date date);</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">    string imprimeBilhete() const;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">    string getInfo() const;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">    //Adepto* getDono() const;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">/*void setID(int id);</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">    date getValidade() const;</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">    void setValidade(date date);</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">    string imprimeBilhete() const;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">    string getInfo() const;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">    //Adepto* getDono() const;</span></div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">    bool getEstado() const;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    bool setVendido(Bilhete &amp;b1);</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">    void inserirBilhete(Bilhee &amp;b1);*/</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">    bool getEstado() const;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">    bool setVendido(Bilhete &amp;b1);</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">    void inserirBilhete(Bilhee &amp;b1);*/</span></div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;};</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;};</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_BILHETE_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SRC_LOGIC_BILHETE_H_ */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="_prova_8h_html"><div class="ttname"><a href="_prova_8h.html">Prova.h</a></div></div>
 <div class="ttc" id="class_adepto_html"><div class="ttname"><a href="class_adepto.html">Adepto</a></div><div class="ttdef"><b>Definition:</b> Adepto.h:22</div></div>
 <div class="ttc" id="class_bilhete_html_ae9af9b7d7e95d09f1751d6954ab8485c"><div class="ttname"><a href="class_bilhete.html#ae9af9b7d7e95d09f1751d6954ab8485c">Bilhete::getIdDono</a></div><div class="ttdeci">unsigned int getIdDono() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:63</div></div>
@@ -166,6 +167,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_bilhete_html_afdb4654e2a2b32102e67e7aec3bc14bb"><div class="ttname"><a href="class_bilhete.html#afdb4654e2a2b32102e67e7aec3bc14bb">Bilhete::getProvas</a></div><div class="ttdeci">vector&lt; Prova * &gt; getProvas() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:25</div></div>
 <div class="ttc" id="class_bilhete_html_a81264c9ac5330e0c033e9ea8015653e1"><div class="ttname"><a href="class_bilhete.html#a81264c9ac5330e0c033e9ea8015653e1">Bilhete::getDataFormatada</a></div><div class="ttdeci">string getDataFormatada() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:35</div></div>
 <div class="ttc" id="class_bilhete_html"><div class="ttname"><a href="class_bilhete.html">Bilhete</a></div><div class="ttdef"><b>Definition:</b> Bilhete.h:15</div></div>
+<div class="ttc" id="class_prova_html"><div class="ttname"><a href="class_prova.html">Prova</a></div><div class="ttdef"><b>Definition:</b> Prova.h:16</div></div>
 <div class="ttc" id="class_bilhete_html_abd52894914c56adb4fccf8a9c73a8c95"><div class="ttname"><a href="class_bilhete.html#abd52894914c56adb4fccf8a9c73a8c95">Bilhete::vendido</a></div><div class="ttdeci">bool vendido</div><div class="ttdef"><b>Definition:</b> Bilhete.h:21</div></div>
 <div class="ttc" id="class_bilhete_html_aac89dc945d1b4a00d296cec8d6a755d9"><div class="ttname"><a href="class_bilhete.html#aac89dc945d1b4a00d296cec8d6a755d9">Bilhete::provas</a></div><div class="ttdeci">vector&lt; Prova * &gt; provas</div><div class="ttdef"><b>Definition:</b> Bilhete.h:23</div></div>
 <div class="ttc" id="structdate_html"><div class="ttname"><a href="structdate.html">date</a></div><div class="ttdef"><b>Definition:</b> Utilities.h:26</div></div>
@@ -174,9 +176,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="class_bilhete_html_a10e93790a55f476b642630d76b7a0a26"><div class="ttname"><a href="class_bilhete.html#a10e93790a55f476b642630d76b7a0a26">Bilhete::getID</a></div><div class="ttdeci">int getID() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:21</div></div>
 <div class="ttc" id="class_bilhete_html_adba6ea2eaaf920db79ed76698d7dcee6"><div class="ttname"><a href="class_bilhete.html#adba6ea2eaaf920db79ed76698d7dcee6">Bilhete::validade</a></div><div class="ttdeci">date validade</div><div class="ttdef"><b>Definition:</b> Bilhete.h:19</div></div>
 <div class="ttc" id="class_bilhete_html_a0814ea538550a7a01ea1558bc6329496"><div class="ttname"><a href="class_bilhete.html#a0814ea538550a7a01ea1558bc6329496">Bilhete::newID</a></div><div class="ttdeci">static int newID</div><div class="ttdef"><b>Definition:</b> Bilhete.h:18</div></div>
+<div class="ttc" id="class_bilhete_html_abe2917d80d3e04630fd6221155a7aabb"><div class="ttname"><a href="class_bilhete.html#abe2917d80d3e04630fd6221155a7aabb">Bilhete::addProva</a></div><div class="ttdeci">void addProva(Prova *p1)</div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:85</div></div>
 <div class="ttc" id="class_bilhete_html_a26fdc63b15aa11707a783b3c40ca22a6"><div class="ttname"><a href="class_bilhete.html#a26fdc63b15aa11707a783b3c40ca22a6">Bilhete::addProvas</a></div><div class="ttdeci">void addProvas(vector&lt; Prova * &gt; p)</div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:75</div></div>
 <div class="ttc" id="class_bilhete_html_a0a1c16bb609bb49d1a9a48e3d9ebce10"><div class="ttname"><a href="class_bilhete.html#a0a1c16bb609bb49d1a9a48e3d9ebce10">Bilhete::printProvas</a></div><div class="ttdeci">void printProvas() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:55</div></div>
-<div class="ttc" id="class_bilhete_html_a2261bf14cc65b43fa0312e15be051205"><div class="ttname"><a href="class_bilhete.html#a2261bf14cc65b43fa0312e15be051205">Bilhete::getData</a></div><div class="ttdeci">date getData() const </div></div>
+<div class="ttc" id="class_bilhete_html_a2261bf14cc65b43fa0312e15be051205"><div class="ttname"><a href="class_bilhete.html#a2261bf14cc65b43fa0312e15be051205">Bilhete::getData</a></div><div class="ttdeci">date getData() const </div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:90</div></div>
 <div class="ttc" id="class_bilhete_html_a793d8499d737bdc6bebcaac9d1164b77"><div class="ttname"><a href="class_bilhete.html#a793d8499d737bdc6bebcaac9d1164b77">Bilhete::preco</a></div><div class="ttdeci">float preco</div><div class="ttdef"><b>Definition:</b> Bilhete.h:20</div></div>
 <div class="ttc" id="_adepto_8h_html"><div class="ttname"><a href="_adepto_8h.html">Adepto.h</a></div></div>
 <div class="ttc" id="class_bilhete_html_a3c69ddb7c2df72c5393fd4d155827086"><div class="ttname"><a href="class_bilhete.html#a3c69ddb7c2df72c5393fd4d155827086">Bilhete::Bilhete</a></div><div class="ttdeci">Bilhete()</div><div class="ttdef"><b>Definition:</b> Bilhete.cpp:18</div></div>
