@@ -205,6 +205,12 @@ bool Prova::operator<(const Prova&rp) const{
 
 		if(data.mes == rp.data.mes){
 
+			if(data.dia == rp.data.dia){
+
+				return (vs[0]->getNome() < vs[1]->getNome());
+
+			}
+
 			if(data.dia < rp.data.dia){
 				result = true;
 			}

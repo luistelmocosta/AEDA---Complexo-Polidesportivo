@@ -341,16 +341,12 @@ void Campeonato::realizarProva(){
 
 	BSTItrIn<Prova> it = calendario->getProvas();
 
-
-
-
-	if(!it.isAtEnd()){
+	while(!it.isAtEnd()){
 
 
 
 		equipa1 = it.retrieve().getAdversarios()[0]->getNome();
 		equipa2 = it.retrieve().getAdversarios()[1]->getNome();
-		cout << "aqui"<< endl;
 		v = it.retrieve().getModalidade()->pontuacao(equipa1, equipa2);
 
 		if(v == it.retrieve().getAdversarios()[0]->getNome()){
@@ -367,14 +363,11 @@ void Campeonato::realizarProva(){
 		}
 
 		Prova p1 = it.retrieve();
-
-		calendario->getProvas().remove(p1);
+		it.advance();
 		updateClassificacoes();
-
 	}
 
-	else
-		cout<< endl << "Nao existem mais provas a realizar" << endl;
+	cout<< endl << "Nao existem mais provas a realizar" << endl;
 
 
 
@@ -472,7 +465,6 @@ void Campeonato::readFileBilhetes(string filename) {
 	while (getline(infile, dono)) // get name and check status file stream
 	{
 
-		cout << dono << endl;
 		// read in date
 		getline(infile, linha);
 		istringstream iss (linha);
@@ -486,7 +478,6 @@ void Campeonato::readFileBilhetes(string filename) {
 		getline(iss, tmpstr1, '/');
 		ano = atoi(tmpstr1.c_str());
 
-		cout << dia << "/" << mes << "/" << ano << endl;
 
 		date d;
 
@@ -499,7 +490,6 @@ void Campeonato::readFileBilhetes(string filename) {
 			d.ano = ano;
 		}
 
-		// read in provas ids
 		getline(infile, linha);
 		istringstream iss2(linha);
 		string tmpstr2;
@@ -536,7 +526,6 @@ void Campeonato::outputFileAtletas(string filename){
 	aFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
 
 
-
 	for (unsigned int i = 0; i < atletas.size(); ++i){
 
 		aFile << atletas[i]->getNome() << endl
@@ -545,16 +534,12 @@ void Campeonato::outputFileAtletas(string filename){
 				<< atletas[i]->getAltura() << endl
 				<< atletas[i]->getPeso() << endl;
 	}
-
-
 }
 void Campeonato::outputFileEquipas(string filename){
 
 	ofstream eFile;
 
 	eFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
-
-
 
 	for (unsigned int i = 0; i < equipas.size(); ++i){
 
@@ -593,19 +578,14 @@ void Campeonato::outputFileAdeptos(string filename){
 
 	aFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
 
-
-
 	for (unsigned int i = 0; i < adeptos.size(); ++i){
 
 		aFile <<adeptos[i]->getNome() << endl
 				<< adeptos[i]->getEmail() << endl
 				<< adeptos[i]->getEquipa() << endl;
-
 	}
-
-
 }
-void Campeonato::outputFileBilhetes(string filename){
+/*void Campeonato::outputFileBilhetes(string filename){
 
 	ofstream bFile;
 
@@ -627,12 +607,11 @@ void Campeonato::outputFileBilhetes(string filename){
 		it++;
 		bFile << endl;
 	}
-}
+}*/
 
 
 
 void Campeonato::imprimeBilhetes(){
-
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
 
@@ -654,21 +633,7 @@ void Campeonato::imprimeBilhetes(){
 	}
 }
 
-/*void Campeonato::removerBilhete(string nome){
-
-	TabelaBilhetes::iterator it = bilhetes.begin();
-	Adepto ad;
-
-	while( it != bilhetes.end()) {
-		if(it-> == nome)
-			bilhetes.erase(it);
-		it++;
-	}
-}*/
-
-
 void Campeonato::venderBilhete(unsigned int id) {
-
 
 	TabelaBilhetes::iterator it = bilhetes.begin();
 
@@ -681,18 +646,6 @@ void Campeonato::venderBilhete(unsigned int id) {
 	}
 }
 
-/*Bilhete* Campeonato::findBilheteByAdeptoID(unsigned int id) {
-
-	TabelaBilhetes::iterator it;
-
-	for(it = bilhetes.begin(); it != bilhetes.end(); ++it) {
-		if(it->getIdDono() == id)
-			return &(*it);
-	}
-	return NULL;
-
-
-}*/
 
 int Campeonato::findBilhete(unsigned int id) {
 
@@ -711,9 +664,13 @@ int Campeonato::findBilhete(unsigned int id) {
 void Campeonato::comprarBilhete(unsigned int id) {
 
 
+
+
+
 	bool found = false;
 	int idx;
 	vector<Prova*> tmp;
+	date d;
 	cout << "Qual o ticket que pretende adquirir:";
 	cin >> idx;
 
@@ -722,6 +679,7 @@ void Campeonato::comprarBilhete(unsigned int id) {
 	while(it != bilhetes.end()) {
 		if(it->getID() == idx){
 			tmp = it->getProvas();
+			d = it->getData();
 			bilhetes.erase(it);
 		}
 		it++;
@@ -737,7 +695,22 @@ void Campeonato::comprarBilhete(unsigned int id) {
 			Bilhete b = *it;
 			bilhetes.erase(it);
 
-			b.addProvas(tmp);
+
+
+			for(unsigned int i = 0; i < tmp.size(); ++i){
+
+				for(unsigned int j = 0; j < it->getProvas().size(); ++j){
+
+					if(tmp[i]->getID() == it->getProvas()[j]->getID()){
+
+						tmp.erase(tmp.begin() + i);
+						--i;
+						break;
+
+					}
+				}
+			}
+
 
 			for(unsigned int i = 0; i < adeptos.size(); ++i){
 
@@ -747,8 +720,10 @@ void Campeonato::comprarBilhete(unsigned int id) {
 				}
 
 			}
-
+			b.addProvas(tmp);
 			bilhetes.insert(b);
+
+
 		}
 
 		++it;
@@ -756,7 +731,7 @@ void Campeonato::comprarBilhete(unsigned int id) {
 
 	if(!found){
 		// Bilhete(date validade, Adepto* dono, vector<Prova*> provas);
-		date d; //??
+
 		Bilhete* b;
 
 		for(unsigned int i = 0; i < adeptos.size(); ++i){
@@ -765,14 +740,15 @@ void Campeonato::comprarBilhete(unsigned int id) {
 				b = new Bilhete(d, adeptos[id], tmp);
 				break;
 			}
-
 		}
 
 		bilhetes.insert(*b);
 
 	}
 
+
 }
+
 
 void Campeonato::comprarProva(unsigned int id) {
 
@@ -799,64 +775,4 @@ void Campeonato::comprarProva(unsigned int id) {
 		++it;
 
 	}
-
-
-
-
-
-
-
-
-
-
 }
-
-/*
-void Campeonato::testPQ(){
-	Equipa *e1, *e2, *e3, *e4, *e5;
-
-	e1=new Equipa("equipa1", "pt", "slb");
-	e2=new Equipa("equipa2", "es", "barca");
-	e3=new Equipa("equipa3", "it", "milan");
-	e4=new Equipa("equipa4", "ing", "mu");
-	e5=new Equipa("equipa5", "fr", "psg");
-
-	vector<unsigned> v1, v2, v3, v4, v5;
-
-	v1.push_back(100);
-	v2.push_back(20);
-	v3.push_back(500);
-	v4.push_back(100);
-	v4.push_back(30);
-	v5.push_back(0);
-
-	e1->setMedalhas(v1);
-	e2->setMedalhas(v2);
-	e3->setMedalhas(v3);
-	e4->setMedalhas(v4);
-	e5->setMedalhas(v5);
-
-	inserirEquipa(*e1);
-	inserirEquipa(*e2);
-	inserirEquipa(*e3);
-	inserirEquipa(*e4);
-	inserirEquipa(*e5); //testar se nao adiciona equipas sem medalhas
-
-
-	updateClassificacoes();
-
-	cout << equipas[0]->getMedalhas()[0] << endl;
-	cout << equipas[1]->getMedalhas()[0] << endl;
-	cout << equipas[2]->getMedalhas()[0] << endl;
-	cout << equipas[3]->getMedalhas()[0] << endl;
-	cout << equipas[4]->getMedalhas()[0] << endl;
-
-	cout << "FINALMENTE PQ P" << endl;
-
-	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> aux = classificacao;
-
-	while(!aux.empty()){
-		cout << aux.top()->getNome() << " " << aux.top()->getMedalhas()[0]<< endl;
-		aux.pop();
-	}
-}*/

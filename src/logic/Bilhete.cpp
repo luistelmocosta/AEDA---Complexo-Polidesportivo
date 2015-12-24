@@ -87,7 +87,9 @@ void Bilhete::addProva(Prova *p1) {
 }
 
 
-
+date Bilhete::getData() const {
+	return validade;
+}
 
 
 /*string Bilhete::getInfo() const {

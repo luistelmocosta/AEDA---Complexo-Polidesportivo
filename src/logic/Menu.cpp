@@ -182,14 +182,15 @@ void Menu::mainMenu(){
 	case 6:	espacoAdeptoMenu();
 	break;
 
-	case 7:campeonato->outputFileAdeptos(FICHEIRO_ADEPTOS);
-	campeonato->outputFileAtletas(FICHEIRO_ATLETAS);
-	campeonato->outputFileBilhetes(FICHEIRO_BILHETES);
-	campeonato->outputFileEquipas(FICHEIRO_EQUIPAS);
-	campeonato->outputFileProvas(FICHEIRO_PROVAS);
+	case 7:
+		campeonato->outputFileAdeptos(FICHEIRO_ADEPTOS);
+		campeonato->outputFileAtletas(FICHEIRO_ATLETAS);
+		//campeonato->outputFileBilhetes(FICHEIRO_BILHETES);
+		campeonato->outputFileEquipas(FICHEIRO_EQUIPAS);
+		campeonato->outputFileProvas(FICHEIRO_PROVAS);
 
 
-	break;
+		break;
 
 	default: mainMenu();
 	break;
@@ -814,8 +815,8 @@ void Menu::espacoAdeptoMenu(){
 	cout << "1. Comprar Prova" << endl;
 	cout << "2. Mostrar Bilhetes" << endl;
 	cout << "3. Mostrar adeptos" << endl;
-	cout << "4. Efectuar compra de bilhete" << endl;
-	cout << "5. Efectuar venda de bilhete" << endl;
+	cout << "4. Efectuar venda de bilhete" << endl;
+	cout << "5. Efectuar compra de bilhete" << endl;
 	cout << "6. Menu Anterior" << endl;
 	cout << endl;
 
@@ -861,6 +862,9 @@ void Menu::espacoAdeptoMenu(){
 		campeonato->comprarBilhete(id);
 		espacoAdeptoMenu();
 		break;
+	case 6:
+		clearScreen();
+		mainMenu();
 
 	default:
 		espacoAdeptoMenu();
