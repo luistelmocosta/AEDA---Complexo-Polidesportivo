@@ -59,6 +59,10 @@ Modalidade::Modalidade(string n, bool s): nome(n), singular(s) {
 		Desporto::setNome("Combate");
 		nJogadores = 2;
 	}
+	else if(nome == "NBA") {
+		Desporto::setNome("Basquetebol");
+		nJogadores = 10;
+	}
 }
 
 

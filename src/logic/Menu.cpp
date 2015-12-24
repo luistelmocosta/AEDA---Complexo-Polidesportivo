@@ -828,7 +828,7 @@ void Menu::espacoAdeptoMenu(){
 		clearScreen();
 		campeonato->imprimeAdeptos();
 		cout << endl;
-		cout <<"ID do adepto que pretende comprar um bilhete: ";
+		cout <<"ID do adepto que pretende comprar uma prova: ";
 		cin >> id;
 		cout << endl;
 		verProvas();
@@ -848,7 +848,7 @@ void Menu::espacoAdeptoMenu(){
 		break;
 	case 4:
 		clearScreen();
-		compraBilhete();
+		vendaBilhete();
 		espacoAdeptoMenu();
 		break;
 	case 5:

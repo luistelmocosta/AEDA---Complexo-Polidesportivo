@@ -26,8 +26,14 @@ Dortmund
 Alemanha
 Evonik
 Lakers
+USA
 LakersSponsor
-USA
 Chicago
-ChicagoSponsor
 USA
+ChicagoSponsor
+Spurs
+USA
+SpursUnited
+Knicks
+USA
+BestTeam
