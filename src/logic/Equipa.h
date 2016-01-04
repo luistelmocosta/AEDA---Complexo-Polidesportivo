@@ -13,6 +13,12 @@ using namespace std;
 
 class Atleta;
 
+struct Medalhas{
+	unsigned ouro;
+	unsigned prata;
+	unsigned bronze;
+};
+
 class Equipa {
 
 	string nome;
@@ -20,7 +26,7 @@ class Equipa {
 	string patrocinador;
 	float pontuacao;
 	vector<Atleta*> atletas;
-	vector<unsigned int> medalhas;		// [0]-ouro	 [1]-prata	[2]-bronze
+	Medalhas medalhas;
 	bool doping;
 
 public:
@@ -42,10 +48,12 @@ public:
 	vector<Atleta*> getAtletas() const;
 	Atleta* getAtleta(unsigned int id);
 
-	vector<unsigned int> getMedalhas() const;
+	Medalhas getMedalhas() const;
+	void setMedalhasOuro(unsigned o);
+	void setMedalhasPrata(unsigned p);
+	void setMedalhasBronze(unsigned b);
 
-
-	void setMedalhas();
+	//void setMedalhas();
 
 	bool getDoping() const;
 	void setDoping(bool b);
@@ -68,18 +76,17 @@ public:
 struct ComparaEquipa{
 
 	bool operator()(const Equipa* lhs, const Equipa* rhs) const{
-
-		if(lhs->getMedalhas()[0] < rhs->getMedalhas()[0])
+		if(lhs->getMedalhas().ouro < rhs->getMedalhas().ouro)
 			return true;
-		if(lhs->getMedalhas()[0] > rhs->getMedalhas()[0])
+		if(lhs->getMedalhas().ouro > rhs->getMedalhas().ouro)
 			return false;
 		else{
-			if(lhs->getMedalhas()[1] < rhs->getMedalhas()[1])
+			if(lhs->getMedalhas().prata < rhs->getMedalhas().prata)
 				return true;
-			if(lhs->getMedalhas()[1] > rhs->getMedalhas()[1])
+			if(lhs->getMedalhas().prata > rhs->getMedalhas().prata)
 				return false;
 			else{
-				if(lhs->getMedalhas()[2] < rhs->getMedalhas()[2])
+				if(lhs->getMedalhas().bronze < rhs->getMedalhas().bronze)
 					return true;
 				else return false;
 			}

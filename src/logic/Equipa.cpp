@@ -5,20 +5,17 @@
 
 Equipa::Equipa(string n, string p, string pat): nome(n), pais(p), patrocinador(pat) {
 	pontuacao=0;
-	medalhas.reserve(3);
-	medalhas[0]=0;
-	medalhas[1]=0;
-	medalhas[2]=0;
+	medalhas.ouro=0;
+	medalhas.prata=0;
+	medalhas.bronze=0;
 	doping=false;
-
 }
 
 Equipa::Equipa() {
 	pontuacao=0;
-	medalhas.reserve(3);
-	medalhas[0]=0;
-	medalhas[1]=0;
-	medalhas[2]=0;
+	medalhas.ouro=0;
+	medalhas.prata=0;
+	medalhas.bronze=0;
 	doping=false;
 }
 
@@ -74,17 +71,26 @@ Atleta* Equipa::getAtleta(unsigned int id){
 	else return atletas[pos];
 }
 
-vector<unsigned int> Equipa::getMedalhas() const{
+Medalhas Equipa::getMedalhas() const{
 	return medalhas;
 }
 
+void Equipa::setMedalhasOuro(unsigned o){
+	medalhas.ouro=o;
+}
 
+void Equipa::setMedalhasPrata(unsigned p){
+	medalhas.prata=p;
+}
 
+void Equipa::setMedalhasBronze(unsigned b){
+	medalhas.bronze=b;
+}
 
-void Equipa::setMedalhas(){
+/*void Equipa::setMedalhas(){
 	int p = pontuacao;
 
-	/* cada 10 pontos equivalem a uma medalha de ouro, 5 pontos uma de prata, 3 pontos uma de bronze */
+	// cada 10 pontos equivalem a uma medalha de ouro, 5 pontos uma de prata, 3 pontos uma de bronze
 
 	while(p > 0){
 
@@ -106,8 +112,7 @@ void Equipa::setMedalhas(){
 		}
 
 	}
-
-}
+}*/
 
 bool Equipa::getDoping() const{
 	return doping;
@@ -117,11 +122,7 @@ void Equipa::setDoping(bool b){
 }
 
 bool Equipa::temMedalhas(){
-	for(unsigned i=0; i<medalhas.size(); i++){
-		if(medalhas[i]>0)
-			return true;
-	}
-	return false;
+	return (medalhas.ouro>0 || medalhas.prata>0 || medalhas.bronze>0);
 }
 
 /*
@@ -208,7 +209,5 @@ bool Equipa::operator<(const Equipa &e) const{ // para insertion sort
 }
 
 bool Equipa::operator==(const Equipa &e) const{
-	if(medalhas[0] == e.getMedalhas()[0] && medalhas[1] == e.getMedalhas()[1] && medalhas[2] == e.getMedalhas()[2])
-		return true;
-	else return false;
+	return (medalhas.ouro == e.getMedalhas().ouro && medalhas.prata == e.getMedalhas().prata && medalhas.bronze == e.getMedalhas().bronze);
 }

@@ -79,6 +79,24 @@ int Menu::readDB(){
 		campeonato->readFileProvas(FICHEIRO_PROVAS);
 		campeonato->readFileAdeptos(FICHEIRO_ADEPTOS);
 		campeonato->readFileBilhetes(FICHEIRO_BILHETES);
+
+
+		/*
+		 * 		vvv		A APAGAR, só para testar	vvv
+		 *
+		 */
+
+
+		campeonato->getEquipas()[0]->setMedalhasOuro(30);
+		campeonato->getEquipas()[0]->setMedalhasPrata(20);
+		campeonato->getEquipas()[0]->setMedalhasBronze(15);
+
+		campeonato->getEquipas()[1]->setMedalhasOuro(30);
+		campeonato->getEquipas()[1]->setMedalhasPrata(10);
+
+		campeonato->getEquipas()[2]->setMedalhasOuro(5);
+		campeonato->getEquipas()[2]->setMedalhasPrata(20);
+
 	}
 	catch (ErroNoFicheiro &e){
 		cout << "Tentativa de abrir o ficheiro falhou.\n";
@@ -172,9 +190,8 @@ void Menu::mainMenu(){
 	case 3: gerirProvaMenu();
 	break;
 
-	case 4:
-		calendarioMenu();
-		break;
+	case 4: calendarioMenu();
+	break;
 
 	case 5: verClassificacoes();
 	break;
@@ -645,8 +662,6 @@ void Menu::apagaProvaMenu(){
 
 void Menu::calendarioMenu(){
 
-
-
 	char input;
 
 	while(input != 'n'){
@@ -655,11 +670,8 @@ void Menu::calendarioMenu(){
 		cin >> input;
 
 		if(input == 's'){
-
 			campeonato->realizarProva();
-
 		}
-
 
 		else if (input == 'n'){
 			clearScreen();
@@ -670,22 +682,23 @@ void Menu::calendarioMenu(){
 }
 
 
-
-
-
-
-
-
 void Menu::verClassificacoes(){
 	campeonato->updateClassificacoes();
 
+	//cout << campeonato->getClassificacao().size() << endl;
 	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> copia = campeonato->getClassificacao();
 
 	while(!copia.empty()){
 		Equipa* aux = copia.top();
-		cout << aux->getNome() << " Ouro: " << aux->getMedalhas()[0] << " Prata: " << aux->getMedalhas()[1] << " Bronze: " << aux->getMedalhas()[2] << endl;
+		cout << aux->getNome() << " Ouro: " << aux->getMedalhas().ouro << " Prata: " << aux->getMedalhas().prata << " Bronze: " << aux->getMedalhas().bronze << endl;
 		copia.pop();
 	}
+
+	string input;
+	cout << endl << "Qualquer coisa para voltar ao menu principal." << endl;
+	cin >> input;
+	clearScreen();
+	mainMenu();
 }
 
 /*

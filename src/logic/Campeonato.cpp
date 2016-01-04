@@ -379,14 +379,15 @@ void Campeonato::updateClassificacoes(){
 		classificacao.pop();
 	}
 
+	/*cout << equipas.size() << endl;
+
+	cout << "bool: " << equipas[0]->temMedalhas() << endl;
+
+	cout << "Equipa 0 med: " << equipas[0]->getMedalhas().ouro << endl;*/
+
 	for(unsigned i=0; i<equipas.size(); i++){
-		equipas[i]->setMedalhas();
-
-		if(equipas[i]->temMedalhas()){
+		if(equipas[i]->temMedalhas())
 			classificacao.push(equipas[i]);
-		}
-
-
 	}
 
 }
