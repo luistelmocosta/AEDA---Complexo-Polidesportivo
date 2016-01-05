@@ -59,8 +59,11 @@ public:
 	void verProvas();
 	void modificaProvaMenu();
 	void apagaProvaMenu();
+
 	// #CALENDARIO
 	void calendarioMenu();
+
+	// #CLASSIFICACOES
 	void verClassificacoes();
 
 	// #ADEPTO

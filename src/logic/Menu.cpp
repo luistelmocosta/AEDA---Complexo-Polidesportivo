@@ -82,20 +82,22 @@ int Menu::readDB(){
 
 
 		/*
-		 * 		vvv		A APAGAR, só para testar	vvv
+		 * 		vvv		A APAGAR, so para testar	vvv
 		 *
-		 */
 
 
-		campeonato->getEquipas()[0]->setMedalhasOuro(30);
+
+		campeonato->getEquipas()[0]->setMedalhasOuro(1);
 		campeonato->getEquipas()[0]->setMedalhasPrata(20);
 		campeonato->getEquipas()[0]->setMedalhasBronze(15);
 
 		campeonato->getEquipas()[1]->setMedalhasOuro(30);
 		campeonato->getEquipas()[1]->setMedalhasPrata(10);
 
-		campeonato->getEquipas()[2]->setMedalhasOuro(5);
+		campeonato->getEquipas()[2]->setMedalhasOuro(30);
 		campeonato->getEquipas()[2]->setMedalhasPrata(20);
+
+		 */
 
 	}
 	catch (ErroNoFicheiro &e){
@@ -171,7 +173,7 @@ void Menu::mainMenu(){
 	cout << "1. Gerir Equipas" << endl;
 	cout << "2. Gerir Atletas" << endl;
 	cout << "3. Gerir Provas" << endl;
-	cout << "4. Ver Calendario" << endl;
+	cout << "4. Calendario" << endl;
 	cout << "5. Classificacoes" << endl;
 	cout << "6. Espaco Adepto" << endl;
 	cout << "7. Sair" << endl;
@@ -205,7 +207,6 @@ void Menu::mainMenu(){
 		//campeonato->outputFileBilhetes(FICHEIRO_BILHETES);
 		campeonato->outputFileEquipas(FICHEIRO_EQUIPAS);
 		campeonato->outputFileProvas(FICHEIRO_PROVAS);
-
 
 		break;
 
@@ -517,6 +518,7 @@ void Menu::criaProvaMenu(){
 
 	string input;
 	unsigned int durac;
+	vector<Equipa*> vs;
 	Prova *p = new Prova();
 
 	cout << "==Criador Provas==" << endl;
@@ -535,10 +537,25 @@ void Menu::criaProvaMenu(){
 
 	cout << "Modalidade: " << endl;
 	cin >> input;
+	Modalidade* m = new Modalidade();
+	m->setNome(input);
+	p->setModalidade(m);
 	//TODO
 
-	cout << "Equipas Adversarias: " << endl;
+	cout << "Equipa 1: " << endl;
 	cin >> input;
+	Equipa* vs1 = new Equipa();
+	vs1->setNome(input);
+	vs.push_back(vs1);
+	p->setAdversarios(vs);
+
+	cout << "Equipa 2: " << endl;
+	cin >> input;
+	Equipa* vs2 = new Equipa();
+	vs1->setNome(input);
+	vs.push_back(vs2);
+	p->setAdversarios(vs);
+
 	//TODO
 
 	campeonato->getCalendario()->inserirProva(*p);
@@ -666,7 +683,7 @@ void Menu::calendarioMenu(){
 
 	while(input != 'n'){
 		campeonato->getCalendario()->showProvas();
-		cout << "Deseja simular a prova seguinte? (s/n) ";
+		cout << "Deseja simular as provas seguintes? (s/n) ";
 		cin >> input;
 
 		if(input == 's'){
@@ -683,15 +700,16 @@ void Menu::calendarioMenu(){
 
 
 void Menu::verClassificacoes(){
-	campeonato->updateClassificacoes();
+	if(campeonato->updateClassificacoes()<0)
+		cout << "Ainda nao foram atribuidas medalhas." << endl;
+	else{
+		priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> copia = campeonato->getClassificacao();
 
-	//cout << campeonato->getClassificacao().size() << endl;
-	priority_queue<Equipa*, vector<Equipa*>, ComparaEquipa> copia = campeonato->getClassificacao();
-
-	while(!copia.empty()){
-		Equipa* aux = copia.top();
-		cout << aux->getNome() << " Ouro: " << aux->getMedalhas().ouro << " Prata: " << aux->getMedalhas().prata << " Bronze: " << aux->getMedalhas().bronze << endl;
-		copia.pop();
+		while(!copia.empty()){
+			Equipa* aux = copia.top();
+			cout << aux->getNome() << " Ouro: " << aux->getMedalhas().ouro << " Prata: " << aux->getMedalhas().prata << " Bronze: " << aux->getMedalhas().bronze << endl;
+			copia.pop();
+		}
 	}
 
 	string input;
@@ -699,6 +717,7 @@ void Menu::verClassificacoes(){
 	cin >> input;
 	clearScreen();
 	mainMenu();
+
 }
 
 /*

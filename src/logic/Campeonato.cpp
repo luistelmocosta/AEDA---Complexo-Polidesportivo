@@ -292,7 +292,7 @@ void Campeonato::readFileProvas(string filename) {
 			getline(ficheiro_leitura, durtmp);
 			getline(ficheiro_leitura, adv1);
 			getline(ficheiro_leitura, adv2);
-			getline(ficheiro_leitura, venc);
+			//getline(ficheiro_leitura, venc);
 			getline(ficheiro_leitura, modal);
 
 			duracao=atoi(durtmp.c_str());
@@ -318,8 +318,10 @@ void Campeonato::readFileProvas(string filename) {
 			if(findEquipa(adv1)!=-1 && findEquipa(adv2)!=-1){
 				vs.push_back(getEquipas()[findEquipa(adv1)]);
 				vs.push_back(getEquipas()[findEquipa(adv2)]);
-				Modalidade* m= new Modalidade(modal, false);
+				Modalidade* m = new Modalidade(modal, false);
 				Prova* p = new Prova(d, local, duracao, vs, m);
+
+				//p->setVencedor(equipas[findEquipa(venc)]);
 
 				calendario->inserirProva(*p);
 			}
@@ -335,15 +337,29 @@ void Campeonato::readFileProvas(string filename) {
 }
 
 void Campeonato::realizarProva(){
-	string v;
-	string equipa1;  // = calendario->getProvas()[id]->getAdversarios()[0]->getNome();
-	string equipa2; //= calendario->getProvas()[id]->getAdversarios()[1]->getNome();
 
-	BSTItrIn<Prova> it = calendario->getProvas();
+	string equipa1 = calendario->getProvaID(0)->getAdversarios()[0]->getNome();
+	string equipa2 = calendario->getProvaID(0)->getAdversarios()[1]->getNome();
 
-	while(!it.isAtEnd()){
+	string venc = calendario->getProvaID(0)->getModalidade()->pontuacao(equipa1, equipa2);
 
+	if(venc==equipa1){
+		equipas[findEquipa(equipa1)]->setPontuacao(3);
+	}
+	else if(venc==equipa2){
+		equipas[findEquipa(equipa2)]->setPontuacao(3);
+	}
+	else{
+		equipas[findEquipa(equipa1)]->setPontuacao(1);
+		equipas[findEquipa(equipa2)]->setPontuacao(1);
+	}
 
+	if(updateClassificacoes()>0)
+		return;
+
+	//BSTItrIn<Prova> it = calendario->getProvas();
+
+	/*while(!it.isAtEnd()){
 
 		equipa1 = it.retrieve().getAdversarios()[0]->getNome();
 		equipa2 = it.retrieve().getAdversarios()[1]->getNome();
@@ -365,30 +381,27 @@ void Campeonato::realizarProva(){
 		Prova p1 = it.retrieve();
 		it.advance();
 		updateClassificacoes();
-	}
+	}*/
 
-	cout<< endl << "Nao existem mais provas a realizar" << endl;
-
-
+	cout << endl << "Nao existem mais provas a realizar" << endl;
 
 }
 
-void Campeonato::updateClassificacoes(){
+int Campeonato::updateClassificacoes(){
 
 	while(!classificacao.empty()){
 		classificacao.pop();
 	}
 
-	/*cout << equipas.size() << endl;
-
-	cout << "bool: " << equipas[0]->temMedalhas() << endl;
-
-	cout << "Equipa 0 med: " << equipas[0]->getMedalhas().ouro << endl;*/
-
 	for(unsigned i=0; i<equipas.size(); i++){
+		equipas[i]->setMedalhasPorPontuacao();
 		if(equipas[i]->temMedalhas())
 			classificacao.push(equipas[i]);
 	}
+
+	if(classificacao.empty())
+		return -1;
+	else return 1;
 
 }
 

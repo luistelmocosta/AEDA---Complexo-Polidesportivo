@@ -53,7 +53,7 @@ public:
 	void setMedalhasPrata(unsigned p);
 	void setMedalhasBronze(unsigned b);
 
-	//void setMedalhas();
+	void setMedalhasPorPontuacao();
 
 	bool getDoping() const;
 	void setDoping(bool b);

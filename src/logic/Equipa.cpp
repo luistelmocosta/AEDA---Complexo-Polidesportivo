@@ -87,32 +87,29 @@ void Equipa::setMedalhasBronze(unsigned b){
 	medalhas.bronze=b;
 }
 
-/*void Equipa::setMedalhas(){
-	int p = pontuacao;
+void Equipa::setMedalhasPorPontuacao(){
+	unsigned p = pontuacao;
 
-	// cada 10 pontos equivalem a uma medalha de ouro, 5 pontos uma de prata, 3 pontos uma de bronze
+	// 10 pontos: ouro // 5 pontos: prata // 3 pontos: bronze
 
 	while(p > 0){
 
 		while(p >= 10){
 			p -= 10;
-			medalhas[0]++;
+			medalhas.ouro++;
 		}
 
 		while(p >= 5){
-
 			p -= 5;
-			medalhas[1]++;
-
+			medalhas.prata++;
 		}
 
-		while(p>=3){
+		while(p >= 3){
 			p -= 3;
-			medalhas[2]++;
+			medalhas.bronze++;
 		}
-
 	}
-}*/
+}
 
 bool Equipa::getDoping() const{
 	return doping;

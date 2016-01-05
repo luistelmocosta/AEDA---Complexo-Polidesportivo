@@ -111,7 +111,7 @@ public:
 
 
 	void realizarProva();
-	void updateClassificacoes();
+	int updateClassificacoes();
 
 	void inserirAdepto(Adepto &ad);
 	void removerBilhete(string nome);

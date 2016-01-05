@@ -278,7 +278,6 @@ void Calendario::showProvas()const{
 
 	while (!it.isAtEnd()) {
 
-
 		cout << it.retrieve();
 		it.advance();
 	}
