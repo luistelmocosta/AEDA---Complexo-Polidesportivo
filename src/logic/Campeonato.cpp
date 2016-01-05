@@ -338,21 +338,33 @@ void Campeonato::readFileProvas(string filename) {
 
 void Campeonato::realizarProva(){
 
-	string equipa1 = calendario->getProvaID(0)->getAdversarios()[0]->getNome();
-	string equipa2 = calendario->getProvaID(0)->getAdversarios()[1]->getNome();
+	BSTItrIn<Prova*> it = calendario->getProvas();
 
-	string venc = calendario->getProvaID(0)->getModalidade()->pontuacao(equipa1, equipa2);
+	do{
 
-	if(venc==equipa1){
-		equipas[findEquipa(equipa1)]->setPontuacao(3);
-	}
-	else if(venc==equipa2){
-		equipas[findEquipa(equipa2)]->setPontuacao(3);
-	}
-	else{
-		equipas[findEquipa(equipa1)]->setPontuacao(1);
-		equipas[findEquipa(equipa2)]->setPontuacao(1);
-	}
+		if(it.retrieve()->getCompleted()=="nao"){
+
+			string equipa1 = it.retrieve()->getAdversarios()[0]->getNome();
+			string equipa2 = it.retrieve()->getAdversarios()[1]->getNome();
+
+			string venc = it.retrieve()->getModalidade()->pontuacao(equipa1, equipa2);
+
+			if(venc==equipa1){
+				equipas[findEquipa(equipa1)]->setPontuacao(3);
+			}
+			else if(venc==equipa2){
+				equipas[findEquipa(equipa2)]->setPontuacao(3);
+			}
+			else{
+				equipas[findEquipa(equipa1)]->setPontuacao(1);
+				equipas[findEquipa(equipa2)]->setPontuacao(1);
+			}
+
+			it.retrieve()->setCompleted(true);
+		}
+
+		it.advance();
+	} while(!it.isAtEnd());
 
 	if(updateClassificacoes()>0)
 		return;
@@ -473,7 +485,7 @@ void Campeonato::readFileBilhetes(string filename) {
 	string linha, dono;
 	int dia, mes, ano;
 	vector<int> campeonatoIds;
-	BSTItrIn<Prova> it = calendario->getProvas();
+	BSTItrIn<Prova*> it = calendario->getProvas();
 	vector<Prova*> tmp;
 
 	while (getline(infile, dono)) // get name and check status file stream
@@ -569,18 +581,18 @@ void Campeonato::outputFileProvas(string filename){
 
 	pFile.open(filename.c_str(), std::ofstream::out | std::ofstream::trunc);
 
-	BSTItrIn<Prova> it = calendario->getProvas();
+	BSTItrIn<Prova*> it = calendario->getProvas();
 
 	while(!it.isAtEnd()){
 
 
-		pFile << it.retrieve().getDataFormatada() << endl
-				<< it.retrieve().getLocal() << endl
-				<< it.retrieve().getDuracao() << endl
-				<< it.retrieve().getAdversarios()[0]->getNome() << endl
-				<< it.retrieve().getAdversarios()[1]->getNome() << endl
-				<< it.retrieve().getVencedor() << endl
-				<< it.retrieve().getModalidade()->getNome() << endl;
+		pFile << it.retrieve()->getDataFormatada() << endl
+				<< it.retrieve()->getLocal() << endl
+				<< it.retrieve()->getDuracao() << endl
+				<< it.retrieve()->getAdversarios()[0]->getNome() << endl
+				<< it.retrieve()->getAdversarios()[1]->getNome() << endl
+				<< it.retrieve()->getVencedor() << endl
+				<< it.retrieve()->getModalidade()->getNome() << endl;
 
 		it.advance();
 	}

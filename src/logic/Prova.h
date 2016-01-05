@@ -53,7 +53,7 @@ public:
 	bool getProvaTempo() const;
 	void setProvaTempo(bool b);
 
-	bool getCompleted() const;
+	string getCompleted() const;
 	void setCompleted(bool b);
 
 	unsigned controloDoping(); 	// retorna numero de equipas do vector vs com doping

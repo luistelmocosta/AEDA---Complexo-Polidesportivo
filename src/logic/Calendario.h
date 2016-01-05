@@ -13,7 +13,7 @@ class Campeonato;
 
 class Calendario{
 
-	BST<Prova> provasBST;
+	BST<Prova*> provasBST;
     //vector<Prova*> provas;
     vector <string> modalidades;
     vector <string> atletas;
@@ -21,10 +21,10 @@ class Calendario{
     string nomeF;
 
 public:
-    Calendario(): provasBST(Prova()){}
+    Calendario(): provasBST(new Prova()){}
     Calendario(vector <Prova*> p, vector <string> m, vector <string> a, vector <string> e, string nF);
 
-    BST<Prova> getProvas() const;
+    BST<Prova*> getProvas() const;
     Prova* getProvaID(int id);
     //void setProvas(vector<Prova*> vp);
 

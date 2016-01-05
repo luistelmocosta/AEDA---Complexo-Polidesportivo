@@ -79,8 +79,10 @@ void Prova::setProvaTempo(bool b){
 	provaT=b;
 }
 
-bool Prova::getCompleted() const{
-	return completed;
+string Prova::getCompleted() const{
+	if(completed)
+		return "sim";
+	else return "nao";
 }
 
 void Prova::setCompleted(bool b){
